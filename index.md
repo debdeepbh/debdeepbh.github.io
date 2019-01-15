@@ -30,13 +30,15 @@ I am a teaching assistant for MATH 1231 during Spring 2019. Previous experience:
 * Spring 2016: Calculus for the Social and Management Sciences
 * Fall 2015: Calculus with Precalculus I
  
-## Grader
+### Grader
 * Spring 2017:  Partial Differential Equations
 
 
 
 
-## [CV](./debdeep.pdf) (Updated: January 2019)
+## CV
+
+Click [here](./content/debdeep.pdf) to download my CV. (Updated: January 2019)
 
 
 ## Contact
@@ -49,6 +51,7 @@ Washington, DC 20052
 Phone: (202) 994-6235
 
 ### Email
+![email](./content/email.png)
 
 
 ## Other
