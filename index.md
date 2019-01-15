@@ -1,3 +1,5 @@
+{% include analytics.html %}
+
 ## About 
 
 I am a PhD student at the [Department of Mathematics](https://math.columbian.gwu.edu/) at the [George Washington University](https://www.gwu.edu/). My expected year of graduation is 2020.
@@ -45,11 +47,11 @@ Click [here](./content/debdeep.pdf) to download my CV. (Updated: January 2019)
 
 ### Address
 
-Department of Mathematics
-Phillips Hall, Room 739 
-801 22nd St. NW
-Washington, DC 20052 
-Phone: (202) 994-6235
+Department of Mathematics<br/>
+Phillips Hall, Room 739<br/> 
+801 22nd St. NW <br/>
+Washington, DC 20052 <br\>
+Phone: (202) 994-6235 <br\>
 
 ### Email
 ![email](./content/email.png)
