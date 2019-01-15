@@ -1,6 +1,6 @@
-title: Minimal theme
+title: Debdeep Bhattacharya     
 logo: content/pic.jpg
-description: Debdeep Bhattacharya
-show_downloads: true
-google_analytics:
+description: Personal Webpage
+show_downloads: false 
+google_analytics: UA-90023312-2
 theme: jekyll-theme-minimal
