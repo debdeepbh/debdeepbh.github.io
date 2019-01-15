@@ -1,59 +1,123 @@
-## About 
+---
+layout: default
+---
 
-I am a PhD student at the [Department of Mathematics](https://math.columbian.gwu.edu/) at the [George Washington University](https://www.gwu.edu/). My expected year of graduation is 2020.
+Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-## Education
+[Link to another page](./another-page.html).
 
-* Master of Science in Mathematics from [Tata Institute of Fundamental Research](https://www.math.tifrbng.res.in/), Bangalore, India, 2014
-* Bachelor in Mathematics from [Indian Statistical Institute](http://www.isibang.ac.in/), Bangalore, India, 2012
+There should be whitespace between paragraphs.
+
+There should be whitespace between paragraphs. We recommend including a README, or a file with information about your project.
+
+# Header 1
+
+This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+## Header 2
+
+> This is a blockquote following a header.
+>
+> When something is important enough, you do it even if the odds are not in your favor.
+
+### Header 3
+
+```js
+// Javascript code with syntax highlighting.
+var fun = function lang(l) {
+  dateformat.i18n = require('./lang/' + l)
+  return true;
+}
+```
+
+```ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
+```
+
+#### Header 4
+
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+*   This is an unordered list following a header.
+
+##### Header 5
+
+1.  This is an ordered list following a header.
+2.  This is an ordered list following a header.
+3.  This is an ordered list following a header.
+
+###### Header 6
+
+| head1        | head two          | three |
+|:-------------|:------------------|:------|
+| ok           | good swedish fish | nice  |
+| out of stock | good and plenty   | nice  |
+| ok           | good `oreos`      | hmm   |
+| ok           | good `zoute` drop | yumm  |
+
+### There's a horizontal rule below this.
+
+* * *
+
+### Here is an unordered list:
+
+*   Item foo
+*   Item bar
+*   Item baz
+*   Item zip
+
+### And an ordered list:
+
+1.  Item one
+1.  Item two
+1.  Item three
+1.  Item four
+
+### And a nested list:
+
+- level 1 item
+  - level 2 item
+  - level 2 item
+    - level 3 item
+    - level 3 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+  - level 2 item
+  - level 2 item
+- level 1 item
+
+### Small image
+
+![Octocat](https://assets-cdn.github.com/images/icons/emoji/octocat.png)
+
+### Large image
+
+![Branching](https://guides.github.com/activities/hello-world/branching.png)
 
 
-## Research
+### Definition lists can be used with HTML syntax.
 
-My area of interest is broadly Applied Mathematics. Currently I am interested in nonlinear dispersive partial differential equations and signal processing.
+<dl>
+<dt>Name</dt>
+<dd>Godzilla</dd>
+<dt>Born</dt>
+<dd>1952</dd>
+<dt>Birthplace</dt>
+<dd>Japan</dd>
+<dt>Color</dt>
+<dd>Green</dd>
+</dl>
 
-My advisors are [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html) and [Prof. Svetlana Roudenko](http://home.gwu.edu/~roudenko/).
+```
+Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
+```
 
-## Teaching
-
-I am a teaching assistant for MATH 1231 during Spring 2019. Previous experience:
-
-### Instructor
-* Summer 2017: Linear Algebra
-* Summer 2016: Calculus with precalculus
-
-### Teaching Assistant
-* Fall 2018: Single-variable Calculus II
-* Spring 2018: Single-variable Calculus I
-* Fall 2017: Calculus with Precalculus I
-* Fall 2016: Single-variable Calculus I
-* Spring 2016: Calculus for the Social and Management Sciences
-* Fall 2015: Calculus with Precalculus I
- 
-### Grader
-* Spring 2017:  Partial Differential Equations
-
-
-
-
-## CV
-
-Click [here](./content/debdeep.pdf) to download my CV. (Updated: January 2019)
-
-
-## Contact
-
-### Address
-
-Department of Mathematics<br/>
-Phillips Hall, Room 739<br/> 
-801 22nd St. NW <br/>
-Washington, DC 20052 <br/>
-Phone: (202) 994-6235 <br/>
-
-### Email
-![email](./content/email.png)
-
-
-## Other
-
+```
+The final element.
+```
