@@ -55,5 +55,4 @@ Phone: (202) 994-6235 <br/>
 ![email](./content/email.png)
 
 
-## Other
 
