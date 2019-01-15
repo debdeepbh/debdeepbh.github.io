@@ -44,10 +44,15 @@ Click [here](./content/debdeep.pdf) to download my CV. (Updated: January 2019)
 ## Contact
 
 ### Address
+
 Department of Mathematics
+
 Phillips Hall, Room 739
+
 801 22nd St. NW
+
 Washington, DC 20052
+
 Phone: (202) 994-6235
 
 ### Email
