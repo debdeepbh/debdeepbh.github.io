@@ -1,9 +1,9 @@
 ---
-layout: default
+layout: plain 
 ---
 
-## Welcome to another page
+## W 
 
-_yay_
+This _unlinked_ page will contain some test info.
 
 [back](./)
