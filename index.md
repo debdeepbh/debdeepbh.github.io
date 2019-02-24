@@ -13,7 +13,7 @@ I am a PhD student at the [Department of Mathematics](https://math.columbian.gwu
 
 My area of interest is broadly Applied Mathematics. Currently I am interested in nonlinear dispersive partial differential equations and signal processing.
 
-My advisors are [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html) and [Prof. Svetlana Roudenko](http://home.gwu.edu/~roudenko/).
+My advisors are [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html) and [Prof. Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html).
 
 ## Teaching
 
