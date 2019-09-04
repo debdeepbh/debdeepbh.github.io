@@ -2,7 +2,7 @@ title: Debdeep Bhattacharya
 description: false
 #description: Personal Webpage
 is_user_page: true 
-#show_navigation: true
+show_navigation: true
 logo: content/pic.jpg
 show_downloads: false 
 google_analytics: UA-90023312-2
