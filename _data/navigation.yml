@@ -1,8 +1,6 @@
 - name: Home
   link: /
 - name: Research
-  link: reseach.html
+  link: research.html
 - name: Teaching
   link: teaching.html
-- name: About
-  link: /about.html
