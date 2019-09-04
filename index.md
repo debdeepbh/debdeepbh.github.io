@@ -46,6 +46,7 @@ I am a teaching assistant for MATH 1231 during Spring 2019. Previous experience:
 
 Click [here](./content/debdeep.pdf) to download my CV. (Updated: June 2019)
 
+* * * 
 
 ## Contact
 
