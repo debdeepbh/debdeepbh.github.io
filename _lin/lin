@@ -1,0 +1,3018 @@
+
+ 
+
+
+
+1. Install Broadcom WiFi Driver and restart to get internet access.
+ 
+  
+2. Goto terminal and install:
+ 
+ sudo apt-get install unetbootin gparted linuxdcpp ffmpeg libavcodec-extra-52 vim tree openssh-server default-jre
+ 
+ * tree
+ * vim
+ * vlc
+ * ubuntu studio theme (sudo apt-get install ubuntustudio-theme ubuntustudio-icon-theme ubuntustudio-wallpapers ubuntustudio-gdm-theme)
+ * latexpdf (sudo apt-get install textlive-latex-base)
+ * Limewire, Frostwire
+ * Vuze {
+ 	INSTALL JAVA FIRST: sudo apt-get install default-jre
+ 	Then install vuze from anywhere (package manager/terminal/website)
+ 	(For total manual installation, see http://forlong.blogage.de/en/entries/2008/12/2/How-to-install-and-update-Vuze-formerly-Azureus-4-on-Ubuntu
+ NOTE: A modification to be done in the tutorial given above: To add vuze to the menu, you need to create a file named vuze.desktop. Create the file in the location /usr/share/applications instead of /usr/local/share/application)
+ 	}
+ * Others: Creox, bb
+  
+ 
+4. Enable Visual Effects:
+ 
+ * Enable Wobbly Windows
+ * Enable Shift Switcher (Cover) and Change Shortcut to <Ctrl>+<Tab> for next window and <Ctrl>+<Shift>+<Tab> for previous window.
+ 
+5. Installing sound driver:
+ 
+ * In terminal, write: sudo gedit /etc/modprobe.d/alsa-base.conf
+ * In the end of the file, add this line: options snd-hda-intel model=6stack-dell (For that dell studio 1435)
+ options snd-hda-intel model=ideapad (For lenovo ideapad Z560)
+ * Save the file and Reboot.
+ * Open pulse audio and enjoy full features.
+
+______
+ 
+### Recording sound from output stream:
+ 
+ * Open pulse audio, goto Volume control > Input Devices > Show: Monitors. You will see the bar responding to the output sound.
+ * Click on the green tick sign to "Set as Fallback"
+ * Open sound Recorder and record.
+ 
+_____
+### Converting media:
+ 
+`` sudo apt-get install ffmpeg libavcodec-extra-52 ( optional: libavcodec-unstripped-52 or libavcodec-unstripped-51)``
+
+`` ffmpeg -i samjho\ na.flv -vn -ar 44100 -ab 128k -f mp3 samjho\ na.mp3 ``
+ 
+`` ffmpeg -i Scorpions\ -\ Believe\ In\ Love.mp4 -ab 128k -ar 44100 -b 200k -r 20 -s 640x480 -aspect 4:3 -f avi BIL.avi ``
+
+ follow somuda's blog: soumyashantnayak.blogspot.com
+ 
+___
+### Printing:
+ 
+ to know the printer names attached to your computer: lpstat -v
+ to make one of the printers the default one: lpoptions -d <printer_name>
+ (sometimes this step is necessary)
+ for printing files, use the syntax: lpr -P <printer_name> <filename>
+ 	the output will be of the format: device for <printer_name>: <device>
+ Printing to PDF:
+ 	lpstat -P Print_to_PDF filename	(Here, by default, the printer name is Print_to_PDF)
+ (Note: Sometimes, it produces blank pages i.e. does not print anything. In that case, delete the printer from Menu> Printing and add a generic cpus:/ printer with the name Print_to_PDF (If you want to use that name at all))
+ 
+9. IP and hostname resolution
+ 
+ List hostnames and ips:
+ arp -a
+ avahi-browse -a
+ For IP <---> Hostname, use resolveip: 
+ resolveip IP/Hostname
+ 
+ Sometimes, one way: IP --> Host: 
+ host ip_address
+ but most of the time this fails due to the DNS server, I think.
+ For IP <--- Host, nslookup:
+ nslookup host
+ This also does not work for internal hosts.
+ 
+ 10. Live ports:
+ 
+ Know the live ports of your OWN hosts, and the connected ips:
+ sudo netstat -tpan
+ 
+ Know if a particluar port is open or not in a remote host:
+ nmap -p port host/ip
+ 
+ nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le 'while(<STDIN>){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'
+ 
+11. Boot from LiveCD iso using GRUB:
+ 
+ Add this to /boot/grub/grub.cfg in proper place with proper modification:
+ 
+ menuentry "Booting ISO" {
+  insmod part_msdos
+  insmod ntfs
+  set root='(hd0,msdos6)'
+  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
+  initrd (loop)/casper/initrd.lz
+ }
+ 
+ The command "set root='(hd0,msdos6)'" is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command 'insmod' is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after "loopback loop" tells the location of the iso.
+ The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distro, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:
+ menuentry "My custom Linux" {
+ set root=(hd0,5)
+ linux /boot/vmlinuz
+ initrd /boot/initrd.img
+ }
+ This is NOT tested. If does not work, then Maybe the the options are needed to be changed.
+ 
+ For Windows, instead of kernel and initrd, use "chainloader +1" after defining root. A standard grub.cfg file is a good example.
+ 
+ 
+12. Handy Commands:
+ 
+ See the size of partitions: 
+ 	df -h  
+ 		(-h stands for human-readable. It applies to 'ls' too)
+ See the dependency of a package: 
+ 	apt-cache depends <package name>
+ See the packages which are depndent on a package (reverse-dependency)
+ 	apt-get rdepends <package-name>
+ Search for a package or metapackage: 	
+ 	aptitude search <search_string>
+ See the list of open files:
+ 	lsof
+ 
+13. Manually download Flash Videos:
+ 
+ (i)   Visit the YouTube video and wait for it to be downloaded fully.
+     Then, run from the command line the command "lsof -n | grep Flash" which shows the files (even memory files!), and filters to those that have Flash in their name.
+     You get something like "plugin-co 2461 user 17u REG 8,5 1693301 524370 /tmp/FlashXXVkHEM6 (deleted)".
+ 
+     In Linux, if a file is deleted, it is actually gone only when all programs that opened it earlier are closed. That is, the Flash plugin is using a trick to hide the /tmp/FlashXXVkHEM6 file. It creates it and immediately deletes it. But since the Flash plugin keeps running, it can apparently still use it.
+ 
+ (ii)   From the above line we note the number 2461, which is the process ID. In your case it will be probably different. Then, run "cd /proc/2461/fd" and finally execute "ls -l". This will show you the memory files, and specifically "lrwx------ 1 user user 64 2011-09-16 10:23 17 -> /tmp/FlashXXVkHEM6 (deleted)". The number 17 (in my case) is the filename you can use to access the deleted /tmp/FlashXXVkHEM6. Therefore, simply run "cp 17 /tmp/myyoutubevideo.flv" and you restore the Youtube Video!
+ 
+ 
+14. Peforming xserver activities through tty or remote ssh shells:
+ 
+ After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the "from" field)
+ 
+ export DISPLAY=:0.0
+ 
+ Then  issue your commands like you do in the terminal.
+ 
+ Note: apparently you cannot run a gui program in other user's tty even by setting the DISPLAY to the user's tty.
+ 
+15. Simple GTK pop-ups:
+ 
+ First export DISPLAY 
+ There is a software called zenity that'll do your work. See zenity --help for more options. Example:
+ 
+ zenity --info --text "hello there!"
+ 
+16. Send messages to other users in terminal:
+ 
+ The "wall" command will  post the strings followed to ALL logged-in user's terminal. Example:
+ 
+ wall
+ hi there
+ ^D
+ 
+ If you want to send a set of strings to a specific user's terminal who is already logged in, use:
+ 
+ write target_username
+ your text here
+ ^D
+ 
+ (Note: in order to receive message, the target user must have his mesg set to y. If not, he/she have to to issue the command: mesg y)
+ 
+ (strange thing is that, you don't need sudo to broadcast a wall message where you have to depend on the target user's choice to send a message to one specific user. Counterintuitive, huh?)
+ 
+17. Lock screen from terminal:
+ 
+ In GNOME use "gnome-screensaver-command -l"
+ 
+ In general this also works: "xscreensaver-command -lock"
+ 
+ You may need to install required packages: gnome-screensaver and xscreensaver
+ 
+ 
+18. Convert m4a to mp3
+ 
+ 
+ This shell script is quite handy for converting a directory of .m4a sound files to .mp3's. This script requires that you have LAME and FAAD2 installed already.
+ 
+ #!/bin/bash 
+ for i in *.m4a; do 
+ 	echo "Converting: ${i%.m4a}.mp3" 
+ 	faad -o - "$i" | lame - "${i%.m4a}.mp3" 
+ done
+ 
+ (Note: The $ evaluates the variable i. So, if you write "Converting $i", no problem. The part ${i%.m4a}.mp3 means that it searches for the string '.m4a' in the end of $i, deletes it (if exists) and appends .mp3)
+ 
+ You then need to make it executable, and move it to the /bin directory.
+ 
+ su 
+ chmod +x m4a2mp3 
+ mv m4a2mp3 /bin/
+ 
+ Now you can simply type m4a2mp3 in the shell and it will convert any M4A files contained within the current directory to MP3. The script does not delete the old m4a files, but that can be easily added to the script if you wanted.
+ 
+19. Taking pictures through webcam 
+ 
+ Easiest way:
+ To take a picture while looking at the video feed:
+ mplayer -vf screenshot tv://
+ Press s to take a picture which will have names shot0001.png, shot0002.png etc.
+ 
+ To play the webcam feed:
+ mplayer tv://
+
+ To specify particular device, do
+ mplayer tv:// -tv device=/dev/video1
+ 
+ To take a picture without any video feed:
+ mplayer -vo png -frames 5 tv://
+ and the desired picture is the 5th one, 00000005.png
+ 
+ Using Mplayer (Haven't checked yet because of long list of arguments):
+ mplayer tv:// -tv driver=v4l2:device=/dev/video0:width=1600:height=1200:outfmt=rgb24 -frames 3 -vo jpeg
+ Using ffmpeg:
+ 
+ ffmpeg -f video4linux2 -i /dev/v4l/by-id/usb-0c45_USB_camera-video-index0 -vframes 1 test.jpeg
+ 
+ The author captures two frames and uses the second one:
+ 
+ ffmpeg -f video4linux2 -i /dev/v4l/by-id/usb-0c45_USB_camera-video-index0 -vframes 1 test%3d.jpeg
+ 
+ 
+ There is a software that does the job simply (not checked):
+ fswebcam -r 640x480 --jpeg 85 -D 1 shot.jpg
+ 
+20. Streaming audio using cvlc: (not tested yet. GUI vlc streaming is straightforward and works :))
+ 
+ you want a huge amount of streaming options, both in format and streaming protocols.
+ 
+ VLC offers a huge range of options for both the protocol used to stream as well as the format of the stream. It also acts as both source and server, taking the audio input and streaming it (although it actually does this using the Live555 streaming media module). You can use http, rtp, rtsp among others and transcode the stream into pretty much any format you can think of. It can be quite complicated to setup. VLC can be run via a GUI or via the commandline using cvlc. The VLC wiki (http://wiki.videolan.org/Documentation:Streaming_HowTo) has lots of information about the various streaming options, but the documentation is sadly outdated. After lots of trial and error, I finally came to the following command that worked for me:
+ cvlc -vvv alsa://hw:0,0 --sout '#transcode{acodec=mp2,ab=32}:rtp{dst=192.168.1.5, port=1234,sdp=rtsp://192.168.1.5:8085/stream.sdp}'
+ 
+ This basically takes the microphone input, transcodes it into an MP2 file and then streams it via rtp to the address rtsp://192.168.1.5:8085/stream.sdp. If you then open "rtsp://192.168.1.5:8085/stream.sdp" in VLC on the client PC you get live audio, in near real time! The delay is about 1.5 seconds and requires*very little bandwidth. Sadly, there are three problems with this. First; only one client could connect at a time, secondly; the stream seems to fail after a while, sometimes after five minutes, sometime after two hours, but it would always fail and third it very CPU intensive (I am thinking this is why the stream failed on my box). 
+ 
+ 
+21. Adding environment variables like proxy etc permanently
+ 
+ Add the data to the file /etc/environment, and/or the file /etc/bash.bashrc in appropriate form
+ 
+22. Adjusting brightness (The ultimate method)
+ 
+ There is a directory that stores the values of backlight brightness. To go to the folder, do:
+ ls /sys/class/backlight
+ 
+ In our case, the result acpi_video0 is the directory. cd into the directory. Then ls. Among them, the file 'brightness' contains the value of current brightness.
+ To see the current brightness, do:
+  cat brightness
+ You'll get 10 which is the maximum brightness.
+ To change this brightness, simply replace the value with desired brightness:
+ echo 5 > brightness
+ 
+23. Touchpad and vertical scrolling
+ 
+ Installing xf86-input-synaptics will make your touchpad work except for the verticla scrolling.
+ To enable it, open the file /etc/X11/xorg.conf.d/50-synaptics.conf
+ In the first section:
+ Section "InputClass"
+ Identifier "touchpad"
+ Driver "synaptics"
+ 		
+ along with the other options, add this line
+ 
+ Option "VertEdgescroll" "on"
+ 
+ Now save and resrat xinit.
+ 
+24. Running awesome and Running scrips at startup
+ 
+26. systemctl command
+ Example: Adding dhcpcd to systemctl
+ ln -s /usr/lib/systemd/system/dhcpcd.service /etc/systemd/system/multi-user.targer.wants/dhcpcd.service
+ 
+27. Vim helps:
+ 
+ Type vimtutor to go through a short interactive tutorial.
+ For slightly advanced and very useful tutorial: http://linuxgazette.net/152/srinivasan.html
+ Navigation: The most popular way to scroll will be Ctrl-Y, Ctrl-E. Ww, Ee, Bb to move left-right via words, 5b, 5e to hop 5 word backward and forward, },{ to move to prev/next blank lines. And most importantly, ),( to hop sentences i.e. hop the fullstops.
+ Mainly use w,e,b to go left-right, ),( and },{ to hop fullstops and paragraphs, j,k to up down. Ctrl-U/D to move the screen by half page up/down.
+ 
+ Operators: Start selecting text using v, move cursor to select strings, then: copy- y, change - c, delete- d, yank- y, paste- p.
+ Handy commands:
+ 	de - delete upto the end of the current word
+ 	db - delete upto the beginning of the current word
+ 	d) - delete upto the beginning of the current sentence
+ 	d) - delete upto the end of the current sentence
+ 	diw, ciw - cut, change words inside which the cursor is.
+ 	yaw - copy a word (the current word)
+ 	ci(, ci" - change inside () or " ". Can be replaced by di,ca,da
+ 	gf - to quickly go to the filename on which the cursor is
+ 	yy/Y - copy whole line
+ 	dd - cut whole line
+ 	D - delete till the end of the line
+ 	das, dis - delete the current sentence (i.e. enclosed by dots or some vague identifiers(very shady))
+ 	5Y, 5dd - copy/cut 5 lines
+ 	`` (two back-ticks, not apostrophe) - jump to the previous cursor position 
+ 	dtx - change till the next occurrence of character x
+ 	ctx - delete till the next occurrence of character x
+ 	jtx - jump till the next occurrence of character x
+ 	ktx - jump till the previous occurrence of character x
+ 	fx, Fx - jump left, right to the next occurrence of the character x
+ 		(for example, dt. deletes the text till the next dot from the current position)
+ 	xp  - to swap two consecutive letters like "taht" to "that"
+ 	ddp - switch the current line and the next
+ 	A;  - append a semicolon to the end of the line.
+ 	>>  - increase indent of current line.
+ 	<<  - decrease indent of current line.
+ 
+ 
+ ##############################################################################
+ A list of tricks found in the page:http://stackoverflow.com/questions/726894/what-are-the-dark-corners-of-vim-your-mom-never-told-you-about?rq=1
+ 
+ Moving around in vim: All the long moving around can be done by bB,eE,)(,}{, and the special f/F{char}, t/T{char}. Once f or F  is pressed followed by a character, pressing ; and , will take the cursor matching the same character further in that direction. t or T takes one character before the target character.
+ 
+ 
+ Tip: To open a hyperlink in your browser, bring the cursor inside the link text and type gx.
+ 
+ Redo in VIM: press Ctrl+R, and not a capital U.
+ 
+ de Duyuuuelete everything till the end of the word by pressing . at your heart's desire.
+ 
+ ci(xyz[Esc] -- This is a weird one. Here, the 'i' does not mean insert mode. Instead it means inside the parenthesis. So this sequence cuts the text inside parenthesis you're standing in and replaces it with "xyz". It also works inside square and figure brackets -- just do ci[ or ci{ correspondingly. Naturally, you can do di (if you just want to delete all text without typing anything. You can also do a instead of i if you want to delete the parentheses as well and not just text inside them.
+ 
+ ci" - cuts the text in current quotes
+ 
+ ciw - cuts the current word. This works just like the previous one except that ( is replaced with w.
+ 
+ C - cut the rest of the line and switch to insert mode.
+ 
+ ZZ -- save and close current file (WAY faster than Ctrl-F4 to close the current tab!)
+ 
+ ddp - move current line one row down
+ 
+ xp -- move current character one position to the right
+ 
+ U - uppercase, so viwU upercases the word
+ 
+ ~ - switches case, so viw~ will reverse casing of entire word
+ 
+ Ctrl+u / Ctrl+d scroll the page half-a-screen up or down. This seems to be more useful than the usual full-screen paging as it makes it easier to see how the two screens relate. For those who still want to scroll entire screen at a time there's Ctrl+f for Forward and Ctrl+b for Backward. Ctrl+Y and Ctrl+E scroll down or up one line at a time.
+ 
+ Crazy but very useful command is zz -- it scrolls the screen to make this line appear in the middle. This is excellent for putting the piece of code you're working on in the center of your attention. Sibling commands -- zt and zb -- make this line the top or the bottom one on the sreen which is not quite as useful.
+ 
+ % finds and jumps to the matching parenthesis.
+ 
+ de -- delete from cursor to the end of the word (you can also do dE to delete until the next space)
+ 
+ bde -- delete the current word, from left to right delimiter
+ 
+ df[space] -- delete up until and including the next space
+ 
+ dt. -- delete until next dot
+ 
+ dd -- delete this entire line
+ 
+ ye (or yE) -- yanks text from here to the end of the word
+ 
+ ce - cuts through the end of the word
+ 
+ bye -- copies current word (makes me wonder what "hi" does!)
+ 
+ yy -- copies the current line
+ 
+ cc -- cuts the current line, you can also do S instead. There's also lower cap s which cuts current character and switches to insert mode.
+ 
+ viwy or viwc. Yank or change current word. Hit w multiple times to keep selecting each subsequent word, use b to move backwards
+ 
+ vi{ - select all text in figure brackets. va{ - select all text including {}s
+ 
+ vi(p - highlight everything inside the ()s and replace with the pasted text
+ 
+ b and e move the cursor word-by-word, similarly to how Ctrl+Arrows normally do. The definition of word is a little different though, as several consecutive delmiters are treated as one word. If you start at the middle of a word, pressing b will always get you to the beginning of the current word, and each consecutive b will jump to the beginning of the next word. Similarly, and easy to remember, e gets the cursor to the end of the current, and each subsequent, word.
+ 
+ similar to b/e, capital B and E move the cursor word-by-word using only whitespaces as delimiters.
+ 
+ capital D (take a deep breath) Deletes the rest of the line to the right of the cursor, same as Shift+End/Del in normal editors (notice 2 keypresses -- Shift+D -- instead of 3)
+ ############################################################################
+ Others shared:
+ 
+ One that I rarely find in most Vim tutorials, but it's INCREDIBLY useful (at least to me), is the
+ 
+ g; and g,
+ 
+ to move (forward, backward) through the changelist.
+ 
+  vity and vitc can be shortened to yit and cit respectively. –  Nathan Fellman Sep 7 '09 at 8:27 
+ 
+ 
+ 
+ Not sure if this counts as dark-corner-ish at all, but I've only just learnt it...
+ 
+ :g/rgba/y A
+ 
+ will yank all lines containing "rgba" into the a buffer. I used it a lot recently when making Internet Explorer stylesheets.
+ 
+ 
+ Jumping the marks: To create a mark, press m and then any letter, say a. So, "ma" creates a mark named "a". Now you can move around here and there. To come back to mark "a", press a backtick and the markname i.e `a. If you want to hop marks created in a different file which is not even open in vim right now, you have to create the marks with capital letters. For example, if you create a mark named "F" by "mF" in file called file1 and exit it and open another file called file2and you want to jump to the mark F in file1, all you need to do is press "mF".
+ 
+ One very important mark is ".", the mark at which the file was last edited. So, after opening a file, pressing `. will take you to the place where the file was last edited. You can go back further into the last edited place list by pressing g; and forward by g,.
+ 
+ 
+ 
+ Typing == will correct the indentation of the current line based on the line above.
+ 
+ Actually, you can do one = sign followed by any movement command. ={movement}
+ 
+ For example, you can use the % movement which moves between matching braces. Position the cursor on the { in the following code:
+ 
+ if (thisA == that) {
+ //not indented
+ if (some == other) {
+ x = y;
+ }
+ }
+ 
+ And press =% to instantly get this:
+ 
+ if (thisA == that) {
+     //not indented
+     if (some == other) {
+         x = y;
+     }
+ }
+ 
+ Alternately, you could do =a{ within the code block, rather than positioning yourself right on the { character.
+ 
+ 
+ 
+ 
+ gg=G
+ 
+ Corrects indentation for entire file. I was missing my trusty <C-a><C-i> in Eclipse but just found out vim handles it nicely.
+ 
+ ##############################################################################
+ 
+ 
+ Creating visual blocks: Ctrl + v
+ Select the previously selected visual block: gv
+ Aligning text w.r.t. the character --:     :Align --
+ 
+ (You need to have the plugin Align installed to use this command. It can be found here: http://www.vim.org/scripts/script.php?script_id=294
+ The installation instruction is given there. Just download the gz file. Then do vim file.gz. Then you are in vim file browser mode. do :so % and quit.)
+ 
+ Insert a string str in front of every line in a visual block:
+ 1. Select the visual block
+ 2. Press I. It will take you to the beginning of the first string of the first line of the visual block.
+ 3. Enter the string str.
+ 4. Press Esc
+ 
+ Similarly, making any change in every line of a visual block involves similar steps.
+ 
+ Insert Mode (i) commands: 
+ Ctrl-w delete upto the word before the cursor
+ Ctrl/Shift-Left/Right to move left/right by one word as usual
+ Ctrl-Y, Ctrl-E mimics (copy-pastes) the characters above and below the cursor.
+ 
+ Ctrl-@ to insert the strings entered in the previous insert mode session and stop insert mode
+ Ctrl-A to insert the strings entered in the previous insert mode session 
+ 
+ 
+ Word Completion: Press Ctrl-P, Ctrl-N to complete the current half-typed word by the matching word found just before/after the current position. If you don't want the matching word occurring immediately before/after the current position, i.e. if you want options, then press "Ctrl-X Ctrl-P" or "Ctrl-X Ctrl-N" for a drop down list of matching word occurring before/after the current position. To complete the word using words from dictionary, press "Ctrl-X Ctrl-K" to get a list. This is useful when you don't know the spelling of some word and you need help on the way typing the word. You can type a couple of letters and type Ctrl-X Ctrl-K then keep typing until you can narrow down the dictionary list and select one. Also, to auto-complete filenames or path, press"Ctrl-X Ctrl-F".
+ 
+ 
+ When autoindent is on (:set autoindent or :set ai), and a new line starts after some whitespaces respecting the indentation, you might want to press backspace to go to the previous indentation mark. But in this case, backspaces only deletes one whitespace at a time. To delete indents one by by one, press Ctrl-D, and insert indents, Ctrl-T.
+ Note: A more powerful indenting option is "smartindent" which brings back your cursor by one tab when you type the ending bracket } to {.
+ 
+ Note: After using smartindent, the autoindent options seems useless. It is faaar better and fun to use. Never use autoindent again. Spread the word.
+ 
+ Searching a string: /string will highlight all the matches. This is case sensitive. ":set ignorecase" or equivalently ":set ic"will get rid of that limitation. Pressing n and N will take you back and forth among the search results. ":set noic" will turn of the ignorecase option. Also, * and # will search the previous and next occurrence of the current word on which the cursor lies. Again, case sensitive if ":set ic" is not set. 
+ 
+ Replace: Replacing is done by the command :substitute or :s. These are some examples with explain the basics:
+ 
+ :s%/foo/bar/g
+ Replaces foo by bar everywhere in the file.
+ 
+ :%s/foo/bar/gc
+ Replaces foo by bar everywhere in the file with confirmation.
+ 
+ :s/foo/bar/g
+ Replaces foo by bar everywhere in the current line.
+ 
+ :s/\<foo\>/bar/gc
+ Replaces foo by bar with confirmation everywhere in the file only when foo is found as a whole word i.e. enclosed by spaces.
+ 
+ Once again, :set ic and :set noic will play a role.
+ 
+ Spell Check: To turn on spell check, type :set spell and hit enter. (Optionally, :set spell spelllang=en_us for language selection). Press ]s and [s to hop the misspelled words and type z= to get a dropdown list of possible correct spellings. Note that [[ and ]] takes you to the beginning and ending of the file, similar to GG and gg. To turn off spelling mode, type, :set nospell. You can always all include "set spell" in .vimrc to enable default spell check in the default language en_us. While in insert mode (i), typing "Ctrl-X s" will give you a drop-down list of correct spelling of the last misspelled word.
+ 
+ Edit .vimrc to set necessary options. If it doesn't exist, copy it from etc. 
+ Here are some necessary augmentations to make life simpler:
+ 
+ syntax on
+ (for highlighting the keywords in different colors based on the extension)
+ 
+ set clipboard=unnamedplus
+ (to copy yanked texts to X-system buffer instead of vim buffer, which is useful for yanking from vim and pasting in another program, say firefox. But this gives a little problem regarding pasting, which is arbitrary. Need to fix this.)
+ 
+ set spell spelllang=en_us
+ (to enable spell check in en_us. spelllang=all will allow all languages)
+ 
+ set linebreak
+ (to display long lines after breaking them at spaces i.e. after a word is finished instead of breaking it in the middle of a word)
+ 
+ set visualbell
+ (the screen flashes if you hit Esc more than once to help you control your OCD)
+ 
+ imap <c-l> <c-g>u<Esc>[s1z=`]a<c-g>u
+ (This option accelerates the process of auto correct like crazy. While in insert mode, if you have made a spelling mistake, you can press Ctrl-L to quickly accept the first spelling suggestion of the last misspelled word, create a undo node, come back to your original position and enter insert mode. If you don't like the auto correct, you can press u to undo or Ctrl-R to redo. Here is how it works:
+ 	<c-g>u 	inserts an undo-break	
+ 	[s 	moves to the last spelling mistake
+ 	1z= 	chooses the first suggestion
+ 	`] 	move to the last insert point
+ 	a 	append text
+ )
+ 
+ set wildmenu
+ (for option list the :option by pressing tab. For example, :color <Tab>)
+ 
+ Smooth Scrolling: The following code to be added to .vimrc in order to smoothen the scrolling in vim. This affects only affects Ctrl-D, Ctrl-U.
+ Important note: Remember that the ^ character indicates a control character; copy-paste will produce invalid results and these must be entered manually (with CTRL-V)!
+ To enter ^Y in the file, type Ctrl-V,  Ctrl-Y. And similarly for ^E.
+ 
+ function SmoothScroll(up)
+     if a:up
+         let scrollaction="^Y"
+     else
+         let scrollaction="^E"
+     endif
+     exec "normal " . scrollaction
+     redraw
+     let counter=1
+     while counter<&scroll
+         let counter+=1
+         sleep 10m
+         redraw
+         exec "normal " . scrollaction
+     endwhile
+ endfunction
+ nnoremap <C-U> :call SmoothScroll(1)<Enter>
+ nnoremap <C-D> :call SmoothScroll(0)<Enter>
+ inoremap <C-U> <Esc>:call SmoothScroll(1)<Enter>i
+ inoremap <C-D> <Esc>:call SmoothScroll(0)<Enter>i
+ 
+ 
+ Make vim open new buffer in new tabs: (useful while pressing gf on a filename/path, :o :e etc)
+ 
+ " Experimental. Remove if buggy.
+ " This is incredibly good. I like it.
+ " set hidden actually lets you open another buffer by :o, :e etc even when the
+ " current file has unmodified changes. Fun!
+ set hidden
+ :au BufAdd,BufNewFile * nested tab sball
+ 
+ Help for tabs:
+ gt, gT to navigate through tabs
+ :qa to quit all, :wqa to save and quit all, :qa! to quit all without saving 
+ Most important of all:
+ Press :tabo to close all other tabs except the current one. There is a catch though, it does not care if there is any modified buffer in the other tabs. It ignores them, i.e. the changes in all the other buffers are gone.
+ 
+ Find out more for tab navigation
+ 
+ Syntax folding in VIM:
+ 
+ zi 	switch folding on or off
+ za 	toggle current fold open/closed
+ zc 	close current fold
+ zR 	open all folds
+ zM 	close all folds
+ zv 	expand folds to reveal cursor
+ 
+ 
+ Open recently opened files in vim:
+ 
+ :bro ol
+  
+ This is short for :browse oldfiles. It will show a list of 100 recently opened file. You can navigate through the list to get the number corresponding to your desired file (sorry, no / to search). Press q to quit the navigation mode  and get the prompt and enter the number. The code in the previous subsection will ensure that the new buffer is opened in a new tab.
+
+ Selecting, changing and editing tags (such as <a> text </a>):
+ You can jump between tags using visual operators, in example:
+
+      Place the cursor on the tag.
+          Enter visual mode by pressing v.
+ 	     Select the outer tag block by pressing a+t or i+t for inner tag block.
+ 
+ 	     Your cursor should jump forward to the matching closing html/xml tag. To jump backwards from closing tag, press o or O to jump to opposite tag.
+ 
+ 	     Now you can either exit visual by pressing Esc, change it by c or copy by y.
+  
+27.5. Setting VI keybindings for the terminal emulator:
+ 
+ Edit your .inputrc file (or create if it does not exist) and insert the following:
+ set editing-mode vi
+ set keymap vi-command
+ 
+ Note: You have to export the EDITOR variable ans vim: export EDITOR=vim
+ Or, save it it the file that contains the env variable. Where you save your proxy info. i.e. 
+ echo "EDITOR=vim" >> /etc/environment
+ echo "VISUAL=vim" >> /etc/environment
+ 
+ Now save and open the terminal. It'll behave like vim in insert mode. Although it not as powerful as vim, it is surely something. All the basic vim commands are usable. You can press v to enter the text editor for better editing. 
+ Here is the cheatsheet: http://www.catonmat.net/download/bash-vi-editing-mode-cheat-sheet.txt
+ "
+ 
+28. Copying some stuff to all users that are created
+ 
+ Copy stuff into the folder /etc/skel/. While useradd, they will be copied to the corresponding home of the user. These can include dot files like .bashrc, .vimrc etc. Also, you can copy some directories.
+ 
+29. Search for all http links in a file by grep
+ 
+ cat filename | grep 'http://[^"]*'
+ 
+ Alternatively, and more intuitively (more useful too), extracting mp3 links from a html file in Vim:
+ 
+ Open the file. Type:
+ gg
+ (goto the beginning of the file)
+ /\.mp3
+ (searches for all occurrence of .mp3 and the cursor waits on the first occurrence of it)
+ qr
+ (starts recording a macro named r)
+ yi"
+ (yanks all link inside " " and cursor moves to the beginning of the corresponding " ")
+ G
+ (goes to the end of the file)
+ o Esc p
+ (Inserts a new line and goes to normal mode and pastes the link in the end)
+ `` 
+ (two back ticks. Two single apostrophies also work)
+ (to go back to the previous cursor position, which is the beginning of the " ")
+ nn
+ (Here, the number of n's may vary depending on the format of the page. first n takes the cursor to .mp3 inside of the current " " and the second takes it to the next one, which maybe part of the text in a hyperlink rather than being part of a link. In that case you need to enter 3 n's i.e. nnn)
+ q
+ (now that we have completed the loop, we stop recording the macro, which was named r)
+ 
+ Now press @r to run the macro once more and the 5@r to repeat it 5 times. At the end of the process, you have a all the links at the end of the file, which you can yank and paste in a file called dumpfile.  
+ 
+ The whole sequence of key presses to create the macro named "r" is: 
+ gg/\.mp3<Enter>qryi"Go<Esc>p``nnq
+ 
+ (note: here the `` two backticks, not apostrophies. Remember this otherwise it might cause trouble)
+ 
+ Notes: Instead of using `` (two backticks, which may give "mark not set" error), you can actually set a mark every time the cursor is on the search string by giving it a name (say b) using mb. When jumping to that position, use `b and it will be back to that position again.
+ 
+ You can save the macro named r inside .vimrc using
+ let @r = 'yi"Go<Esc>p''nnq'
+ 
+ Inside vim you can actually issue "rp to paste the content of the macro to copy it to vimrc.
+ 
+ Then you can dump the output in a file by >> and wget -i dumpfile to download them.
+ 
+ Note: A better and much faster way to download all the files:
+ 
+ cat dumpfile | parallel --gnu "wget -c -b -q {}"
+ 
+ alternatively:
+ 
+ parallel -j #number wget < dumpfile
+ 
+ 
+ Caution: stopping wget (pkill) and restarting has some weird download issue.
+ Try not to stop the wget once it's running. Weird. Even with -c. Needs to be checked.
+ 
+ 
+ This command requires a package called parallel which allows parallel downloads unlike a "wget -i listfile".
+ Here, -c resumes partially downloaded file download, -b sends the wget processes to background, and -q is for quiet mode, i.e. does not generate a logfile while downloading. One problem is that you cannot see the progress of the downloads which is the price of -q, otherwise, you can always cat the wget-logfile to check the download progress. But, doesn't matter if the connection is reliable, because we don't want thousands of log files to fill up our space.
+ 
+30. Lock screen for terminal
+ 
+ Note: It is  important to have a password for the user before issuing the command. Type:
+ vlock -c 
+ to lock the current virtual terminal. 
+ vlock -a
+ locks all the virtual terminals belonging to the user.
+ It doesn't work on X11 so in order to lock everything, Press ctrl+alt+F1/12 to move to one tty which is logged in, or log in. Then issue this command. Once done, it doesn't let you press ctrl+alt+f2/12 to move to another tty.
+ 
+ To set up a terminal based screensaver, use cmatrix. It gives you a matrix style screensaver without any screen lock facility.
+ 
+ In order to use two of these prgram together, type:
+ 
+ cmatrix; vlock -a
+ 
+ It works fine. For aesthetic purposes, one user recommended:
+ 
+ cmatrix -a -b -u 5; vlock -a
+ 
+31. Vimperator matters:
+ 
+ Setting the Ctrl+i editor to vim:
+ 
+ Type:
+ 
+ :set editor='xterm -e vim'
+ 
+ Make the command line bar (status bar) smaller:
+ 
+ :highlight Normal -append font-size: 10pt;
+ 
+ 
+ Other helps:
+ 
+ Navigation forward/backward: Ctrl+o, Ctrl+i or :ba, :fo, H, L
+ Goto the root of the current website: gU (it takes www.site.com/page/page2 to www.site.com)
+ Close tab: :q, Save and close tab: ZZ
+ 
+ Tab navigation:
+ Change tabs: gt, gT
+ Goto the previously selected tab: Ctrl+6
+ Goto the tab numbered <n>: g<n>
+ When there are too many tabs, pressing b will show all the tabs. Enter the number of the tab and hit Enter to go to it.
+ 
+ 
+ Set local marks: ma, goto mark a: `a
+ 
+ Open download tab: :downl
+ 
+ Highlight search: :set hsl
+ 
+ Hide scrollbar: :set nosb (To turn back on: :set nosb)
+ 
+ To copy the hinted url to clipboard: (; to enter the) y
+ 
+ Disable vimperator temporarily: Shift-Esc
+ 
+ To hide firefox menubar: :set gui=nomenu
+ To access firefox menu:
+ :emenu [key_word]
+ # or
+ :em[tab]
+ 
+ 
+ TODOs: 	Choose between address bar and vimperator command line bar because both contain the address, although it's hard to copy-paste from vimperator bar
+ 	Checked: Remove some more bars to get more space
+ 	Easy way to look at the title of the page 
+ 	Autohide statusbar, or transparency
+ 	Smooth scrolling ( implemented. see .vimperatorrc)
+ 
+ Browsing help
+ 
+ Go back in the current tab: H
+ Go forward in current tab: L
+ 
+ reload the .vimperatorrc without restarting firefox
+ :source ~/.vimperatorrc
+ 
+ Toggle between page and its source code: gf
+ Open the source code in EDITOR: gF
+ 
+ Saving things: Press ; to enter the hint mode, press the right key, then the number.
+ s for without prompt, a for with prompt, although both come with prompt initially if "Ask every time" is on.
+ 
+ Saving the destination of a link (Save link as): ;s<link number> or ;a<link number>
+ Saving an object (save image as, save the object etc): ;S<link number>, ;A<link number>
+ 
+ Copy link location: ;y (yank, basically, in hint mode)
+ Copy link text (that's the best that can be done without a mouse): ;Y
+ 
+ Copy current link to the buffer: y
+ Copy highlighted link to the buffer: Y ( Don't know how to highlight in vimperator bar)
+ 
+ Imp: Copy non-link text from the page:
+ 
+ Caret mode (c) gives you a cursor and you can move around with vim keystrokes and select things using visual block(v) and copy text (y). But there is a catch. Caret mode does not land the cursor on the portion of the page that you are viewing. So, it is important to search a string with / and reach the portion of the page where you want the cursor to be, and then press c to enter caret mode.
+ 
+ Opening a link in new window (F) and same window (f) are easy, but modify the link before opining them requires Hint mode (;) and capital letter. For example, ;T or ;W or ;O lets you edit the thing.
+ 
+ Very interesting:
+ Follow the link labeled next or > if it exists: ]]
+ Follow the link labeled prev or < if it exists: [[
+ 
+ Open right-click menu of a link: ;c
+ 
+ Add the current page to bookmark: a(then Enter)
+ Remove the current page from bookmark list: A
+ 
+ Undo closed tabs: u
+ Undo last 5 closed tabs: 10u
+ 
+ Toggle between current and the tab opened last: Ctrl-^ (Actually, Ctrl-6)
+ Run same command on tabs from 
+ 
+ Stop a loading page: Ctrl-C
+ 
+ Detach a tab from its current window and be on its own: :tabdetach
+ Attach a tab to another firefox windos: :tabattach <number>
+ 
+ Show all the navigation history of the current tab: :back <Tab>
+ Open the previous tab history link in a new tab: :back <Tab> <home> <delete "back" and type "tab"/"tabopen" etc> <Enter>
+ 
+32. Wireless mouse and USB speaker
+ 
+ For wireless(bluetooth) mouse, install bluez4. It should work.
+ For USB speaker,
+ cat /proc/asound/cards
+ to see the available cards. In my case, the USB one is 2. Now edit vim 
+ /usr/share/alsa/alsa.conf
+ 
+ 
+ 
+ 
+ and change the line
+ defaults.pcm.card 0
+ to
+ defaults.pcm.card 2
+ and save.
+ 
+ To accelerate the process of changing this value, I did this:
+ Create another alsa.conf file next to it(i.e. in the same directory), called alsa.conf.other which contains the altered value i.e. pcm.card 2.
+ cp /usr/share/alsa/alsa.conf /usr/share/alsa/alsa.conf.other
+ vim /usr/share/alsa/alsa.conf
+ (Edit the desired value and save it.)
+ 
+ Now this code interchanges these two files:
+ 
+ # we have alsa.conf and alsa.conf.other. We want to interchange them.
+ cp /usr/share/alsa/alsa.conf /usr/share/alsa/alsa.conf.tmp
+ rm /usr/share/alsa/alsa.conf
+ cp /usr/share/alsa/alsa.conf.other /usr/share/alsa/alsa.conf
+ rm /usr/share/alsa/alsa.conf.other
+ cp /usr/share/alsa/alsa.conf.tmp /usr/share/alsa/alsa.conf.other
+ rm /usr/share/alsa/alsa.conf.tmp 
+ 
+ 
+ 
+ 
+34. Interaction between different consoles through pipes:
+ 
+ In a console, create a pipe names mypipe using mkfifo:
+ mkfifo mypipe
+ 
+ (You can see that this file is a pipe by ls -l mypipe)
+ 
+ To use these pipes, redirect the output of a command (say ls -l) to mypipe via:
+ ls -l > mypipe
+ (the cursor will wait)
+ 
+ Now goto another console and take that output out of the pipe via:
+ 
+ cat < mypipe
+ (The cursor on the other console will resume)
+ 
+ 
+33. Simple sketch of keylogger:
+ 
+ Identify your keyboard id with: xinput --list
+ 
+ Log keystrokes with: xinput --test $id
+ (Observation: instead of --test, --test-xi2 is working. And for minimal output, id=12 is good)
+ 
+ Match numbers to keys with: xmodmap -pke
+ 
+ 
+ Dumping this output to a file seems to be a challenging task since the command gives an output after we hit Ctrl+C. So, the doing >>dumpfile dumps a chunk of data instead of line per event. In fact, if we use --test, it doesn't even dump. To avoid this, we use:
+ stdbuf -o0 xinput test 12 > logfile
+ 
+ Read:
+ 
+35. Dumping stdout without buffering:
+ 
+ You can explicitly set the buffering options of the standard streams using a setvbuf call in C (see this link), but if you're trying to modify the behaviour of an existing program try stdbuf (part of coreutils starting with version 7.5 apparently).
+ 
+ This buffers stdout up to a line:
+ 
+ stdbuf -oL command > output
+ 
+ This disables stdout buffering altogether:
+ 
+ stdbuf -o0 command > output
+ 
+ 
+36. Using awk to reformat the output:
+ 
+ stdbuf -o0 xinput test 12 | awk -F' ' '{printf $3}'
+ 
+ This means, consider the lines of the output as a sequence divided by the character ' '. Then print the 3rd element of that sequence.
+ 
+36.5. so, here is the complete keylogger:
+ 
+ # The dumping part of the keylogger. A file called mykeylogger
+ stdbuf -o0 xinput test 11 | stdbuf -o0 awk '/ press /' | stdbuf -o0 awk -F' ' '{print $3}' >> dump 
+ 
+ # The decoding part of it. A different file called decode.sh
+ 
+ 
+ for line in $(cat dump)
+ do
+ 	xpr="$(xmodmap -pke | awk "NR==$line-7" | awk '{ print $4}')"
+ #	echo $xpr
+ 	case "$xpr" in
+ 		Return)
+ 			echo -e "\n" >> out2
+ 			;;
+ 		space)
+ 			echo " " >> out2
+ 			;;
+ 		*)
+ 			echo -n $xpr >> out2
+ 	esac
+ 	echo -n " " >> out2
+ done
+ echo -e "\n" >> out2
+ cat out2
+ 
+37. Password protecting text files in VIM:
+ 
+ To encrypt a file while creating:
+ $vim -x filename
+ (You will be asked to enter a password twice)
+ 
+ To open the file:
+ $vim filename
+ (You will be asked to enter the password)
+ 
+ To edit the file and save it with the same password:
+ $vim filename
+ When finished editing, enter :wq!
+ 
+ To change the password:
+ $vim +X filename
+ 
+ Tip: to verify that the file is encrypted, always check by cat filename
+ 
+ 
+38. Detect filetype even without the extension:
+ 
+ file filename
+ 
+ It will give you useful information about the filetype of filename using its magic numbers. Whatever that means.
+ 
+ 
+39. Incremental terminal history search:
+ 
+ In terminal enter:
+ 
+ gedit  ~/.inputrc
+ 
+     then copy paste and save 
+ 
+ "\e[A": history-search-backward
+ "\e[B": history-search-forward
+ "\e[C": forward-char
+ "\e[D": backward-char
+ 
+     FROM now on and many agree this is the most useful terminal tool saves you a lot of writing/memorizing... all you need to do to find a previous command is to enter say the first 2 or 3 letters and upward arrow will take you there quickly say i want: 
+ 
+ for f in *.mid ; do timidity "$f"; done
+ 
+ all i need to do is enter
+ 
+ fo
+ 
+ and hit upward arrow command will soon appear 
+ 
+ 
+40. Few Terminal keyboard shortcuts
+ 
+ Ctrl-k 	clear all characters after the cursor 
+ Ctrl-u 	Clears all characters before the cursor
+ Ctrl-w 	clears word before the cursor. a word is set of characters separated by spaces
+ Ctrl-l 	clear screen 
+ 
+41. Copy the content of a file to the X clipboard (so that right click - paste works)
+ 
+ xclip -sel clip < /path/of/the/file
+ 
+43. Git tutorial
+ 
+ Created account in github. Created a repository called testconfigs under the username debdeep777.
+ Now generated public ssh key by: ssh-keygen
+ No passphrase, no name (this is important because we won't be adding this public key using ssh-add). Since this has the default name, the program accepts it by some accident. This needs a fix.
+ Then follow this to run ssh-add:
+ eval `ssh-agent -s`
+ (Here, these are two backticks, not apostrophes). Then run:
+ ssh-add
+ cat ~/.ssh/id_rsa.pub
+ 
+ Copy this output of id_rsa.pub and paste it in the website's ssh-key field after logging in.
+ 
+ Then login to github using: ssh -T git@github.com
+ (This is most probably a routine check that you have the access. This does not give you a remote tty or you do not need to stay logged in to perform git tasks. You can probably skip this step.)
+ When connected, enter some empty directory, which will be your working directory. Then run: git init
+ This will create a .git file in the directory.
+ Now add the address of the remote host, which we are naming gitty
+ git remote add gitty git@github.com:debdeep777/testconfigs
+ 
+ The repository testconfigs will be referred to as gitty.
+ 
+ You can see all the remote hosts by: git remote -v
+ If needed, you can delete a remote host by : git remote rm nickname_of_host
+ 
+ Now download all the files from the master branch  of gitty by: git pull gitty master
+ Now your working  directory  will have all the files stored in gitty. You can modify them, add more files etc. After modification, add the files to the modification list using:
+ git add file1
+ git add file2
+ git add file3
+ etc.
+ 
+ After they are added to the changelist, it is the time to commit to the change and add a comment about the changes:
+ git commit -m "Added file1, file2, changed file3"
+ 
+ After committing, it is time to upload the change back to the place by:
+ git push gitty master
+ (Obviously for master branch)
+ (Here, for the first time you may be asked to enter your email id and username. Follow the instruction to add these info to the file ~/.gitconfig)
+ 
+ And we are done.
+
+
+ Creating a new repo:
+ Create a new repository in the website. Copy the clone address. Locally do
+	 git clone https://github.com/username/reponame
+ Now you have a local repo.
+         cd reponame
+ Add files/make changes e.g. cp path/file .
+ Add to the git list : git add file
+ git commit -m 'message'
+ git push
+ Provide username and password for your git repo.
+ If you don't want to enter username/passwd repeatedly, add a remote repo:
+  git remote add petname git@github.com:username/reponame
+ Next, push to the repo called petname like this
+  git push petname
+ Then you won't be asked for credentials anymore. And by default it will get pushed to the master branch .
+ 
+43.5. Adding and committing only the files that are in the git ls-files list:
+ git commit -am "Staging and committing all the modifications done to files in git ls-files"
+ 
+ Alternatively, "get commit -a -m "text"" works.
+ 
+ 
+44. All about wifi
+ 
+ Theory (vague):
+ 
+ The wlan card is: wlp6s0
+ The program "netctl-auto" automates the connecting process.
+ "wifi-menu" creates a profile and keeps it in /etc/netctl.
+ "netctl-auto start/enable <profile>" attaches the profile to netctl and finally,
+ "netctl-auto start/enable netctl-auto@wlp6s0.service" forces wlp6s0 to connect to the internet using the <profile>.
+ 
+ This clears up several jobs:
+ 
+ ** Setting up wifi for the first time:
+ 
+ ifconfig wlp6s0 up
+ to bring the wlan to life, if it was down.
+ 
+ wifi-menu
+ to create a profile.
+ 
+ dhcpcd wlp6s0
+ to get ip through dhcp.
+ systemctl enable dhcpcd.service
+ to make it work over reboots.
+ 
+ systemctl start netctl-auto@wlp6s0
+ to let netctl-auto handle the automatic connection
+ systemctl enable netctl-auto@wlp6s0
+ to make it work over reboots.
+ 
+ netctl-auto enable <profile>
+ to make the profile work over reboots.
+ 
+ 
+ ** Deleting a profile, while it is already enabled:
+ 
+ The first step is to tell netctl-auto to stop using the profile.
+ 
+ netctl-auto disable <profile>
+ should do that. But unfortunately, it still uses the profile somehow. You can verify it by issuing "systemctl restart netctl-auto@wlp6s0" and see that it is again connecting to the same profile. THe solution is to delete the profile.
+ 
+ rm /etc/netctl/<profile>
+ netctl-auto disable <profile>
+ systemctl restart netctl-auto@wlp6s0
+ 
+ and "ifconfig" to verify that the wlp6s0 is free.
+ 
+ Note that: there is no such method to stop the profile using a single netctl-auto command.
+ 
+ ** Setting up a new profile:
+ 
+ To set up the profile, issue
+ wifi-menu
+ 
+ If you get error (maybe through journalctl -xn) that "the interface is already up", it means that the profile still exists somehow. Follow the previous steps of "Deleting a profile".
+ 
+ After wifi-menu finishes creating the profile, if "systemctl enable/start netctl-auto@wlp6s0" is already issued, you should be able to connect. 
+ Otherwise, issue
+ systemctl start netctl-auto@wlp6s0
+ systemctl enable netctl-auto@wlp6s0
+ 
+ Optionally, use
+ netctl-auto enable <profile>
+ to make it an automatic profile.
+ 
+ ** Switching to a new profile:
+ 
+ Use wifi-menu to create a new profile and use
+ netctl-auto switch-to <profile>
+ 
+ ** Reconnecting to a profile:
+ 
+ #start the netctl-auto service to activate an already enabled profile through "netctl-auto enable <profile>" command:
+ 
+ systemctl restart netctl-auto@wlp6s0.service
+ 
+ If the profile you are trying to connect to is not already enable, you can always connect to it by "wifi-menu". To enable dhcp service, make sure "dhcpcd wlp6s0" is already issued, or enabled (stays over reboots) using 
+ systemctl enable dhcpcd.service
+ 
+ 
+ A possible solution to slow wifi: Sometimes, page loads very fast just after the wifi is connected, then after a few seconds, it seems to get stuck.
+ Tried the following and probably worked: blacklist the module b43:
+ 
+ Create the file /etc/modprobe.d/blacklist.conf add add this in it:
+ 
+ # Blocking the b43
+ blacklist b43
+ 
+ And reboot. So the module will not load by default. You can check this by:
+ lsmod | grep b43
+ 
+ So, here, we wish to use the module brcmsmac, and the dependent module bcma. Some online forum says that the this module is slower and wl module should be used even though it is very unstable and only found in AUR.
+ 
+ Also, to stop the console beep, this might help:
+ # Do not load the 'pcspkr' module on boot.
+ blacklist pcspkr
+ (The drawback is that if you want the beep sometimes, you will have to manually modprobe or insmod the module)
+ 
+45. Enabling cron job for arch linux
+ 
+ systemctl enable cronie
+ 
+ (Cron for arch linux in NOT enabled by default. So you must start it.)
+ 
+ Setting vim to be the default editor:
+ 
+ echo "EDITOR=vim" >> /etc/environment
+ echo "VISUAL=vim" >> /etc/environment
+ (It needs restarting/relogging-in to read from environment file. To get instantly, use: export EDITOR=vim etc)
+ 
+ My current crontab entry is: 
+ 
+ 
+ # Minute   Hour   Day of Month       Month          Day of Week        Command    
+ */10 */3 * * * cd /storage/Lenovo/lin && ./agitifyTODO.sh >> outfile 
+ */10 */3 * * * ./updateArchy.sh 
+ # Supposed to happen every 10 minute of every 3rd hours
+ 
+ #*/2 * * * * export DISPLAY=:0 && zenity --info --text "hi"
+ # Pop up every 2 minutes
+ 
+ The files agitify.sh and updateArchy.sh can be found in my github.
+ 
+46. Microphone recording
+ 
+ Record from the microphone in wav format:
+ arecord out.wav
+ Or, more conveniently,
+ rec out.wav
+ 
+ The following commands require the package "sox".
+ 
+ The package sox provides almost everything regarding audio handling. Here is how you can monitor your microphone input without recording it (with a dB monitor, that too, stereo):
+ rec -n stat
+ 
+ Without the dB monitor:
+ rec -q -n stat
+ 
+ Show it for 5 seconds then stop:
+ rec -q -n stat trim 0 5
+ 
+ Repeat after every 5 milliseconds:
+ while true; do rec -q -n stat trim 0 0.05; done
+ 
+ Repeat after every 5 milliseconds, but only show the Maximum amplitude in that 5ms time interval:
+ while true; do echo $(rec -q -n stat trim 0 0.05 2>$1 | awk '/^Maximum amplitude/ { print $3 }') ; done
+ 
+ Keep recording from standard output and echo 1 if the volume level is above certain threshold (0.15), and return 0 otherwise:
+ while true; do echo $(rec -n stat trim 0 0.5 2>&1 | awk '/^Maximum amplitude/ { print $3 < .15 ? 0 : 1 }'); done
+ 
+ Following similar command pattern, the following code mutes the master audio level if the input level is more than the threshold, otherwise unmutes:
+ while true; do amixer set Master $(rec -n stat trim 0 0.5 2>&1 | awk '/^Maximum amplitude/ { print $3 < .15 ? 0 : 1 }'); done
+ 
+ Returns "high" if the amplitude is higher than the threshold, or returns "low":
+ while true; do ampli=$(rec -q -n stat trim 0 0.25 2>&1 | awk '/^Maximum amplitude/ { print $3 < 0.15 ? 0 : 1 }'); if [ $ampli -eq 1 ]; then echo "high"; else echo "low"; fi; done
+ (Self-note: Very mysteriously, $3 > 0.15 ? 1 :0 does not work)
+ 
+ Simulating key stokes:
+ Package called "xdotool" can send keystroked to X11 like this:
+ xdotool key k
+ 
+ So, here is the code to simulate a keypress of "j" simulated ny a tap on the mic or a clap:
+ while true; do ampli=$(rec -q -n stat trim 0 0.25 2>&1 | awk '/^Maximum amplitude/ { print $3 < 0.15 ? 0 : 1 }'); if [ $ampli -eq 1 ]; then xdotool key j; fi; done
+ 
+ This can be used while endlessly scrolling 9gag/facebook page without hands. Best tool for forever alone guy.
+ 
+47. Sharing keyboard and mouse between multiple computers:
+ 
+ We have two computers called archy and pratima-3z. we want to use archy's inputs in pratima-3z. Install package called synergy. Archy has the following configuration file:
+ 
+ section: screens
+ archy:
+ pratima-3z:
+ end
+ 
+ section: aliases
+ pratima-3z:
+ 10.10.101.124
+ end
+ 
+ section: links
+ archy:
+ right = pratima-3z
+ pratima-3z:
+ left = archy
+ end
+ 
+ section: options
+ screenSaverSync = false
+ # My KVM uses Scroll Lock to switch screens, so set the
+ # hotkey to lock the cursor to the screen to something else
+ keystroke(f12) = lockCursorToScreen(toggle)
+ end
+ 
+ To run the server: synergs -f --config ~/.synergy.conf
+ -f is for foreground.
+ 
+ In the client, run synergyc -f ipaddress
+ 
+ Note: Keyboard can be used only when the mouse is in the corresponding screen.
+ 
+ 
+48. A fun script to rotate the mouse pointer (10 times) in a circle of radius 250 in clockwise direction. Needs xdotool package.
+ 
+ # Script for fun rotation. Check manpage for more details
+ for i in {0..3600}
+ do
+ 	xdotool mousemove --polar $i 250
+ done
+ 
+ Note: An example is the .myscr script wifire
+ 
+48. Detaching a process from terminal:
+ 
+ The usual method is to add an & after it. For example: firefox &
+ But when you have already issued the command and the process demands the terminal to stay in place, and you do not wanna restart the process with &, this might help:
+ Press ctrl+z to stop the process
+ Then type: bg 
+ to send it to the background as a job
+ Then type: disown
+ to declare that you are disowning the job from the current terminal so that you can close the terminal without affecting the process.
+ 
+49. After new achlinux installation, restoring the config files from the remote repo archyhome:
+ 
+ pacman -S git
+ cd ~
+ git init
+ git remote add archyhome git@github.com:debdeep777/archyhome
+ 
+ Now generate a public-key and add it to your ssh-key list in the github website. Methods are:
+ ssh-keygen
+ (no filename, no passphrase. This is important.)
+ eval `ssh-agent -s`
+ (Here, these are two backticks, not apostrophies). Then run:
+ ssh-add
+ cat ~/.ssh/id_rsa.pub
+ Copy this output of id_rsa.pub and paste it in the website's ssh-key field after logging in.
+ Then check a successful login to github using: ssh -T git@github.com
+ 
+ Once you know that these steps will ensure your authentication, fetch the configs by:
+ 
+ git fetch --all
+ git reset --hard archyhome/master
+ (This will replace all the existing files by new ones from the git repo.)
+ 
+ Now setup the cronjob as described in (45).
+ 
+50. Auto login to arch
+ 
+ Create the file:
+ /etc/systemd/system/getty@tty1.service.d/autologin.conf
+ ( Create directories whenever necessary)
+ 
+ Then enter the following:
+ 
+ [Service]
+ ExecStart=
+ ExecStart=-/usr/bin/agetty --autologin root --noclear %I 38400 linux
+ 
+ And save it. Here is the actual link with a few more options. Probably has info about faster booting method.
+ https://wiki.archlinux.org/index.php/Automatic_login_to_virtual_console
+ 
+51. Making the default font of Arch linux pretty
+ 
+ To enable the effect for one user, create a file called .fonts.conf and copy this xml code inside:
+ <?xml version="1.0"?>
+ <!DOCTYPE fontconfig SYSTEM "fonts.dtd">
+ <fontconfig>
+   <match target="font" >
+     <edit mode="assign" name="rgba" >
+       <const>rgb</const>
+     </edit>
+   </match>
+   <match target="font" >
+     <edit mode="assign" name="hinting" >
+       <bool>true</bool>
+     </edit>
+   </match>
+   <match target="font" >
+     <edit mode="assign" name="hintstyle" >
+       <const>hintslight</const>
+     </edit>
+   </match>
+   <match target="font" >
+     <edit mode="assign" name="antialias" >
+       <bool>true</bool>
+     </edit>
+   </match>
+   <match target="font">
+     <edit mode="assign" name="lcdfilter">
+       <const>lcddefault</const>
+     </edit>
+   </match>
+ </fontconfig>
+ 
+ Now, to make it available system-wide, copy the same xml code in a file called 29-prettify.conf and place it in /etc/fonts/conf.avail/
+ Then make a symbolic link by:
+ ln -s /etc/fonts/conf.avail/29-prettify.conf /etc/fonts/conf.d/29-prettify.conf
+ Now run:
+ fc-cache
+ 
+ Now it should work.
+ 
+52. Uninstall infinality font sets:
+ 
+ sudo pacman -S --asdeps lib32-freetype2 lib32-cairo lib32-fontconfig
+ 
+ Then restart the x-server: pkill xinit
+ 
+53. Calibre setup with Kobo glo
+ 
+ Install Calibre and the package udisks
+ 
+ pacman -S udisks calibre
+ 
+ Then connect the device, after some time it eill be detected.
+ 
+ For Bookshelf management, follow this link:
+ http://www.teleread.com/ebooks/using-calibre-for-e-book-management-chapter-6-managing-kobo-bookshelves/
+ (The plugin they mention here is KoboTouch Extended)
+ 
+ Basically,
+ 1. Preferences > Create your Own column > Add > Enter "Book Shelf", "bookshelf" (without quotes) > Apply
+ 2. Install KoboTouch Extended plugin
+ 3. Preferences > Addon > Select KoboTouch plugin > Customize> Scroll down to where they talk about Book Shelf > Enter "#bookshelf" (without quote) > Apply > Restart.
+ 
+54. Rules to ensure that files stay in certain directory with the same Book Shelf name:
+ 
+ While importing, Calibre creates a directory with the same name as the Author and keeps the file inside. And while copying the files to the device, it keeps the same directory structure. 
+ 
+ 1. So, in order to keep several files in a directory, after importing the files to calibre, you must bulk edit their metadata and change the Author's name to the desired one. Note: In this process, the actual Author's name will be changed, which is the price we are paying.
+ 
+ Second, creating Bookshelfs in calibre to avoid frantic tapping on the device, which is very frustrating given the speed of the device.
+ 
+ Here is what we want:
+ 1. We wish to keep all the books in either of the book shelves
+ 2. For a file, it's book shelf name should be the same as the directory which it belongs to. 
+ 3. No intersecting book shelves
+ 
+ In order to do that, after importing the books and changing the author's name, we need to do the following:
+ 2. Select files, bulk edit metadata, goto custom tags/metadata and enter the same name as the directory name/author's name.
+ 
+ So, in brief, after importing the files from a place, immediately bulk edit the metadata, change the author name, custom tag to the directory name, then send to the device.
+ 
+ 
+55. Batch resize images before I forget how to:
+ 
+ This one resizes all the jpgs to 1024x768:
+ find . -iname '*.jpg' -exec convert {} -resize 1024x768 {} \;
+ 
+56. Disk repair/error check
+ Linux kernels mount devices read-only when their filesystems have errors. You can repair the filesystem with:
+ 
+ sudo fsck.vfat -y /dev/sdc
+ 
+ (replace sdc by the right one)
+ 
+57. Very light http server: lightpd
+ 
+ https://wiki.archlinux.org/index.php/lighttpd
+ pacman -S lighttpd
+ 
+ Config: /etc/lighttpd/lighttpd.conf
+ Check if config file's syntax is correct: lighttpd -t -f /etc/lighttpd/lighttpd.conf
+ Default location of index.html file: /srv/http
+ 
+ To create the index.html file:
+ echo 'TestMe!' >> /srv/http/index.html
+ chmod 755 /srv/http/index.html
+ 
+ Starting and reloading:
+ systemctl start lighttpd
+ systemctl reload lighttpd
+ 
+ Enabling over boot: systemctl enable lighttpd
+
+ To enable php, install php, php-cgi and then add the following to /etc/lighttpd/lighttpd.conf (Note: not inside conf.d/fastcgi.conf etc, unlike what the arch wiki for lighttpd says):
+  # Make sure to install php and php-cgi. See:                                                             
+  # https://wiki.archlinux.org/index.php/Fastcgi_and_lighttpd#PHP
+  
+  server.modules += ("mod_fastcgi")
+  
+  # FCGI server
+  # ===========
+  #
+  # Configure a FastCGI server which handles PHP requests.
+  #
+  index-file.names += ("index.php")
+  fastcgi.server = ( 
+      # Load-balance requests for this path...
+      ".php" => (
+          # ... among the following FastCGI servers. The string naming each
+          # server is just a label used in the logs to identify the server.
+          "localhost" => ( 
+              "bin-path" => "/usr/bin/php-cgi",
+              "socket" => "/tmp/php-fastcgi.sock",
+              # breaks SCRIPT_FILENAME in a way that PHP can extract PATH_INFO
+              # from it 
+              "broken-scriptfilename" => "enable",
+              # Launch (max-procs + (max-procs * PHP_FCGI_CHILDREN)) procs, where
+              # max-procs are "watchers" and the rest are "workers". See:
+              # https://redmine.lighttpd.net/projects/1/wiki/frequentlyaskedquestions#How-many-php-CGI-processes-will-lighttpd-spawn 
+              "max-procs" => 4, # default value
+              "bin-environment" => (
+                  "PHP_FCGI_CHILDREN" => "1" # default value
+              )
+          )
+      )   
+  )
+ 
+ 
+ Finally, set  in /etc/php/php.ini
+  cgi.fix_pathinfo = 1
+ and systemctl reload lighttpd.service to have the effect of this new setting and test it works by the following php file content:
+ <?php
+ phpinfo();
+ ?>
+
+ To give php read/write access to a particular directory called 'data', do the following
+ Find the user that runs the http process by
+ ps aux | grep httpd
+ In my case, the user is http and root. I'll give the access to http.
+ (internet suggests other keywords such as www-data etc)
+ Make the user owner of the directory 
+ chown -R http:http /path/to/directory/data
+
+ Displaying console output while running shell commands thorough shell_exec() in php: add 2>&1 at the end of the shell command.
+ 
+
+ Error code display while running php:
+ This is very useful while debugging but very dangerous while running because it is possible to figure out code from error messages. 
+
+ Edit /etc/php/php.ini
+ Change the line 
+  display_errors = Off
+ to
+  display_errors = On
+ Important: Do not forget to revert it later.
+
+ Another way is to add the following codes to your php files:
+ echo ('showing errors!');
+ ini_set('display_errors', 1);
+ ini_set('display_startup_errors', 1);
+ error_reporting(E_ALL);
+
+
+58. Creating an access point in your system
+ 
+ Link: https://bbs.archlinux.org/viewtopic.php?id=162895
+ Download the create_ap directory from git or otherwise
+ Not NAT or bridge needed. The script has options to set them or not.
+ There are important dependencies. Check README or the create_ap file to find out.
+ 
+ Running:
+ 
+ systemctl disable netctl-auto@wlp6s0.service
+ # So that is does not conflict with our .myscr file "wifi", where we enabled it)
+ systemctl stop netctl-auto@wlp6s0.service
+ # so that already running service stops as well, disabling it alone is hence not enough
+ ifconfig wlp6s0 up
+ # To bring the interface up (important)
+ # Then enter the directory and see help to set up aps
+ # For example, the share your LAN's internet through wifi access poing called "koboglo" with passphrase "lenovo1234"
+ ./create_ap wlp6s0 eth0 koboglo lenovo1234
+ 
+ 
+59. Mounting unclean ntfs partition caused by windows
+ 
+ install package called: ntfsprogs
+ Then issue the command : ntfsfix /dev/sda1
+ 
+60. Reconnect wifi and reload firefox's latest tab 
+ 
+ # Reconnect wifi
+ wifi
+ 
+ # Sending Firefox the reload command, CTRL+R
+ xdotool search --desktop 3 --class "Firefox" key --clearmodifiers "CTRL+R"
+ # Here, --desktop 3 is necessary without which xdotools was unable to activate
+ # The Number 3 is because firefox is located in the 4th taglist in awesome window manager. The count goes from 0,1,2,3,4,.. etc
+ # You can find the desktop number using: xprop | grep WM_DESKTOP
+ # and then clicking on the window with mouse
+ 
+ # Activating the firefox window
+ xdotool search --desktop 3 --class "Firefox" windowactivate                                                        
+ 
+61. Turn off screen blackening/scrensaver:
+ 
+ Turn off:
+ 
+ xset s off
+ 
+ To see the screensaver options:
+ 
+ xset q
+ 
+ To change screen timeout time to 1 hour:
+ 
+ xset s 3600 3600
+ 
+ 
+61. Calculate the size of a directory including its subdirectories
+ 
+ du -sh direcory/
+ 
+ Here, -s shows the total sum of all the files and subdirectories and -h shows in human readable format
+
+ To show the size of all directory and subdirectory in the current location in ascending order, use
+ 
+ du -sh ./* | sort -h
+
+ Here, sort -h sorts in the human-readable format.
+
+ This method does not show you the hidden files or dirs. So, here is one trick form the internet to do exactly that:
+ du -sch .[!.]* * |sort -h
+
+ It seems that they are searching for files starting with a . or not a dot. Whatever.
+
+ They have a program ready only for disk cleanup purposes and it is awesome. It's called ncdu.
+ Just install and run ncdu and feel the wind.
+ 
+62. Print Screen in linux using imagemagick
+ 
+ import filename.png
+ 
+ gives you a mouse pointer to click on the desired window to take a picture to filename.png.
+ 
+ To take the full screen shot,
+ 
+ import -window root filename.png
+ 
+ Numbering files so that they do not get overwritten (provided you take not more than one picture every second):
+ 
+ import -verbose -window root capture-$(date +%d-%h-%Y-%H-%M-%S).png
+ 
+ In this case,
+ 
+ sleep 5; import -window root file.png;
+ 
+ will be more effective.
+ 
+ Does not work: Taking a screenshot of screen 0 (of DISPLAY 0)through some shell: If you log in through ssh and want to capture a screenshot at that moment, issue:
+ 
+ import -window root -display :0.0 -screen capture-$(date +%d-%h-%Y-%H-%M-%S).png
+ 
+ 
+63. Set up the correct time zone to avoid wrong date/time in Gmail/gtalk
+ 
+ timedatectl set-timezone Asia/Kolkata
+ 
+ To see the current time date info,
+ timedatectl status
+ 
+ Doesn't work:To avoid the jumbled time over reboots between different OS like windows, force linux to use RTC time instead of it's usual UTC.
+ timedatectl set-local-rtc 1
+ 
+ Useful for now: Time synchronisation with a time server:
+ timedatectl set-ntp true
+ to activate this synchronisation, and to see if it is active:
+ timedatectl status
+ 
+ systemctl status chronyd.service
+ should show the running daemon, but in this case, it is not working. Maybe you have to set it up. It launches a service which you can see by 
+ systemctl status systemd-timesyncd.service  -l
+ The Config file which has to be modified for this to work is:/etc/systemd/timesyncd.conf
+ 
+ Final (standalone working solution):
+ 
+ (a) Install ntp
+ (b) Edit the config file: /etc/ntp.conf
+ (c) Set up the right servers: By default it uses the arch severs and they should be enough. But for faster and/or more accurate syncing, we can use the indian servers which are up. The list can be found on: http://www.pool.ntp.org/
+ 
+ For the time being, these are working:
+ 
+ # indian and asian servers
+ server 1.in.pool.ntp.org
+ server 0.asia.pool.ntp.org
+ server 2.asia.pool.ntp.org
+ 
+ (d) Running the programme: A daemon is generally ran in the background so that the time can be synced all the time. But in our case, we only need to run it once whenever we need, without needing to write the daemon in the background. So, we run:
+ 
+ ntpd -qg
+ 
+ Here, -q is for one-time run. The -g parameter is very important since it allows ntp to sync time even when the time difference is significantly high.
+
+ I guess it uses timezone info which should be preconfigured at your timedatectl. 
+
+ (e) This process changes the system time only and NOT the hardware clock. That is why it does not persist over reboots. To keep this time, issue
+
+ hwclock --systohc
+
+ This actually sets the hw clock to be the local time. If you want to set UTC to be the hardware clock then use --utc along with --systohc.
+
+ 
+ 
+64. Show percentage bar while copying using cp
+ (has to be a better way though)
+ 
+ #!/bin/sh
+ #
+ # cpbar -- era 2008-05-21 for unix.com
+ #
+ # Depends:
+ #  stat
+ #  cp
+ #  awk
+ 
+ syntax () {
+     echo "Syntax: $0 srcfile destfile" >&2
+     echo " " "$@" >&2
+     exit 1
+ }
+ 
+ test -r "$1" || syntax "File '$1' not found"
+ test -d "$2" && syntax "Must name destination file ('$2' is a directory)"
+ 
+ size=`stat -c %s "$1"`
+ 
+ cp "$1" "$2" &
+ cppid=$!
+ 
+ trap 'echo; kill $cppid; rm -f "$2"; exit 127' 1 2 3 5 15
+ 
+ while true; do
+     nsize=`stat -c %s "$2"`
+     awk -v f1="$1" -v f2="$2" -v size=$size -v nsize=$nsize '
+ 	BEGIN { printf "Copying %s to %s: %4.2f%%\r", f1, f2, 100*nsize/size }'
+     case $nsize in $size) break ;; esac
+     sleep 1
+ done
+ 
+ echo
+ 
+ wait $cppid
+ 
+ ###END
+ 
+ 
+65. Setting up static ip
+ 
+ To set the ip and the netmask (subnet mask) (broadcast address will be set automatically, is it needed to change ever)
+ 
+ ifconfig enp7s0 10.208.22.26 netmask 255.255.255.0 up
+ 
+ Set the default gateway:
+ ip route add default via 10.208.22.1
+ 
+ Setting up dns:
+ Edit the file: resolv.conf (beware: not resole.conf)
+ Add the 
+ nameserver 10.16.25.15
+ 
+ 
+67. To see the default programme for a certain filetype, we need xdg-mime.
+ Note: now we can solve opening files through firefox download window.
+ 
+ To get mime type of photo.jpg:
+ 
+ $ xdg-mime query filetype photo.jpg
+ 
+ photo.jpg
+     image/jpeg
+ 
+ Get default application
+ 
+ To get default .desktop file starter for image/jpeg mime type:
+ 
+ $ xdg-mime query default image/jpeg
+ 
+ gpicview.desktop;
+ 
+ Set the default file-browser
+ 
+ To make Thunar the default file browser, i.e. the default application for opening folders:
+ 
+ $ xdg-mime default Thunar.desktop inode/directory
+ 
+ Set the default PDF viewer
+ 
+ To use xpdf as the default PDF viewer:
+ 
+ (wont work, read further)
+ $ xdg-mime default xpdf.desktop application/pdf
+ 
+ 
+ For a root user like myself, the above command won't work since I am not in one of those normal user scenario, so we will have to change the file
+ /usr/share/applications/mimeinfo.cache
+ and put the desired programme name.desktop as the first choice.
+ Save the file and issue the xdg-mime query kind of command to check whether it worked or not. Worked for me.
+ 
+ Example:
+ Making ranger the default file manager:
+ 
+ a. Target filetype is directory. We need the mime-type.
+ 
+ file --mine-type -b random_directory
+ 
+ We get the output: inode/directory. So, this is our target mime-type.
+ 
+ b. Create a .desktop file for ranger. Save the following content in a file called ranger.desktop.
+ 
+ [Desktop Entry]
+ Name=Ranger
+ Exec=ranger
+ Terminal=true
+ Type=Application
+ MimeType=inode/directory;
+ 
+ c. Install this .desktop file using:
+ 
+ desktop-file-install ranger.desktop
+ 
+ d. Check that this is installed in this location: /usr/share/applications/
+ 
+ e. Now, make it the default application using (from any location):
+ 
+ xdg-mime default ranger.desktop inode/directory
+ 
+ f. Check that it is working using:
+ xdg-open random_directory
+ 
+ Note: There is an alternative to the step e. You can edit this file /usr/share/applications/mimeinfo.cache and manually type
+ inode/directory=ranger.desktop;
+ Or, you can engage many applications for one mime-type like this:
+ inode/directory=ranger.desktop;thunar.desktop;nautilus.desktop;
+ But the .desktop file which comes first becomes the default one.
+ Note: Step e actually modifies  the file ~/.local/share/applications/mimeapps.list which is local (user-specific). Editing the actual /usr/share/applications/mimeinfo.cache actually applies to system-wide, but gets reverted on system update.
+ 
+68. Make the volume control for mplayer ( the keys 0 and 9) work, or make them independent of the system volume control:
+ 
+ Create the file ~/.mplayer/config
+ and add this line to it:
+ softvol=1
+ 
+ 
+69. Reducing your screen brightness and add red colour at night so that you can fall asleep better, or not get blinded by electronic devices (like twilight in Android)
+ 
+ Run it from command line or with systemctl.
+ Set the latitude and longitude of your location in the config file:
+ ~/.config/redshift.conf
+ Set the screen to be 0, and other things. Set the colour temperature also.
+ 
+ 
+70. Managing tasks task warrior
+ 
+ Install. It's called just task. pacman -S task
+ Then run it. You'll be prompted to create the config file. Say yes.
+ Modify the .taskrc file to use the light-256 theme, that works best with white terminal background. If you ever consider shifting to darker terminal, maybe explore the other themes, recommended: dark-256, obviously.
+ 
+ git add the files .taskrc, and the directory .task so that you can have them forever.
+ 
+ Basic commands: 
+ Create a task: task add "Name of the task"
+ List the tasks: task
+ Mark a task done: task ID done (IDs are 1, 2 3, ... etc)
+ Delete a task (including one that is done): task ID delete
+ Modify a task name: task ID modify "new and modified task description"
+ Add comments to already-existing task description (annotate): task ID annotate "and another thing"
+ Add more info to a task: task ID modify project:projectname due:duedate
+ Modify many tasks to add a common project name: task ID1 ID2 ID3 modify project:projectname
+ Schedule a task to automatically disappear after a given time: task 1 modify until:eoy
+ Schedule a task to automatically appear after a given time: task 1 modify wait:30th
+ 
+ Modify(e.g. change tagnames) a set of tasks by some attribute(e.g. project) : task project:projectname modify +tagname
+ 
+ Print [next] tasks with specific attributes:
+ 
+ print all the tasks in the "prj" project name: task project:prj
+ print all the tasks in the "prj" project name and empty tag name: task project:prj tag:
+ take all the tasks with "prj" project name and empty tag name and give them the tag name "newtag": task project:prj tag: modify +newtag
+ print all tasks which are started: task started (write "task reports" to see all possible options)
+ 
+ Now, some more info, to be better: http://taskwarrior.org/docs/best-practices.html
+ 
+  Assign a project to your tasks if possible:
+ 
+ task ID modify project:Home
+ 
+ Assign due dates where appropriate, for the important tasks:
+ 
+ task ID modify due:31st
+ 
+ When you start working on a task, mark it started:
+ 
+ task ID start
+ 
+ If you know the priority of a task:
+ 
+ task ID modify priority:M
+ 
+ Add useful tags to a task:
+ 
+ task ID modify +problem +house
+ 
+ Add the special tag +next to a task, to boost its urgency:
+ 
+ task ID modify +next
+ 
+ Represent dependencies, where appropriate, because there is a big difference in the urgency of a blocking task, than that of a blocked task:
+ 
+ task ID modify depends:OTHER_ID
+ 
+ Try not to have large, long-term tasks that will sit on your list forever. It can be very satisfying and motivating to complete tasks, so create more, but smaller, tasks. 
+ 
+  
+ Adding due dates:
+ 
+ The rules for date and time format can be changed from rc.dateformat setting (find out how to change it), but the default setting is the British Convention.
+ example:
+ 
+ task add Open the store due:2015-01-31T08:30:00
+ task add Pay the rent due:eom
+ 
+ Other handy commands that can be used to mention due date/time:
+ 
+ Date & Time
+ 
+ Taskwarrior supports date and time values. Date fields are used to track task creation, due date, scheduled date, end date and so on, as well as providing a date type for use with UDA fields.
+ 
+ Whichever format is used to accept and display date and time, Taskwarrior resolves it to a UTC epoch value, accurate to one second. This is called Unix Time, POSIX time, or Epoch time.
+ 
+ But you have full control over the format entered and the format displayed, and this document is a demonstration of this.
+ Due Date Example
+ 
+ Let us begin with an example of specifying a due date when the task is created:
+ 
+ $ task add Pay the rent due:2015-01-31
+ 
+ Or adding a due date to an existing task:
+ 
+ $ task add Pay the rent
+ $ task 1 modify due:2015-01-31
+ 
+ Finally removing a due date from a task:
+ 
+ $ task 1 modify due:
+ 
+ This examples uses the default rc.dateformat, which is Y-M-D, to read the date from the command line.
+ rc.dateformat
+ 
+ The rc.dateformat setting allows you to specify other formats for date input. An example is the default, Y-M-D, which means a date is:
+ 
+     a 4-digit year ('Y')
+     followed by a hyphen ('-')
+     followed by a 2-digit month ('M')
+     followed by a hyphen ('-')
+     followed by a 2-digit day ('D')
+ 
+ Here are the possible elements of rc.dateformat:
+ 
+ m 	1 or 2 digit month number, eg '1', '12'
+ M 	2 digit month number, eg '01', '12'
+ d 	1 or 2 digit day of month number¸ eg '1', '12'
+ D 	2 digit day of month number, eg '01', '30'
+ y 	2 digit year, eg '12', where the century is assumed to be '20', therefore '2012'
+ Y 	4 digit year, eg '2015'
+ h 	1 or 2 digit hours, eg '1', '23'
+ H 	2 digit month hours, eg '01', '23'
+ n 	1 or 2 digit minutes, eg '1', '59'
+ N 	2 digit minutes, eg '01', '59'
+ s 	1 or 2 digit seconds, eg '1', '59'
+ S 	2 digit seconds, eg '01', '59'
+ v 	1 or 2 digit week number, eg '1', '52'
+ V 	2 digit week number, eg '01', '52'
+ a 	3-character English day name abbreviation, eg 'mon', 'tue'
+ A 	Complete English day name, eg 'monday', 'tuesday'
+ b 	3-character English month name abbreviation, eg 'jan', 'feb'
+ B 	Complete English month name, eg 'january', 'february'
+ Everything else 	All other format characters are taken as literals
+ 
+ Including Time
+ 
+ Using rc.dateformat you can specify a date with or without elements that include time. If your dateformat omits any time elements, then you just specify the date, and the time defaults to 00:00:00.
+ 
+ An example shows this using a temporary override:
+ 
+ $ task add Pay the rent due:2015-01-01
+ $ task 1
+ 
+ Name          Value
+ ------------- ------------------------------------------
+ ID            1
+ Description   Pay the rent
+ Status        Pending
+ Entered       2015-01-02 16:57:44 (8 seconds)
+ Due           2015-01-01 00:00:00
+ Last modified 2015-01-02 16:57:44 (8 seconds)
+ UUID          6eb7c4d7-6323-4ee3-bf13-63c580de3712
+ Urgency       9.58
+ 
+ $ task add Open the store due:2015-01-01T08:30:00 rc.dateformat:Y-M-DTH:N:S
+ $ task 2
+ 
+ Name          Value
+ ------------- ------------------------------------------
+ ID            2
+ Description   Open the store
+ Status        Pending
+ Entered       2015-01-02 16:58:15 (6 seconds)
+ Due           2015-01-01 08:30:00
+ Last modified 2015-01-02 16:58:15 (6 seconds)
+ UUID          bc8f9b89-8dea-4dae-87e5-b320b651c25c
+ Urgency       9.419
+ 
+ The first task added used the default rc.dateformat value of Y-M-D. You can see that the due date was recorded with time 00:00:00.
+ 
+ The second task added specified an rc.dateformat override value of Y-M-DTH:N:S. You can see that the due date was recorded with time 08:30:00, as specified.
+ 
+ You can specify date, or date + time, but whatever you specify must match your rc.dateformat setting.
+ Reports
+ 
+ The rc.dateformat setting is used for both specifying dates on the command line, and displaying them in reports. Most reports allow a further override, for report-specific display formats, such as rc.report.REPORT.dateformat, but there are others. See man taskrc for a complete list.
+ 
+ For display purposes, there are two additional elements:
+ 
+ j 	1, 2 or 3 digit day-of-year number, sometimes referred to as a Julian date, eg '1', '11', or '365'
+ J 	3 digit day of year number, sometimes referred to as a Julian date, eg '001', '011', or '365'
+ 
+ Synonyms 2.4.0
+ 
+ In addition to formatted dates, you can use a date synonym instead:
+ 
+ $ task add Pay the rent due:eom
+ 
+ Here the synonym eom means 'end of the month'. Synonyms are a useful shortcut to entering lengthy dates. Here is the full set:
+ 
+ now
+ today 	
+ sod 	
+ eod 	
+ yesterda
+ tomorrow
+ monday, 
+ january,
+ later, s
+ soy 	
+ eoy 	
+ soq 	
+ eoq 	
+ som 	
+ socm 	
+ eom, eoc
+ 
+ Here, eo=end of, so=starting of (the next), soc=starting of the current, d=day, w= week, m=month, y=year, q=quarter etc. See http://taskwarrior.org/docs/dates.html for more details.
+ 
+ 
+  A recurring task is a task with a due date that keeps coming back as a reminder. Here is an example:
+ 
+ task add Pay the rent due:1st recur:monthly until:2015-03-31
+ 
+ 
+ To get rid of unnecessary info that is displayed, this page can be a lifesaver:http://taskwarrior.org/docs/verbosity.html
+ 
+ The most useful info are:
+ 
+ Adding the line
+ verbose=no
+ to the file .taskrc will help you get rid of the footnote and header.
+ 
+ Here is an example of a custom report called "verybasic" which contains very specific columns that we want, in our desired order. Either add the following lines to .taskrc or add "task " to the beginning of every line and run individually in terminal (both have the same effect):
+ 
+ report.verybasic.description='A list with very basic information, created by me.'
+ report.verybasic.columns=id,project,tags,description.count,due
+ report.verybasic.sort=start-,urgency-
+ report.verybasic.filter=status:pending
+ 
+ To make this report your default output report, add to your .taskrc:
+ default.command=verybasic
+ 
+ or, issue this command in terminal: task config default.command 'verybasic'
+ 
+ To see this custom report in action, just run "task verybasic". Detailed documentation found at: http://taskwarrior.org/docs/tutorials/report.html
+ 
+ To undo a change that you have made:
+ task undo
+
+ Task warrior has a very good calendar display with useful info showing. Use
+  task calendar
+ You can combine more commands to generate desired output.
+ 
+ A task warrior front end vit. Compile from the AUR.
+ I run into problems: vit freezes while I want to make any task done, or delete etc. Magically, it disappeared when I did this:
+ I had a user-defined custom report which was not created carefully. I don't know which one was missing, but I recreated one from the "next" report, (only deleted some fields) and now it works fine. I think, the description.count was converted to description only. But I have to verify.
+ 
+ Syncing your tasks through a remote server and have it on android:
+ 
+ The website freecinc website provides a service to host your tasks so that you do not need to set up your own server (although, one day, I will set it up, when I have my own website). To use this, simply log in to the website and follow their instruction. After you are done, in order to sync manually, run "task sync" in your client and done. To automate it, add this to your crontab -e:
+ # Syncing task warrior
+ 3 */2 * * * task sync && notify-send "Syncing Tasks"
+ and send a littel notification every time.
+ 
+ In android, the app Mirakel gives you a way to upload a specially created config file so that you can sync with your server (freecinc, in this case). Format of this config file:
+ 
+ 
+ username: foo
+ org: bar
+ user key: aa0f8f67-c20c-4476-b1c4-ed72f293006c
+ server: localhost:6544
+ client.cert:
+ -----BEGIN CERTIFICATE-----
+ …
+ -----END CERTIFICATE-----
+ Client.key:
+ -----BEGIN RSA PRIVATE KEY-----
+ …
+ -----END RSA PRIVATE KEY-----
+ ca.cert:
+ -----BEGIN CERTIFICATE-----
+ …
+ -----END CERTIFICATE-----
+ 
+ Get your username, org and server from the line starting with "taskd.credentials=" in the file ~/.taskrc. The format of that line is 
+ 	taskd.credentials=org\/username\/user_key (note that the org comes before the username)
+ Get your server from the line staring with "taskd.server="
+ Finally, insert the contents of the file *.cert.pem, *.key.pem, *.ca.key.
+ Save it with any name and send it to the mobile phone so that you cam import it into mirakel.
+
+
+ Tips:
+  Use arithmetic operations in attributes:
+  	task add newtask due:2days scheduled:due-1day
+
+ 
+ My new favourite is inthe.AM. This one has a web frontend as well as a nice server. Works similarly. You have to login with your email.
+
+ To use Mirakel effectively, I use these UDAs which are defined in my taskrc:
+  
+
+ 
+71. Very nice image viewer with nice features (better than feh, except for the zooming part)
+ 
+ pacman -S sxiv
+ 
+ See then manage to see all the controls, most are very useful, similar to the vim keybindings, useful ones are:
+ 
+ Enter to see the thumbnail mode
+ w,W to best fit
+ e,E to  fit image to height, width
+ = to show 100%
+ 3j to scroll 3 times j
+ 85= to show it 85%
+ b to toggle bars
+ 
+ Question: how to delete the thumbnails generated? Where is the cache file?
+ Answer: ~/.cache/sxiv
+ 
+ Tips: Support opening .gifs: use sxiv -a *.gif
+ Open all images recursively(means including subdirectories) in the current directory: sxiv -a -r .
+ 
+ 
+ 
+73. Making whole linux dark
+ 
+ (I) Firefox:
+ 
+ Change the firefox default page colors to dark background and white/yellow text
+ 
+ Install plugin: Dark Backgrounds Switcher
+ 
+ Change the menu bar and other components of firefox, without any plugin (developer option, from firefox 35 onwards, lucky me)
+ Open about:config and look for the string: browser.devedition.theme.enabled
+ Make it true by double clicking on that value.
+ Press F12 to open developer mode, click on the wheel button on upper right corner, which is the Options button, scroll down to find "Dark Theme".
+ 
+ 
+ (II) Xterm:
+ 
+ Change the terminal color: Edit the file .Xdefaults and add the following lines if do not exist:
+ ## color scheme for xterm
+ #xterm*background: grey11
+ #xterm*foreground: cornsilk1
+ 
+ (III) Vim:
+ 
+ Edit vim's spell check highlight color:
+ Changing the colors scheme altogether is the key. Add this line to .vimrc:
+ 
+ colorscheme slate
+ 
+ This scheme seems nice for now, shift to better one when possible.
+ 
+ (IV) task warrior
+ 
+ In .taskrc, uncomment dark-green-256 theme.
+ 
+ (V) Vimperator statusbar
+ 
+ You have to set the colorscheme, can be downloaded other people's or use my own. Coming soon, or will be uploaded to github.
+ 
+ (VI) Zathura
+ 
+ In .config/zathura/zathurarc, add the lines:
+ 
+ set recolor-darkcolor "#93A1A1"
+ set recolor-lightcolor "#002B36"
+ Now either add the line to the file
+ set recolor true
+ or issue it inside the programme to activate it.
+ 
+ 
+74. Remove mouse module and insert again to disable/enable mouse:
+ 
+ rmmos psmouse
+ removes the mouse
+ 
+ modprobe psmouse
+ inserts it back, have to wait for 5-6 seconds.
+ 
+ 
+75. Play video as background through mplayer
+ 
+ mplayer video.ogv -rootwin -vf scale=1280:800 -noconsolecontrols
+ 
+ 
+78. Copying between terminals:
+ 
+ Theory: Shift+Insert:
+ 
+ Whatever is selected, be it by mouse or visual mode in vim, goes to the buffer. That means, copying to the buffer is done. No need to copy separately. That means, no need to press y to yank after selecting in vim, no need to press Ctrl+C in Firefox.
+ Shift+Insert pastes. 
+ Tips: avoid selecting anything else in the meantime at all costs.
+ 
+ Theory: Ctrl+C:
+ 
+ So, you are selecting a string before pressing Ctrl+C. Selecting it makes it available for Shift+Insert. Also, it makes it available for Ctrl+V also. So, both will give you same results.
+ 
+ However, do the following, you'll end up with two different buffers to use whenever possible:
+ 1. Select text_a in firefox (text_a goes to Shift+Insert Buffer)
+ 2. Press Ctrl+C (text_a goes into Ctrl+V buffer)
+ 3. Select text_b (text_b goes into Shift+Insert buffer)
+ 
+ Now, in firefox text field, you get the following:
+ 
+ Shift+Insert -> text_b
+ Ctrl+V 	     -> text_a
+ 
+ But in xterm, you have only Shift+Insert available, so only text_b is available to you for terminal.
+ 
+ Both of them are X commands.
+ 
+ So, copying from firefox to terminal or vim is easy.
+ What about the other way round?
+ The only thing everybody talks about is the using screen. It gives you the functionality to copy-paste between different instances terminals within screen through some really weird key strokes.
+ 
+ 
+79. The solarized color palate has some nice symmetry. You just invert it and start from the top, removing the base color and stop wherever needed. The only benefit is that you can interchange between the dark-light schemes very fast.
+ 
+ You can set the colors in the .Xresources file and done. The vim colorscheme will do the rest of the work. Beware though: xterm does not support many boldface colors for many colorcodes. So, you will have to change either the termianl, or the colors.
+ 
+ In .Xresources file, replace all the colors in #define section with the TERM hex-codes, which you will find in the comment section. The result is not blues, though. But you will be able to use all the shades of grey, which is nice. Currently I am trying to look for replacements for the colors that are not supported
+ 
+80. GTK+ bookmarks:
+ While locating file through GTK+ dialog box (e.g. "Save as" in Firefox or GIMP), you might want to create a "bookmark" of a directory that you want to access with one click. So generally you can drag and drop those directories to the left pane and they stay there. These locations can be saved/modified/added through the file ~/.gtk-bookmarks
+ 
+81. Loading the new .Xresources
+ 
+ xrdb ~/.Xresources
+ 
+ 
+82. Using wicd
+ Install wicd, wicd-gtk
+ 
+ Run wicd
+ Run dhcpcd on the wlan card: dhcpcd wlp6s0b1
+ Finally, run wicd-gtk
+ 
+ Then connect.
+ 
+83. Youtube viewer and downloader for terminal
+ 
+ pacman -S youtube-viewer youtube-dl
+ 
+ To launch, youtube-viewer
+ or,
+ youtube-dl URL
+ 
+ See the manpage for more details.
+ 
+84. Simple client-server using netcat
+ 
+ Important: Must install openbsd-netcat. I accidentally installed the gnu-netcat and it did not support many of the commands and the standard examples given in the internet failed.
+ 
+ After installation, use it using nc.
+ 
+ Open a listening port in the server: ( -l for lsten, -v for verbose)
+ 
+ nc -l -v 1432
+ 
+ Connect to the server
+ 
+ nc server_name_or_ip 1432
+ 
+ If it succeeds, cursors in both the computers will wait. Now type text in one to send it to the other.
+ 
+85. Pacman stuff:
+ 
+ Instead of keeping track of every package you are installing using pacman, issue this to show all explicitly installed packages:
+ 
+ pacman -Qei
+ 
+ Note: -Q is the query mode, -e for explicitly installed, -i for detailed info about the packages.
+ Now you can use grep, awk, sort etc to do whatever you want with them.
+ 
+ To find all the orphan packages, issue
+ 
+ pacman -Qdt
+ 
+ Here, -d shows all the packages which were installed as a dependency of another packages. -t shows that are not required anymore.
+ 
+86. DNS server using ngrok and tcp tunelling (for sshing into the local machine):
+ 
+ Download the ngrok software (Note; Do NOT install it through AUR as it is old)
+ Extract it.
+ At this point, you will be able to use http server using
+  ./ngrok http 80
+ In order to use ssh, you need to create an account. I logged in using github account  and did not have to create a account.
+ Next step is authenticating the key that they provide you. It will be written in that login page only. Do that.
+ Run the tcp tunnel using
+  ./ngrok tcp 22
+ Now you can log in to you local server using the global hostname:port that thy show in the forwarding tab.
+ To get hold on this port number (so that you can dump it and git commit it), you need to do the following:
+  wget http://localhost:4040/
+  (Here, we are collecting the source code of the client API that ngrok creates for monitoring purposes)
+  We get the index.html page in this process. Now we extract the address from it like this:
+   cat index.html | grep "tcp://" | awk -F"/" '{print $3}' | awk -F"\\" '{print $1}'
+  Now, we can easily update (git commit) this info so that we can access from anywhere. I mean, create a script to run ngrok and git commit together to dump this port information along with uploading it (to the git repo to use somewhere else)
+ 
+87. Cleaning up your Arch system
+ 
+ 1. Delete the log files.
+ One big file is /var/log/journal
+ You can delete its content but NOT the directory itself to temporarily make the boot process fast. 
+
+ To set a global limit of maximum size of journal files, edit the file
+ /etc/systemd/journald.conf
+ and set
+
+ SystemMaxUse=50M
+
+ Delete /var/log/wtmp and wtmp.1 files for last login etc. Note: the command 'last' does not work. Will it work after reboot?
+
+ 2. Pacman old packages in cache
+ There are nice commands for that which can be found in another topic.
+
+ 
+88. MTS Mblaze activation using usb_modeswitch
+ 
+ Install the package usb_modeswitch. Reboot. It should work. If it doesn't:
+ Do lsusb and look at the device and vendor number. I got 
+  Bus 002 Device 005: ID 12d1:1f01 Huawei Technologies Co., Ltd. E353/E3131
+ Here, we need the number 12d1:1f01. Which is our DefaultVendor:DefaultProduct.
+ If we are lucky, we can find what command to pass by looking at
+  /etc/usb_modeswitch.setup
+ Here, search for this number and copy the whole section. I got:
+ 
+ ########################################################
+ # Huawei E353 (3.se)
+ #
+ # Contributor: Ulf Eklund
+ 
+ DefaultVendor= 0x12d1
+ DefaultProduct=0x1f01
+ 
+ TargetVendor=  0x12d1
+ TargetProduct= 0x14db
+ 
+ MessageContent="55534243123456780000000000000a11062000000000000100000000000000"
+ 
+ # Driver is cdc_ether
+ NoDriverLoading=1
+ 
+ ########################################################
+ 
+ Now, we just put this whole thing inside /etc/usb_modeswitch.conf. (Note: pasting these line after the content of the file did not work. I Deleted everything and then pasted it.)
+ 
+ Now launch the programme using 
+ usb_modeswitch -c /etc/usb_modeswitch.conf
+ And it worked. Now you can lsusb and see that the numbers have changed.
+
+ Note: this the manual process and for some reason it doesn't work automatically. The method that worked for me is this:
+  uninstall usb_modeswitch: pacman -R usb_modeswitch
+  Reboot: reboot
+  Install: pacman -S usb_modeswitch
+  Reboot: reboot
+ The rebooting are important because /lib/udev/rules.d/40-usb_modeswitch.rules get modified and the effects are applied on reboots.
+ 
+89. Applying particular config file to a particular file in vim
+ 
+ Create a somefile.vim containing settings for the file. (Only the ones OTHER THAN the main ~/.vimrc)
+ Run it with -S param.
+ vim -S somefile.vim filename
+ 
+90. Calculating with bc
+ 
+ Run bc and calculate away, but it is very important to remember these things:
+ Issue "scale=5" to let bc use 5 digits after the decimal point. Otherwise it will show you ridiculous things like 10/3=3 etc. By default, scale is set to 0 so floats are treated as int.
+ Use "last" to refer to "Ans", which is the last number is buffer.
+ You can declare variable and do their calculations like this:
+  a=50
+  b=30
+  c=a+b
+  c
+  80
+ etc.
+91. Conky with ring-shaped clock
+ 
+ Install conky-lua-nv (with lua and nvidia support) from AUR.
+ Install xcompmgr for transparency. (Have to run while conky runs)
+ Install the font Santana. Download and extract, then move the folder to /usr/share/fonts/ then fun fc-cache -vf.
+ Running conky with a config file settings.conf: conky settings.conf
+92. Reverting a file or directory to its previous state in git (Or, restoring deleted files :P)
+ 
+ First, stop any automated git commits by commenting out the necessary lines in crontab -e, or something else.
+ Next, find out the right commit you want the file to be reverted to using
+  git log filename
+ Here, you should note down the commit number. Let's say it is abcdef
+ Now, get it back using
+  git checkout abcdef filename
+ 
+ Done. Now git commit to make this change permanent. Resume your crontab based auto-commit.
+ 
+93. Vim plugin Pathogen
+ Follow instructor  from git.
+94. Using Ledger, the money management program
+ Install ledger from AUR, pretty long compilation time.
+ Install the plugin vim-ledger (preferably using Pathogen. See prev entry)
+ 
+     Entering data in a .ledger file:
+	 Enter today's date using <F6> (added a line in .vimrc to use strftime())
+	 Auto-completion of the account names: Ass:Ch<C-X><C-O> gives Assets:Checking.
+	 zM and zR  to fold and show all folds as usual.
+	 There is aligning feature that I am yet to get used to.
+	 And automated currency insertion is there too.
+     
+     Useful things to include:
+     	Include directives, so I can keep my business data in its own file, while pulling it into my main one.
+	Simple refactorings, like putting "Y 2012" at the top, so I don't have to write the year in each transaction.
+	Account aliases, so I can just type "rent", rather than "income:rental" and "repairs:contractor" rather than "expenses:home repair:contractor"
+
+     Reports:
+     	Shows balance of all accounts starting with expenses since last October, sorted by total:
+		ledger -b "last oct" -S T bal ^expenses
+	Shows the register of expenses with multiple entries combined (totalled):
+		ledger  register expenses --collapse
+	See weekly postings: -W (for register mode)
+
+
+	
+94. Replacing entries in file with another one
+ 
+ # sed -i 's/\/sbin\/resolvconf/\/usr\/bin\/resolvconf/g' vpnc-script
+ 
+ Note: Can be used for config files containing Solarized color palette.
+ 
+95. Connect to a VPN to have their external ip to use MathSciNet and stuff
+ 
+ openconnect go.vpn.gwu.edu
+ 
+96. Dumping or redirecting your microphone feed through ssh
+ arecord record the sound in CD quality in raw format
+
+ arecord -f cd -t raw
+
+ oggenc (need vorbis-tools for this) encodes the raw stream into ogg format (compression for low datarate)
+
+ oggenc - -r 
+
+ (note the extra - for some reason, check manpage)
+
+ Finally log in to a remote ssh host and use their mplayer to play this encoded stream
+
+ ssh user@host mplayer -
+
+
+ Everything together:
+
+ arecord -f cd -t raw | oggenc - -r| ssh user@host mplayer -
+97. Display the webcam feed with mplayer (play the webcam):
+ 
+  mplayer tv:// -tv device=/dev/video0
+
+ where /dev/video0 is the device.
+ 
+98. Connecting another host though lan cable and  give it an ip address though dhcpd
+ Install dhcpd ( note: it is not dhcpcd and is not installed by default)
+ If the host (laptop) is going to have the ip 139.96.30.100, do the following.
+
+  ip link set up dev enp7s0
+  ip addr add 139.96.30.100/24 dev enp7s0
+
+ Here, enp7s0 is your (laptop/server's) ethernet card. 
+ ifconfig to check that the card really got the ip.
+
+ Now we are going to follow what the archwiki page of dhcpd says.
+ 
+ The config file should have the following:
+
+	option domain-name-servers 139.96.30.100;
+	option subnet-mask 255.255.255.0;
+	option routers 139.96.30.100;
+	subnet 139.96.30.0 netmask 255.255.255.0 {
+	  range 139.96.30.150 139.96.30.250;
+	}
+ 
+ In this case, the dns is the server. The subnet mask has to be consistent with the ip range, whatever that means.
+ You can also attach a static ip to a particular device if you like, by modifying the subnet "block" like this:
+
+	 subnet 139.96.30.0 netmask 255.255.255.0 {
+	  range 139.96.30.150 139.96.30.250;
+
+	  host macbookpro{
+	   hardware ethernet 70:56:81:22:33:44;
+	   fixed-address 139.96.30.199;
+	  }
+	}	
+ 
+ Finally, create the service file to run dhcpd though systemctl.
+ /etc/systemd/system/dhcpd4@.service
+
+	[Unit]
+	Description=IPv4 DHCP server on %I
+	Wants=network.target
+	After=network.target
+
+	[Service]
+	Type=forking
+	PIDFile=/run/dhcpd4.pid
+	ExecStart=/usr/bin/dhcpd -4 -q -pf /run/dhcpd4.pid %I
+	KillSignal=SIGINT
+
+	[Install]
+	WantedBy=multi-user.target
+
+ To run this dhcpd on the network interface, run
+	systemctl start dhcp4@enp7s0.service
+
+ Now attach the other device to the server/laptop with a typical lan cable and see the lights flash. After some time, issue:
+	ip neigh show
+ You can see the other device's ip listed there. Most probably it will have the first ip possible, which is 139.96.30.150.
+ Edit: ip neigh show does not show all the ips. cat /var/lib/dhcp/dhcpd.leases  might show some useful information.
+99. When ssh-ing to an user does not give you access to .bashrc
+ Do the following: 
+ Edit .bash_profile and add 
+ 	 	if [ -f ~/.bashrc ]; then
+		  . ~/.bashrc
+		fi
+99. How to connect to hdmi
+ xrandr 
+   to find the HDMI connection. In this case, it is called HDMI-0
+ xrandr --output LVDS --off --output HDMI-0 --auto
+ Click on the checkbox " Mathe this the default X-Server screen" while selecting the external display.
+ 
+ See the list of connected displays with 
+  xrandr --current
+ Set the HDMI0 to be the biggest screen and current laptop screen to be a small part of it by
+  xrandr --output HDMI-0 --auto
+ 
+ Turn off the hdmi temporarily with 
+  xrandr --output HDMI-0 --off
+ 
+ HDMI -Audio
+ 
+ Use aplay -l to get the discover the card and device number. For example:
+ 
+ $ aplay -l
+ 
+ Now try different number to see which one actually works by
+ 
+ $ aplay -D plughw:1,3 /usr/share/sounds/alsa/Front_Center.wav
+ 
+ In my case, 1,3 works. Now Edit the .asoundrc to 
+ 
+ pcm.!default {
+     type hw
+     card 1
+     device 7
+ }
+ 
+ If Kodi cannot play audio with all the hdmi devices, try
+ alsactl restore
+ or alsactl kill quit and alsactl init
+100. Speeding up the internet using the fastest DNS server
+ Install namebench. 
+ There is a AUR repo for namebench. But it needs python2-graphy, which has to be installed from AUR first.
+ After installing, run using: namebench.py
+ After the test is finished, it will generate some results. You can visualize the data by opening the .html file that is generated in /tmp.
+
+ In the router, go to My Network > Network Connection > Broadband Connection > Settings > DNS Server: Use the following DNS server (from dropdown) and set it.
+
+ If using pi-hole to block ads, use the fastest DNS as the second DNS server. The first one should be the ip address of the Pi running a pi-hole.
+100. Google drive client for linux:
+ A git-like command line tool called drive (https://github.com/odeke-em/drive) has implemented all the features though auth2 secret key.
+ Follow the instructions in its readme file, run
+ 	drive init ~/gdrive
+ to start the service. In the command line, it will give you alink to vist to get a secret_key which you enter in the command line.
+ After that pull, push etc covers everything, Look at the Readme in the github for all information.
+
+ After drive init, go to the directory you initiated drive and then
+ 	drive pull 'directory name'
+ pulls all the files, directories etc of 'directory' name.
+
+ Similar to git, to push files to drive, you can create subdirectory inside the local gdrive structure. For example,
+ 	cd ~/grive
+	mkdir new-folder
+	cd new-folder
+	cp ~/newfile ./
+	drive push
+ Be aware, if you do not have a copy of the remote files in the local location, drive push will delete the ones that are not present in the local path or in its children.
+ 
+ Issue: the authentication token expires occasionally, forcing you to follow some link, clicking on "Accept" and generate token, copy-paste it to the terminal window.
+ 
+ Deleting files from drive:
+ 
+ Either 
+ 	drive trash 'file to be trashed'
+ 
+ Or, remember the name (with path) of the directory you want to delete. rm -r in local path. Then
+  drive push 'path to the deleted file'
+ to delete it remotely.
+ 
+ To empty trash 
+ 	drive emptytrash
+ 
+ To permanently delete files without trashing it first (no need because I have infinite space in my institution-given drive) use
+ 	drive delete 'file to be deleted forever'
+ 
+ To list files upto 1 depth inside some directory
+ 	drive list
+ 
+ To list files upto 3 directory depth
+ 	drive list -depth 3
+ 
+ You can use strings to look for while listing
+ 	drive list --matches mp4 pdf mp3
+ 
+ To first sort by modTime, then largest-to-smallest and finally most number of saves inside the directory Photos
+ 	 drive list --sort modtime,size_r,version_r Photos
+ 
+ To see stats of a directory recursively
+ 	drive stat -r 'directory name'
+    or until depth 3
+    	drive stat -depth 3 'directory'
+ 
+ drive allows you to create an empty file or folder remotely Sample usage:
+ 
+ $ drive new --folder flux
+ $ drive new --mime-key doc bofx
+ $ drive new --mime-key folder content
+ $ drive new --mime-key presentation ProjectsPresentation
+ $ drive new --mime-key sheet Hours2015Sept
+ $ drive new --mime-key form taxForm2016 taxFormCounty
+ $ drive new flux.txt oxen.pdf # Allow auto type resolution from the extension
+ 
+ Show all information about your drive account
+ 	drive quota
+  in more detail
+ 	drive about
+ 
+ drive allows you to copy content remotely without having to explicitly download and then reupload.
+ 
+ $ drive copy -r blobStore.py mnt flagging
+ 
+ $ drive copy blobStore.py blobStoreDuplicated.py
+ 
+ To perform a rename:
+ 
+ $ drive rename url_test url_test_results
+ $ drive rename openSrc/2015 2015-Contributions
+ 
+ drive allows you to move content remotely between folders. To do so:
+ 
+ $ drive move photos/2015 angles library archives/storage
+ 
+ Command Aliases
+ 
+ drive supports a few aliases to make usage familiar to the utilities in your shell e.g:
+ 
+     cp : copy
+     ls : list
+     mv : move
+     rm : delete
+ 
+ The url command prints out the url of a file. It allows you to specify multiple paths relative to root or even by id
+ 
+ $ drive url Photos/2015/07/Releases intros/flux
+ 
+ 101. OpenFOAM
+ 
+ http://openfoam.com/download/install-binary.php
+ 
+ Follow this tutorial and after running openMesh, you get an error. 'pwd' to see you path, 'cd cavity' and run again to resolve.
+ 
+  While running, systemctl start docker in the beginning and do everything else.
+102. Moving /root to another partition
+ Create new ext4 partition, say /dev/sda7. Mount it in a directory, say /otherlin
+ Copy all data from /root to /otherlin using the following commands
+  cp -urp /root/. /otherlin/
+ Note that -r for recursive copy and -p is to preserve permission, date etc.
+ Here, -u means update, i.e. doesn't overwrite already copied files. 
+  Note that, cp -rp ~/* /otherlin
+  	is not enough since it does not copy the dot files.
+ Alternative tools suggested: rsync, and curl (nice use!) to have a progress bar etc.
+ Find the UUID for the new partition using
+  bkid
+ Edit /etc/fstab and add the line
+  UUID=daef66f2-4c7a-4daa-9d7d-f217a3a3994f	/root         	ext4      	rw,relatime,data=ordered	0 2
+ Here, the UUIS should be replaced by the appropriate one.
+ 0 means it doesn't have to be backed up. 2 means the system checks the partition after the first one (1 is / so / gets checked first; 0 means no checking).
+
+ Back up the current /root by 
+  mv /root /root.old
+ It failed the first time and had to uncomment the new line in fstab and reboot and try again to succeed.
+ Remount all the drives by
+ mount -a
+103. Fixing boot after erasing grub
+ Install another linux, for example, Manjaro from USB livecd. It will come with its own grub. While booting through this new grub, if you get an error saying the UUID does not exist etc, edit the /boot/grub/grub.cfg file. Fix the UUID in the menuenry for the target linux. Usually, the the correct UUID appears in the first line, but in the lines containing the intiramfs, the UUID is messed up. Fix them in all the places. The config file should use the UUID of the old install, not the new one.
+ 
+104. Writing a manpage
+ It uses something called troff markdown language.
+ Create a file starting with the following lines and open with
+ 	man -l filename.
+
+ Body of the manpage:
+ .Dd date-of-modification
+ .Dt name-of-the-article 7 (7 for miscellaneous manual. see man man for explanation)
+ .Sh NAME
+ .Nm name of the article
+ .Nd description of the article
+ 
+ Caution
+     ·   Keep codes in within a .Bd -literal ... .Ed block.
+     ·   Do NOT write Em anywhere in your text, it will vanish. Write \&Em
+         instead.
+   Frequently used macros
+     .Sh           New Section
+     .Ss           New subsection
+     .Bl           begin list. It can take the following parameters: -bullet,
+                   -item, -enum, -tag, -hang etc.
+     .It           items inside .Bl and .El
+     .El           end list
+     .Pa           path for a filename
+     .Bd           begin a display block, It takes a few parameters, most importantly -literal which is useful for source codes, spaced and tabbed text.
+     .Dl           literal text of one line
+     .Ed           end display block one line of literal text.
+     \fB           begins bold
+     \fI           begins Italian
+     \fR           ends bold and/or Italian
+     .Em           emphasize (a line of bold, similar to \fB ... \fR). If using
+                   inside an item of list, use without the dot, e.g.  .It Em tagname
+
+  escape chars  \e generates a \, \& replaces at the beginning of a sentence,
+                   but doesn't generate a .
+
+                   Type        Output
+                   \e            \
+                   \efB          \fB
+                   \&.           .
+                   \&Em          Em
+
+     See the BSD manpage for mdoc online. (Note: mdoc for Arch is something else)
+     http://man7.org/linux/man-pages/man7/mdoc.7.html
+
+     Some examples:
+     http://manpages.ubuntu.com/manpages/trusty/pt/man7/mdoc.samples.7.html
+
+     There is a way include a custom file to man database.
+105. Unity 3D
+ Install linpng12 from AUR.
+ 
+ Install unity 3d from AUR. Note: The package build is 11GB  after makepkg -s and creates a .sh file and a directory. Instead of pacman -U, use the generated install script as there will be no .xi file to install. This is also an advantage since these files can be moved to another partition and launched. These are 3GB long.
+ 
+ Watched tutorial on game rolling the ball on their official site.
+ Lessons:
+ A "is Trigger" object with a "Rigid body" component is a "Dynamic collider" and uses more resources.
+ A "is Trigger" object without"Rigid body" component is a "Static  collider" is ideal. Setting "kinemetic" field will give you desired result.
+ 
+106. Progress bar for cp, firefox download, dd, tar, cat
+ Use 'progress'.  https://github.com/Xfennec/progress
+ See man page for details.
+ 
+107. wpa_supplicant
+ Find the network by scanning
+  iwlist wlp6s0b1 scan | grep ESSID
+ The list is NOT ordered according to signal strength.
+ or, use wifi-menu but cancel it after it finds the ssids.
+ 
+ To create a config file, see manpage of wpa_supplicant.conf
+ 
+ Works only for home wifi (have to check for work wifi): If you do not want to store the password and create a config file, use wpa_passphrase
+ wpa_passphrase ssid_name
+ you shall enter the passphrase from stdin and will be encrypted.
+ Now copy the code from the file and create a config file. Delete the commented line containing the actual password.
+
+ Alternatively, you can do the following:
+
+ For home wifi, this works:
+ network={
+               ssid="home"
+               psk="passphrase"
+          }
+
+ For GWireless, this works:
+ network={
+        ssid="GWireless"
+	key_mgmt=WPA-EAP
+	eap=PEAP
+	identity="netID"
+        password="password"
+ }
+ 
+ For eduroam, this works:
+ network={
+         ssid="eduroam"
+ 	key_mgmt=WPA-EAP
+ 	eap=PEAP
+ 	identity="email id"
+ 	password="password"
+ }
+ 
+ To run the config file with debugging:
+ 
+ wpa_supplicant -i wlp6s0b1 -c /path/of/config/file.conf -d
+ 
+ To run it in the background, replace -d by -B
+ 
+ Finally, run dhcpcd if not running  already by dhcpcd or systemctl restart/start/enable dhcpcd.service
+ 
+108. Find out name of the linux distribution
+ cat /etc/*-release
+ typically, os-release has all the info, including the pretty name.
+ For the linux kernel version, cat /proc/version
+109. Determine which physical disk partition mounted on a directory
+ For example, the / filesystem is installed on
+  df /
+ The directory /root is located in
+  df /root
+ Conversely, to see a list of all block devices and their mountpoints,
+  lsblk
+ 
+110. Fix pacman -Syu error with wrong pgp keys
+ pacman-key --refresh-keys
+ 
+111. Killing processes
+ To find the pid of the process, do
+  pidof processname
+ or,
+  ps aux | grep processname
+ To kill process with pid
+  kill pid
+ To kill stubborn unresponsive process
+  kill -9 pid
+ To kill all processes with name
+  killall processname
+  killall -9 processname
+  
+ Unmounting partitions in use: Find out which process is using it by
+  lsof | grep /mountpoint
+  killall/kill [-9] processname/pid 
+112. [Abandoned: couldn't see any improvement] Speeding up firefox by moving the profile to ram
+ https://fixmynix.com/speed-up-firefox-with-ram-cache-and-tmpfs-linux/
+ Note: Setting  browser.cache.disk.enable to false and setting browser.cache.memory.enable to true accelerates reloading recently loaded page elements. It comes with the variable browser.cache.memory.capacity which has to be created and specified as well. Eg: 409600. Reference: http://kb.mozillazine.org/Browser.cache.memory.enable
+ Note: This specified size is OUTSIDE the profile directory of firefox. The precess so far has not used any ramfs yet.
+
+ N: Didn't follow the first few http, ssl variable modifications. Starts from editing memory_cache variable.
+ Main problem: the profile directory gets bigger and bigger and soon the tmpfs is full.
+ Q: Can I sync while closing firefox instead of cronjob every 5 mins? Well, to save accidental crash, 5 mins seems better, still.
+ Q: How to preserve the installed addons and login to pushbullet?
+ Q: Why allocate _capacity 2M and create tmpfs for 128mb?
+ Q: Moving .vimrc to ram.
+ Q: Wat else can I move to ram?
+113. Compress and uncompress (zip/unzip) files using aunpack
+ To extract all files from archive `foobar.tar.gz' to  a  subdirectory  (or the current directory if it only contains one file):
+  aunpack foobar.tar.gz
+ 
+ To create a zip archive of two files `foo' and `bar':
+  apack myarchive.zip foo bar
+ To compress the content of current directory into a zip file called comp.zip
+  apack comp.zip *
+ 
+ To list contents of the rar archive `stuff.rar':
+  als stuff.rar
+114. calendar.vim
+ Since  I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it.
+ Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.
+
+ Here is a quick possible solution:
+ 1. Open gvim
+ 2. Type :Ca
+ 3. Copy the link
+ 4. Paste in browser, proceed, get a code
+ 5. Edit the file .vim/bundle/calendar.vim/google/client.vim and navigate to the line: 
+ let code = input(printf(calendar#message#get('access_url_input_code'),
+ (This line is inside a function called access_token_async. The input code here is not able to access the bufferes "+, "* etc. So we manually supply the value of variable 'code'. Make sure this modification does not stay for long)
+ 6. Modify the line to
+ let code = 'xxxx_your_code_goes_here_xxxx'
+ 7. Save the file.
+ 8. Open usual vim and run :Ca and it should work directly.
+ 9. Undo the changes in client.vim and save it back. This step is necessary because you don't want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.
+ 
+ See the calendar.vim/doc/calendar.txt for a complete help which I followed mostly.
+ As a shortcut in awesomerc, add `xterm -e vim +:Ca` to open vim in a terminal with command :Ca and mapped it to Modkey+C
+ 
+  
+115. Installing packages in R
+  install.packages("ggplot2") 
+
+116. R tutorial
+ Add "day of the week" column to your data with date:
+ Let the data be tran and tran$Date is is date format (possibilities)
+ tran$day <- weekdays(as.Date(tran$Date))
+
+ Order your data by day of the week like this: (data is daily, day is DoW)
+ daily$DoW <- factor(daily$DoW, levels= c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+ daily[order(daily$DoW), ]
+
+ Plot frequency distribution of days of the week 
+ barplot(table(tran$day))
+
+ Create a sequence of weekdays, starting from today's day like this:
+ Get today's date
+ t <- Sys.Date()
+ Create a sequence of 7 days by: adjust t+const to fix the starting day
+ dayseq <- weekdays(seq.Date(t,t+6,by=1))
+ Get the corresponding weekday value by
+ weekdays(dayseq)
+ or,
+ daynames <- weekdays(dayseq, abbreviate=TRUE)
+
+ Lesson Learned: IF you have a data with a variable name Category, and Catergoy can be either Grocery, Shopping or Travel, then first convert the variable into a factor using: data$Category <- factor(data$Category)
+ Then you can use levels(data$Category) to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.
+
+ The problem is to edit an entry in the data frame which is a category type. For example, if you want to change data[4,"Category"] to "hello", you cannot change it using data[4,"Category"] <- "hello" !!!
+ Here is what to do:
+ Change the type of Category varaible to character using:
+ data$Category <- as.character(data$Category)
+ Edit the value:
+ data[4,"Category"] <- "hello"
+ Change the variable type back to factor:
+ data$Category <- factor(data$Category)
+
+ So annoying!
+ 
+ qqplot2 help:
+ A line plot :
+ qplot(x=Date, y=Amount, data=tran, geom=c('point','line'), color=Category, alpha = I(0.7))
+
+ The following prints number of times we did grocery, shopping etc w.r.t. date
+ qplot(factor(timeS), data=tran, geom="bar", fill=factor(Category))
+
+ The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
+ ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User) 
+
+ A slight invariant:
+ ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)
+
+ stat='identity' is the option that lets you plot y vs x instead of the defualt statistics count.
+
+ Plot amount vs date/timeS, stacked with category
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity')
+
+ Withe separate user:
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + facet_wrap(~ User)
+ 
+ Seperate picture by category, both users in the same picture, 2rows of pictures
+ ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat='identity') + facet_wrap(~ Category, nrow = 2)
+ 
+ Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~User)
+
+ To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.
+ 
+ Alternate representation with Category and User interchanged
+  ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity') + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~Category)
+  
+ In this context, manysum is nothing but
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity')
+
+
+117. Installing xournal from source and adding useful patches:
+
+So, apt-get install doesn't give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.
+
+To install the development dependencies, do
+sudo apt-get build-dep xournal
+
+Download the latest tar, extract it with
+tar -xf xournal.**.tar.gz
+cd xournal.**
+
+Details of patching can be found here: https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/
+Here is the summary:
+Patch the source code with the download patch file
+patch -p1 < patchfile.patch
+
+Note: if the patchfile is a tar file, extract and then -p1 should be change to -p2 or the required number of depth  of path.
+
+Compile and install this modified source file, follow http://xournal.sourceforge.net/manual.html#installation
+
+Summmary: 
+
+To install in the user directory (~/bin/), do:
+./autogen.sh; ./configure --prefix=$HOME; make; make install; make home-desktop-install
+The last step is to set mime-type etc.
+
+To install it in the system, do with sudo:
+./autogen.sh
+make
+(as root) make install
+(as root) make desktop-install
+
+So, far used the following patches: various improvements, linewidth-patch, vi-style scrolling
+
+Caution: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.
+
+To log the input events, add the following line at the top of the file src/xo-callbacks.c:
+#define INPUT_DEBUG 1
+Then, compile and run from terminal to see all the input events popping up at the terminal.
+
+
+118. Setting up raspberry pi zero w
+
+Ethernet over usb:
+Follow the popular guide to add two lines related to modules in the first (boot) partition:
+1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it.
+2: Create a new file called ssh using textedit and save it onto the boot partition. Use 'get info' to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi
+3: Finally, open up the cmdline.txt. replace all text with this:
+
+dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh 
+
+Edit /etc/network/interfaces to add usb0 related info:
+allow-hotplug usb0
+iface usb0 inet dhcp 
+
+Plug in a *good* usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using ssh pi@raspberrypi.local
+If the repeated attemp to connect and fail message from nm-applet is bothersome, run dhcpcd enp7e0u1i7 (or whatever is the hardware name from ifconfig) on your laptop. Note: dhcpcd in not installed by default so install it using sudo apt-get install dhcpcd5
+
+For wifi:
+Use wpa_passphrase <ssid_name>  to get the config file. Add it to /etc/wpa_supplicant/wpa_supplicant.conf
+Next, add the following to /etc/network/interfaces
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+
+You can set up multiple networks in the wpa_supplicant.conf file and the first available one will be used (I think. Or, maybe wrt signal strength? However, it is working according to order of appearance)
+
+_____
+### Install Cocalc notebook locally
+
+No need to install sage or sagemath.
+
+Follow the instruction to install the cocalc-docker. It is just one
+line long code. It will download,
+extract and install. I had to use sudo to get it to work since I
+installed docker using sudo (`sudo apt-get install docker.io`. 
+To open it in browser, make sure to use `https://localhost` instead of
+`http://localhost`.
+
+I had create account (fake email id are ok, since they are local)
+
+To start and stop cocalc, use 
+`sudo docker start cocalc`
+`sudo docker stop cocalc`
+
+To view equations in latex rendering, use the function `view()`. To
+print out the latex code of it, use the function `latex()`.
+
+To define variables in a latex-friendly way so that the view command
+prints it right, use
+
+u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
+
+Later, do `view(u_th_x)` to see it rendered correctly.
