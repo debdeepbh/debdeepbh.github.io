@@ -1,5 +1,4 @@
 ---
-layout: plain
 title: "Create a startup script to mount Hard disk drives"
 --- 
 
