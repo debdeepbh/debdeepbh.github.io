@@ -1,0 +1,78 @@
+<p>Maintained using indentation folding and searched using the headings.
+Settings have to be applied to this file only using vim -S TODOsettings.vim</p>
+
+<h2 id="folding-help">Folding Help:</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>zi</td>
+      <td>switch folding on or off</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>za</td>
+      <td>toggle current fold open/closed</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc</td>
+      <td>close current fold</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zR</td>
+      <td>open all folds</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zM</td>
+      <td>close all folds</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zv</td>
+      <td>expand folds to reveal cursor</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zj,zk</td>
+      <td>jumps to the next/previous fold, even when unfolded</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zo,(zO)</td>
+      <td>jumpsopen fold (recursively)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc,(zC)</td>
+      <td>jumpsclosefold (recursively)</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zA</td>
+      <td>toggle folds recursively</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Folding Options (Should change in TODOsettings.vim file to make it permanent.)
+set foldnestmax=10      | “deepest fold is 10 levels
+set nofoldenable        | “dont fold by default
+set foldlevel=1         | “this is just what i use
+set shiftwidth=1 	| “to consider spaces as one foldlevel away</p>
+
+<h2 id="searching-help">Searching Help:</h2>
+<p>** :set foldopen-=search  		to stop folds from opening on search, which is even better.
+    :folddoopen s/old/new/ge 	to replace old with new in the lines which are not folded.</p>
+
+<h2 id="warning">Warning:</h2>
+<p>Smartindent is on, hence use <F2> before pasting into it.</F2></p>
+
+<h2 id="want">Want:</h2>
+<p>Not more than 2 stages of folding
+ Search within the visible folded text
+ Search within the invisible text inside folds
+ INdent = on</p>

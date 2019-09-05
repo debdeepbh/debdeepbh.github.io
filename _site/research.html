@@ -19,7 +19,7 @@
 {"@type":"WebPage","headline":"Research","url":"http://localhost:4000/research.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=da0abdca6c6ff63fa2f3cd5b3bc5e833fe1fbbc4">
+    <link rel="stylesheet" href="/assets/css/style.css?v=730ebde8ad344e966b024fb5a6e1ea09f4cb4701">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -48,17 +48,30 @@
 	
 		<nav>
   
-    <a href="/" >
-      Home
-    </a> | 
+  <a href="/"  class=menuNormal >
+	    Home
+     </a>
+     <br>
   
-    <a href="research.html" >
-      Research
-    </a> | 
+  <a href="/research.html"  class=menuCurrent >
+	    Research
+     </a>
+     <br>
   
-    <a href="teaching.html" >
-      Teaching
-    </a> | 
+  <a href="/teaching.html"  class=menuNormal >
+	    Teaching
+     </a>
+     <br>
+  
+  <a href="/content/debdeep.pdf"  class=menuNormal >
+	    CV
+     </a>
+     <br>
+  
+  <a href="/other.html"  class=menuNormal >
+	    Other
+     </a>
+     <br>
   
 </nav>
 
@@ -69,16 +82,67 @@
       </header>
       <section>
 
-      <h2 id="research">Research</h2>
+      <h2 id="research-interests">Research Interests</h2>
 
-<p>My area of interest is Applied Mathematics in general. Currently I am interested in nonlinear dispersive partial differential equations, harmonic analysis, and signal processing.</p>
+<p>My area of research is Applied Mathematics in general. I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from</p>
+<ul>
+  <li><a href="#nonlinear-dispersive-equations">nonlinear dispersive partial differential equations</a></li>
+  <li><a href="#signal-processing">signal processing</a></li>
+  <li><a href="#solid-mechanics">solid mechanics</a></li>
+  <li><a href="#machine-learning">machine learning</a>.</li>
+</ul>
 
-<p>My advisors are <a href="https://home.gwu.edu/~baginski/baginski.html">Prof. Frank Baginski</a> and <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Prof. Svetlana Roudenko</a>.</p>
+<hr />
+
+<h3 id="nonlinear-dispersive-equations">Nonlinear Dispersive Equations</h3>
+<p><a href="https://en.wikipedia.org/wiki/Dispersive_partial_differential_equation">Dispersive equations</a> model the propagation of waves in various media. Nonlinearities make the study of dispersive equations more realistic, as well as mathematically interesting. For example, when the effect of nonliearity opposes the effect of dispersion (defocusing case), these equations exhibit peculiar solutions called <a href="https://en.wikipedia.org/wiki/Soliton">solitons</a> that retain their spacial localization for a long time. <a href="https://en.wikipedia.org/wiki/John_Scott_Russell">John Scott Russell</a> observed such a solitary-wave in a shallow river in 1834. <a href="https://www.youtube.com/watch?v=w-oDnvbV8mY">Here</a> is an experiment.</p>
+
+<p>My work on nonlinear dispersive equations has been about the low-regularity theory, especially in the critical regime, where we can observe a dichotomy between global existence and blow-up of the solution, depending on the mass of the initial data. 
+With my advisor <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Svetlana Roudenko</a> and collaborator <a href="https://sites.google.com/site/lgfarah/">Luiz Gustovo Farah</a>, I have studied the Zakharov-Kuznetsov equation and its modifications, which model <a href="https://en.wikipedia.org/wiki/Ion_acoustic_wave">ion-accoustic wave</a> propagation in magnetized plasma. It is also a generalization of the celebrated <a href="https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation">Korteweg-de Vries equation</a> for shallow water waves.</p>
+
+<p>The study of global well-posedness of low-regularity data requires the careful investigation of the interaction of constituent frequencies of the solution, together with tools from Harmonic analysis such as <a href="https://en.wikipedia.org/wiki/Fourier_analysis">Fourier analysis</a> and <a href="https://en.wikipedia.org/wiki/Littlewood%E2%80%93Paley_theory">Paley-Littlewood analysis</a> – a technique collectively known as the <em>I</em>-method. On the other hand, low-regularity solutions that blow up in finite time have the property that the mass concentrates inside a ball of shrinking radius. The main tools here are the <em>I</em>-method and profile decomposition.</p>
+
+<p>Currently, I am studying the inhomogeneous <a href="https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation">nonlinear Schrödinger</a> and the <a href="https://en.wikipedia.org/wiki/Hartree_equation">Hartree equation</a>.</p>
+
+<hr />
+
+<h3 id="signal-processing">Signal Processing</h3>
+<p>Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on <a href="https://en.wikipedia.org/wiki/Frame_(linear_algebra)">frames</a>, <a href="https://en.wikipedia.org/wiki/Wavelet">wavelets</a>, time series analysis and <a href="https://en.wikipedia.org/wiki/Compressed_sensing">compressed sensing</a> by <a href="https://www.math.umd.edu/~jjb/">John Benedetto</a>.</p>
+
+<p>During Summer 2018, I had the opportunity to work with the <a href="https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna">ANITA</a> collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the <a href="https://en.wikipedia.org/wiki/Deconvolution">deconvolution problem</a> in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of <a href="https://www.phys.hawaii.edu/~gorham/">Peter Gorham</a> on the optimal deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called <a href="https://github.com/debdeepbh/libWTools">libWTools</a>. I am currently working on a multi-antenna generalization of this algorithm.</p>
+
+<hr />
+
+<h3 id="solid-mechanics">Solid Mechanics</h3>
+<p>Understanding how solid materials deform and fail under external loading conditions has been a long-standing area of research for scientists and engineers for centuries. 
+The classical approach is to treat the solids as a <a href="https://en.wikipedia.org/wiki/Continuum_mechanics">continuum</a> and model the displacements of material points as a solution to a differential equation, known as the <a href="https://en.wikipedia.org/wiki/Cauchy_momentum_equation">Cauchy Momentum equation</a>.
+However, due to the differential formulation, the classical theory fails to describe material behavior when the deformation field is non-differentiable at certain material points, for example, when a fracture is formed.</p>
+
+<p>Introduced by <a href="https://www.sandia.gov/~sasilli/">Stewart Silling</a> in 2000,  <a href="https://en.wikipedia.org/wiki/Peridynamics">peridynamics</a> has become useful to address this limitations.
+Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.</p>
+
+<p>Working with <a href="https://web.ornl.gov/~selesonpd/">Pablo Seleson</a> and <a href="https://cam.ornl.gov/jtrageser2.html">Jeremy Trageser</a> at the <a href="https://www.ornl.gov/">Oak Ridge National Laboratory</a>, 
+I considered three-dimensional axisymmetric problems, where the geometry of the material is symmetric about an axis of symmetry and the external loading conditions are such that the deformation fields are symmetric about the same axis of symmetry. This is an important class of problem in solid mechanics where the symmetry can be exploited to reduce dimension of the problem. We derived the two-dimensional model that exactly represent the full 3D axisymmetric linear peridynamic model by incorporating out-of-plane bond forces into the representative 2D plane, thus reducing the computational cost significantly.</p>
+
+<p>I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.</p>
+
+<hr />
+
+<h3 id="machine-learning">Machine Learning</h3>
+
+<p>While learning popular machine lerning techniques using <code class="highlighter-rouge">scikit-learn</code>, I became interested in the mathematics of machine learning. 
+With <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani, I am working on a 
+ permutation-invariant encoding algorithm of data points in Euclidean space.</p>
+
+<hr />
 
 <h2 id="publications">Publications</h2>
 <ul>
-  <li><em>Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation</em>  with Luiz Gustovo Farah and Svetlana Roudenko (Submitted) <a href="\href{https://arxiv.org/abs/1906.05822}">link</a></li>
-  <li><em>Generalized ForWaRD algorithm for multi-antenna model</em> (In preparation)</li>
+  <li><em>Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation</em>  with <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Luiz Gustovo Farah</a> and <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Svetlana Roudenko</a> (Submitted) <a href="https://arxiv.org/abs/1906.05822">(arXiv)</a></li>
+  <li><em>Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation</em> with <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Luiz Gustavo Farah</a> (Preprint)</li>
+  <li><em>Generalized ForWaRD algorithm for multi-antenna model</em> (Preprint)</li>
+  <li><em>Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics</em> with <a href="https://web.ornl.gov/~selesonpd/">Pablo Seleson</a> and <a href="https://cam.ornl.gov/jtrageser2.html">Jeremy Trageser</a> (In preparation)</li>
+  <li><em>Permutation-invariant representation of data in Eulidean space</em>, with <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani (In preparation)</li>
 </ul>
 
 
