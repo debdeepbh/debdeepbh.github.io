@@ -1,8 +1,10 @@
 - name: Home
   link: /
 - name: Research
-  link: reseach.html
+  link: /research.html
 - name: Teaching
-  link: teaching.html
-- name: About
-  link: /about.html
+  link: /teaching.html
+- name: CV
+  link: /content/debdeep.pdf
+- name: Other
+  link: /other.html
