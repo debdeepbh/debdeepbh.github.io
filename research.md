@@ -4,13 +4,13 @@ title: Research
 
 ## Research Interests
 
-My area of research is Applied Mathematics in general. I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from 
+I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from 
 * [nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)
 * [signal processing](#signal-processing)
 * [solid mechanics](#solid-mechanics) 
-* [machine learning](#machine-learning). 
+* [machine learning](#machine-learning) 
 
-[//]: I have worked on spectrum of problems with varying level of applicability. I am fascinated by 
+[//]: this is a comment 
 
 ***
 
@@ -25,12 +25,18 @@ The study of global well-posedness of low-regularity data requires the careful i
 
 Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
+* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_  with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Submitted) [(arXiv)](https://arxiv.org/abs/1906.05822)
+* _Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation_ with [Luiz Gustavo Farah](https://sites.google.com/site/lgfarah/) (In preparation)
+
 ***
 
 ### Signal Processing
 Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on [frames](https://en.wikipedia.org/wiki/Frame_(linear_algebra)), [wavelets](https://en.wikipedia.org/wiki/Wavelet), time series analysis and [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) by [John Benedetto](https://www.math.umd.edu/~jjb/). 
 
 During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the optimal deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
+
+* Report on _Deconvolution problem and application to ANITA signals_, submitted to ANITA collaboration at University of Hawai'i at Manoa [(link)](/content/report-anita.pdf)
+* _Generalized ForWaRD algorithm for multi-antenna model_ (Preprint)
 
 ***
 
@@ -47,22 +53,20 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
 
+* Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, Submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [(link)](/content/NSF-report-signed.pdf)
+* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
+
 ***
 
 ### Machine Learning
 
-While learning popular machine lerning techniques using `scikit-learn`, I became interested in the mathematics of machine learning. 
+During Summer 2018, I was learned to use  popular machine lerning techniques using *scikit-learn* as yet another problem-solving tool. While documenting my understanding, I became more interested in the underlying mathematics of it.
 With [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani, I am working on a 
  permutation-invariant encoding algorithm of data points in Euclidean space.
 
+*  [My repository](https://github.com/debdeepbh/ml) to document notes and solved exercises from the book *Hands-On Machine Learning with Scikit-Learn and TensorFlow*
+* _Permutation-invariant encoding of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation)
+
 ***
-
-
-## Publications
-* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_  with [Luiz Gustovo Farah](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Submitted) [(arXiv)](https://arxiv.org/abs/1906.05822)
-* _Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation_ with [Luiz Gustavo Farah](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Preprint)
-* _Generalized ForWaRD algorithm for multi-antenna model_ (Preprint)
-* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (In preparation)
-* _Permutation-invariant representation of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation)
 
 

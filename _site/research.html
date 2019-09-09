@@ -12,14 +12,14 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Website" />
 <meta property="og:description" content="Website" />
-<link rel="canonical" href="http://localhost:4000/research.html" />
-<meta property="og:url" content="http://localhost:4000/research.html" />
+<link rel="canonical" href="http://0.0.0.0:4000/research.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/research.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Research","url":"http://localhost:4000/research.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"WebPage","headline":"Research","url":"http://0.0.0.0:4000/research.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=48caedf1d24fe521b65dd48920092abe2722f075">
+    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -27,7 +27,7 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="http://localhost:4000/">Debdeep Bhattacharya</a></h1>
+        <h1><a href="http://0.0.0.0:4000/">Debdeep Bhattacharya</a></h1>
         
         
           <img src="/content/pic.jpg" alt="Logo" />
@@ -84,12 +84,12 @@
 
       <h2 id="research-interests">Research Interests</h2>
 
-<p>My area of research is Applied Mathematics in general. I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from</p>
+<p>I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from</p>
 <ul>
   <li><a href="#nonlinear-dispersive-equations">nonlinear dispersive partial differential equations</a></li>
   <li><a href="#signal-processing">signal processing</a></li>
   <li><a href="#solid-mechanics">solid mechanics</a></li>
-  <li><a href="#machine-learning">machine learning</a>.</li>
+  <li><a href="#machine-learning">machine learning</a></li>
 </ul>
 
 <hr />
@@ -104,12 +104,22 @@ With my advisor <a href="https://case.fiu.edu/about/directory/people/svetlana-ro
 
 <p>Currently, I am studying the inhomogeneous <a href="https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation">nonlinear Schrödinger</a> and the <a href="https://en.wikipedia.org/wiki/Hartree_equation">Hartree equation</a>.</p>
 
+<ul>
+  <li><em>Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation</em>  with <a href="https://sites.google.com/site/lgfarah/">Luiz Gustovo Farah</a> and <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Svetlana Roudenko</a> (Submitted) <a href="https://arxiv.org/abs/1906.05822">(arXiv)</a></li>
+  <li><em>Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation</em> with <a href="https://sites.google.com/site/lgfarah/">Luiz Gustavo Farah</a> (In preparation)</li>
+</ul>
+
 <hr />
 
 <h3 id="signal-processing">Signal Processing</h3>
 <p>Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on <a href="https://en.wikipedia.org/wiki/Frame_(linear_algebra)">frames</a>, <a href="https://en.wikipedia.org/wiki/Wavelet">wavelets</a>, time series analysis and <a href="https://en.wikipedia.org/wiki/Compressed_sensing">compressed sensing</a> by <a href="https://www.math.umd.edu/~jjb/">John Benedetto</a>.</p>
 
 <p>During Summer 2018, I had the opportunity to work with the <a href="https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna">ANITA</a> collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the <a href="https://en.wikipedia.org/wiki/Deconvolution">deconvolution problem</a> in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of <a href="https://www.phys.hawaii.edu/~gorham/">Peter Gorham</a> on the optimal deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called <a href="https://github.com/debdeepbh/libWTools">libWTools</a>. I am currently working on a multi-antenna generalization of this algorithm.</p>
+
+<ul>
+  <li>Report on <em>Deconvolution problem and application to ANITA signals</em>, submitted to ANITA collaboration at University of Hawai’i at Manoa <a href="/content/report-anita.pdf">(link)</a></li>
+  <li><em>Generalized ForWaRD algorithm for multi-antenna model</em> (Preprint)</li>
+</ul>
 
 <hr />
 
@@ -126,24 +136,25 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 <p>I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.</p>
 
+<ul>
+  <li>Report on <em>Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics</em>, Submitted to the NSF as part of <a href="https://orise.orau.gov/nsf-msgi/">MSGI</a> program <a href="/content/NSF-report-signed.pdf">(link)</a></li>
+  <li><em>Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics</em> with <a href="https://web.ornl.gov/~selesonpd/">Pablo Seleson</a> and <a href="https://cam.ornl.gov/jtrageser2.html">Jeremy Trageser</a> (Preprint)</li>
+</ul>
+
 <hr />
 
 <h3 id="machine-learning">Machine Learning</h3>
 
-<p>While learning popular machine lerning techniques using <code class="highlighter-rouge">scikit-learn</code>, I became interested in the mathematics of machine learning. 
+<p>During Summer 2018, I was learned to use  popular machine lerning techniques using <em>scikit-learn</em> as yet another problem-solving tool. While documenting my understanding, I became more interested in the underlying mathematics of it.
 With <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani, I am working on a 
  permutation-invariant encoding algorithm of data points in Euclidean space.</p>
 
-<hr />
-
-<h2 id="publications">Publications</h2>
 <ul>
-  <li><em>Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation</em>  with <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Luiz Gustovo Farah</a> and <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Svetlana Roudenko</a> (Submitted) <a href="https://arxiv.org/abs/1906.05822">(arXiv)</a></li>
-  <li><em>Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation</em> with <a href="https://case.fiu.edu/about/directory/people/svetlana-roudenko.html">Luiz Gustavo Farah</a> (Preprint)</li>
-  <li><em>Generalized ForWaRD algorithm for multi-antenna model</em> (Preprint)</li>
-  <li><em>Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics</em> with <a href="https://web.ornl.gov/~selesonpd/">Pablo Seleson</a> and <a href="https://cam.ornl.gov/jtrageser2.html">Jeremy Trageser</a> (In preparation)</li>
-  <li><em>Permutation-invariant representation of data in Eulidean space</em>, with <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani (In preparation)</li>
+  <li><a href="https://github.com/debdeepbh/ml">My repository</a> to document notes and solved exercises from the book <em>Hands-On Machine Learning with Scikit-Learn and TensorFlow</em></li>
+  <li><em>Permutation-invariant encoding of data in Eulidean space</em>, with <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani (In preparation)</li>
 </ul>
+
+<hr />
 
 
 
