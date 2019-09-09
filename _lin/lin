@@ -69,97 +69,18 @@ ___
  	lpstat -P Print_to_PDF filename	(Here, by default, the printer name is Print_to_PDF)
  (Note: Sometimes, it produces blank pages i.e. does not print anything. In that case, delete the printer from Menu> Printing and add a generic cpus:/ printer with the name Print_to_PDF (If you want to use that name at all))
  
-9. IP and hostname resolution
- 
- List hostnames and ips:
- arp -a
- avahi-browse -a
- For IP <---> Hostname, use resolveip: 
- resolveip IP/Hostname
- 
- Sometimes, one way: IP --> Host: 
- host ip_address
- but most of the time this fails due to the DNS server, I think.
- For IP <--- Host, nslookup:
- nslookup host
- This also does not work for internal hosts.
- 
- 10. Live ports:
- 
- Know the live ports of your OWN hosts, and the connected ips:
- sudo netstat -tpan
- 
- Know if a particluar port is open or not in a remote host:
- nmap -p port host/ip
- 
- nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le 'while(<STDIN>){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'
- 
-11. Boot from LiveCD iso using GRUB:
- 
- Add this to /boot/grub/grub.cfg in proper place with proper modification:
- 
- menuentry "Booting ISO" {
-  insmod part_msdos
-  insmod ntfs
-  set root='(hd0,msdos6)'
-  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
-  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
-  initrd (loop)/casper/initrd.lz
- }
- 
- The command "set root='(hd0,msdos6)'" is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command 'insmod' is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after "loopback loop" tells the location of the iso.
- The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distro, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:
- menuentry "My custom Linux" {
- set root=(hd0,5)
- linux /boot/vmlinuz
- initrd /boot/initrd.img
- }
- This is NOT tested. If does not work, then Maybe the the options are needed to be changed.
- 
- For Windows, instead of kernel and initrd, use "chainloader +1" after defining root. A standard grub.cfg file is a good example.
+
+IP-and-hostname-resolution
  
  
-12. Handy Commands:
- 
- See the size of partitions: 
- 	df -h  
- 		(-h stands for human-readable. It applies to 'ls' too)
- See the dependency of a package: 
- 	apt-cache depends <package name>
- See the packages which are depndent on a package (reverse-dependency)
- 	apt-get rdepends <package-name>
- Search for a package or metapackage: 	
- 	aptitude search <search_string>
- See the list of open files:
- 	lsof
- 
-13. Manually download Flash Videos:
- 
- (i)   Visit the YouTube video and wait for it to be downloaded fully.
-     Then, run from the command line the command "lsof -n | grep Flash" which shows the files (even memory files!), and filters to those that have Flash in their name.
-     You get something like "plugin-co 2461 user 17u REG 8,5 1693301 524370 /tmp/FlashXXVkHEM6 (deleted)".
- 
-     In Linux, if a file is deleted, it is actually gone only when all programs that opened it earlier are closed. That is, the Flash plugin is using a trick to hide the /tmp/FlashXXVkHEM6 file. It creates it and immediately deletes it. But since the Flash plugin keeps running, it can apparently still use it.
- 
- (ii)   From the above line we note the number 2461, which is the process ID. In your case it will be probably different. Then, run "cd /proc/2461/fd" and finally execute "ls -l". This will show you the memory files, and specifically "lrwx------ 1 user user 64 2011-09-16 10:23 17 -> /tmp/FlashXXVkHEM6 (deleted)". The number 17 (in my case) is the filename you can use to access the deleted /tmp/FlashXXVkHEM6. Therefore, simply run "cp 17 /tmp/myyoutubevideo.flv" and you restore the Youtube Video!
+Boot-from-LiveCD-iso-using-GRUB
  
  
-14. Peforming xserver activities through tty or remote ssh shells:
+Handy-Commands
  
- After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the "from" field)
  
- export DISPLAY=:0.0
  
- Then  issue your commands like you do in the terminal.
- 
- Note: apparently you cannot run a gui program in other user's tty even by setting the DISPLAY to the user's tty.
- 
-15. Simple GTK pop-ups:
- 
- First export DISPLAY 
- There is a software called zenity that'll do your work. See zenity --help for more options. Example:
- 
- zenity --info --text "hello there!"
+Peforming-xserver-activities-through-tty-or-remote-ssh-shells
  
 16. Send messages to other users in terminal:
  
@@ -2660,40 +2581,45 @@ ___
 103. Fixing boot after erasing grub
  Install another linux, for example, Manjaro from USB livecd. It will come with its own grub. While booting through this new grub, if you get an error saying the UUID does not exist etc, edit the /boot/grub/grub.cfg file. Fix the UUID in the menuenry for the target linux. Usually, the the correct UUID appears in the first line, but in the lines containing the intiramfs, the UUID is messed up. Fix them in all the places. The config file should use the UUID of the old install, not the new one.
  
-104. Writing a manpage
+Writing-a-manpage
+---
+title: Writing a manpage
+---
  It uses something called troff markdown language.
  Create a file starting with the following lines and open with
  	man -l filename.
 
  Body of the manpage:
- .Dd date-of-modification
- .Dt name-of-the-article 7 (7 for miscellaneous manual. see man man for explanation)
- .Sh NAME
- .Nm name of the article
- .Nd description of the article
+
+ |.Dd | date-of-modification
+ |.Dt | name-of-the-article 7 (7 for miscellaneous manual. see man man for explanation)
+ |.Sh | NAME
+ |.Nm | name of the article
+ |.Nd | description of the article
  
  Caution
-     ·   Keep codes in within a .Bd -literal ... .Ed block.
-     ·   Do NOT write Em anywhere in your text, it will vanish. Write \&Em
+     *   Keep codes in within a .Bd -literal ... .Ed block.
+     *   Do NOT write Em anywhere in your text, it will vanish. Write \&Em
          instead.
    Frequently used macros
-     .Sh           New Section
-     .Ss           New subsection
-     .Bl           begin list. It can take the following parameters: -bullet,
-                   -item, -enum, -tag, -hang etc.
-     .It           items inside .Bl and .El
-     .El           end list
-     .Pa           path for a filename
-     .Bd           begin a display block, It takes a few parameters, most importantly -literal which is useful for source codes, spaced and tabbed text.
-     .Dl           literal text of one line
-     .Ed           end display block one line of literal text.
-     \fB           begins bold
-     \fI           begins Italian
-     \fR           ends bold and/or Italian
-     .Em           emphasize (a line of bold, similar to \fB ... \fR). If using
+
+   |  .Sh       |    New Section
+   |  .Ss       |    New subsection
+   |  .Bl       |    begin list. It can take the following parameters: -bullet,
+   |            |    -item, -enum, -tag, -hang etc.
+   |  .It       |    items inside .Bl and .El
+   |  .El       |    end list
+   |  .Pa       |    path for a filename
+   |  .Bd       |    begin a display block, It takes a few parameters, most importantly -literal which is useful for source codes, spaced and tabbed text.
+   |  .Dl       |    literal text of one line
+   |  .Ed       |    end display block one line of literal text.
+   |  \fB       |    begins bold
+   |  \fI       |    begins Italian
+   |  \fR       |    ends bold and/or Italian
+   |  .Em       |    emphasize (a line of bold, similar to \fB ... \fR). If using
                    inside an item of list, use without the dot, e.g.  .It Em tagname
 
-  escape chars  \e generates a \, \& replaces at the beginning of a sentence,
+  escape chars  `\e` generates a \, \& replaces at the beginning of a sentence,
                    but doesn't generate a .
 
                    Type        Output
@@ -2709,310 +2635,11 @@ ___
      http://manpages.ubuntu.com/manpages/trusty/pt/man7/mdoc.samples.7.html
 
      There is a way include a custom file to man database.
-105. Unity 3D
- Install linpng12 from AUR.
- 
- Install unity 3d from AUR. Note: The package build is 11GB  after makepkg -s and creates a .sh file and a directory. Instead of pacman -U, use the generated install script as there will be no .xi file to install. This is also an advantage since these files can be moved to another partition and launched. These are 3GB long.
- 
- Watched tutorial on game rolling the ball on their official site.
- Lessons:
- A "is Trigger" object with a "Rigid body" component is a "Dynamic collider" and uses more resources.
- A "is Trigger" object without"Rigid body" component is a "Static  collider" is ideal. Setting "kinemetic" field will give you desired result.
- 
-106. Progress bar for cp, firefox download, dd, tar, cat
- Use 'progress'.  https://github.com/Xfennec/progress
- See man page for details.
- 
-107. wpa_supplicant
- Find the network by scanning
-  iwlist wlp6s0b1 scan | grep ESSID
- The list is NOT ordered according to signal strength.
- or, use wifi-menu but cancel it after it finds the ssids.
- 
- To create a config file, see manpage of wpa_supplicant.conf
- 
- Works only for home wifi (have to check for work wifi): If you do not want to store the password and create a config file, use wpa_passphrase
- wpa_passphrase ssid_name
- you shall enter the passphrase from stdin and will be encrypted.
- Now copy the code from the file and create a config file. Delete the commented line containing the actual password.
 
- Alternatively, you can do the following:
-
- For home wifi, this works:
- network={
-               ssid="home"
-               psk="passphrase"
-          }
-
- For GWireless, this works:
- network={
-        ssid="GWireless"
-	key_mgmt=WPA-EAP
-	eap=PEAP
-	identity="netID"
-        password="password"
- }
- 
- For eduroam, this works:
- network={
-         ssid="eduroam"
- 	key_mgmt=WPA-EAP
- 	eap=PEAP
- 	identity="email id"
- 	password="password"
- }
- 
- To run the config file with debugging:
- 
- wpa_supplicant -i wlp6s0b1 -c /path/of/config/file.conf -d
- 
- To run it in the background, replace -d by -B
- 
- Finally, run dhcpcd if not running  already by dhcpcd or systemctl restart/start/enable dhcpcd.service
- 
-108. Find out name of the linux distribution
- cat /etc/*-release
- typically, os-release has all the info, including the pretty name.
- For the linux kernel version, cat /proc/version
-109. Determine which physical disk partition mounted on a directory
- For example, the / filesystem is installed on
-  df /
- The directory /root is located in
-  df /root
- Conversely, to see a list of all block devices and their mountpoints,
-  lsblk
- 
-110. Fix pacman -Syu error with wrong pgp keys
- pacman-key --refresh-keys
- 
-111. Killing processes
- To find the pid of the process, do
-  pidof processname
- or,
-  ps aux | grep processname
- To kill process with pid
-  kill pid
- To kill stubborn unresponsive process
-  kill -9 pid
- To kill all processes with name
-  killall processname
-  killall -9 processname
-  
- Unmounting partitions in use: Find out which process is using it by
-  lsof | grep /mountpoint
-  killall/kill [-9] processname/pid 
-112. [Abandoned: couldn't see any improvement] Speeding up firefox by moving the profile to ram
- https://fixmynix.com/speed-up-firefox-with-ram-cache-and-tmpfs-linux/
- Note: Setting  browser.cache.disk.enable to false and setting browser.cache.memory.enable to true accelerates reloading recently loaded page elements. It comes with the variable browser.cache.memory.capacity which has to be created and specified as well. Eg: 409600. Reference: http://kb.mozillazine.org/Browser.cache.memory.enable
- Note: This specified size is OUTSIDE the profile directory of firefox. The precess so far has not used any ramfs yet.
-
- N: Didn't follow the first few http, ssl variable modifications. Starts from editing memory_cache variable.
- Main problem: the profile directory gets bigger and bigger and soon the tmpfs is full.
- Q: Can I sync while closing firefox instead of cronjob every 5 mins? Well, to save accidental crash, 5 mins seems better, still.
- Q: How to preserve the installed addons and login to pushbullet?
- Q: Why allocate _capacity 2M and create tmpfs for 128mb?
- Q: Moving .vimrc to ram.
- Q: Wat else can I move to ram?
-113. Compress and uncompress (zip/unzip) files using aunpack
- To extract all files from archive `foobar.tar.gz' to  a  subdirectory  (or the current directory if it only contains one file):
-  aunpack foobar.tar.gz
- 
- To create a zip archive of two files `foo' and `bar':
-  apack myarchive.zip foo bar
- To compress the content of current directory into a zip file called comp.zip
-  apack comp.zip *
- 
- To list contents of the rar archive `stuff.rar':
-  als stuff.rar
-114. calendar.vim
- Since  I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it.
- Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.
-
- Here is a quick possible solution:
- 1. Open gvim
- 2. Type :Ca
- 3. Copy the link
- 4. Paste in browser, proceed, get a code
- 5. Edit the file .vim/bundle/calendar.vim/google/client.vim and navigate to the line: 
- let code = input(printf(calendar#message#get('access_url_input_code'),
- (This line is inside a function called access_token_async. The input code here is not able to access the bufferes "+, "* etc. So we manually supply the value of variable 'code'. Make sure this modification does not stay for long)
- 6. Modify the line to
- let code = 'xxxx_your_code_goes_here_xxxx'
- 7. Save the file.
- 8. Open usual vim and run :Ca and it should work directly.
- 9. Undo the changes in client.vim and save it back. This step is necessary because you don't want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.
- 
- See the calendar.vim/doc/calendar.txt for a complete help which I followed mostly.
- As a shortcut in awesomerc, add `xterm -e vim +:Ca` to open vim in a terminal with command :Ca and mapped it to Modkey+C
- 
-  
-115. Installing packages in R
-  install.packages("ggplot2") 
-
-116. R tutorial
- Add "day of the week" column to your data with date:
- Let the data be tran and tran$Date is is date format (possibilities)
- tran$day <- weekdays(as.Date(tran$Date))
-
- Order your data by day of the week like this: (data is daily, day is DoW)
- daily$DoW <- factor(daily$DoW, levels= c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
- daily[order(daily$DoW), ]
-
- Plot frequency distribution of days of the week 
- barplot(table(tran$day))
-
- Create a sequence of weekdays, starting from today's day like this:
- Get today's date
- t <- Sys.Date()
- Create a sequence of 7 days by: adjust t+const to fix the starting day
- dayseq <- weekdays(seq.Date(t,t+6,by=1))
- Get the corresponding weekday value by
- weekdays(dayseq)
- or,
- daynames <- weekdays(dayseq, abbreviate=TRUE)
-
- Lesson Learned: IF you have a data with a variable name Category, and Catergoy can be either Grocery, Shopping or Travel, then first convert the variable into a factor using: data$Category <- factor(data$Category)
- Then you can use levels(data$Category) to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.
-
- The problem is to edit an entry in the data frame which is a category type. For example, if you want to change data[4,"Category"] to "hello", you cannot change it using data[4,"Category"] <- "hello" !!!
- Here is what to do:
- Change the type of Category varaible to character using:
- data$Category <- as.character(data$Category)
- Edit the value:
- data[4,"Category"] <- "hello"
- Change the variable type back to factor:
- data$Category <- factor(data$Category)
-
- So annoying!
- 
- qqplot2 help:
- A line plot :
- qplot(x=Date, y=Amount, data=tran, geom=c('point','line'), color=Category, alpha = I(0.7))
-
- The following prints number of times we did grocery, shopping etc w.r.t. date
- qplot(factor(timeS), data=tran, geom="bar", fill=factor(Category))
-
- The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
- ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User) 
-
- A slight invariant:
- ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)
-
- stat='identity' is the option that lets you plot y vs x instead of the defualt statistics count.
-
- Plot amount vs date/timeS, stacked with category
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity')
-
- Withe separate user:
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + facet_wrap(~ User)
- 
- Seperate picture by category, both users in the same picture, 2rows of pictures
- ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat='identity') + facet_wrap(~ Category, nrow = 2)
- 
- Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~User)
-
- To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.
- 
- Alternate representation with Category and User interchanged
-  ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity') + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~Category)
-  
- In this context, manysum is nothing but
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity')
-
-
-117. Installing xournal from source and adding useful patches:
-
-So, apt-get install doesn't give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.
-
-To install the development dependencies, do
-sudo apt-get build-dep xournal
-
-Download the latest tar, extract it with
-tar -xf xournal.**.tar.gz
-cd xournal.**
-
-Details of patching can be found here: https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/
-Here is the summary:
-Patch the source code with the download patch file
-patch -p1 < patchfile.patch
-
-Note: if the patchfile is a tar file, extract and then -p1 should be change to -p2 or the required number of depth  of path.
-
-Compile and install this modified source file, follow http://xournal.sourceforge.net/manual.html#installation
-
-Summmary: 
-
-To install in the user directory (~/bin/), do:
-./autogen.sh; ./configure --prefix=$HOME; make; make install; make home-desktop-install
-The last step is to set mime-type etc.
-
-To install it in the system, do with sudo:
-./autogen.sh
-make
-(as root) make install
-(as root) make desktop-install
-
-So, far used the following patches: various improvements, linewidth-patch, vi-style scrolling
-
-Caution: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.
-
-To log the input events, add the following line at the top of the file src/xo-callbacks.c:
-#define INPUT_DEBUG 1
-Then, compile and run from terminal to see all the input events popping up at the terminal.
-
-
-118. Setting up raspberry pi zero w
-
-Ethernet over usb:
-Follow the popular guide to add two lines related to modules in the first (boot) partition:
-1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it.
-2: Create a new file called ssh using textedit and save it onto the boot partition. Use 'get info' to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi
-3: Finally, open up the cmdline.txt. replace all text with this:
-
-dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh 
-
-Edit /etc/network/interfaces to add usb0 related info:
-allow-hotplug usb0
-iface usb0 inet dhcp 
-
-Plug in a *good* usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using ssh pi@raspberrypi.local
-If the repeated attemp to connect and fail message from nm-applet is bothersome, run dhcpcd enp7e0u1i7 (or whatever is the hardware name from ifconfig) on your laptop. Note: dhcpcd in not installed by default so install it using sudo apt-get install dhcpcd5
-
-For wifi:
-Use wpa_passphrase <ssid_name>  to get the config file. Add it to /etc/wpa_supplicant/wpa_supplicant.conf
-Next, add the following to /etc/network/interfaces
-auto wlan0
-allow-hotplug wlan0
-iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
-
-You can set up multiple networks in the wpa_supplicant.conf file and the first available one will be used (I think. Or, maybe wrt signal strength? However, it is working according to order of appearance)
-
-_____
-### Install Cocalc notebook locally
-
-No need to install sage or sagemath.
-
-Follow the instruction to install the cocalc-docker. It is just one
-line long code. It will download,
-extract and install. I had to use sudo to get it to work since I
-installed docker using sudo (`sudo apt-get install docker.io`. 
-To open it in browser, make sure to use `https://localhost` instead of
-`http://localhost`.
-
-I had create account (fake email id are ok, since they are local)
-
-To start and stop cocalc, use 
-`sudo docker start cocalc`
-`sudo docker stop cocalc`
-
-To view equations in latex rendering, use the function `view()`. To
-print out the latex code of it, use the function `latex()`.
-
-To define variables in a latex-friendly way so that the view command
-prints it right, use
-
-u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
-
-Later, do `view(u_th_x)` to see it rendered correctly.
+Unity-3D
+Fix-pacman--Syu-error-with-wrong-pgp-keys
+Compress-and-uncompress-zip-unzip-files-using-aunpack
+R-tutorial
+Installing-xournal-from-source-and-adding-useful-patches
+Setting-up-raspberry-pi-zero-w
+Install-Cocalc-notebook-locally
