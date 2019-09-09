@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>lin collection | Debdeep Bhattacharya</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="lin collection" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Website" />
+<meta property="og:description" content="Website" />
+<link rel="canonical" href="http://0.0.0.0:4000/lin.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/lin.html" />
+<meta property="og:site_name" content="Debdeep Bhattacharya" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"lin collection","url":"http://0.0.0.0:4000/lin.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://0.0.0.0:4000/">Debdeep Bhattacharya</a></h1>
+        <!--
+        
+          <img src="" alt="Logo" />
+        
+
+        <p>Website</p>
+
+	-->
+        
+        <p class="view"><a href="http://github.com/debdeepbh/debdeepbh.github.io">View the Project on GitHub <small>debdeepbh/debdeepbh.github.io</small></a></p>
+        
+
+        
+
+        
+      </header>
+
+
+      <section>
+
+      
+  <h2>
+    <a href="/lin/Boot-from-LiveCD-iso-using-GRUB.html">
+      Boot from LiveCD iso using GRUB
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Add this to /boot/grub/grub.cfg in proper place with proper modification:</p>
+
+<p>menuentry “Booting ISO” {
+  insmod part_msdos
+  insmod ntfs
+  set root=’(hd0,msdos6)’
+  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt –
+  initrd (loop)/casper/initrd.lz
+ }</p>
+
+<p>The command “set root=’(hd0,msdos6)’” is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command ‘insmod’ is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after “loopback loop” tells the location of the iso.
+ The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distro, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:
+ menuentry “My custom Linux” {
+ set root=(hd0,5)
+ linux /boot/vmlinuz
+ initrd /boot/initrd.img
+ }
+ This is NOT tested. If does not work, then Maybe the the options are needed to be changed.</p>
+
+<p>For Windows, instead of kernel and initrd, use “chainloader +1” after defining root. A standard grub.cfg file is a good example.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html">
+      Compress and uncompress (zip/unzip) files using aunpack
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>To extract all files from archive `foobar.tar.gz’ to  a  subdirectory  (or the current directory if it only contains one file):
+  aunpack foobar.tar.gz</p>
+
+<p>To create a zip archive of two files <code class="highlighter-rouge">foo' and </code>bar’:
+  apack myarchive.zip foo bar
+ To compress the content of current directory into a zip file called comp.zip
+  apack comp.zip *</p>
+
+<p>To list contents of the rar archive `stuff.rar’:
+  als stuff.rar</p>
+<ol>
+  <li>calendar.vim
+ Since  I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it.
+ Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.</li>
+</ol>
+
+<p>Here is a quick possible solution:</p>
+<ol>
+  <li>Open gvim</li>
+  <li>Type :Ca</li>
+  <li>Copy the link</li>
+  <li>Paste in browser, proceed, get a code</li>
+  <li>Edit the file .vim/bundle/calendar.vim/google/client.vim and navigate to the line: 
+ let code = input(printf(calendar#message#get(‘access_url_input_code’),
+ (This line is inside a function called access_token_async. The input code here is not able to access the bufferes “+, “* etc. So we manually supply the value of variable ‘code’. Make sure this modification does not stay for long)</li>
+  <li>Modify the line to
+ let code = ‘xxxx_your_code_goes_here_xxxx’</li>
+  <li>Save the file.</li>
+  <li>Open usual vim and run :Ca and it should work directly.</li>
+  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
+</ol>
+
+<p>See the calendar.vim/doc/calendar.txt for a complete help which I followed mostly.
+ As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command :Ca and mapped it to Modkey+C</p>
+
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Enable-Visual-Effects.html">
+      Enable Visual Effects
+    </a>
+  </h2>
+<!--  No need for content
+	<p><ul>
+  <li>Enable Wobbly Windows</li>
+  <li>Enable Shift Switcher (Cover) and Change Shortcut to <Ctrl>+<Tab> for next window and <Ctrl>+<Shift>+<Tab> for previous window.</Tab></Shift></Ctrl></Tab></Ctrl></li>
+</ul>
+
+<ol>
+  <li>Installing sound driver:</li>
+</ol>
+
+<ul>
+  <li>In terminal, write: sudo gedit /etc/modprobe.d/alsa-base.conf</li>
+  <li>In the end of the file, add this line: options snd-hda-intel model=6stack-dell (For that dell studio 1435)
+ options snd-hda-intel model=ideapad (For lenovo ideapad Z560)</li>
+  <li>Save the file and Reboot.</li>
+  <li>Open pulse audio and enjoy full features.</li>
+</ul>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Fix-pacman--Syu-error-with-wrong-pgp-keys.html">
+      Fix pacman -Syu error with wrong pgp keys
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>pacman-key –refresh-keys</p>
+
+<ol>
+  <li>Killing processes
+ To find the pid of the process, do
+  pidof processname
+ or,
+  ps aux | grep processname
+ To kill process with pid
+  kill pid
+ To kill stubborn unresponsive process
+  kill -9 pid
+ To kill all processes with name
+  killall processname
+  killall -9 processname</li>
+</ol>
+
+<p>Unmounting partitions in use: Find out which process is using it by
+  lsof | grep /mountpoint
+  killall/kill [-9] processname/pid</p>
+<ol>
+  <li>[Abandoned: couldn’t see any improvement] Speeding up firefox by moving the profile to ram
+ https://fixmynix.com/speed-up-firefox-with-ram-cache-and-tmpfs-linux/
+ Note: Setting  browser.cache.disk.enable to false and setting browser.cache.memory.enable to true accelerates reloading recently loaded page elements. It comes with the variable browser.cache.memory.capacity which has to be created and specified as well. Eg: 409600. Reference: http://kb.mozillazine.org/Browser.cache.memory.enable
+ Note: This specified size is OUTSIDE the profile directory of firefox. The precess so far has not used any ramfs yet.</li>
+</ol>
+
+<p>N: Didn’t follow the first few http, ssl variable modifications. Starts from editing memory_cache variable.
+ Main problem: the profile directory gets bigger and bigger and soon the tmpfs is full.
+ Q: Can I sync while closing firefox instead of cronjob every 5 mins? Well, to save accidental crash, 5 mins seems better, still.
+ Q: How to preserve the installed addons and login to pushbullet?
+ Q: Why allocate _capacity 2M and create tmpfs for 128mb?
+ Q: Moving .vimrc to ram.
+ Q: Wat else can I move to ram?</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Handy-Commands.html">
+      Handy Commands
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>See the size of partitions: 
+ 	df -h<br />
+ 		(-h stands for human-readable. It applies to ‘ls’ too)
+ See the dependency of a package: 
+ 	apt-cache depends <package name="">
+ See the packages which are depndent on a package (reverse-dependency)
+ 	apt-get rdepends <package-name>
+ Search for a package or metapackage: 	
+ 	aptitude search <search_string>
+ See the list of open files:
+ 	lsof</search_string></package-name></package></p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/IP-and-hostname-resolution.html">
+      IP and hostname resolution
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>List hostnames and ips:
+ arp -a
+ avahi-browse -a
+ For IP &lt;—&gt; Hostname, use resolveip: 
+ resolveip IP/Hostname</p>
+
+<p>Sometimes, one way: IP –&gt; Host: 
+ host ip_address
+ but most of the time this fails due to the DNS server, I think.
+ For IP &lt;— Host, nslookup:
+ nslookup host
+ This also does not work for internal hosts.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Install-Cocalc-notebook-locally.html">
+      Install Cocalc notebook locally
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>No need to install sage or sagemath.</p>
+
+<p>Follow the instruction to install the cocalc-docker. It is just one
+line long code. It will download,
+extract and install. I had to use sudo to get it to work since I
+installed docker using sudo (<code class="highlighter-rouge">sudo apt-get install docker.io</code>. 
+To open it in browser, make sure to use <code class="highlighter-rouge">https://localhost</code> instead of
+<code class="highlighter-rouge">http://localhost</code>.</p>
+
+<p>I had create account (fake email id are ok, since they are local)</p>
+
+<p>To start and stop cocalc, use 
+<code class="highlighter-rouge">sudo docker start cocalc</code>
+<code class="highlighter-rouge">sudo docker stop cocalc</code></p>
+
+<p>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
+print out the latex code of it, use the function <code class="highlighter-rouge">latex()</code>.</p>
+
+<p>To define variables in a latex-friendly way so that the view command
+prints it right, use</p>
+
+<p>u_th_x = var(‘u_th_x’, latex_name = ‘u_{\theta}(x)’}</p>
+
+<p>Later, do <code class="highlighter-rouge">view(u_th_x)</code> to see it rendered correctly.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Installing-xournal-from-source-and-adding-useful-patches.html">
+      Installing xournal from source and adding useful patches
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>So, apt-get install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.</p>
+
+<p>To install the development dependencies, do
+sudo apt-get build-dep xournal</p>
+
+<p>Download the latest tar, extract it with
+tar -xf xournal.<strong>.tar.gz
+cd xournal.</strong></p>
+
+<p>Details of patching can be found here: https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/
+Here is the summary:
+Patch the source code with the download patch file
+patch -p1 &lt; patchfile.patch</p>
+
+<p>Note: if the patchfile is a tar file, extract and then -p1 should be change to -p2 or the required number of depth  of path.</p>
+
+<p>Compile and install this modified source file, follow http://xournal.sourceforge.net/manual.html#installation</p>
+
+<p>Summmary:</p>
+
+<p>To install in the user directory (~/bin/), do:
+./autogen.sh; ./configure –prefix=$HOME; make; make install; make home-desktop-install
+The last step is to set mime-type etc.</p>
+
+<p>To install it in the system, do with sudo:
+./autogen.sh
+make
+(as root) make install
+(as root) make desktop-install</p>
+
+<p>So, far used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
+
+<p>Caution: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
+
+<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:
+#define INPUT_DEBUG 1
+Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
+
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Live-ports.html">
+      Live ports
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Know the live ports of your OWN hosts, and the connected ips:
+ sudo netstat -tpan</p>
+
+<p>Know if a particluar port is open or not in a remote host:
+ nmap -p port host/ip</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>nmap –script=smb-enum-users 192.168.2.167 -p 445</td>
+      <td>perl -le ‘while(<STDIN>){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'</STDIN></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html">
+      Peforming xserver activities through tty or remote ssh shells
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field)</p>
+
+<p>export DISPLAY=:0.0</p>
+
+<p>Then  issue your commands like you do in the terminal.</p>
+
+<p>Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty.</p>
+
+<ol>
+  <li>Simple GTK pop-ups:</li>
+</ol>
+
+<p>First export DISPLAY 
+ There is a software called zenity that’ll do your work. See zenity –help for more options. Example:</p>
+
+<p>zenity –info –text “hello there!”</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Printing.html">
+      Printing
+    </a>
+  </h2>
+<!--  No need for content
+	<p><hr />
+
+<p>Printing
+—-</p>
+
+<p>to know the printer names attached to your computer: lpstat -v
+ to make one of the printers the default one: lpoptions -d <printer_name>
+ (sometimes this step is necessary)
+ for printing files, use the syntax: lpr -P <printer_name> <filename>
+ 	the output will be of the format: device for <printer_name>: <device>
+ Printing to PDF:
+ 	lpstat -P Print_to_PDF filename	(Here, by default, the printer name is Print_to_PDF)
+ (Note: Sometimes, it produces blank pages i.e. does not print anything. In that case, delete the printer from Menu&gt; Printing and add a generic cpus:/ printer with the name Print_to_PDF (If you want to use that name at all))</device></printer_name></filename></printer_name></printer_name></p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/R-tutorial.html">
+      R tutorial
+    </a>
+  </h2>
+<!--  No need for content
+	<p><ol>
+  <li>Installing packages in R
+  install.packages(“ggplot2”)</li>
+</ol>
+
+<p>Add “day of the week” column to your data with date:
+ Let the data be tran and tran$Date is is date format (possibilities)
+ tran$day &lt;- weekdays(as.Date(tran$Date))</p>
+
+<p>Order your data by day of the week like this: (data is daily, day is DoW)
+ daily$DoW &lt;- factor(daily$DoW, levels= c(“Sunday”, “Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday”, “Saturday”))
+ daily[order(daily$DoW), ]</p>
+
+<p>Plot frequency distribution of days of the week 
+ barplot(table(tran$day))</p>
+
+<p>Create a sequence of weekdays, starting from today’s day like this:
+ Get today’s date
+ t &lt;- Sys.Date()
+ Create a sequence of 7 days by: adjust t+const to fix the starting day
+ dayseq &lt;- weekdays(seq.Date(t,t+6,by=1))
+ Get the corresponding weekday value by
+ weekdays(dayseq)
+ or,
+ daynames &lt;- weekdays(dayseq, abbreviate=TRUE)</p>
+
+<p>Lesson Learned: IF you have a data with a variable name Category, and Catergoy can be either Grocery, Shopping or Travel, then first convert the variable into a factor using: data$Category &lt;- factor(data$Category)
+ Then you can use levels(data$Category) to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.</p>
+
+<p>The problem is to edit an entry in the data frame which is a category type. For example, if you want to change data[4,”Category”] to “hello”, you cannot change it using data[4,”Category”] &lt;- “hello” !!!
+ Here is what to do:
+ Change the type of Category varaible to character using:
+ data$Category &lt;- as.character(data$Category)
+ Edit the value:
+ data[4,”Category”] &lt;- “hello”
+ Change the variable type back to factor:
+ data$Category &lt;- factor(data$Category)</p>
+
+<p>So annoying!</p>
+
+<p>qqplot2 help:
+ A line plot :
+ qplot(x=Date, y=Amount, data=tran, geom=c(‘point’,’line’), color=Category, alpha = I(0.7))</p>
+
+<p>The following prints number of times we did grocery, shopping etc w.r.t. date
+ qplot(factor(timeS), data=tran, geom=”bar”, fill=factor(Category))</p>
+
+<p>The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
+ ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User)</p>
+
+<p>A slight invariant:
+ ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)</p>
+
+<p>stat=’identity’ is the option that lets you plot y vs x instead of the defualt statistics count.</p>
+
+<p>Plot amount vs date/timeS, stacked with category
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’)</p>
+
+<p>Withe separate user:
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + facet_wrap(~ User)</p>
+
+<p>Seperate picture by category, both users in the same picture, 2rows of pictures
+ ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat=’identity’) + facet_wrap(~ Category, nrow = 2)</p>
+
+<p>Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~User)</p>
+
+<p>To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.</p>
+
+<p>Alternate representation with Category and User interchanged
+  ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’) + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~Category)</p>
+
+<p>In this context, manysum is nothing but
+ ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’)</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Setting-up-raspberry-pi-zero-w.html">
+      Setting up raspberry pi zero w
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Ethernet over usb:
+Follow the popular guide to add two lines related to modules in the first (boot) partition:
+1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it.
+2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi
+3: Finally, open up the cmdline.txt. replace all text with this:</p>
+
+<p>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh</p>
+
+<p>Edit /etc/network/interfaces to add usb0 related info:
+allow-hotplug usb0
+iface usb0 inet dhcp</p>
+
+<p>Plug in a <em>good</em> usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using ssh pi@raspberrypi.local
+If the repeated attemp to connect and fail message from nm-applet is bothersome, run dhcpcd enp7e0u1i7 (or whatever is the hardware name from ifconfig) on your laptop. Note: dhcpcd in not installed by default so install it using sudo apt-get install dhcpcd5</p>
+
+<p>For wifi:
+Use wpa_passphrase <ssid_name>  to get the config file. Add it to /etc/wpa_supplicant/wpa_supplicant.conf
+Next, add the following to /etc/network/interfaces
+auto wlan0
+allow-hotplug wlan0
+iface wlan0 inet dhcp
+    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</ssid_name></p>
+
+<p>You can set up multiple networks in the wpa_supplicant.conf file and the first available one will be used (I think. Or, maybe wrt signal strength? However, it is working according to order of appearance)</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Unity-3D.html">
+      Unity 3D
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Install linpng12 from AUR.</p>
+
+<p>Install unity 3d from AUR. Note: The package build is 11GB  after makepkg -s and creates a .sh file and a directory. Instead of pacman -U, use the generated install script as there will be no .xi file to install. This is also an advantage since these files can be moved to another partition and launched. These are 3GB long.</p>
+
+<p>Watched tutorial on game rolling the ball on their official site.
+ Lessons:
+ A “is Trigger” object with a “Rigid body” component is a “Dynamic collider” and uses more resources.
+ A “is Trigger” object without”Rigid body” component is a “Static  collider” is ideal. Setting “kinemetic” field will give you desired result.</p>
+
+<ol>
+  <li>
+    <p>Progress bar for cp, firefox download, dd, tar, cat
+ Use ‘progress’.  https://github.com/Xfennec/progress
+ See man page for details.</p>
+  </li>
+  <li>
+    <p>wpa_supplicant
+ Find the network by scanning
+  iwlist wlp6s0b1 scan | grep ESSID
+ The list is NOT ordered according to signal strength.
+ or, use wifi-menu but cancel it after it finds the ssids.</p>
+  </li>
+</ol>
+
+<p>To create a config file, see manpage of wpa_supplicant.conf</p>
+
+<p>Works only for home wifi (have to check for work wifi): If you do not want to store the password and create a config file, use wpa_passphrase
+ wpa_passphrase ssid_name
+ you shall enter the passphrase from stdin and will be encrypted.
+ Now copy the code from the file and create a config file. Delete the commented line containing the actual password.</p>
+
+<p>Alternatively, you can do the following:</p>
+
+<p>For home wifi, this works:
+ network={
+               ssid=”home”
+               psk=”passphrase”
+          }</p>
+
+<p>For GWireless, this works:
+ network={
+        ssid=”GWireless”
+	key_mgmt=WPA-EAP
+	eap=PEAP
+	identity=”netID”
+        password=”password”
+ }</p>
+
+<p>For eduroam, this works:
+ network={
+         ssid=”eduroam”
+ 	key_mgmt=WPA-EAP
+ 	eap=PEAP
+ 	identity=”email id”
+ 	password=”password”
+ }</p>
+
+<p>To run the config file with debugging:</p>
+
+<p>wpa_supplicant -i wlp6s0b1 -c /path/of/config/file.conf -d</p>
+
+<p>To run it in the background, replace -d by -B</p>
+
+<p>Finally, run dhcpcd if not running  already by dhcpcd or systemctl restart/start/enable dhcpcd.service</p>
+
+<ol>
+  <li>Find out name of the linux distribution
+ cat /etc/*-release
+ typically, os-release has all the info, including the pretty name.
+ For the linux kernel version, cat /proc/version</li>
+  <li>Determine which physical disk partition mounted on a directory
+ For example, the / filesystem is installed on
+  df /
+ The directory /root is located in
+  df /root
+ Conversely, to see a list of all block devices and their mountpoints,
+  lsblk</li>
+</ol>
+
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/auto-hard-disk-mount.html">
+      Create a startup script to mount Hard disk drives
+    </a>
+  </h2>
+<!--  No need for content
+	<p><ul>
+  <li>Goto /media/ and create 3 directories called “windows”, “disk3”, storage”.
+ 	cd /media/
+ 	sudo mkdir windows disk3 storage</li>
+  <li>Create a file named “mounting” with following content:</li>
+</ul>
+
+<p>##startup script to mount the disk drives
+ sudo mount /dev/sda1 /media/windows
+ sudo mount /dev/sda3 /media/disk3
+ sudo mount /dev/sda5 /media/storage
+ #EOF</p>
+
+<ul>
+  <li>Change file permission to +x:
+ 	chmod +x mounting</li>
+  <li>Copy the file to /etc/init.d/:
+ 	sudo cp mounting /etc/init.d/</li>
+  <li>Update:
+ 	sudo update-rc.d mounting defaults</li>
+</ul>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/folding.html">
+      Using file and folding
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Maintained using indentation folding and searched using the headings.
+Settings have to be applied to this file only using vim -S TODOsettings.vim</p>
+
+<h2 id="folding-help">Folding Help:</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>zi</td>
+      <td>switch folding on or off</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>za</td>
+      <td>toggle current fold open/closed</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc</td>
+      <td>close current fold</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zR</td>
+      <td>open all folds</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zM</td>
+      <td>close all folds</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zv</td>
+      <td>expand folds to reveal cursor</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zj,zk</td>
+      <td>jumps to the next/previous fold, even when unfolded</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zo,(zO)</td>
+      <td>jumpsopen fold (recursively)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc,(zC)</td>
+      <td>jumpsclosefold (recursively)</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zA</td>
+      <td>toggle folds recursively</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Folding Options (Should change in TODOsettings.vim file to make it permanent.)
+set foldnestmax=10      | “deepest fold is 10 levels
+set nofoldenable        | “dont fold by default
+set foldlevel=1         | “this is just what i use
+set shiftwidth=1 	| “to consider spaces as one foldlevel away</p>
+
+<h2 id="searching-help">Searching Help:</h2>
+<p>** :set foldopen-=search  		to stop folds from opening on search, which is even better.
+    :folddoopen s/old/new/ge 	to replace old with new in the lines which are not folded.</p>
+
+<h2 id="warning">Warning:</h2>
+<p>Smartindent is on, hence use <F2> before pasting into it.</F2></p>
+
+<h2 id="want">Want:</h2>
+<p>Not more than 2 stages of folding
+ Search within the visible folded text
+ Search within the invisible text inside folds
+ INdent = on</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="http://github.com/debdeepbh">debdeepbh</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90023312-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>
