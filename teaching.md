@@ -4,13 +4,14 @@ title: Teaching
 
 ## Teaching
 
-I am a teaching assistant for MATH 1231 during Spring 2019. Previous experience:
+I am a teaching assistant for Calculus III during Fall 2019. 
 
 ### Instructor
 * Summer 2017: Linear Algebra
 * Summer 2016: Calculus with precalculus
 
 ### Teaching Assistant
+* Spring 2019: Calculus I
 * Fall 2018: Single-variable Calculus II
 * Spring 2018: Single-variable Calculus I
 * Fall 2017: Calculus with Precalculus I
