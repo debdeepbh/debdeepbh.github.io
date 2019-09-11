@@ -11,18 +11,18 @@
 <meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="Peforming xserver activities through tty or remote ssh shells" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty. Simple GTK pop-ups: First export DISPLAY There is a software called zenity that’ll do your work. See zenity –help for more options. Example: zenity –info –text “hello there!”" />
-<meta property="og:description" content="After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty. Simple GTK pop-ups: First export DISPLAY There is a software called zenity that’ll do your work. See zenity –help for more options. Example: zenity –info –text “hello there!”" />
+<meta name="description" content="After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the from field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty." />
+<meta property="og:description" content="After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the from field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty." />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Peforming xserver activities through tty or remote ssh shells","url":"http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html"},"description":"After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty. Simple GTK pop-ups: First export DISPLAY There is a software called zenity that’ll do your work. See zenity –help for more options. Example: zenity –info –text “hello there!”","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Peforming xserver activities through tty or remote ssh shells","url":"http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Peforming-xserver-activities-through-tty-or-remote-ssh-shells.html"},"description":"After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the from field) export DISPLAY=:0.0 Then issue your commands like you do in the terminal. Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,22 +54,21 @@
 
 	      <h2> Peforming xserver activities through tty or remote ssh shells </h2>
 
-      <p>After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field)</p>
-
-<p>export DISPLAY=:0.0</p>
-
+      <p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at the <code class="highlighter-rouge">from</code> field)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export DISPLAY=:0.0
+</code></pre></div></div>
 <p>Then  issue your commands like you do in the terminal.</p>
 
-<p>Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty.</p>
+<p>Note: apparently you cannot run a gui program in other user’s tty even by setting the <code class="highlighter-rouge">DISPLAY</code> to the user’s tty.</p>
 
-<ol>
-  <li>Simple GTK pop-ups:</li>
-</ol>
+<hr />
 
-<p>First export DISPLAY 
- There is a software called zenity that’ll do your work. See zenity –help for more options. Example:</p>
+<h3 id="simple-gtk-pop-ups">Simple GTK pop-ups:</h3>
 
-<p>zenity –info –text “hello there!”</p>
+<p>First export <code class="highlighter-rouge">DISPLAY</code> as above.
+ There is a software called <code class="highlighter-rouge">zenity</code> that’ll do your work. See <code class="highlighter-rouge">zenity --help</code> for more options. Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> zenity --info --text "hello there!"
+</code></pre></div></div>
 
 
       </section>

@@ -19,7 +19,7 @@
 {"@type":"WebPage","headline":"lin collection","url":"http://0.0.0.0:4000/lin.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -55,27 +55,74 @@
     </a>
   </h2>
 <!--  No need for content
-	<p><p>Add this to /boot/grub/grub.cfg in proper place with proper modification:</p>
+	<p><p>Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps.</p>
 
-<p>menuentry “Booting ISO” {
+<p>Add this to <code class="highlighter-rouge">/boot/grub/grub.cfg</code> in proper place with proper modification:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "Booting ISO" {
   insmod part_msdos
   insmod ntfs
-  set root=’(hd0,msdos6)’
+  set root='(hd0,msdos6)'
   loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
-  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt –
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
   initrd (loop)/casper/initrd.lz
- }</p>
+ }
+</code></pre></div></div>
 
-<p>The command “set root=’(hd0,msdos6)’” is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command ‘insmod’ is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after “loopback loop” tells the location of the iso.
- The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distro, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:
- menuentry “My custom Linux” {
+<p>The command <code class="highlighter-rouge">set root='(hd0,msdos6)'</code> is equivalent to mounting the 6th partition of the zero-th hard disk as root (<code class="highlighter-rouge">/</code>). The command <code class="highlighter-rouge">insmod</code> is still unknown to me but the 2nd line (<code class="highlighter-rouge">insmod ntfs</code>) tells that the partition type is <code class="highlighter-rouge">ntfs</code>. The path name after <code class="highlighter-rouge">loopback loop</code> tells the location of the iso.
+ The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, <code class="highlighter-rouge">vmlinuz</code>) and a ramdisk (<code class="highlighter-rouge">initrd</code>). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "My custom Linux" {
  set root=(hd0,5)
  linux /boot/vmlinuz
  initrd /boot/initrd.img
  }
- This is NOT tested. If does not work, then Maybe the the options are needed to be changed.</p>
+</code></pre></div></div>
+<p><strong>Note</strong>: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed.</p>
 
-<p>For Windows, instead of kernel and initrd, use “chainloader +1” after defining root. A standard grub.cfg file is a good example.</p>
+<p>For Windows, instead of kernel and initrd, use <code class="highlighter-rouge">chainloader +1</code> after defining root. A standard <code class="highlighter-rouge">grub.cfg</code> file is a good example.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/Calendar.vim.html">
+      Calendar.vim
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p><a href="https://github.com/itchyny/calendar.vim">Calendar.vim</a> is an excellent plugin for vim to access google calendar from vim.</p>
+
+<p>If you use <code class="highlighter-rouge">pathogen</code> to install vim plugins (which I do), cloning the repo to <code class="highlighter-rouge">.vim/bundle/</code> installs it directly.</p>
+
+<p>Setting the google options in <code class="highlighter-rouge">.vimrc</code>, when I do <code class="highlighter-rouge">:Ca</code> inside vim, I cannot copy the link got google authentication. So I opened it in <code class="highlighter-rouge">gvim</code> and copied it. But in <code class="highlighter-rouge">gvim</code>, I cannot paste the code that I received from google. So I hand-typed it.</p>
+
+<p>Here is a quick possible solution:</p>
+<ol>
+  <li>Open <code class="highlighter-rouge">gvim</code></li>
+  <li>Type <code class="highlighter-rouge">:Ca</code></li>
+  <li>Copy the link</li>
+  <li>Paste in browser, proceed, get a code</li>
+  <li>Edit the file <code class="highlighter-rouge">.vim/bundle/calendar.vim/google/client.vim</code> and navigate to the line:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = input(printf(calendar#message#get('access_url_input_code'),
+</code></pre></div></div>
+
+<p>(This line is inside a function called access_token_async. The input code here is not able to access the bufferes <code class="highlighter-rouge">"+</code>, <code class="highlighter-rouge">"*</code> etc. So we manually supply the value of variable <code class="highlighter-rouge">code</code>. Make sure this modification does not stay for long)</p>
+<ol>
+  <li>Modify the line to
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = 'xxxx_your_code_goes_here_xxxx'
+</code></pre></div>    </div>
+  </li>
+  <li>Save the file.</li>
+  <li>Open usual vim and run :Ca and it should work directly.</li>
+  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
+</ol>
+
+<p>See the <code class="highlighter-rouge">calendar.vim/doc/calendar.txt</code> for a complete help which I followed mostly.
+ As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command <code class="highlighter-rouge">:Ca</code> and mapped it to <code class="highlighter-rouge">Modkey+C</code></p>
+
 </p>
 -->
   <p><hr />
@@ -87,113 +134,25 @@
     </a>
   </h2>
 <!--  No need for content
-	<p><p>To extract all files from archive `foobar.tar.gz’ to  a  subdirectory  (or the current directory if it only contains one file):
-  aunpack foobar.tar.gz</p>
-
-<p>To create a zip archive of two files <code class="highlighter-rouge">foo' and </code>bar’:
-  apack myarchive.zip foo bar
- To compress the content of current directory into a zip file called comp.zip
-  apack comp.zip *</p>
-
-<p>To list contents of the rar archive `stuff.rar’:
-  als stuff.rar</p>
-<ol>
-  <li>calendar.vim
- Since  I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it.
- Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.</li>
-</ol>
-
-<p>Here is a quick possible solution:</p>
-<ol>
-  <li>Open gvim</li>
-  <li>Type :Ca</li>
-  <li>Copy the link</li>
-  <li>Paste in browser, proceed, get a code</li>
-  <li>Edit the file .vim/bundle/calendar.vim/google/client.vim and navigate to the line: 
- let code = input(printf(calendar#message#get(‘access_url_input_code’),
- (This line is inside a function called access_token_async. The input code here is not able to access the bufferes “+, “* etc. So we manually supply the value of variable ‘code’. Make sure this modification does not stay for long)</li>
-  <li>Modify the line to
- let code = ‘xxxx_your_code_goes_here_xxxx’</li>
-  <li>Save the file.</li>
-  <li>Open usual vim and run :Ca and it should work directly.</li>
-  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
-</ol>
-
-<p>See the calendar.vim/doc/calendar.txt for a complete help which I followed mostly.
- As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command :Ca and mapped it to Modkey+C</p>
-
-</p>
--->
-  <p><hr />
-</p>
-
-  <h2>
-    <a href="/lin/Enable-Visual-Effects.html">
-      Enable Visual Effects
-    </a>
-  </h2>
-<!--  No need for content
 	<p><ul>
-  <li>Enable Wobbly Windows</li>
-  <li>Enable Shift Switcher (Cover) and Change Shortcut to <Ctrl>+<Tab> for next window and <Ctrl>+<Shift>+<Tab> for previous window.</Tab></Shift></Ctrl></Tab></Ctrl></li>
+  <li>To extract all files from archive <code class="highlighter-rouge">foobar.tar.gz</code> to  a  subdirectory  (or the current directory if it only contains one file):
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aunpack foobar.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>To create a zip archive of two files <code class="highlighter-rouge">foo</code> and <code class="highlighter-rouge">bar</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack myarchive.zip foo bar
+</code></pre></div>    </div>
+  </li>
+  <li>To compress the content of current directory into a zip file called <code class="highlighter-rouge">comp.zip</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack comp.zip *
+</code></pre></div>    </div>
+  </li>
+  <li>To list contents of the rar archive `stuff.rar’:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>als stuff.rar
+</code></pre></div>    </div>
+  </li>
 </ul>
 
-<ol>
-  <li>Installing sound driver:</li>
-</ol>
-
-<ul>
-  <li>In terminal, write: sudo gedit /etc/modprobe.d/alsa-base.conf</li>
-  <li>In the end of the file, add this line: options snd-hda-intel model=6stack-dell (For that dell studio 1435)
- options snd-hda-intel model=ideapad (For lenovo ideapad Z560)</li>
-  <li>Save the file and Reboot.</li>
-  <li>Open pulse audio and enjoy full features.</li>
-</ul>
-</p>
--->
-  <p><hr />
-</p>
-
-  <h2>
-    <a href="/lin/Fix-pacman--Syu-error-with-wrong-pgp-keys.html">
-      Fix pacman -Syu error with wrong pgp keys
-    </a>
-  </h2>
-<!--  No need for content
-	<p><p>pacman-key –refresh-keys</p>
-
-<ol>
-  <li>Killing processes
- To find the pid of the process, do
-  pidof processname
- or,
-  ps aux | grep processname
- To kill process with pid
-  kill pid
- To kill stubborn unresponsive process
-  kill -9 pid
- To kill all processes with name
-  killall processname
-  killall -9 processname</li>
-</ol>
-
-<p>Unmounting partitions in use: Find out which process is using it by
-  lsof | grep /mountpoint
-  killall/kill [-9] processname/pid</p>
-<ol>
-  <li>[Abandoned: couldn’t see any improvement] Speeding up firefox by moving the profile to ram
- https://fixmynix.com/speed-up-firefox-with-ram-cache-and-tmpfs-linux/
- Note: Setting  browser.cache.disk.enable to false and setting browser.cache.memory.enable to true accelerates reloading recently loaded page elements. It comes with the variable browser.cache.memory.capacity which has to be created and specified as well. Eg: 409600. Reference: http://kb.mozillazine.org/Browser.cache.memory.enable
- Note: This specified size is OUTSIDE the profile directory of firefox. The precess so far has not used any ramfs yet.</li>
-</ol>
-
-<p>N: Didn’t follow the first few http, ssl variable modifications. Starts from editing memory_cache variable.
- Main problem: the profile directory gets bigger and bigger and soon the tmpfs is full.
- Q: Can I sync while closing firefox instead of cronjob every 5 mins? Well, to save accidental crash, 5 mins seems better, still.
- Q: How to preserve the installed addons and login to pushbullet?
- Q: Why allocate _capacity 2M and create tmpfs for 128mb?
- Q: Moving .vimrc to ram.
- Q: Wat else can I move to ram?</p>
 </p>
 -->
   <p><hr />
@@ -205,17 +164,19 @@
     </a>
   </h2>
 <!--  No need for content
-	<p><p>See the size of partitions: 
- 	df -h<br />
- 		(-h stands for human-readable. It applies to ‘ls’ too)
- See the dependency of a package: 
- 	apt-cache depends <package name="">
- See the packages which are depndent on a package (reverse-dependency)
- 	apt-get rdepends <package-name>
- Search for a package or metapackage: 	
- 	aptitude search <search_string>
- See the list of open files:
- 	lsof</search_string></package-name></package></p>
+	<p><ul>
+  <li>See the size of partitions: 
+ 	<code class="highlighter-rouge">df -h</code>
+ 		(<code class="highlighter-rouge">-h</code> stands for human-readable. It applies to <code class="highlighter-rouge">ls</code> too)</li>
+  <li>See the dependency of a package: 
+ 	<code class="highlighter-rouge">apt-cache depends &lt;package name&gt;</code></li>
+  <li>See the packages which are depndent on a package (reverse-dependency)
+ 	<code class="highlighter-rouge">apt-get rdepends &lt;package-name&gt;</code></li>
+  <li>Search for a package or metapackage: 	
+ 	<code class="highlighter-rouge">aptitude search &lt;search_string&gt;</code></li>
+  <li>See the list of open files:
+ 	<code class="highlighter-rouge">lsof</code></li>
+</ul>
 </p>
 -->
   <p><hr />
@@ -227,18 +188,29 @@
     </a>
   </h2>
 <!--  No need for content
-	<p><p>List hostnames and ips:
- arp -a
- avahi-browse -a
- For IP &lt;—&gt; Hostname, use resolveip: 
- resolveip IP/Hostname</p>
-
-<p>Sometimes, one way: IP –&gt; Host: 
- host ip_address
- but most of the time this fails due to the DNS server, I think.
- For IP &lt;— Host, nslookup:
- nslookup host
- This also does not work for internal hosts.</p>
+	<p><ul>
+  <li>List hostnames and ips:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> arp -a
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> avahi-browse -a
+</code></pre></div>    </div>
+  </li>
+  <li>For IP &lt;—&gt; Hostname, use resolveip:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> resolveip IP/Hostname
+</code></pre></div>    </div>
+  </li>
+  <li>Sometimes, one way: IP –&gt; Host:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> host ip_address
+</code></pre></div>    </div>
+    <p>but most of the time this fails due to the DNS server, I think.</p>
+  </li>
+  <li>For IP &lt;— Host, nslookup:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> nslookup host
+</code></pre></div>    </div>
+    <p>This also does not work for internal hosts.</p>
+  </li>
+</ul>
 </p>
 -->
   <p><hr />
@@ -250,9 +222,9 @@
     </a>
   </h2>
 <!--  No need for content
-	<p><p>No need to install sage or sagemath.</p>
+	<p><p>No need to install <code class="highlighter-rouge">sage</code> or <code class="highlighter-rouge">sagemath</code>.</p>
 
-<p>Follow the instruction to install the cocalc-docker. It is just one
+<p>Follow the instruction to install the <code class="highlighter-rouge">cocalc-docker</code>. It is just one
 line long code. It will download,
 extract and install. I had to use sudo to get it to work since I
 installed docker using sudo (<code class="highlighter-rouge">sudo apt-get install docker.io</code>. 
@@ -261,17 +233,30 @@ To open it in browser, make sure to use <code class="highlighter-rouge">https://
 
 <p>I had create account (fake email id are ok, since they are local)</p>
 
-<p>To start and stop cocalc, use 
-<code class="highlighter-rouge">sudo docker start cocalc</code>
-<code class="highlighter-rouge">sudo docker stop cocalc</code></p>
+<p>To start and stop cocalc, use</p>
 
-<p>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker start cocalc
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker stop cocalc
+</code></pre></div></div>
+
+<p>Usage:</p>
+<ul>
+  <li>
+    <p>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
 print out the latex code of it, use the function <code class="highlighter-rouge">latex()</code>.</p>
-
-<p>To define variables in a latex-friendly way so that the view command
+  </li>
+  <li>
+    <p>To define variables in a latex-friendly way so that the view command
 prints it right, use</p>
+  </li>
+</ul>
 
-<p>u_th_x = var(‘u_th_x’, latex_name = ‘u_{\theta}(x)’}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
+</code></pre></div></div>
 
 <p>Later, do <code class="highlighter-rouge">view(u_th_x)</code> to see it rendered correctly.</p>
 </p>
@@ -287,41 +272,51 @@ prints it right, use</p>
 <!--  No need for content
 	<p><p>So, apt-get install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.</p>
 
-<p>To install the development dependencies, do
-sudo apt-get build-dep xournal</p>
+<p>To install the development dependencies, do</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get build-dep xournal
+</code></pre></div></div>
 
-<p>Download the latest tar, extract it with
-tar -xf xournal.<strong>.tar.gz
-cd xournal.</strong></p>
+<p>Download the latest tar, extract it with</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xf xournal.**.tar.gz
+cd xournal.**
+</code></pre></div></div>
 
-<p>Details of patching can be found here: https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/
-Here is the summary:
-Patch the source code with the download patch file
-patch -p1 &lt; patchfile.patch</p>
+<p>Details of patching can be found <a href="https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/">here</a>:
+Here is the summary:</p>
+
+<p>Patch the source code with the download patch file</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patch -p1 &lt; patchfile.patch
+</code></pre></div></div>
 
 <p>Note: if the patchfile is a tar file, extract and then -p1 should be change to -p2 or the required number of depth  of path.</p>
 
-<p>Compile and install this modified source file, follow http://xournal.sourceforge.net/manual.html#installation</p>
+<p>Compile and install this modified source file, follow <a href="http://xournal.sourceforge.net/manual.html#installation">link</a></p>
 
 <p>Summmary:</p>
 
-<p>To install in the user directory (~/bin/), do:
-./autogen.sh; ./configure –prefix=$HOME; make; make install; make home-desktop-install
-The last step is to set mime-type etc.</p>
-
-<p>To install it in the system, do with sudo:
-./autogen.sh
+<ul>
+  <li>To install in the user directory (~/bin/), do:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh; ./configure --prefix=$HOME; make; make install; make home-desktop-install
+</code></pre></div>    </div>
+    <p>The last step is to set mime-type etc.</p>
+  </li>
+  <li>To install it in the system, do with sudo:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh
 make
 (as root) make install
-(as root) make desktop-install</p>
+(as root) make desktop-install
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>So, far used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
+<p>So far, I have used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
 
-<p>Caution: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
+<p><strong>Caution</strong>: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
 
-<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:
-#define INPUT_DEBUG 1
-Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
+<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define INPUT_DEBUG 1
+</code></pre></div></div>
+<p>Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
 
 </p>
 -->
@@ -330,24 +325,38 @@ Then, compile and run from terminal to see all the input events popping up at th
 
   <h2>
     <a href="/lin/Live-ports.html">
-      Live ports
+      Detect live ports using nmap
     </a>
   </h2>
 <!--  No need for content
-	<p><p>Know the live ports of your OWN hosts, and the connected ips:
- sudo netstat -tpan</p>
+	<p><p>Know the live ports of your OWN hosts, and the connected ips:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo netstat -tpan
+</code></pre></div></div>
 
-<p>Know if a particluar port is open or not in a remote host:
- nmap -p port host/ip</p>
+<p>Know if a particular port is open or not in a remote host:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> nmap -p port host/ip
+</code></pre></div></div>
+<p>Moreover,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le 'while(&lt;STDIN&gt;){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'
+</code></pre></div></div>
+</p>
+-->
+  <p><hr />
+</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>nmap –script=smb-enum-users 192.168.2.167 -p 445</td>
-      <td>perl -le ‘while(<STDIN>){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'</STDIN></td>
-    </tr>
-  </tbody>
-</table>
+  <h2>
+    <a href="/lin/Name-of-the-linux-distribution.html">
+      Find out name of the linux distribution
+    </a>
+  </h2>
+<!--  No need for content
+	<p><div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> cat /etc/*-release
+</code></pre></div></div>
+<p>typically, <code class="highlighter-rouge">os-release</code> has all the info, including the pretty name.
+ For the linux kernel version, do</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cat /proc/version
+</code></pre></div></div>
+
 </p>
 -->
   <p><hr />
@@ -359,22 +368,21 @@ Then, compile and run from terminal to see all the input events popping up at th
     </a>
   </h2>
 <!--  No need for content
-	<p><p>After logging in, set the DISPLAY variable to :0.0 or to :0 or any other if necessary (which can be found by issuing w command and looking at the “from” field)</p>
-
-<p>export DISPLAY=:0.0</p>
-
+	<p><p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at the <code class="highlighter-rouge">from</code> field)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export DISPLAY=:0.0
+</code></pre></div></div>
 <p>Then  issue your commands like you do in the terminal.</p>
 
-<p>Note: apparently you cannot run a gui program in other user’s tty even by setting the DISPLAY to the user’s tty.</p>
+<p>Note: apparently you cannot run a gui program in other user’s tty even by setting the <code class="highlighter-rouge">DISPLAY</code> to the user’s tty.</p>
 
-<ol>
-  <li>Simple GTK pop-ups:</li>
-</ol>
+<hr />
 
-<p>First export DISPLAY 
- There is a software called zenity that’ll do your work. See zenity –help for more options. Example:</p>
+<h3 id="simple-gtk-pop-ups">Simple GTK pop-ups:</h3>
 
-<p>zenity –info –text “hello there!”</p>
+<p>First export <code class="highlighter-rouge">DISPLAY</code> as above.
+ There is a software called <code class="highlighter-rouge">zenity</code> that’ll do your work. See <code class="highlighter-rouge">zenity --help</code> for more options. Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> zenity --info --text "hello there!"
+</code></pre></div></div>
 </p>
 -->
   <p><hr />
@@ -386,19 +394,73 @@ Then, compile and run from terminal to see all the input events popping up at th
     </a>
   </h2>
 <!--  No need for content
-	<p><hr />
+	<p><ul>
+  <li>To know the printer names attached to your computer:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lpstat -v
+</code></pre></div>    </div>
+  </li>
+  <li>To make one of the printers the default one:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lpoptions -d &lt;printer_name&gt;
+</code></pre></div>    </div>
+    <p>(sometimes this step is necessary)</p>
+  </li>
+  <li>For printing files, use the syntax:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lpr -P &lt;printer_name&gt; &lt;filename&gt;
+</code></pre></div>    </div>
+    <p>the output will be of the format: <code class="highlighter-rouge">device for &lt;printer_name&gt;: &lt;device&gt;</code></p>
+  </li>
+  <li>Printing to PDF:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	lpstat -P Print_to_PDF filename	
+</code></pre></div>    </div>
+    <p>(Here, by default, the printer name is <code class="highlighter-rouge">Print_to_PDF</code>)
+ (Note: Sometimes, it produces blank pages i.e. does not print anything. In that case, delete the printer from Menu&gt; Printing and add a generic <code class="highlighter-rouge">cpus:/</code> printer with the name Print_to_PDF (If you want to use that name at all))</p>
+  </li>
+</ul>
+</p>
+-->
+  <p><hr />
+</p>
 
-<p>Printing
-—-</p>
+  <h2>
+    <a href="/lin/Processes-and-killing-them.html">
+      Processes and how to find and kill
+    </a>
+  </h2>
+<!--  No need for content
+	<p><ul>
+  <li>To find the pid of the process, do
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pidof processname
+</code></pre></div>    </div>
+    <p>or,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | grep processname
+</code></pre></div>    </div>
+  </li>
+  <li>To kill process with pid
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill stubborn unresponsive process
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kill -9 pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill all processes with name
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall processname 
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall -9 processname
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>to know the printer names attached to your computer: lpstat -v
- to make one of the printers the default one: lpoptions -d <printer_name>
- (sometimes this step is necessary)
- for printing files, use the syntax: lpr -P <printer_name> <filename>
- 	the output will be of the format: device for <printer_name>: <device>
- Printing to PDF:
- 	lpstat -P Print_to_PDF filename	(Here, by default, the printer name is Print_to_PDF)
- (Note: Sometimes, it produces blank pages i.e. does not print anything. In that case, delete the printer from Menu&gt; Printing and add a generic cpus:/ printer with the name Print_to_PDF (If you want to use that name at all))</device></printer_name></filename></printer_name></printer_name></p>
+<hr />
+
+<p>Example: Unmounting partitions in use: Find out which process is using it by
+<code class="highlighter-rouge">
+  lsof | grep /mountpoint
+</code>
+Then kill it using</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  killall/kill [-9] processname/pid 
+</code></pre></div></div>
 </p>
 -->
   <p><hr />
@@ -410,80 +472,121 @@ Then, compile and run from terminal to see all the input events popping up at th
     </a>
   </h2>
 <!--  No need for content
-	<p><ol>
+	<p><h3 id="installation">Installation</h3>
+<ul>
   <li>Installing packages in R
-  install.packages(“ggplot2”)</li>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install.packages("ggplot2") 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+<ul>
+  <li>Add “day of the week” column to your data with date:
+ Let the data be tran and tran$Date is is date format (possibilities)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tran$day &lt;- weekdays(as.Date(tran$Date))
+</code></pre></div>    </div>
+  </li>
+  <li>Order your data by day of the week like this: (data is daily, day is DoW)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> daily$DoW &lt;- factor(daily$DoW, levels= c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+ daily[order(daily$DoW), ]
+</code></pre></div>    </div>
+  </li>
+  <li>Plot frequency distribution of days of the week
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> barplot(table(tran$day))
+</code></pre></div>    </div>
+  </li>
+  <li>Create a sequence of weekdays, starting from today’s day like this:
+ Get today’s date
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> t &lt;- Sys.Date()
+</code></pre></div>    </div>
+  </li>
+  <li>Create a sequence of 7 days by: adjust <code class="highlighter-rouge">t+const</code> to fix the starting day
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dayseq &lt;- weekdays(seq.Date(t,t+6,by=1))
+</code></pre></div>    </div>
+  </li>
+  <li>Get the corresponding weekday value by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> weekdays(dayseq)
+</code></pre></div>    </div>
+    <p>or,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> daynames &lt;- weekdays(dayseq, abbreviate=TRUE)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Lesson Learned</strong>: IF you have a data with a variable name Category, and Category can be either Grocery, Shopping or Travel, then first convert the variable into a factor using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data$Category &lt;- factor(data$Category)
+</code></pre></div></div>
+<p>Then you can use <code class="highlighter-rouge">levels(data$Category)</code> to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.
+ The problem is to edit an entry in the data frame which is a category type. For example, if you want to change <code class="highlighter-rouge">data[4,"Category"]</code> to “hello”, you cannot change it using <code class="highlighter-rouge">data[4,"Category"] &lt;- "hello"</code> !!!
+ Here is what to do:</p>
+<ol>
+  <li>Change the type of Category variable to character using:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data$Category &lt;- as.character(data$Category)
+</code></pre></div>    </div>
+  </li>
+  <li>Edit the value:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data[4,"Category"] &lt;- "hello"
+</code></pre></div>    </div>
+  </li>
+  <li>Change the variable type back to factor:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data$Category &lt;- factor(data$Category)
+</code></pre></div>    </div>
+    <p>(It is very annoying.)</p>
+  </li>
 </ol>
 
-<p>Add “day of the week” column to your data with date:
- Let the data be tran and tran$Date is is date format (possibilities)
- tran$day &lt;- weekdays(as.Date(tran$Date))</p>
+<h3 id="qqplot2-help">qqplot2 help:</h3>
 
-<p>Order your data by day of the week like this: (data is daily, day is DoW)
- daily$DoW &lt;- factor(daily$DoW, levels= c(“Sunday”, “Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday”, “Saturday”))
- daily[order(daily$DoW), ]</p>
+<ul>
+  <li>A line plot :
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> qplot(x=Date, y=Amount, data=tran, geom=c('point','line'), color=Category, alpha = I(0.7))
+</code></pre></div>    </div>
+  </li>
+  <li>The following prints number of times we did grocery, shopping etc w.r.t. date
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> qplot(factor(timeS), data=tran, geom="bar", fill=factor(Category))
+</code></pre></div>    </div>
+  </li>
+  <li>The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User) 
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>Plot frequency distribution of days of the week 
- barplot(table(tran$day))</p>
+<p>A slight invariant:</p>
 
-<p>Create a sequence of weekdays, starting from today’s day like this:
- Get today’s date
- t &lt;- Sys.Date()
- Create a sequence of 7 days by: adjust t+const to fix the starting day
- dayseq &lt;- weekdays(seq.Date(t,t+6,by=1))
- Get the corresponding weekday value by
- weekdays(dayseq)
- or,
- daynames &lt;- weekdays(dayseq, abbreviate=TRUE)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)
+</code></pre></div></div>
+<p><code class="highlighter-rouge">stat='identity'</code> is the option that lets you plot y vs x instead of the defualt statistics count.</p>
 
-<p>Lesson Learned: IF you have a data with a variable name Category, and Catergoy can be either Grocery, Shopping or Travel, then first convert the variable into a factor using: data$Category &lt;- factor(data$Category)
- Then you can use levels(data$Category) to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.</p>
-
-<p>The problem is to edit an entry in the data frame which is a category type. For example, if you want to change data[4,”Category”] to “hello”, you cannot change it using data[4,”Category”] &lt;- “hello” !!!
- Here is what to do:
- Change the type of Category varaible to character using:
- data$Category &lt;- as.character(data$Category)
- Edit the value:
- data[4,”Category”] &lt;- “hello”
- Change the variable type back to factor:
- data$Category &lt;- factor(data$Category)</p>
-
-<p>So annoying!</p>
-
-<p>qqplot2 help:
- A line plot :
- qplot(x=Date, y=Amount, data=tran, geom=c(‘point’,’line’), color=Category, alpha = I(0.7))</p>
-
-<p>The following prints number of times we did grocery, shopping etc w.r.t. date
- qplot(factor(timeS), data=tran, geom=”bar”, fill=factor(Category))</p>
-
-<p>The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
- ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User)</p>
-
-<p>A slight invariant:
- ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)</p>
-
-<p>stat=’identity’ is the option that lets you plot y vs x instead of the defualt statistics count.</p>
-
-<p>Plot amount vs date/timeS, stacked with category
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’)</p>
-
-<p>Withe separate user:
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + facet_wrap(~ User)</p>
-
-<p>Seperate picture by category, both users in the same picture, 2rows of pictures
- ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat=’identity’) + facet_wrap(~ Category, nrow = 2)</p>
-
-<p>Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~User)</p>
-
-<p>To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.</p>
-
-<p>Alternate representation with Category and User interchanged
-  ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’) + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~Category)</p>
-
-<p>In this context, manysum is nothing but
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’)</p>
+<ul>
+  <li>Plot amount vs date/timeS, stacked with category
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity')
+</code></pre></div>    </div>
+  </li>
+  <li>With a separate user:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + facet_wrap(~ User)
+</code></pre></div>    </div>
+  </li>
+  <li>Seperate picture by category, both users in the same picture, 2rows of pictures
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat='identity') + facet_wrap(~ Category, nrow = 2)
+</code></pre></div>    </div>
+  </li>
+  <li>Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~User)
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.</p>
+  </li>
+  <li>Alternate representation with Category and User interchanged
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity') + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~Category)
+</code></pre></div>    </div>
+    <p>In this context, manysum is nothing but</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity')
+</code></pre></div>    </div>
+  </li>
+</ul>
 </p>
 -->
   <p><hr />
@@ -495,30 +598,37 @@ Then, compile and run from terminal to see all the input events popping up at th
     </a>
   </h2>
 <!--  No need for content
-	<p><p>Ethernet over usb:
-Follow the popular guide to add two lines related to modules in the first (boot) partition:
-1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it.
-2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi
-3: Finally, open up the cmdline.txt. replace all text with this:</p>
+	<p><h3 id="ethernet-over-usb">Ethernet over usb:</h3>
+<p>Follow the popular guide to add two lines related to modules in the first (boot) partition:</p>
 
-<p>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh</p>
-
-<p>Edit /etc/network/interfaces to add usb0 related info:
-allow-hotplug usb0
-iface usb0 inet dhcp</p>
-
-<p>Plug in a <em>good</em> usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using ssh pi@raspberrypi.local
-If the repeated attemp to connect and fail message from nm-applet is bothersome, run dhcpcd enp7e0u1i7 (or whatever is the hardware name from ifconfig) on your laptop. Note: dhcpcd in not installed by default so install it using sudo apt-get install dhcpcd5</p>
-
-<p>For wifi:
-Use wpa_passphrase <ssid_name>  to get the config file. Add it to /etc/wpa_supplicant/wpa_supplicant.conf
-Next, add the following to /etc/network/interfaces
-auto wlan0
+<ol>
+  <li>open up the boot partition on the micro sd with finder and in the file <code class="highlighter-rouge">config.txt</code> add <code class="highlighter-rouge">dtoverlay=dwc2</code> to a line on the bottom and save it.</li>
+  <li>Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi</li>
+  <li>Finally, open up the cmdline.txt. replace all text with this:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh 
+</code></pre></div>    </div>
+  </li>
+  <li>Edit <code class="highlighter-rouge">/etc/network/interfaces</code> to add usb0 related info:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allow-hotplug usb0
+iface usb0 inet dhcp 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Plug in a <em>good</em> usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using <code class="highlighter-rouge">ssh pi@raspberrypi.local</code>
+If the repeated attempt to connect and fail message from <code class="highlighter-rouge">nm-applet</code> is bothersome, run <code class="highlighter-rouge">dhcpcd enp7e0u1i7</code> (or whatever is the hardware name from <code class="highlighter-rouge">ifconfig</code>) on your laptop. Note: <code class="highlighter-rouge">dhcpcd</code> in not installed by default so install it using <code class="highlighter-rouge">sudo apt-get install dhcpcd5</code></p>
+  </li>
+  <li>For wifi:
+Use <code class="highlighter-rouge">wpa_passphrase &lt;ssid_name&gt;</code>  to get the config file. Add it to <code class="highlighter-rouge">/etc/wpa_supplicant/wpa_supplicant.conf</code>
+Next, add the following to <code class="highlighter-rouge">/etc/network/interfaces</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</ssid_name></p>
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-<p>You can set up multiple networks in the wpa_supplicant.conf file and the first available one will be used (I think. Or, maybe wrt signal strength? However, it is working according to order of appearance)</p>
+<p>You can set up multiple networks in the <code class="highlighter-rouge">wpa_supplicant.conf</code> file and the first available one will be used (I think. Or, maybe w.r.t. signal strength? However, it is working according to order of appearance)</p>
 </p>
 -->
   <p><hr />
@@ -530,84 +640,22 @@ iface wlan0 inet dhcp
     </a>
   </h2>
 <!--  No need for content
-	<p><p>Install linpng12 from AUR.</p>
+	<p><p>This method is for Arch linux mainly.</p>
 
-<p>Install unity 3d from AUR. Note: The package build is 11GB  after makepkg -s and creates a .sh file and a directory. Instead of pacman -U, use the generated install script as there will be no .xi file to install. This is also an advantage since these files can be moved to another partition and launched. These are 3GB long.</p>
+<ul>
+  <li>
+    <p>Install <code class="highlighter-rouge">linpng12</code> from AUR.</p>
+  </li>
+  <li>
+    <p>Install unity 3d from AUR. Note: The package build is 11GB  after *makepkg -s<code class="highlighter-rouge"> and creates a </code>.sh<code class="highlighter-rouge"> file and a directory. Instead of </code>pacman -U<code class="highlighter-rouge">, use the generated install script as there will be no </code>.xi` file to install. This is also an advantage since these files can be moved to another partition and launched. These are 3GB long.</p>
+  </li>
+</ul>
 
-<p>Watched tutorial on game rolling the ball on their official site.
- Lessons:
+<h3 id="usage">Usage</h3>
+
+<p>Lessons:
  A “is Trigger” object with a “Rigid body” component is a “Dynamic collider” and uses more resources.
  A “is Trigger” object without”Rigid body” component is a “Static  collider” is ideal. Setting “kinemetic” field will give you desired result.</p>
-
-<ol>
-  <li>
-    <p>Progress bar for cp, firefox download, dd, tar, cat
- Use ‘progress’.  https://github.com/Xfennec/progress
- See man page for details.</p>
-  </li>
-  <li>
-    <p>wpa_supplicant
- Find the network by scanning
-  iwlist wlp6s0b1 scan | grep ESSID
- The list is NOT ordered according to signal strength.
- or, use wifi-menu but cancel it after it finds the ssids.</p>
-  </li>
-</ol>
-
-<p>To create a config file, see manpage of wpa_supplicant.conf</p>
-
-<p>Works only for home wifi (have to check for work wifi): If you do not want to store the password and create a config file, use wpa_passphrase
- wpa_passphrase ssid_name
- you shall enter the passphrase from stdin and will be encrypted.
- Now copy the code from the file and create a config file. Delete the commented line containing the actual password.</p>
-
-<p>Alternatively, you can do the following:</p>
-
-<p>For home wifi, this works:
- network={
-               ssid=”home”
-               psk=”passphrase”
-          }</p>
-
-<p>For GWireless, this works:
- network={
-        ssid=”GWireless”
-	key_mgmt=WPA-EAP
-	eap=PEAP
-	identity=”netID”
-        password=”password”
- }</p>
-
-<p>For eduroam, this works:
- network={
-         ssid=”eduroam”
- 	key_mgmt=WPA-EAP
- 	eap=PEAP
- 	identity=”email id”
- 	password=”password”
- }</p>
-
-<p>To run the config file with debugging:</p>
-
-<p>wpa_supplicant -i wlp6s0b1 -c /path/of/config/file.conf -d</p>
-
-<p>To run it in the background, replace -d by -B</p>
-
-<p>Finally, run dhcpcd if not running  already by dhcpcd or systemctl restart/start/enable dhcpcd.service</p>
-
-<ol>
-  <li>Find out name of the linux distribution
- cat /etc/*-release
- typically, os-release has all the info, including the pretty name.
- For the linux kernel version, cat /proc/version</li>
-  <li>Determine which physical disk partition mounted on a directory
- For example, the / filesystem is installed on
-  df /
- The directory /root is located in
-  df /root
- Conversely, to see a list of all block devices and their mountpoints,
-  lsblk</li>
-</ol>
 
 </p>
 -->
@@ -620,26 +668,28 @@ iface wlan0 inet dhcp
     </a>
   </h2>
 <!--  No need for content
-	<p><ul>
-  <li>Goto /media/ and create 3 directories called “windows”, “disk3”, storage”.
- 	cd /media/
- 	sudo mkdir windows disk3 storage</li>
-  <li>Create a file named “mounting” with following content:</li>
-</ul>
+	<p><p>For DIY distributions like Arch, this is a redundant step. So, it is better to wrap these steps up in a script.</p>
 
-<p>##startup script to mount the disk drives
+<ul>
+  <li>Goto <code class="highlighter-rouge">/media/</code> and create 3 directories called <code class="highlighter-rouge">windows</code>, <code class="highlighter-rouge">disk3</code>, <code class="highlighter-rouge">storage</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /media/
+sudo mkdir windows disk3 storage
+</code></pre></div>    </div>
+  </li>
+  <li>Create a file named “mounting” with following content:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ##startup script to mount the disk drives
  sudo mount /dev/sda1 /media/windows
  sudo mount /dev/sda3 /media/disk3
  sudo mount /dev/sda5 /media/storage
- #EOF</p>
-
-<ul>
-  <li>Change file permission to +x:
- 	chmod +x mounting</li>
-  <li>Copy the file to /etc/init.d/:
- 	sudo cp mounting /etc/init.d/</li>
+ #EOF
+</code></pre></div>    </div>
+  </li>
+  <li>Make the file executable:
+ 	<code class="highlighter-rouge">chmod +x mounting</code></li>
+  <li>Copy the file to <code class="highlighter-rouge">/etc/init.d/</code>:
+ 	<code class="highlighter-rouge">sudo cp mounting /etc/init.d/</code></li>
   <li>Update:
- 	sudo update-rc.d mounting defaults</li>
+ 	<code class="highlighter-rouge">sudo update-rc.d mounting defaults</code></li>
 </ul>
 </p>
 -->
@@ -647,8 +697,26 @@ iface wlan0 inet dhcp
 </p>
 
   <h2>
+    <a href="/lin/disk-partition-related-to-mounted-directory.html">
+      Determine which physical disk partition mounted on a directory
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>For example, the <code class="highlighter-rouge">/</code> filesystem is installed on</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  df /
+</code></pre></div></div>
+<p>The directory <code class="highlighter-rouge">/root</code> is located in</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  df /root
+</code></pre></div></div>
+<p>Conversely, to see a list of all block devices and their mount points, use <code class="highlighter-rouge">lsblk</code>.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
     <a href="/lin/folding.html">
-      Using file and folding
+      Syntax folding
     </a>
   </h2>
 <!--  No need for content
@@ -730,6 +798,387 @@ set shiftwidth=1 	| “to consider spaces as one foldlevel away</p>
  Search within the visible folded text
  Search within the invisible text inside folds
  INdent = on</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/gdrive-tutorial.html">
+      Google drive client (gdrive) for command line
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>A git-like command line tool called <a href="https://github.com/odeke-em/drive">drive</a> has implemented all the features though auth2 secret key.
+ Follow the instructions in its readme file, run</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive init ~/gdrive
+</code></pre></div></div>
+<p>to start the service. In the command line, it will give you a link to visit to get a secret key which you enter in the command line.
+ After that pull, push etc covers everything, Look at the Readme in the github for all information.</p>
+
+<h3 id="usage">Usage</h3>
+<p>After <code class="highlighter-rouge">drive init</code>, go to the directory you initiated drive and then</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive pull 'directory name'
+</code></pre></div></div>
+<p>pulls all the files, directories etc of ‘directory’ name.</p>
+
+<p>Similar to git, to push files to drive, you can create subdirectory inside the local gdrive structure. For example,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	cd ~/grive
+	mkdir new-folder
+	cd new-folder
+	cp ~/newfile ./
+	drive push
+</code></pre></div></div>
+<p>Be aware, if you do not have a copy of the remote files in the local location, drive push will delete the ones that are not present in the local path or in its children.</p>
+
+<p><strong>Issue</strong>: the authentication token expires occasionally, forcing you to follow some link, clicking on “Accept” and generate token, copy-paste it to the terminal window.</p>
+
+<ul>
+  <li>Deleting files from drive:</li>
+</ul>
+
+<p>Either</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive trash 'file to be trashed'
+</code></pre></div></div>
+<p>Or, remember the name (with path) of the directory you want to delete. <code class="highlighter-rouge">rm -r</code> in local path. Then</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  drive push 'path to the deleted file'
+</code></pre></div></div>
+<p>to delete it remotely.</p>
+
+<ul>
+  <li>To empty trash
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive emptytrash
+</code></pre></div>    </div>
+  </li>
+  <li>To permanently delete files without trashing it first (no need because I have infinite space in my institution-given drive) use
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive delete 'file to be deleted forever'
+</code></pre></div>    </div>
+  </li>
+  <li>To list files upto 1 depth inside some directory
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list
+</code></pre></div>    </div>
+  </li>
+  <li>To list files upto 3 directory depth
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list -depth 3
+</code></pre></div>    </div>
+  </li>
+  <li>You can use strings to look for while listing
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list --matches mp4 pdf mp3
+</code></pre></div>    </div>
+  </li>
+  <li>To first sort by modTime, then largest-to-smallest and finally most number of saves inside the directory Photos
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	 drive list --sort modtime,size_r,version_r Photos
+</code></pre></div>    </div>
+  </li>
+  <li>To see stats of a directory recursively
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive stat -r 'directory name'
+</code></pre></div>    </div>
+    <p>or until depth 3</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  	drive stat -depth 3 'directory'
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to create an empty file or folder remotely Sample usage:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive new --folder flux
+ $ drive new --mime-key doc bofx
+ $ drive new --mime-key folder content
+ $ drive new --mime-key presentation ProjectsPresentation
+ $ drive new --mime-key sheet Hours2015Sept
+ $ drive new --mime-key form taxForm2016 taxFormCounty
+ $ drive new flux.txt oxen.pdf # Allow auto type resolution from the extension
+</code></pre></div>    </div>
+  </li>
+  <li>Show all information about your drive account
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive quota
+</code></pre></div>    </div>
+    <p>in more detail</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive about
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to copy content remotely without having to explicitly download and then reupload.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive copy -r blobStore.py mnt flagging
+ $ drive copy blobStore.py blobStoreDuplicated.py
+</code></pre></div>    </div>
+  </li>
+  <li>To perform a rename:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive rename url_test url_test_results
+ $ drive rename openSrc/2015 2015-Contributions
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to move content remotely between folders. To do so:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive move photos/2015 angles library archives/storage
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Command Aliases:
+ drive supports a few aliases to make usage familiar to the utilities in your shell e.g:</p>
+
+    <p>cp : copy
+   ls : list
+   mv : move
+   rm : delete</p>
+  </li>
+</ul>
+
+<p>The <code class="highlighter-rouge">url</code> command prints out the url of a file. It allows you to specify multiple paths relative to root or even by id</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive url Photos/2015/07/Releases intros/flux
+</code></pre></div></div>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/moving-root-to-another-partition.html">
+      Moving /root to another partition
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>After using a linux install for a while, if you realize that your <code class="highlighter-rouge">/root</code> or <code class="highlighter-rouge">/home</code> partition needs more space than anticipated, it might be useful to move these directories to their own partitions. Here is how to do it.</p>
+
+<ul>
+  <li>Create new ext4 partition, say <code class="highlighter-rouge">/dev/sda7</code>. Mount it in a directory, say <code class="highlighter-rouge">/otherlin</code></li>
+  <li>Copy all data from /root to /otherlin using the following commands
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -urp /root/. /otherlin/
+</code></pre></div>    </div>
+  </li>
+  <li>Note that <code class="highlighter-rouge">-r</code> for recursive copy and <code class="highlighter-rouge">-p</code> is to preserve permission, date etc.
+ Here, <code class="highlighter-rouge">-u</code> means update, i.e. doesn’t overwrite already copied files. 
+Note that, <code class="highlighter-rouge">cp -rp ~/* /otherlin</code>
+	is not enough since it does not copy the dot files.
+ Alternative tools suggested: <code class="highlighter-rouge">rsync</code>, and <code class="highlighter-rouge">curl</code> (nice use!) to have a progress bar etc.</li>
+  <li>Find the UUID for the new partition using
+<code class="highlighter-rouge">bkid</code></li>
+  <li>Edit <code class="highlighter-rouge">/etc/fstab</code> and add the line
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=daef66f2-4c7a-4daa-9d7d-f217a3a3994f	/root         	ext4      	rw,relatime,data=ordered	0 2
+</code></pre></div>    </div>
+    <p>Here, the UUIS should be replaced by the appropriate one.
+ 0 means it doesn’t have to be backed up. 2 means the system checks the partition after the first one (1 is <code class="highlighter-rouge">/</code> so <code class="highlighter-rouge">/</code> gets checked first; 0 means no checking).</p>
+  </li>
+  <li>Back up the current /root by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /root /root.old
+</code></pre></div>    </div>
+    <p>It failed the first time and had to uncomment the new line in fstab and reboot and try again to succeed.</p>
+  </li>
+  <li>Remount all the drives by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mount -a
+</code></pre></div>    </div>
+  </li>
+</ul>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/prgress-bar-for-cp.html">
+      Progress bar for cp, firefox download, dd, tar, cat
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Use ‘progress’ from this <a href="https://github.com/Xfennec/progress">repo</a>
+ See man page for details.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/wpa-supplicant.html">
+      wpa_supplicant
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>The best command-line utility so far to connect to wifi.</p>
+
+<ul>
+  <li>Find the network by scanning
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iwlist wlp6s0b1 scan | grep ESSID
+</code></pre></div>    </div>
+    <p>(The list is NOT ordered according to signal strength.)
+ or, use <code class="highlighter-rouge">wifi-menu</code> but cancel it after it finds the ssids.</p>
+  </li>
+  <li>To create a config file, see manpage of <code class="highlighter-rouge">wpa_supplicant.conf</code></li>
+</ul>
+
+<p>Works only for home wifi (have to check for work wifi): If you do not want to store the password and create a config file, use <code class="highlighter-rouge">wpa_passphrase</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wpa_passphrase ssid_name
+</code></pre></div></div>
+<p>You will have to enter the passphrase from stdin and will be encrypted.
+ Now copy the code from the file and create a config file. Delete the commented line containing the actual password.</p>
+
+<p>Alternatively, you can do the following:</p>
+
+<p>For home wifi, this works:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> network={
+               ssid="home"
+               psk="passphrase"
+          }
+</code></pre></div></div>
+<p>For GWireless, this works:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> network={
+        ssid="GWireless"
+	key_mgmt=WPA-EAP
+	eap=PEAP
+	identity="netID"
+        password="password"
+ }
+</code></pre></div></div>
+<p>For eduroam, this works:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> network={
+         ssid="eduroam"
+ 	key_mgmt=WPA-EAP
+ 	eap=PEAP
+ 	identity="email id"
+ 	password="password"
+ }
+</code></pre></div></div>
+<p>To run the config file with debugging:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wpa_supplicant -i wlp6s0b1 -c /path/of/config/file.conf -d
+</code></pre></div></div>
+<p>To run it in the background, replace <code class="highlighter-rouge">-d</code> by <code class="highlighter-rouge">-B</code></p>
+
+<p>Finally, run dhcpcd if not running  already by dhcpcd or <code class="highlighter-rouge">systemctl restart/start/enable dhcpcd.service</code></p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/writing-manpage.html">
+      Writing a manpage
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Manpages are written in something called <em>troff markdown language</em>.</p>
+
+<p>Create a file starting with the following lines and open with</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	man -l filename.
+</code></pre></div></div>
+
+<p>Body of the manpage:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>.Dd</td>
+      <td>date-of-modification</td>
+    </tr>
+    <tr>
+      <td>.Dt</td>
+      <td>name-of-the-article 7 (7 for miscellaneous manual. see man man for explanation)</td>
+    </tr>
+    <tr>
+      <td>.Sh</td>
+      <td>NAME</td>
+    </tr>
+    <tr>
+      <td>.Nm</td>
+      <td>name of the article</td>
+    </tr>
+    <tr>
+      <td>.Nd</td>
+      <td>description of the article</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Caution:
+     *   Keep codes within a <code class="highlighter-rouge">.Bd -literal ... .Ed</code> block.
+     *   Do NOT write Em anywhere in your text, it will vanish. Write <code class="highlighter-rouge">\&amp;Em</code>
+         instead.</p>
+
+<p>Frequently used macros</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>.Sh</td>
+      <td>New Section</td>
+    </tr>
+    <tr>
+      <td>.Ss</td>
+      <td>New subsection</td>
+    </tr>
+    <tr>
+      <td>.Bl</td>
+      <td>begin list. It can take the following parameters: <code class="highlighter-rouge">-bullet, -item, -enum, -tag, -hang</code> etc.</td>
+    </tr>
+    <tr>
+      <td>.It</td>
+      <td>items inside <code class="highlighter-rouge">.Bl</code> and <code class="highlighter-rouge">.El</code></td>
+    </tr>
+    <tr>
+      <td>.El</td>
+      <td>end list</td>
+    </tr>
+    <tr>
+      <td>.Pa</td>
+      <td>path for a filename</td>
+    </tr>
+    <tr>
+      <td>.Bd</td>
+      <td>begin a display block, It takes a few parameters, most importantly -literal which is useful for source codes, spaced and tabbed text.</td>
+    </tr>
+    <tr>
+      <td>.Dl</td>
+      <td>literal text of one line</td>
+    </tr>
+    <tr>
+      <td>.Ed</td>
+      <td>end display block one line of literal text</td>
+    </tr>
+    <tr>
+      <td>\fB</td>
+      <td>begins bold</td>
+    </tr>
+    <tr>
+      <td>\fI</td>
+      <td>begins Italian</td>
+    </tr>
+    <tr>
+      <td>\fR</td>
+      <td>ends bold and/or Italian</td>
+    </tr>
+    <tr>
+      <td>.Em</td>
+      <td>emphasize (a line of bold, similar to <code class="highlighter-rouge">\fB ... \fR</code>). If using inside an item of list, use without the dot, e.g.  <code class="highlighter-rouge">.It Em tagname</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>escape chars  <code class="highlighter-rouge">\e</code> generates a <code class="highlighter-rouge">\</code>, <code class="highlighter-rouge">\&amp;</code> replaces at the beginning of a sentence, but doesn’t generate a <code class="highlighter-rouge">.</code>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Type</td>
+      <td>Output</td>
+    </tr>
+    <tr>
+      <td>\e</td>
+      <td>\</td>
+    </tr>
+    <tr>
+      <td>\efB</td>
+      <td>\fB</td>
+    </tr>
+    <tr>
+      <td>\&amp;.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>\&amp;Em</td>
+      <td>Em</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See the BSD manpage for mdoc online. (Note: mdoc for Arch is something else)
+<a href="http://man7.org/linux/man-pages/man7/mdoc.7.html">[link]</a></p>
+
+<p><a href="http://manpages.ubuntu.com/manpages/trusty/pt/man7/mdoc.samples.7.html">Some examples</a></p>
+
+<p>There is a way to include a custom file to a man database.</p>
 </p>
 -->
   <p><hr />

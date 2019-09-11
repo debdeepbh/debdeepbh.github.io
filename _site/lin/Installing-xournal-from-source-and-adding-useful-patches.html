@@ -17,12 +17,12 @@
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Installing-xournal-from-source-and-adding-useful-patches.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Installing xournal from source and adding useful patches","url":"http://0.0.0.0:4000/lin/Installing-xournal-from-source-and-adding-useful-patches.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Installing-xournal-from-source-and-adding-useful-patches.html"},"description":"So, apt-get install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Installing xournal from source and adding useful patches","url":"http://0.0.0.0:4000/lin/Installing-xournal-from-source-and-adding-useful-patches.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Installing-xournal-from-source-and-adding-useful-patches.html"},"description":"So, apt-get install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -56,41 +56,51 @@
 
       <p>So, apt-get install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed.</p>
 
-<p>To install the development dependencies, do
-sudo apt-get build-dep xournal</p>
+<p>To install the development dependencies, do</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get build-dep xournal
+</code></pre></div></div>
 
-<p>Download the latest tar, extract it with
-tar -xf xournal.<strong>.tar.gz
-cd xournal.</strong></p>
+<p>Download the latest tar, extract it with</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xf xournal.**.tar.gz
+cd xournal.**
+</code></pre></div></div>
 
-<p>Details of patching can be found here: https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/
-Here is the summary:
-Patch the source code with the download patch file
-patch -p1 &lt; patchfile.patch</p>
+<p>Details of patching can be found <a href="https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/">here</a>:
+Here is the summary:</p>
+
+<p>Patch the source code with the download patch file</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patch -p1 &lt; patchfile.patch
+</code></pre></div></div>
 
 <p>Note: if the patchfile is a tar file, extract and then -p1 should be change to -p2 or the required number of depth  of path.</p>
 
-<p>Compile and install this modified source file, follow http://xournal.sourceforge.net/manual.html#installation</p>
+<p>Compile and install this modified source file, follow <a href="http://xournal.sourceforge.net/manual.html#installation">link</a></p>
 
 <p>Summmary:</p>
 
-<p>To install in the user directory (~/bin/), do:
-./autogen.sh; ./configure –prefix=$HOME; make; make install; make home-desktop-install
-The last step is to set mime-type etc.</p>
-
-<p>To install it in the system, do with sudo:
-./autogen.sh
+<ul>
+  <li>To install in the user directory (~/bin/), do:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh; ./configure --prefix=$HOME; make; make install; make home-desktop-install
+</code></pre></div>    </div>
+    <p>The last step is to set mime-type etc.</p>
+  </li>
+  <li>To install it in the system, do with sudo:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh
 make
 (as root) make install
-(as root) make desktop-install</p>
+(as root) make desktop-install
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>So, far used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
+<p>So far, I have used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
 
-<p>Caution: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
+<p><strong>Caution</strong>: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
 
-<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:
-#define INPUT_DEBUG 1
-Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
+<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define INPUT_DEBUG 1
+</code></pre></div></div>
+<p>Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
 
 
 

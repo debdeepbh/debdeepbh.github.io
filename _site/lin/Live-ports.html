@@ -7,22 +7,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Live ports | Debdeep Bhattacharya</title>
+<title>Detect live ports using nmap | Debdeep Bhattacharya</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Live ports" />
+<meta property="og:title" content="Detect live ports using nmap" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particluar port is open or not in a remote host: nmap -p port host/ip nmap –script=smb-enum-users 192.168.2.167 -p 445 perl -le ‘while(){if(/^.*?\\(\w+)\s+.*/) { print &quot;$1&quot;; }}&#39;" />
-<meta property="og:description" content="Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particluar port is open or not in a remote host: nmap -p port host/ip nmap –script=smb-enum-users 192.168.2.167 -p 445 perl -le ‘while(){if(/^.*?\\(\w+)\s+.*/) { print &quot;$1&quot;; }}&#39;" />
+<meta name="description" content="Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particular port is open or not in a remote host: nmap -p port host/ip Moreover, nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le &#39;while(&lt;STDIN&gt;){if(/^.*?\\(\w+)\s+.*/) { print &quot;$1&quot;; }}&#39;" />
+<meta property="og:description" content="Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particular port is open or not in a remote host: nmap -p port host/ip Moreover, nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le &#39;while(&lt;STDIN&gt;){if(/^.*?\\(\w+)\s+.*/) { print &quot;$1&quot;; }}&#39;" />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/Live-ports.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Live-ports.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Live ports","url":"http://0.0.0.0:4000/lin/Live-ports.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Live-ports.html"},"description":"Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particluar port is open or not in a remote host: nmap -p port host/ip nmap –script=smb-enum-users 192.168.2.167 -p 445 perl -le ‘while(){if(/^.*?\\\\(\\w+)\\s+.*/) { print &quot;$1&quot;; }}&#39;","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Detect live ports using nmap","url":"http://0.0.0.0:4000/lin/Live-ports.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Live-ports.html"},"description":"Know the live ports of your OWN hosts, and the connected ips: sudo netstat -tpan Know if a particular port is open or not in a remote host: nmap -p port host/ip Moreover, nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le &#39;while(&lt;STDIN&gt;){if(/^.*?\\\\(\\w+)\\s+.*/) { print &quot;$1&quot;; }}&#39;","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -52,22 +52,18 @@
       <section>
 
 
-	      <h2> Live ports </h2>
+	      <h2> Detect live ports using nmap </h2>
 
-      <p>Know the live ports of your OWN hosts, and the connected ips:
- sudo netstat -tpan</p>
+      <p>Know the live ports of your OWN hosts, and the connected ips:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> sudo netstat -tpan
+</code></pre></div></div>
 
-<p>Know if a particluar port is open or not in a remote host:
- nmap -p port host/ip</p>
-
-<table>
-  <tbody>
-    <tr>
-      <td>nmap –script=smb-enum-users 192.168.2.167 -p 445</td>
-      <td>perl -le ‘while(<STDIN>){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'</STDIN></td>
-    </tr>
-  </tbody>
-</table>
+<p>Know if a particular port is open or not in a remote host:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> nmap -p port host/ip
+</code></pre></div></div>
+<p>Moreover,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> nmap --script=smb-enum-users 192.168.2.167 -p 445|perl -le 'while(&lt;STDIN&gt;){if(/^.*?\\(\w+)\s+.*/) { print "$1"; }}'
+</code></pre></div></div>
 
 
       </section>
