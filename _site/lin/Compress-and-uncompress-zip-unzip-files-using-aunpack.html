@@ -11,18 +11,18 @@
 <meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="Compress and uncompress (zip/unzip) files using aunpack" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="To extract all files from archive `foobar.tar.gz’ to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo&#39; and bar’: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar calendar.vim Since I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it. Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying." />
-<meta property="og:description" content="To extract all files from archive `foobar.tar.gz’ to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo&#39; and bar’: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar calendar.vim Since I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it. Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying." />
+<meta name="description" content="To extract all files from archive foobar.tar.gz to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo and bar: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip: apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar" />
+<meta property="og:description" content="To extract all files from archive foobar.tar.gz to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo and bar: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip: apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar" />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Compress and uncompress (zip/unzip) files using aunpack","url":"http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html"},"description":"To extract all files from archive `foobar.tar.gz’ to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo&#39; and bar’: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar calendar.vim Since I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it. Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Compress and uncompress (zip/unzip) files using aunpack","url":"http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html"},"description":"To extract all files from archive foobar.tar.gz to a subdirectory (or the current directory if it only contains one file): aunpack foobar.tar.gz To create a zip archive of two files foo and bar: apack myarchive.zip foo bar To compress the content of current directory into a zip file called comp.zip: apack comp.zip * To list contents of the rar archive `stuff.rar’: als stuff.rar","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,40 +54,24 @@
 
 	      <h2> Compress and uncompress (zip/unzip) files using aunpack </h2>
 
-      <p>To extract all files from archive `foobar.tar.gz’ to  a  subdirectory  (or the current directory if it only contains one file):
-  aunpack foobar.tar.gz</p>
-
-<p>To create a zip archive of two files <code class="highlighter-rouge">foo' and </code>bar’:
-  apack myarchive.zip foo bar
- To compress the content of current directory into a zip file called comp.zip
-  apack comp.zip *</p>
-
-<p>To list contents of the rar archive `stuff.rar’:
-  als stuff.rar</p>
-<ol>
-  <li>calendar.vim
- Since  I have pathogen to install vim plugins, cloning the repo to .vim/bundle/ installs it.
- Setting the google options in .vimrc, when I do :Ca inside vim, I cannot copy the link got google authentication. So I opened it in gvim and copied it. But in gvim, I cannot paste the code that I received from google. So I hand-typed it. Very annoying.</li>
-</ol>
-
-<p>Here is a quick possible solution:</p>
-<ol>
-  <li>Open gvim</li>
-  <li>Type :Ca</li>
-  <li>Copy the link</li>
-  <li>Paste in browser, proceed, get a code</li>
-  <li>Edit the file .vim/bundle/calendar.vim/google/client.vim and navigate to the line: 
- let code = input(printf(calendar#message#get(‘access_url_input_code’),
- (This line is inside a function called access_token_async. The input code here is not able to access the bufferes “+, “* etc. So we manually supply the value of variable ‘code’. Make sure this modification does not stay for long)</li>
-  <li>Modify the line to
- let code = ‘xxxx_your_code_goes_here_xxxx’</li>
-  <li>Save the file.</li>
-  <li>Open usual vim and run :Ca and it should work directly.</li>
-  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
-</ol>
-
-<p>See the calendar.vim/doc/calendar.txt for a complete help which I followed mostly.
- As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command :Ca and mapped it to Modkey+C</p>
+      <ul>
+  <li>To extract all files from archive <code class="highlighter-rouge">foobar.tar.gz</code> to  a  subdirectory  (or the current directory if it only contains one file):
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aunpack foobar.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>To create a zip archive of two files <code class="highlighter-rouge">foo</code> and <code class="highlighter-rouge">bar</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack myarchive.zip foo bar
+</code></pre></div>    </div>
+  </li>
+  <li>To compress the content of current directory into a zip file called <code class="highlighter-rouge">comp.zip</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack comp.zip *
+</code></pre></div>    </div>
+  </li>
+  <li>To list contents of the rar archive `stuff.rar’:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>als stuff.rar
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 
 
