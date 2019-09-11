@@ -11,18 +11,18 @@
 <meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="Create a startup script to mount Hard disk drives" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Goto /media/ and create 3 directories called “windows”, “disk3”, storage”. cd /media/ sudo mkdir windows disk3 storage Create a file named “mounting” with following content: ##startup script to mount the disk drives sudo mount /dev/sda1 /media/windows sudo mount /dev/sda3 /media/disk3 sudo mount /dev/sda5 /media/storage #EOF Change file permission to +x: chmod +x mounting Copy the file to /etc/init.d/: sudo cp mounting /etc/init.d/ Update: sudo update-rc.d mounting defaults" />
-<meta property="og:description" content="Goto /media/ and create 3 directories called “windows”, “disk3”, storage”. cd /media/ sudo mkdir windows disk3 storage Create a file named “mounting” with following content: ##startup script to mount the disk drives sudo mount /dev/sda1 /media/windows sudo mount /dev/sda3 /media/disk3 sudo mount /dev/sda5 /media/storage #EOF Change file permission to +x: chmod +x mounting Copy the file to /etc/init.d/: sudo cp mounting /etc/init.d/ Update: sudo update-rc.d mounting defaults" />
+<meta name="description" content="For DIY distributions like Arch, this is a redundant step. So, it is better to wrap these steps up in a script." />
+<meta property="og:description" content="For DIY distributions like Arch, this is a redundant step. So, it is better to wrap these steps up in a script." />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/auto-hard-disk-mount.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/auto-hard-disk-mount.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Create a startup script to mount Hard disk drives","url":"http://0.0.0.0:4000/lin/auto-hard-disk-mount.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/auto-hard-disk-mount.html"},"description":"Goto /media/ and create 3 directories called “windows”, “disk3”, storage”. cd /media/ sudo mkdir windows disk3 storage Create a file named “mounting” with following content: ##startup script to mount the disk drives sudo mount /dev/sda1 /media/windows sudo mount /dev/sda3 /media/disk3 sudo mount /dev/sda5 /media/storage #EOF Change file permission to +x: chmod +x mounting Copy the file to /etc/init.d/: sudo cp mounting /etc/init.d/ Update: sudo update-rc.d mounting defaults","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Create a startup script to mount Hard disk drives","url":"http://0.0.0.0:4000/lin/auto-hard-disk-mount.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/auto-hard-disk-mount.html"},"description":"For DIY distributions like Arch, this is a redundant step. So, it is better to wrap these steps up in a script.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,26 +54,28 @@
 
 	      <h2> Create a startup script to mount Hard disk drives </h2>
 
-      <ul>
-  <li>Goto /media/ and create 3 directories called “windows”, “disk3”, storage”.
- 	cd /media/
- 	sudo mkdir windows disk3 storage</li>
-  <li>Create a file named “mounting” with following content:</li>
-</ul>
+      <p>For DIY distributions like Arch, this is a redundant step. So, it is better to wrap these steps up in a script.</p>
 
-<p>##startup script to mount the disk drives
+<ul>
+  <li>Goto <code class="highlighter-rouge">/media/</code> and create 3 directories called <code class="highlighter-rouge">windows</code>, <code class="highlighter-rouge">disk3</code>, <code class="highlighter-rouge">storage</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /media/
+sudo mkdir windows disk3 storage
+</code></pre></div>    </div>
+  </li>
+  <li>Create a file named “mounting” with following content:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ##startup script to mount the disk drives
  sudo mount /dev/sda1 /media/windows
  sudo mount /dev/sda3 /media/disk3
  sudo mount /dev/sda5 /media/storage
- #EOF</p>
-
-<ul>
-  <li>Change file permission to +x:
- 	chmod +x mounting</li>
-  <li>Copy the file to /etc/init.d/:
- 	sudo cp mounting /etc/init.d/</li>
+ #EOF
+</code></pre></div>    </div>
+  </li>
+  <li>Make the file executable:
+ 	<code class="highlighter-rouge">chmod +x mounting</code></li>
+  <li>Copy the file to <code class="highlighter-rouge">/etc/init.d/</code>:
+ 	<code class="highlighter-rouge">sudo cp mounting /etc/init.d/</code></li>
   <li>Update:
- 	sudo update-rc.d mounting defaults</li>
+ 	<code class="highlighter-rouge">sudo update-rc.d mounting defaults</code></li>
 </ul>
 
 

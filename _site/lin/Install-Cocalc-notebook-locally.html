@@ -17,12 +17,12 @@
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Install-Cocalc-notebook-locally.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Install Cocalc notebook locally","url":"http://0.0.0.0:4000/lin/Install-Cocalc-notebook-locally.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Install-Cocalc-notebook-locally.html"},"description":"No need to install sage or sagemath.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Install Cocalc notebook locally","url":"http://0.0.0.0:4000/lin/Install-Cocalc-notebook-locally.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Install-Cocalc-notebook-locally.html"},"description":"No need to install sage or sagemath.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,9 +54,9 @@
 
 	      <h2> Install Cocalc notebook locally </h2>
 
-      <p>No need to install sage or sagemath.</p>
+      <p>No need to install <code class="highlighter-rouge">sage</code> or <code class="highlighter-rouge">sagemath</code>.</p>
 
-<p>Follow the instruction to install the cocalc-docker. It is just one
+<p>Follow the instruction to install the <code class="highlighter-rouge">cocalc-docker</code>. It is just one
 line long code. It will download,
 extract and install. I had to use sudo to get it to work since I
 installed docker using sudo (<code class="highlighter-rouge">sudo apt-get install docker.io</code>. 
@@ -65,17 +65,30 @@ To open it in browser, make sure to use <code class="highlighter-rouge">https://
 
 <p>I had create account (fake email id are ok, since they are local)</p>
 
-<p>To start and stop cocalc, use 
-<code class="highlighter-rouge">sudo docker start cocalc</code>
-<code class="highlighter-rouge">sudo docker stop cocalc</code></p>
+<p>To start and stop cocalc, use</p>
 
-<p>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker start cocalc
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker stop cocalc
+</code></pre></div></div>
+
+<p>Usage:</p>
+<ul>
+  <li>
+    <p>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
 print out the latex code of it, use the function <code class="highlighter-rouge">latex()</code>.</p>
-
-<p>To define variables in a latex-friendly way so that the view command
+  </li>
+  <li>
+    <p>To define variables in a latex-friendly way so that the view command
 prints it right, use</p>
+  </li>
+</ul>
 
-<p>u_th_x = var(‘u_th_x’, latex_name = ‘u_{\theta}(x)’}</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
+</code></pre></div></div>
 
 <p>Later, do <code class="highlighter-rouge">view(u_th_x)</code> to see it rendered correctly.</p>
 

@@ -11,18 +11,18 @@
 <meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="R tutorial" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Installing packages in R install.packages(“ggplot2”)" />
-<meta property="og:description" content="Installing packages in R install.packages(“ggplot2”)" />
+<meta name="description" content="Installation Installing packages in R install.packages(&quot;ggplot2&quot;)" />
+<meta property="og:description" content="Installation Installing packages in R install.packages(&quot;ggplot2&quot;)" />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/R-tutorial.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/R-tutorial.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"R tutorial","url":"http://0.0.0.0:4000/lin/R-tutorial.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/R-tutorial.html"},"description":"Installing packages in R install.packages(“ggplot2”)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"R tutorial","url":"http://0.0.0.0:4000/lin/R-tutorial.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/R-tutorial.html"},"description":"Installation Installing packages in R install.packages(&quot;ggplot2&quot;)","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,80 +54,121 @@
 
 	      <h2> R tutorial </h2>
 
-      <ol>
+      <h3 id="installation">Installation</h3>
+<ul>
   <li>Installing packages in R
-  install.packages(“ggplot2”)</li>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install.packages("ggplot2") 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="usage">Usage</h3>
+<ul>
+  <li>Add “day of the week” column to your data with date:
+ Let the data be tran and tran$Date is is date format (possibilities)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> tran$day &lt;- weekdays(as.Date(tran$Date))
+</code></pre></div>    </div>
+  </li>
+  <li>Order your data by day of the week like this: (data is daily, day is DoW)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> daily$DoW &lt;- factor(daily$DoW, levels= c("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"))
+ daily[order(daily$DoW), ]
+</code></pre></div>    </div>
+  </li>
+  <li>Plot frequency distribution of days of the week
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> barplot(table(tran$day))
+</code></pre></div>    </div>
+  </li>
+  <li>Create a sequence of weekdays, starting from today’s day like this:
+ Get today’s date
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> t &lt;- Sys.Date()
+</code></pre></div>    </div>
+  </li>
+  <li>Create a sequence of 7 days by: adjust <code class="highlighter-rouge">t+const</code> to fix the starting day
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> dayseq &lt;- weekdays(seq.Date(t,t+6,by=1))
+</code></pre></div>    </div>
+  </li>
+  <li>Get the corresponding weekday value by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> weekdays(dayseq)
+</code></pre></div>    </div>
+    <p>or,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> daynames &lt;- weekdays(dayseq, abbreviate=TRUE)
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><strong>Lesson Learned</strong>: IF you have a data with a variable name Category, and Category can be either Grocery, Shopping or Travel, then first convert the variable into a factor using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>data$Category &lt;- factor(data$Category)
+</code></pre></div></div>
+<p>Then you can use <code class="highlighter-rouge">levels(data$Category)</code> to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.
+ The problem is to edit an entry in the data frame which is a category type. For example, if you want to change <code class="highlighter-rouge">data[4,"Category"]</code> to “hello”, you cannot change it using <code class="highlighter-rouge">data[4,"Category"] &lt;- "hello"</code> !!!
+ Here is what to do:</p>
+<ol>
+  <li>Change the type of Category variable to character using:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data$Category &lt;- as.character(data$Category)
+</code></pre></div>    </div>
+  </li>
+  <li>Edit the value:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data[4,"Category"] &lt;- "hello"
+</code></pre></div>    </div>
+  </li>
+  <li>Change the variable type back to factor:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> data$Category &lt;- factor(data$Category)
+</code></pre></div>    </div>
+    <p>(It is very annoying.)</p>
+  </li>
 </ol>
 
-<p>Add “day of the week” column to your data with date:
- Let the data be tran and tran$Date is is date format (possibilities)
- tran$day &lt;- weekdays(as.Date(tran$Date))</p>
+<h3 id="qqplot2-help">qqplot2 help:</h3>
 
-<p>Order your data by day of the week like this: (data is daily, day is DoW)
- daily$DoW &lt;- factor(daily$DoW, levels= c(“Sunday”, “Monday”, “Tuesday”, “Wednesday”, “Thursday”, “Friday”, “Saturday”))
- daily[order(daily$DoW), ]</p>
+<ul>
+  <li>A line plot :
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> qplot(x=Date, y=Amount, data=tran, geom=c('point','line'), color=Category, alpha = I(0.7))
+</code></pre></div>    </div>
+  </li>
+  <li>The following prints number of times we did grocery, shopping etc w.r.t. date
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> qplot(factor(timeS), data=tran, geom="bar", fill=factor(Category))
+</code></pre></div>    </div>
+  </li>
+  <li>The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User) 
+</code></pre></div>    </div>
+  </li>
+</ul>
 
-<p>Plot frequency distribution of days of the week 
- barplot(table(tran$day))</p>
+<p>A slight invariant:</p>
 
-<p>Create a sequence of weekdays, starting from today’s day like this:
- Get today’s date
- t &lt;- Sys.Date()
- Create a sequence of 7 days by: adjust t+const to fix the starting day
- dayseq &lt;- weekdays(seq.Date(t,t+6,by=1))
- Get the corresponding weekday value by
- weekdays(dayseq)
- or,
- daynames &lt;- weekdays(dayseq, abbreviate=TRUE)</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)
+</code></pre></div></div>
+<p><code class="highlighter-rouge">stat='identity'</code> is the option that lets you plot y vs x instead of the defualt statistics count.</p>
 
-<p>Lesson Learned: IF you have a data with a variable name Category, and Catergoy can be either Grocery, Shopping or Travel, then first convert the variable into a factor using: data$Category &lt;- factor(data$Category)
- Then you can use levels(data$Category) to see a vector with only 3 vars. You can change the factor data$Category the way you change a vector.</p>
-
-<p>The problem is to edit an entry in the data frame which is a category type. For example, if you want to change data[4,”Category”] to “hello”, you cannot change it using data[4,”Category”] &lt;- “hello” !!!
- Here is what to do:
- Change the type of Category varaible to character using:
- data$Category &lt;- as.character(data$Category)
- Edit the value:
- data[4,”Category”] &lt;- “hello”
- Change the variable type back to factor:
- data$Category &lt;- factor(data$Category)</p>
-
-<p>So annoying!</p>
-
-<p>qqplot2 help:
- A line plot :
- qplot(x=Date, y=Amount, data=tran, geom=c(‘point’,’line’), color=Category, alpha = I(0.7))</p>
-
-<p>The following prints number of times we did grocery, shopping etc w.r.t. date
- qplot(factor(timeS), data=tran, geom=”bar”, fill=factor(Category))</p>
-
-<p>The following prints two side by side maps for each user. Each picture contains the count of grocer, Shopping and travel represented by different colors. The x-axis is time span.
- ggplot(tran, aes(timeS, fill=Category)) + geom_bar() + facet_wrap(~ User)</p>
-
-<p>A slight invariant:
- ggplot(tran, aes(timeS, fill=User)) + geom_bar() + facet_wrap(~ Category)</p>
-
-<p>stat=’identity’ is the option that lets you plot y vs x instead of the defualt statistics count.</p>
-
-<p>Plot amount vs date/timeS, stacked with category
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’)</p>
-
-<p>Withe separate user:
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + facet_wrap(~ User)</p>
-
-<p>Seperate picture by category, both users in the same picture, 2rows of pictures
- ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat=’identity’) + facet_wrap(~ Category, nrow = 2)</p>
-
-<p>Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat=’identity’) + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~User)</p>
-
-<p>To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.</p>
-
-<p>Alternate representation with Category and User interchanged
-  ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’) + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat=’identity’, alpha=I(0.2)) + facet_wrap(~Category)</p>
-
-<p>In this context, manysum is nothing but
- ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat=’identity’)</p>
+<ul>
+  <li>Plot amount vs date/timeS, stacked with category
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity')
+</code></pre></div>    </div>
+  </li>
+  <li>With a separate user:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + facet_wrap(~ User)
+</code></pre></div>    </div>
+  </li>
+  <li>Seperate picture by category, both users in the same picture, 2rows of pictures
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(x=timeS, y=Amount, fill=User), stat='identity') + facet_wrap(~ Category, nrow = 2)
+</code></pre></div>    </div>
+  </li>
+  <li>Facet_wrat w.r.t User of all categories with a greyscale of total amount of both users in the background
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=Category), stat='identity') + geom_bar(data=transform(tran, User=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~User)
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>To have a picture in the background of every facet, we need to create a facet without the facet variable. For example, in the previous case, transform(tran, User=NULL) gives you a data without the facet variable ~User. We plot a bar geometry of this data.</p>
+  </li>
+  <li>Alternate representation with Category and User interchanged
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity') + geom_bar(data=transform(tran, Category=NULL), aes(x=timeS, y=Amount), stat='identity', alpha=I(0.2)) + facet_wrap(~Category)
+</code></pre></div>    </div>
+    <p>In this context, manysum is nothing but</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ggplot(tran) + geom_bar(aes(timeS, Amount, fill=User), stat='identity')
+</code></pre></div>    </div>
+  </li>
+</ul>
 
 
       </section>

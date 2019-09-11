@@ -11,18 +11,18 @@
 <meta name="generator" content="Jekyll v3.7.4" />
 <meta property="og:title" content="Setting up raspberry pi zero w" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition: 1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it. 2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi 3: Finally, open up the cmdline.txt. replace all text with this:" />
-<meta property="og:description" content="Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition: 1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it. 2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi 3: Finally, open up the cmdline.txt. replace all text with this:" />
+<meta name="description" content="Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition:" />
+<meta property="og:description" content="Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition:" />
 <link rel="canonical" href="http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html" />
 <meta property="og:url" content="http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-09-09T15:11:56-04:00" />
+<meta property="article:published_time" content="2019-09-11T00:36:21-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Setting up raspberry pi zero w","url":"http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html","dateModified":"2019-09-09T15:11:56-04:00","datePublished":"2019-09-09T15:11:56-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html"},"description":"Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition: 1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it. 2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi 3: Finally, open up the cmdline.txt. replace all text with this:","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Setting up raspberry pi zero w","url":"http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html","dateModified":"2019-09-11T00:36:21-04:00","datePublished":"2019-09-11T00:36:21-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Setting-up-raspberry-pi-zero-w.html"},"description":"Ethernet over usb: Follow the popular guide to add two lines related to modules in the first (boot) partition:","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=db208bcc9bb703c751d321cba732b856cb4b6275">
+    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -54,30 +54,37 @@
 
 	      <h2> Setting up raspberry pi zero w </h2>
 
-      <p>Ethernet over usb:
-Follow the popular guide to add two lines related to modules in the first (boot) partition:
-1: open up the boot partition on the micro sd with finder and in the file config.txt add dtoverlay=dwc2 to a line on the bottom and save it.
-2: Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi
-3: Finally, open up the cmdline.txt. replace all text with this:</p>
+      <h3 id="ethernet-over-usb">Ethernet over usb:</h3>
+<p>Follow the popular guide to add two lines related to modules in the first (boot) partition:</p>
 
-<p>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh</p>
-
-<p>Edit /etc/network/interfaces to add usb0 related info:
-allow-hotplug usb0
-iface usb0 inet dhcp</p>
-
-<p>Plug in a <em>good</em> usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using ssh pi@raspberrypi.local
-If the repeated attemp to connect and fail message from nm-applet is bothersome, run dhcpcd enp7e0u1i7 (or whatever is the hardware name from ifconfig) on your laptop. Note: dhcpcd in not installed by default so install it using sudo apt-get install dhcpcd5</p>
-
-<p>For wifi:
-Use wpa_passphrase <ssid_name>  to get the config file. Add it to /etc/wpa_supplicant/wpa_supplicant.conf
-Next, add the following to /etc/network/interfaces
-auto wlan0
+<ol>
+  <li>open up the boot partition on the micro sd with finder and in the file <code class="highlighter-rouge">config.txt</code> add <code class="highlighter-rouge">dtoverlay=dwc2</code> to a line on the bottom and save it.</li>
+  <li>Create a new file called ssh using textedit and save it onto the boot partition. Use ‘get info’ to remove the extension on the file, and it should appear as an EXEC file. You can now eject the card and boot it on your RPi</li>
+  <li>Finally, open up the cmdline.txt. replace all text with this:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dwc_otg.lpm_enable=0 console=serial0,115200 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=deadline fsck.repair=yes rootwait modules-load=dwc2,g_ether quiet init=/usr/lib/raspi-config/init_resize.sh 
+</code></pre></div>    </div>
+  </li>
+  <li>Edit <code class="highlighter-rouge">/etc/network/interfaces</code> to add usb0 related info:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>allow-hotplug usb0
+iface usb0 inet dhcp 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Plug in a <em>good</em> usb cable to the usb port, not the power in and then set up the retrying nm-applet attempt to connect to the wired network and fail repeatedly. At this point, you can connect to the pi using <code class="highlighter-rouge">ssh pi@raspberrypi.local</code>
+If the repeated attempt to connect and fail message from <code class="highlighter-rouge">nm-applet</code> is bothersome, run <code class="highlighter-rouge">dhcpcd enp7e0u1i7</code> (or whatever is the hardware name from <code class="highlighter-rouge">ifconfig</code>) on your laptop. Note: <code class="highlighter-rouge">dhcpcd</code> in not installed by default so install it using <code class="highlighter-rouge">sudo apt-get install dhcpcd5</code></p>
+  </li>
+  <li>For wifi:
+Use <code class="highlighter-rouge">wpa_passphrase &lt;ssid_name&gt;</code>  to get the config file. Add it to <code class="highlighter-rouge">/etc/wpa_supplicant/wpa_supplicant.conf</code>
+Next, add the following to <code class="highlighter-rouge">/etc/network/interfaces</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto wlan0
 allow-hotplug wlan0
 iface wlan0 inet dhcp
-    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf</ssid_name></p>
+wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre></div>    </div>
+  </li>
+</ol>
 
-<p>You can set up multiple networks in the wpa_supplicant.conf file and the first available one will be used (I think. Or, maybe wrt signal strength? However, it is working according to order of appearance)</p>
+<p>You can set up multiple networks in the <code class="highlighter-rouge">wpa_supplicant.conf</code> file and the first available one will be used (I think. Or, maybe w.r.t. signal strength? However, it is working according to order of appearance)</p>
 
 
       </section>

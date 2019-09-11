@@ -1,5 +1,5 @@
 ---
-title: "Using file and folding"
+title: "Syntax folding"
 ---
 
 Maintained using indentation folding and searched using the headings.
