@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Processes and how to find and kill | Debdeep Bhattacharya</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Processes and how to find and kill" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="To find the pid of the process, do pidof processname or, ps aux | grep processname To kill process with pid kill pid To kill stubborn unresponsive process kill -9 pid To kill all processes with name killall processname or killall -9 processname" />
+<meta property="og:description" content="To find the pid of the process, do pidof processname or, ps aux | grep processname To kill process with pid kill pid To kill stubborn unresponsive process kill -9 pid To kill all processes with name killall processname or killall -9 processname" />
+<link rel="canonical" href="http://0.0.0.0:4000/lin/Processes-and-killing-them.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/lin/Processes-and-killing-them.html" />
+<meta property="og:site_name" content="Debdeep Bhattacharya" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-19T14:03:14-04:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/Processes-and-killing-them.html"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/lin/Processes-and-killing-them.html","headline":"Processes and how to find and kill","datePublished":"2019-09-19T14:03:14-04:00","dateModified":"2019-09-19T14:03:14-04:00","description":"To find the pid of the process, do pidof processname or, ps aux | grep processname To kill process with pid kill pid To kill stubborn unresponsive process kill -9 pid To kill all processes with name killall processname or killall -9 processname","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=f2a6b98afb4179cb56c9e8ef1b1e9b5b81034fc9">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://0.0.0.0:4000/">Debdeep Bhattacharya</a></h1>
+        <!--
+        
+          <img src="" alt="Logo" />
+        
+
+        <p>Website</p>
+
+	-->
+        
+        <p class="view"><a href="http://github.com/debdeepbh/debdeepbh.github.io">View the Project on GitHub <small>debdeepbh/debdeepbh.github.io</small></a></p>
+        
+
+        
+
+        
+      </header>
+
+
+      <section>
+
+
+	      <h2> Processes and how to find and kill </h2>
+
+      <ul>
+  <li>To find the pid of the process, do
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pidof processname
+</code></pre></div>    </div>
+    <p>or,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | grep processname
+</code></pre></div>    </div>
+  </li>
+  <li>To kill process with pid
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill stubborn unresponsive process
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kill -9 pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill all processes with name
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall processname 
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall -9 processname
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<p>Example: Unmounting partitions in use: Find out which process is using it by
+<code class="highlighter-rouge">
+  lsof | grep /mountpoint
+</code>
+Then kill it using</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  killall/kill [-9] processname/pid 
+</code></pre></div></div>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="http://github.com/debdeepbh">debdeepbh</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90023312-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

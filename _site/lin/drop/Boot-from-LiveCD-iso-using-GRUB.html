@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Boot from LiveCD iso using GRUB | Debdeep Bhattacharya</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Boot from LiveCD iso using GRUB" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps. Add this to /boot/grub/grub.cfg in proper place with proper modification: menuentry &quot;Booting ISO&quot; { insmod part_msdos insmod ntfs set root=&#39;(hd0,msdos6)&#39; loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt -- initrd (loop)/casper/initrd.lz } The command set root=&#39;(hd0,msdos6)&#39; is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command insmod is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after loopback loop tells the location of the iso. The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux: menuentry &quot;My custom Linux&quot; { set root=(hd0,5) linux /boot/vmlinuz initrd /boot/initrd.img } Note: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed. For Windows, instead of kernel and initrd, use chainloader +1 after defining root. A standard grub.cfg file is a good example." />
+<meta property="og:description" content="Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps. Add this to /boot/grub/grub.cfg in proper place with proper modification: menuentry &quot;Booting ISO&quot; { insmod part_msdos insmod ntfs set root=&#39;(hd0,msdos6)&#39; loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt -- initrd (loop)/casper/initrd.lz } The command set root=&#39;(hd0,msdos6)&#39; is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command insmod is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after loopback loop tells the location of the iso. The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux: menuentry &quot;My custom Linux&quot; { set root=(hd0,5) linux /boot/vmlinuz initrd /boot/initrd.img } Note: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed. For Windows, instead of kernel and initrd, use chainloader +1 after defining root. A standard grub.cfg file is a good example." />
+<link rel="canonical" href="http://0.0.0.0:4000/lin/drop/Boot-from-LiveCD-iso-using-GRUB.html" />
+<meta property="og:url" content="http://0.0.0.0:4000/lin/drop/Boot-from-LiveCD-iso-using-GRUB.html" />
+<meta property="og:site_name" content="Debdeep Bhattacharya" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-09-19T14:03:14-04:00" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://0.0.0.0:4000/lin/drop/Boot-from-LiveCD-iso-using-GRUB.html"},"@type":"BlogPosting","url":"http://0.0.0.0:4000/lin/drop/Boot-from-LiveCD-iso-using-GRUB.html","headline":"Boot from LiveCD iso using GRUB","datePublished":"2019-09-19T14:03:14-04:00","dateModified":"2019-09-19T14:03:14-04:00","description":"Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps. Add this to /boot/grub/grub.cfg in proper place with proper modification: menuentry &quot;Booting ISO&quot; { insmod part_msdos insmod ntfs set root=&#39;(hd0,msdos6)&#39; loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt -- initrd (loop)/casper/initrd.lz } The command set root=&#39;(hd0,msdos6)&#39; is equivalent to mounting the 6th partition of the zero-th hard disk as root (/). The command insmod is still unknown to me but the 2nd line (insmod ntfs) tells that the partition type is ntfs. The path name after loopback loop tells the location of the iso. The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, vmlinuz) and a ramdisk (initrd). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux: menuentry &quot;My custom Linux&quot; { set root=(hd0,5) linux /boot/vmlinuz initrd /boot/initrd.img } Note: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed. For Windows, instead of kernel and initrd, use chainloader +1 after defining root. A standard grub.cfg file is a good example.","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=f2a6b98afb4179cb56c9e8ef1b1e9b5b81034fc9">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://0.0.0.0:4000/">Debdeep Bhattacharya</a></h1>
+        <!--
+        
+          <img src="" alt="Logo" />
+        
+
+        <p>Website</p>
+
+	-->
+        
+        <p class="view"><a href="http://github.com/debdeepbh/debdeepbh.github.io">View the Project on GitHub <small>debdeepbh/debdeepbh.github.io</small></a></p>
+        
+
+        
+
+        
+      </header>
+
+
+      <section>
+
+
+	      <h2> Boot from LiveCD iso using GRUB </h2>
+
+      <p>Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps.</p>
+
+<p>Add this to <code class="highlighter-rouge">/boot/grub/grub.cfg</code> in proper place with proper modification:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "Booting ISO" {
+  insmod part_msdos
+  insmod ntfs
+  set root='(hd0,msdos6)'
+  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
+  initrd (loop)/casper/initrd.lz
+ }
+</code></pre></div></div>
+
+<p>The command <code class="highlighter-rouge">set root='(hd0,msdos6)'</code> is equivalent to mounting the 6th partition of the zero-th hard disk as root (<code class="highlighter-rouge">/</code>). The command <code class="highlighter-rouge">insmod</code> is still unknown to me but the 2nd line (<code class="highlighter-rouge">insmod ntfs</code>) tells that the partition type is <code class="highlighter-rouge">ntfs</code>. The path name after <code class="highlighter-rouge">loopback loop</code> tells the location of the iso.
+ The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, <code class="highlighter-rouge">vmlinuz</code>) and a ramdisk (<code class="highlighter-rouge">initrd</code>). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "My custom Linux" {
+ set root=(hd0,5)
+ linux /boot/vmlinuz
+ initrd /boot/initrd.img
+ }
+</code></pre></div></div>
+<p><strong>Note</strong>: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed.</p>
+
+<p>For Windows, instead of kernel and initrd, use <code class="highlighter-rouge">chainloader +1</code> after defining root. A standard <code class="highlighter-rouge">grub.cfg</code> file is a good example.</p>
+
+
+      </section>
+      <footer>
+        
+        <p>This project is maintained by <a href="http://github.com/debdeepbh">debdeepbh</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90023312-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>
