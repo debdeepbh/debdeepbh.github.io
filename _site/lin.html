@@ -16,10 +16,10 @@
 <meta property="og:url" content="http://0.0.0.0:4000/lin.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"lin collection","url":"http://0.0.0.0:4000/lin.html","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
+{"@type":"WebPage","url":"http://0.0.0.0:4000/lin.html","headline":"lin collection","description":"Website","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://0.0.0.0:4000/content/pic.jpg"}},"@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=1cc8fd3886e166c83670edea38483d0b5a2d4951">
+    <link rel="stylesheet" href="/assets/css/style.css?v=f2a6b98afb4179cb56c9e8ef1b1e9b5b81034fc9">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -50,85 +50,6 @@
 
       
   <h2>
-    <a href="/lin/Boot-from-LiveCD-iso-using-GRUB.html">
-      Boot from LiveCD iso using GRUB
-    </a>
-  </h2>
-<!--  No need for content
-	<p><p>Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps.</p>
-
-<p>Add this to <code class="highlighter-rouge">/boot/grub/grub.cfg</code> in proper place with proper modification:</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "Booting ISO" {
-  insmod part_msdos
-  insmod ntfs
-  set root='(hd0,msdos6)'
-  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
-  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
-  initrd (loop)/casper/initrd.lz
- }
-</code></pre></div></div>
-
-<p>The command <code class="highlighter-rouge">set root='(hd0,msdos6)'</code> is equivalent to mounting the 6th partition of the zero-th hard disk as root (<code class="highlighter-rouge">/</code>). The command <code class="highlighter-rouge">insmod</code> is still unknown to me but the 2nd line (<code class="highlighter-rouge">insmod ntfs</code>) tells that the partition type is <code class="highlighter-rouge">ntfs</code>. The path name after <code class="highlighter-rouge">loopback loop</code> tells the location of the iso.
- The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, <code class="highlighter-rouge">vmlinuz</code>) and a ramdisk (<code class="highlighter-rouge">initrd</code>). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "My custom Linux" {
- set root=(hd0,5)
- linux /boot/vmlinuz
- initrd /boot/initrd.img
- }
-</code></pre></div></div>
-<p><strong>Note</strong>: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed.</p>
-
-<p>For Windows, instead of kernel and initrd, use <code class="highlighter-rouge">chainloader +1</code> after defining root. A standard <code class="highlighter-rouge">grub.cfg</code> file is a good example.</p>
-</p>
--->
-  <p><hr />
-</p>
-
-  <h2>
-    <a href="/lin/Calendar.vim.html">
-      Calendar.vim
-    </a>
-  </h2>
-<!--  No need for content
-	<p><p><a href="https://github.com/itchyny/calendar.vim">Calendar.vim</a> is an excellent plugin for vim to access google calendar from vim.</p>
-
-<p>If you use <code class="highlighter-rouge">pathogen</code> to install vim plugins (which I do), cloning the repo to <code class="highlighter-rouge">.vim/bundle/</code> installs it directly.</p>
-
-<p>Setting the google options in <code class="highlighter-rouge">.vimrc</code>, when I do <code class="highlighter-rouge">:Ca</code> inside vim, I cannot copy the link got google authentication. So I opened it in <code class="highlighter-rouge">gvim</code> and copied it. But in <code class="highlighter-rouge">gvim</code>, I cannot paste the code that I received from google. So I hand-typed it.</p>
-
-<p>Here is a quick possible solution:</p>
-<ol>
-  <li>Open <code class="highlighter-rouge">gvim</code></li>
-  <li>Type <code class="highlighter-rouge">:Ca</code></li>
-  <li>Copy the link</li>
-  <li>Paste in browser, proceed, get a code</li>
-  <li>Edit the file <code class="highlighter-rouge">.vim/bundle/calendar.vim/google/client.vim</code> and navigate to the line:</li>
-</ol>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = input(printf(calendar#message#get('access_url_input_code'),
-</code></pre></div></div>
-
-<p>(This line is inside a function called access_token_async. The input code here is not able to access the bufferes <code class="highlighter-rouge">"+</code>, <code class="highlighter-rouge">"*</code> etc. So we manually supply the value of variable <code class="highlighter-rouge">code</code>. Make sure this modification does not stay for long)</p>
-<ol>
-  <li>Modify the line to
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = 'xxxx_your_code_goes_here_xxxx'
-</code></pre></div>    </div>
-  </li>
-  <li>Save the file.</li>
-  <li>Open usual vim and run :Ca and it should work directly.</li>
-  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
-</ol>
-
-<p>See the <code class="highlighter-rouge">calendar.vim/doc/calendar.txt</code> for a complete help which I followed mostly.
- As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command <code class="highlighter-rouge">:Ca</code> and mapped it to <code class="highlighter-rouge">Modkey+C</code></p>
-
-</p>
--->
-  <p><hr />
-</p>
-
-  <h2>
     <a href="/lin/Compress-and-uncompress-zip-unzip-files-using-aunpack.html">
       Compress and uncompress (zip/unzip) files using aunpack
     </a>
@@ -153,30 +74,6 @@
   </li>
 </ul>
 
-</p>
--->
-  <p><hr />
-</p>
-
-  <h2>
-    <a href="/lin/Handy-Commands.html">
-      Handy Commands
-    </a>
-  </h2>
-<!--  No need for content
-	<p><ul>
-  <li>See the size of partitions: 
- 	<code class="highlighter-rouge">df -h</code>
- 		(<code class="highlighter-rouge">-h</code> stands for human-readable. It applies to <code class="highlighter-rouge">ls</code> too)</li>
-  <li>See the dependency of a package: 
- 	<code class="highlighter-rouge">apt-cache depends &lt;package name&gt;</code></li>
-  <li>See the packages which are depndent on a package (reverse-dependency)
- 	<code class="highlighter-rouge">apt-get rdepends &lt;package-name&gt;</code></li>
-  <li>Search for a package or metapackage: 	
- 	<code class="highlighter-rouge">aptitude search &lt;search_string&gt;</code></li>
-  <li>See the list of open files:
- 	<code class="highlighter-rouge">lsof</code></li>
-</ul>
 </p>
 -->
   <p><hr />
@@ -709,6 +606,109 @@ sudo mkdir windows disk3 storage
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  df /root
 </code></pre></div></div>
 <p>Conversely, to see a list of all block devices and their mount points, use <code class="highlighter-rouge">lsblk</code>.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/drop/Boot-from-LiveCD-iso-using-GRUB.html">
+      Boot from LiveCD iso using GRUB
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p>Sometimes, due to the lack of pen drives, it is necessary to boot up a liveCD iso from the hard disk directly. Here are the steps.</p>
+
+<p>Add this to <code class="highlighter-rouge">/boot/grub/grub.cfg</code> in proper place with proper modification:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "Booting ISO" {
+  insmod part_msdos
+  insmod ntfs
+  set root='(hd0,msdos6)'
+  loopback loop /new/liveDVDmint/ubuntu-11.10-desktop-i386.iso
+  linux (loop)/casper/vmlinuz boot=casper iso-scan/filename=/new/liveDVDmint/ubuntu-11.10-desktop-i386.iso noeject noprompt --
+  initrd (loop)/casper/initrd.lz
+ }
+</code></pre></div></div>
+
+<p>The command <code class="highlighter-rouge">set root='(hd0,msdos6)'</code> is equivalent to mounting the 6th partition of the zero-th hard disk as root (<code class="highlighter-rouge">/</code>). The command <code class="highlighter-rouge">insmod</code> is still unknown to me but the 2nd line (<code class="highlighter-rouge">insmod ntfs</code>) tells that the partition type is <code class="highlighter-rouge">ntfs</code>. The path name after <code class="highlighter-rouge">loopback loop</code> tells the location of the iso.
+ The Last 2 lines are enough to resurrect any linux system with a kernel image (in this case, <code class="highlighter-rouge">vmlinuz</code>) and a ramdisk (<code class="highlighter-rouge">initrd</code>). Define their relative locations and you are good to go. For different distributions, the location and names of kernel and initrd are different. Website says, this piece of code is enough to boot a linux:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> menuentry "My custom Linux" {
+ set root=(hd0,5)
+ linux /boot/vmlinuz
+ initrd /boot/initrd.img
+ }
+</code></pre></div></div>
+<p><strong>Note</strong>: This piece of code is NOT tested. If does not work, then Maybe the options need to be changed.</p>
+
+<p>For Windows, instead of kernel and initrd, use <code class="highlighter-rouge">chainloader +1</code> after defining root. A standard <code class="highlighter-rouge">grub.cfg</code> file is a good example.</p>
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/drop/Calendar.vim.bak">
+      Calendar.vim
+    </a>
+  </h2>
+<!--  No need for content
+	<p><p><a href="https://github.com/itchyny/calendar.vim">Calendar.vim</a> is an excellent plugin for vim to access google calendar from vim.</p>
+
+<p>If you use <code class="highlighter-rouge">pathogen</code> to install vim plugins (which I do), cloning the repo to <code class="highlighter-rouge">.vim/bundle/</code> installs it directly.</p>
+
+<p>Setting the google options in <code class="highlighter-rouge">.vimrc</code>, when I do <code class="highlighter-rouge">:Ca</code> inside vim, I cannot copy the link got google authentication. So I opened it in <code class="highlighter-rouge">gvim</code> and copied it. But in <code class="highlighter-rouge">gvim</code>, I cannot paste the code that I received from google. So I hand-typed it.</p>
+
+<p>Here is a quick possible solution:</p>
+<ol>
+  <li>Open <code class="highlighter-rouge">gvim</code></li>
+  <li>Type <code class="highlighter-rouge">:Ca</code></li>
+  <li>Copy the link</li>
+  <li>Paste in browser, proceed, get a code</li>
+  <li>Edit the file <code class="highlighter-rouge">.vim/bundle/calendar.vim/google/client.vim</code> and navigate to the line:</li>
+</ol>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = input(printf(calendar#message#get('access_url_input_code'),
+</code></pre></div></div>
+
+<p>(This line is inside a function called access_token_async. The input code here is not able to access the bufferes <code class="highlighter-rouge">"+</code>, <code class="highlighter-rouge">"*</code> etc. So we manually supply the value of variable <code class="highlighter-rouge">code</code>. Make sure this modification does not stay for long)</p>
+<ol>
+  <li>Modify the line to
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>let code = 'xxxx_your_code_goes_here_xxxx'
+</code></pre></div>    </div>
+  </li>
+  <li>Save the file.</li>
+  <li>Open usual vim and run :Ca and it should work directly.</li>
+  <li>Undo the changes in client.vim and save it back. This step is necessary because you don’t want to leave the code in a config file that is possibly uploaded to github. Make sure there are no git commits in the time interval between the two saves otherwise someone can look at the history of the file and retrieve it.</li>
+</ol>
+
+<p>See the <code class="highlighter-rouge">calendar.vim/doc/calendar.txt</code> for a complete help which I followed mostly.
+ As a shortcut in awesomerc, add <code class="highlighter-rouge">xterm -e vim +:Ca</code> to open vim in a terminal with command <code class="highlighter-rouge">:Ca</code> and mapped it to <code class="highlighter-rouge">Modkey+C</code></p>
+
+</p>
+-->
+  <p><hr />
+</p>
+
+  <h2>
+    <a href="/lin/drop/Handy-Commands.html">
+      Handy Commands
+    </a>
+  </h2>
+<!--  No need for content
+	<p><ul>
+  <li>See the size of partitions: 
+ 	<code class="highlighter-rouge">df -h</code>
+ 		(<code class="highlighter-rouge">-h</code> stands for human-readable. It applies to <code class="highlighter-rouge">ls</code> too)</li>
+  <li>See the dependency of a package: 
+ 	<code class="highlighter-rouge">apt-cache depends &lt;package name&gt;</code></li>
+  <li>See the packages which are depndent on a package (reverse-dependency)
+ 	<code class="highlighter-rouge">apt-get rdepends &lt;package-name&gt;</code></li>
+  <li>Search for a package or metapackage: 	
+ 	<code class="highlighter-rouge">aptitude search &lt;search_string&gt;</code></li>
+  <li>See the list of open files:
+ 	<code class="highlighter-rouge">lsof</code></li>
+</ul>
 </p>
 -->
   <p><hr />
