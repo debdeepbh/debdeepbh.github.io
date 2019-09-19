@@ -1,6 +1,7 @@
 ---
 title: Research
 ---
+{% include math.html %}
 
 ## Research Interests
 
@@ -19,7 +20,15 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 
 My work on nonlinear dispersive equations has been about the low-regularity theory, especially in the critical regime, where we can observe a dichotomy between global existence and blow-up of the solution, depending on the mass of the initial data. 
-With my advisor [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) and collaborator [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/), I have studied the Zakharov-Kuznetsov equation and its modifications, which model [ion-accoustic wave](https://en.wikipedia.org/wiki/Ion_acoustic_wave) propagation in magnetized plasma. It is also a generalization of the celebrated [Korteweg-de Vries equation](https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation) for shallow water waves.
+With my advisor [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) and collaborator [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/), I have studied the Zakharov-Kuznetsov equation
+
+ {% raw %} 
+$$
+    v_t + \partial_x (\Delta v)  \pm \partial_x (v^{2}) = 0 
+$$
+ {% endraw %} 
+
+ and its modifications, which model [ion-accoustic wave](https://en.wikipedia.org/wiki/Ion_acoustic_wave) propagation in magnetized plasma. It is also a generalization of the celebrated [Korteweg-de Vries equation](https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation) for shallow water waves.
 
 The study of global well-posedness of low-regularity data requires the careful investigation of the interaction of constituent frequencies of the solution, together with tools from Harmonic analysis such as [Fourier analysis](https://en.wikipedia.org/wiki/Fourier_analysis) and [Paley-Littlewood analysis](https://en.wikipedia.org/wiki/Littlewood%E2%80%93Paley_theory) -- a technique collectively known as the *I*-method. On the other hand, low-regularity solutions that blow up in finite time have the property that the mass concentrates inside a ball of shrinking radius. The main tools here are the *I*-method and profile decomposition.
 
@@ -33,10 +42,17 @@ The study of global well-posedness of low-regularity data requires the careful i
 ### Signal Processing
 Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on [frames](https://en.wikipedia.org/wiki/Frame_(linear_algebra)), [wavelets](https://en.wikipedia.org/wiki/Wavelet), time series analysis and [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) by [John Benedetto](https://www.math.umd.edu/~jjb/). 
 
-During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the optimal deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
+During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
+
+
 
 * Report on _Deconvolution problem and application to ANITA signals_, submitted to ANITA collaboration at University of Hawai'i at Manoa [(link)](/content/report-anita.pdf)
 * _Generalized ForWaRD algorithm for multi-antenna model_ (Preprint)
+
+| ![img](content/noisyblurred-1.png) | ![img](content/dec-1.png) |
+
+*A noisy blurred signal (left) is deconvolved (right) using the ForWaRD algorithm*
+
 
 ***
 
