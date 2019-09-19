@@ -7,8 +7,8 @@ title: Teaching
 I am a teaching assistant for Calculus III during Fall 2019. 
 
 ### Instructor
-* Summer 2017: Linear Algebra
-* Summer 2016: Calculus with precalculus
+* [Summer 2017: Linear Algebra](teaching/summer-2017)
+* [Summer 2016: Calculus with precalculus](teaching/summer-2016)
 
 ### Teaching Assistant
 * Spring 2019: Calculus I
