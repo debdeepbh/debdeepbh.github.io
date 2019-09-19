@@ -25,7 +25,7 @@ The study of global well-posedness of low-regularity data requires the careful i
 
 [//]: Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
-* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_  with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Submitted) [(arXiv)](https://arxiv.org/abs/1906.05822)
+* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Submitted) [(arXiv)](https://arxiv.org/abs/1906.05822)
 * _Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation_ with [Luiz Gustavo Farah](https://sites.google.com/site/lgfarah/) (In preparation)
 
 ***
