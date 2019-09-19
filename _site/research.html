@@ -129,6 +129,9 @@ However, due to the differential formulation, the classical theory fails to desc
 <p>Introduced by <a href="https://www.sandia.gov/~sasilli/">Stewart Silling</a> in 2000,  <a href="https://en.wikipedia.org/wiki/Peridynamics">peridynamics</a> has become useful to address this limitations.
 Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.</p>
 
+<p><img src="content/meshout.gif" alt="crack-branching" />
+<em>Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction</em> <a href="https://github.com/debdeepbh/numerical/tree/master/crack">[code]</a></p>
+
 <p>Working with <a href="https://web.ornl.gov/~selesonpd/">Pablo Seleson</a> and <a href="https://cam.ornl.gov/jtrageser2.html">Jeremy Trageser</a> at the <a href="https://www.ornl.gov/">Oak Ridge National Laboratory</a>, 
 I considered three-dimensional axisymmetric problems, where the geometry of the material is symmetric about an axis of symmetry and the external loading conditions are such that the deformation fields are symmetric about the same axis of symmetry. This is an important class of problem in solid mechanics where the symmetry can be exploited to reduce dimension of the problem. We derived the two-dimensional model that exactly represent the full 3D axisymmetric linear peridynamic model by incorporating out-of-plane bond forces into the representative 2D plane, thus reducing the computational cost significantly.</p>
 
@@ -141,7 +144,7 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 <h3 id="machine-learning">Machine Learning</h3>
 
-<p>During Summer 2018, I was learned to use  popular machine lerning techniques using <em>scikit-learn</em> as yet another problem-solving tool. While documenting my understanding, I became more interested in the underlying mathematics of it.
+<p>During Summer 2018, I was learning to use  popular machine lerning techniques using <em>scikit-learn</em> as yet another problem-solving tool. While documenting my understanding, I became more interested in the underlying mathematics of it.
 With <a href="https://www.math.umd.edu/~rvbalan/">Radu Balan</a> and Naveed Haghani, I am working on a 
  permutation-invariant encoding algorithm of data points in Euclidean space.</p>
 
