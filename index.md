@@ -20,7 +20,9 @@ I study analysis and partial differential equations, in particular, nonlinear di
 
 ## CV
 
-Click [here](./content/debdeep.pdf) to download my CV. (Updated: June 2019)
+Click [here](./content/debdeep.pdf) to download my CV. 
+
+[\\]: (Updated: June 2019)
 
 * * * 
 
