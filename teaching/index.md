@@ -6,6 +6,13 @@ title: Teaching
 
 I am a teaching assistant for Calculus III during Fall 2019. 
 
+* **Office hours:** R 12:30 pm - 2:30 pm (PHIL 720G)
+* **Calc Lab:** T 5:00 pm - 6:00 pm (ROME 771)
+
+***
+
+## Previous Courses
+
 ### Instructor
 * [Summer 2017: Linear Algebra](summer-2017)
 * [Summer 2016: Calculus with precalculus](summer-2016)
