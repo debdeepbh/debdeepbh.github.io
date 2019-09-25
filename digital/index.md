@@ -11,5 +11,6 @@ description: "ENTER HERE"
 [\\]: It is important to have the following line at the beginning of the line
 
 ![img]( {{ image.path }} )
+
     {% endif %}
 {% endfor %}
