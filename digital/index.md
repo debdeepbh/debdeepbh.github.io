@@ -3,12 +3,13 @@ layout: default
 title: Digital Painting
 description: "ENTER HERE"
 ---
+## Digital painting
+
 {% for image in site.static_files %}
     {% if image.path contains 'digital/' %}
-<div>
 
-        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+[\\]: It is important to have the following line at the beginning of the line
 
-</div>
+![img]( {{ image.path }} )
     {% endif %}
 {% endfor %}
