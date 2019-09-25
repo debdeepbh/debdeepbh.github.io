@@ -30,7 +30,8 @@ $$
 
  and its modifications, which model propagation of [ion-accoustic waves](https://en.wikipedia.org/wiki/Ion_acoustic_wave) in magnetized plasma. It is also one of the higher dimensional generalizations of the celebrated [Korteweg-de Vries equation](https://en.wikipedia.org/wiki/Korteweg%E2%80%93de_Vries_equation) that models shallow water waves.
 
-The study of global well-posedness of low-regularity data requires a careful investigation of the interaction of the constituent frequencies of the solution. Utilizing tools from harmonic analysis such as [Fourier analysis](https://en.wikipedia.org/wiki/Fourier_analysis) and [Paley-Littlewood analysis](https://en.wikipedia.org/wiki/Littlewood%E2%80%93Paley_theory), a technique collectively known as the [*I*-method](https://web.archive.org/web/20120925081237/http://wiki.math.toronto.edu/DispersiveWiki/index.php/I-method) establishes an *almost conservation law* of a modified energy functional associated with the solution and iterates the local existence theory finitely many times to establish the global well-posedness. On the other hand, low-regularity solutions that blow up in finite time have the property that the mass of the solutions concentrates inside a ball of shrinking radius. The main tools here are the *I*-method and profile decomposition.
+The main tool used in my work on asymptotics of low-regularity data is known as the [*I*-method](https://web.archive.org/web/20120925081237/http://wiki.math.toronto.edu/DispersiveWiki/index.php/I-method), which was featured in 2006 Fields Medal [citations](http://www.icm2006.org/dailynews/fields_tao_info_en.pdf) for Terrence Tao. 
+Using harmonic analytic tools like Fourier analysis and Littlewood-Payley analysis, we carefully investigate of the interaction of the constituent frequencies of the solution to establish an *almost conservation law* for the energy functional of a mollified solution. Using this law, we iterate the local existence theory finitely many times to establish the global well-posedness for rough data. On the other hand, we prove that low-regularity solutions which blow up in finite time have the property that the mass of the solutions concentrates inside a ball of shrinking radius. The main tools here are the *I*-method and an almost-orthogonal profile decomposition.
 
 [//]: Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
@@ -42,8 +43,7 @@ The study of global well-posedness of low-regularity data requires a careful inv
 ### Signal Processing
 Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on [frames](https://en.wikipedia.org/wiki/Frame_(linear_algebra)), [wavelets](https://en.wikipedia.org/wiki/Wavelet), time series analysis and [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) with [Prof. John Benedetto](https://www.math.umd.edu/~jjb/). 
 
-During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawaii under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
-
+During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noises picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawai'i at Monoa under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
 
 
 * Report on _Deconvolution problem and application to ANITA signals_, submitted to ANITA collaboration at University of Hawai'i at Manoa [(link)](/content/report-anita.pdf)
@@ -51,7 +51,7 @@ During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wi
 
 | ![img](noisyblurred-1.png) | ![img](dec-1.png) |
 
-*A blurred, noisy signal (left) is deconvolved (right) using the ForWaRD algorithm*
+*A blurred, noisy signal (left) is deconvolved (right) using the ForWaRD algorithm* [[code]](https://github.com/debdeepbh/numerical/tree/master/wavelet)
 
 
 ***
