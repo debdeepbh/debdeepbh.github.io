@@ -17,3 +17,8 @@ layout: plain
 $$a^2 + b^2 = c^2$$
 
  {% endraw %} 
+
+## Here is a task list
+- [ ] This is an item
+- [x] This is another item
+- [ ] This is not checked
