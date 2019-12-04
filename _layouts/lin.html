@@ -85,7 +85,11 @@
 {% for tag in tags %}
     {% if tag != "" %}
 <div class="tagbox">
- 	<a href="/lin/tags/#{{ tag }}"> {{ tag }}  </a>
+ 	<a href="/lin/tags/#{{ tag }}"> 
+		<small>
+		{{ tag }}
+		</small>
+	</a>
 </div>
 {% endif %}
 {% endfor %}
