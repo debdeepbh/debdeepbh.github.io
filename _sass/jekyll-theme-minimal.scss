@@ -18,10 +18,45 @@ h1, h2, h3, h4, h5, h6 {
 .menuCurrent {
 	color: #727272; 
 	font-weight: bold;
+	  border: 1px solid gray ;
+	color: #222;
+	//text-decoration: underline; 
+	display: inline-block;
+	  //border-radius: 2px 2px;
+    border-left: 6px solid #069;
+    border-right: hidden; 
+    border-top: hidden; 
+    border-bottom: hidden; 
+	  //padding: 2px ;
+	  //background-color: lightgray;
 }
 .menuNormal {
-	//color: #727272; 
+	  border: 1px solid gray ;
+	//font-weight: bold;
+	//font-size: 105%;
+	//color: #222;
 	//text-decoration: underline; 
+	display: inline-block;
+	  //border-radius: 2px 2px;
+    border-left: 6px solid lightgrey;
+    border-right: hidden; 
+    border-top: hidden; 
+    border-bottom: hidden; 
+	  padding: 2px ;
+	  //background-color: lightgray;
+}
+.menuNormalSub {
+	  border: 1px solid gray ;
+	color: #222;
+	//text-decoration: underline; 
+	display: inline-block;
+	  //border-radius: 2px 2px;
+    border-left: 6px solid lightgreen;
+    border-right: hidden; 
+    border-top: hidden; 
+    border-bottom: hidden; 
+	  padding: 2px ;
+	  //background-color: lightgray;
 }
 
 p, ul, ol, table, pre, dl {
@@ -280,4 +315,13 @@ footer {
     font-size:12pt;
     color:#444;
   }
+}
+
+.tagbox {
+display: inline-block;
+  //font-size:12px;
+  border: 1px solid lightgray ;
+  border-radius: 2px 7px;
+  padding: 1px ;
+  //background-color: gray;
 }

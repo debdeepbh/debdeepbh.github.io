@@ -1,5 +1,6 @@
 ---
 title: "Compress and uncompress (zip/unzip) files using aunpack"
+tags: linux archive compress
 ---
 
  * To extract all files from archive `foobar.tar.gz` to  a  subdirectory  (or the current directory if it only contains one file):

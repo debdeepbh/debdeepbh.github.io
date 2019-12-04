@@ -1,11 +1,11 @@
 ---
-title: Moving /root to another partition
+title: Moving directories to their own partitions
+tags: mount partition fstab
 ---
-
-After using a linux install for a while, if you realize that your `/root` or `/home` partition needs more space than anticipated, it might be useful to move these directories to their own partitions. Here is how to do it.
+After using a Linux for a while, if you may realize that your `/root` or `/home` partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven't done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move `/root` to its own partition.
 
 * Create new ext4 partition, say `/dev/sda7`. Mount it in a directory, say `/otherlin`
-* Copy all data from /root to /otherlin using the following commands
+* Copy all data from `/root` to `/otherlin` using the following commands
 ```
   cp -urp /root/. /otherlin/
 ```
@@ -32,3 +32,4 @@ After using a linux install for a while, if you realize that your `/root` or `/h
 ```
  mount -a
 ```
+
