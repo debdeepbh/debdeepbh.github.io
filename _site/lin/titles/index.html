@@ -1,0 +1,1795 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>All Posts | Debdeep Bhattacharya</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="All Posts" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Website" />
+<meta property="og:description" content="Website" />
+<link rel="canonical" href="http://localhost:4000/lin/titles/" />
+<meta property="og:url" content="http://localhost:4000/lin/titles/" />
+<meta property="og:site_name" content="Debdeep Bhattacharya" />
+<script type="application/ld+json">
+{"@type":"WebPage","headline":"All Posts","url":"http://localhost:4000/lin/titles/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"Website","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=e3b2580161a58de70a3f9f763bc1c72bd0fe371d">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/">Debdeep Bhattacharya</a></h1>
+        <!--
+        
+          <img src="" alt="Logo" />
+        
+
+        <p>Website</p>
+
+	-->
+
+
+
+
+
+        
+        <p class="view"><a href="http://github.com/debdeepbh/debdeepbh.github.io">View the Project on GitHub <small>debdeepbh/debdeepbh.github.io</small></a></p>
+        
+
+        
+
+        
+
+
+	<!-- This is the navigation bar -->
+	
+		<nav>
+  
+  <a href="/lin/"  class=menuNormal >
+	    &nbsp;Blog Home
+     </a>
+     <br>
+  
+  <a href="/lin/titles/"  class=menuCurrent >
+  &nbsp; &nbsp; Titles
+  </a>
+     <br>
+  
+  <a href="/lin/tags/"  class=menuNormal >
+  &nbsp; &nbsp; Tags
+  </a>
+     <br>
+  
+  <a href="/lin/posts/"  class=menuNormal >
+  &nbsp; &nbsp; Posts
+  </a>
+     <br>
+  
+
+  
+</nav>
+
+	
+
+      </header>
+
+
+      <section>
+
+
+	      <h1> All Posts </h1>
+	    
+<!--get date from  snippet-->
+<small>  </small>
+
+<!--get taglist from  snippet-->
+
+
+
+
+<p> 
+	<!--To access the list variable tags from tagcollection.html-->
+<!--Take all snippets from _lin and create a list of raw tags-->
+
+<!--create a new array variable called tags from rawtags, where we remove duplicates-->
+
+<body>
+
+<!--reversed to order put the most recent post first-->
+
+<h3>
+    <a href="/lin/2019-11-05-syntax-folding-vim.html">
+      Syntax folding in vim and custom folding for a file
+      <!--vimfoldingproductivity-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small>  5 Nov 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#vim">
+<small>
+		vim 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#folding">
+<small>
+		folding 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#productivity">
+<small>
+		productivity 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>Syntax folding in vim is a powerful feature that makes navigation very easy. Folding can also be used to create an ad-hoc index for the file. Here are my frequently used folding commands.</p>
+
+<h3 id="folding-help">Folding Help:</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>*</th>
+      <th>Keyseq</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td>zi</td>
+      <td>switch folding on or off</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>za</td>
+      <td>toggle current fold open/closed</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc</td>
+      <td>close current fold</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zR</td>
+      <td>open all folds</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zM</td>
+      <td>close all folds</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zv</td>
+      <td>expand folds to reveal cursor</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zj,zk</td>
+      <td>jumps to the next/previous fold, even when unfolded</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zo,(zO)</td>
+      <td>jumpsopen fold (recursively)</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>zc,(zC)</td>
+      <td>jumpsclosefold (recursively)</td>
+    </tr>
+    <tr>
+      <td>*</td>
+      <td>zA</td>
+      <td>toggle folds recursively</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="creating-custom-folding-options-for-a-file">Creating custom folding options for a file</h2>
+
+<p>You can create a vim config file <code class="highlighter-rouge">customfolding.vim</code> for a particular file and launch the file with <code class="highlighter-rouge">vim -S customfolding.vim</code>.</p>
+
+<h4 id="folding-options">Folding Options</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Options in vimrc</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">set foldnestmax=10</code></td>
+      <td>“deepest fold is 10 levels</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">set nofoldenable</code></td>
+      <td>“dont fold by default</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">set foldlevel=1</code></td>
+      <td>“this is just what i use</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">set shiftwidth=1</code></td>
+      <td>“to consider spaces as one foldlevel away</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Additionally, you can add the following to the custom vimrc for better searching</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>" DO not expand folds while searching
+set foldopen-=search
+</code></pre></div></div>
+
+<p>to stop folds from opening on search, which is even better. Moreover, use 
+<code class="highlighter-rouge">:folddoopen s/old/new/ge</code>
+ to replace <code class="highlighter-rouge">old</code> with <code class="highlighter-rouge">new</code> in the lines which are not folded.</p>
+
+<h4 id="warning">Warning:</h4>
+<p>I keep my <code class="highlighter-rouge">smartindent</code> on, hence I use <code class="highlighter-rouge">&lt;F2&gt;</code> before pasting into the file.</p>
+
+<h4 id="example">Example:</h4>
+<p>Here is an example of a vimrc where lines starting with one whitespace will be folded into the preceding line:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set smartindent
+
+setlocal foldmethod=expr
+setlocal foldexpr=(getline(v:lnum)=~'^$')?-1:((indent(v:lnum)&lt;indent(v:lnum+1))?('&gt;'.indent(v:lnum+1)):indent(v:lnum))
+set foldtext=getline(v:foldstart)
+set fillchars=fold:\ "(there's a space after that \)
+highlight Folded ctermfg=DarkGreen ctermbg=Black
+
+" DO not expand folds while searching
+set foldopen-=search 
+</code></pre></div></div>
+
+</p>-->
+<!--<p><p>Syntax folding in vim is a powerful feature that makes navigation very easy. Folding can also be used to create an ad-hoc index for the file. Here are my frequently used folding commands.</p>
+<h3 id="folding-help">Folding Help:</h3>
+<table> <thead> <tr> <th>*</th> <th>Keyseq</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> </td> <td>zi</td> <td>switch folding on or off</td> </tr> <tr> <td>*</td> <td>za</td> <td>toggle current fold open/closed</td> </tr> <tr> <td> </td> <td>zc</td> <td>close current fold</td> </tr> <tr> <td>*</td> <td>zR</td> <td>open all folds</td> </tr> <tr> <td>*</td> <td>zM</td> <td>close all folds</td> </tr> <tr> <td> </td> <td>zv</td> <td>expand folds to reveal cursor</td> </tr> <tr> <td>*</td> <td>zj,zk</td> <td>jumps to the next/previous fold,...
+</td></tr></tbody></table>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-10-03-handling-pdf.html">
+      Handy pdf editing tools
+      <!--pdfutilitymergepdftk-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small>  3 Oct 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdf">
+<small>
+		pdf 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility">
+<small>
+		utility 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#merge">
+<small>
+		merge 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdftk">
+<small>
+		pdftk 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>The filetype I handle most frequently is pdf. Here is a list of my most frequently used pdf-related actions.</p>
+
+<ul>
+  <li>Converting pdf to png:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftoppm -png input.pdf output
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p><code class="highlighter-rouge">pdftk</code> is another brilliant tool to operate on pdf file. The main thing to remember is <code class="highlighter-rouge">cat output</code>.</p>
+
+<ul>
+  <li>Merging pdf files:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file1.pdf file2.pdf cat output outputfile.pdf
+</code></pre></div>    </div>
+  </li>
+  <li>Extract page 2-6 from a pdf:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file.pdf cat 2-6 output outputfile.pdf
+</code></pre></div>    </div>
+  </li>
+  <li>Drop page 13 from a pdf:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file.pdf cat 1-12 13-end output outputfile.pdf
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>You can also use <code class="highlighter-rouge">pdftk</code> to encrypt pdf files. See <code class="highlighter-rouge">man pdftk</code>. It’s amazing.</p>
+
+</p>-->
+<!--<p><p>The filetype I handle most frequently is pdf. Here is a list of my most frequently used pdf-related actions.</p>
+<ul> <li>Converting pdf to png: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftoppm -png input.pdf output </code></pre></div> </div> </li> </ul>
+<p><code class="highlighter-rouge">pdftk</code> is another brilliant tool to operate on pdf file. The main thing to remember is <code class="highlighter-rouge">cat output</code>.</p>
+<ul> <li>Merging pdf files: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file1.pdf file2.pdf cat output outputfile.pdf </code></pre></div> </div> </li> <li>Extract page 2-6 from a pdf: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file.pdf cat 2-6 output outputfile.pdf </code></pre></div> </div> </li> <li>Drop page 13 from a pdf: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftk file.pdf...
+</code></pre></div></div></li></ul>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-09-02-remote-xserver.html">
+      Performing xserver activities through tty or remote ssh shells
+      <!--xserverremotessh-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small>  2 Sep 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xserver">
+<small>
+		xserver 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#remote">
+<small>
+		remote 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ssh">
+<small>
+		ssh 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>If you have an Xserver running in a remove computer, you can perform GUI related actions via ssh.</p>
+
+<p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at the <code class="highlighter-rouge">from</code> field).</p>
+
+<p>Export the display as an environment variable using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export DISPLAY=:0.0
+</code></pre></div></div>
+<p>Then  issue your GUI commands like you do in the terminal.</p>
+
+<p><strong>Note:</strong> apparently you cannot run a gui program in other user’s tty even by setting the <code class="highlighter-rouge">DISPLAY</code> to the user’s tty.</p>
+
+<hr />
+
+<h3 id="simple-gtk-pop-ups">Simple GTK pop-ups:</h3>
+
+<p>First export <code class="highlighter-rouge">DISPLAY</code> as above.
+ There is a software called <code class="highlighter-rouge">zenity</code> that’ll do your work. See <code class="highlighter-rouge">zenity --help</code> for more options. Example:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> zenity --info --text "hello there!"
+</code></pre></div></div>
+
+<h3 id="launching-remote-gui-elements-locally">Launching remote GUI elements locally</h3>
+
+<p>While loggin in via ssh, use <code class="highlighter-rouge">-X</code> to allow the local Xserver to display the output of the remote Xserver. e.g.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -X user@remote-host:~/
+firefox
+</code></pre></div></div>
+
+</p>-->
+<!--<p><p>If you have an Xserver running in a remove computer, you can perform GUI related actions via ssh.</p>
+<p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at the <code class="highlighter-rouge">from</code> field).</p>
+<p>Export the display as an environment variable using:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> export DISPLAY=:0.0 </code></pre></div></div>
+<p>Then issue your GUI commands like you do in the terminal.</p>
+<p><strong>Note:</strong> apparently you cannot run a gui program in other user’s tty even by setting the <code class="highlighter-rouge">DISPLAY</code> to the...
+</p>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-08-30-cocalc-sage.html">
+      Installing and using Cocalc notebook locally
+      <!--cocalcsagelanguagemath-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 30 Aug 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#cocalc">
+<small>
+		cocalc 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#sage">
+<small>
+		sage 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#language">
+<small>
+		language 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#math">
+<small>
+		math 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p><a href="https://cocalc.com/">CoCalc</a> is probably the best outcome of collaborative opn source efforts as of today. It is a collaborative online computing environment, mostly for <a href="http://www.sagemath.org/">Sage</a> (an open source mathematical software). Apart from sage worksheets, it allows octave, jupyter notebooks, latex and R document editing, and many more. You can just create an account in their website and start using right away.</p>
+
+<p>But the best part is that you can install Cocalc as a server and let others log in to it and collaborate. No need to install <code class="highlighter-rouge">sage</code> or <code class="highlighter-rouge">sagemath</code>.</p>
+
+<p>Follow the instruction to install the <a href="https://github.com/sagemathinc/cocalc-docker"><code class="highlighter-rouge">cocalc-docker</code></a>. It is just one
+line long code. It will download,
+extract and install. I had to use sudo to get it to work since I
+installed docker using sudo (<code class="highlighter-rouge">sudo apt-get install docker.io</code>). 
+To open it in browser, make sure to use <code class="highlighter-rouge">https://localhost</code> instead of
+<code class="highlighter-rouge">http://localhost</code>.</p>
+
+<p>I had create account (fake email ids are ok, since they are local)</p>
+
+<p>To start and stop <code class="highlighter-rouge">cocalc</code>, use</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker start cocalc
+</code></pre></div></div>
+
+<p>and</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo docker stop cocalc
+</code></pre></div></div>
+
+<h3 id="usage">Usage:</h3>
+<ul>
+  <li>To view equations in latex rendering, use the function <code class="highlighter-rouge">view()</code>. To
+print out the latex code of it, use the function <code class="highlighter-rouge">latex()</code>.</li>
+  <li>
+    <p>To turn the latex rendering on by default, you can use <code class="highlighter-rouge">%typeset_mode</code> to <code class="highlighter-rouge">True</code> at the beginning of the sheet</p>
+  </li>
+  <li>To define variables in a latex-friendly way so that the view command
+prints it right, use</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
+</code></pre></div></div>
+
+<p>Later, do <code class="highlighter-rouge">view(u_th_x)</code> to see it rendered correctly.</p>
+
+</p>-->
+<!--<p><p><a href="https://cocalc.com/">CoCalc</a> is probably the best outcome of collaborative opn source efforts as of today. It is a collaborative online computing environment, mostly for <a href="http://www.sagemath.org/">Sage</a> (an open source mathematical software). Apart from sage worksheets, it allows octave, jupyter notebooks, latex and R document editing, and many more. You can just create an account in their website and start using right away.</p>
+<p>But the best part is that you can install Cocalc as a server and let others log in to it and collaborate. No need to install <code class="highlighter-rouge">sage</code> or <code class="highlighter-rouge">sagemath</code>.</p>
+<p>Follow the instruction to install the &lt;a...
+</p>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-06-17-gdrive-cmd.html">
+      Google drive client (gdrive) for command line
+      <!--gdriveclientterminal-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 17 Jun 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#gdrive">
+<small>
+		gdrive 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#client">
+<small>
+		client 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#terminal">
+<small>
+		terminal 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>A git-like command line tool called <a href="https://github.com/odeke-em/drive">drive</a> has implemented all the features though auth2 secret key.
+ Follow the instructions in its <code class="highlighter-rouge">readme</code> file, run</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive init ~/gdrive
+</code></pre></div></div>
+<p>to start the service. In the command line, it will give you a link to visit to get a secret key which you enter in the command line.
+ After that pull, push etc covers everything, Look at the Readme in the github for all information.</p>
+
+<h3 id="usage">Usage</h3>
+<p>After <code class="highlighter-rouge">drive init</code>, go to the directory you initiated drive and then</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive pull 'directory name'
+</code></pre></div></div>
+<p>pulls all the files, directories etc of ‘directory’ name.</p>
+
+<p>Similar to git, to push files to drive, you can create subdirectory inside the local gdrive structure. For example,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	cd ~/grive
+	mkdir new-folder
+	cd new-folder
+	cp ~/newfile ./
+	drive push
+</code></pre></div></div>
+<p>Be aware, if you do not have a copy of the remote files in the local location, drive push will delete the ones that are not present in the local path or in its children.</p>
+
+<p><strong>Issue</strong>: the authentication token expires occasionally, forcing you to follow some link, clicking on “Accept” and generate token, copy-paste it to the terminal window.</p>
+
+<ul>
+  <li>Deleting files from drive:</li>
+</ul>
+
+<p>Either</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive trash 'file to be trashed'
+</code></pre></div></div>
+<p>Or, remember the name (with path) of the directory you want to delete. <code class="highlighter-rouge">rm -r</code> in local path. Then</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  drive push 'path to the deleted file'
+</code></pre></div></div>
+<p>to delete it remotely.</p>
+
+<ul>
+  <li>To empty trash
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive emptytrash
+</code></pre></div>    </div>
+  </li>
+  <li>To permanently delete files without trashing it first (no need because I have infinite space in my institution-given drive) use
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive delete 'file to be deleted forever'
+</code></pre></div>    </div>
+  </li>
+  <li>To list files upto 1 depth inside some directory
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list
+</code></pre></div>    </div>
+  </li>
+  <li>To list files upto 3 directory depth
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list -depth 3
+</code></pre></div>    </div>
+  </li>
+  <li>You can use strings to look for while listing
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive list --matches mp4 pdf mp3
+</code></pre></div>    </div>
+  </li>
+  <li>To first sort by modTime, then largest-to-smallest and finally most number of saves inside the directory Photos
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	 drive list --sort modtime,size_r,version_r Photos
+</code></pre></div>    </div>
+  </li>
+  <li>To see stats of a directory recursively
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive stat -r 'directory name'
+</code></pre></div>    </div>
+    <p>or until depth 3</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  	drive stat -depth 3 'directory'
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to create an empty file or folder remotely Sample usage:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive new --folder flux
+ $ drive new --mime-key doc bofx
+ $ drive new --mime-key folder content
+ $ drive new --mime-key presentation ProjectsPresentation
+ $ drive new --mime-key sheet Hours2015Sept
+ $ drive new --mime-key form taxForm2016 taxFormCounty
+ $ drive new flux.txt oxen.pdf # Allow auto type resolution from the extension
+</code></pre></div>    </div>
+  </li>
+  <li>Show all information about your drive account
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive quota
+</code></pre></div>    </div>
+    <p>in more detail</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	drive about
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to copy content remotely without having to explicitly download and then reupload.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive copy -r blobStore.py mnt flagging
+ $ drive copy blobStore.py blobStoreDuplicated.py
+</code></pre></div>    </div>
+  </li>
+  <li>To perform a rename:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive rename url_test url_test_results
+ $ drive rename openSrc/2015 2015-Contributions
+</code></pre></div>    </div>
+  </li>
+  <li>drive allows you to move content remotely between folders. To do so:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive move photos/2015 angles library archives/storage
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Command Aliases:
+ drive supports a few aliases to make usage familiar to the utilities in your shell e.g:</p>
+
+    <p>cp : copy
+   ls : list
+   mv : move
+   rm : delete</p>
+  </li>
+</ul>
+
+<p>The <code class="highlighter-rouge">url</code> command prints out the url of a file. It allows you to specify multiple paths relative to root or even by id</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $ drive url Photos/2015/07/Releases intros/flux
+</code></pre></div></div>
+
+</p>-->
+<!--<p><p>A git-like command line tool called <a href="https://github.com/odeke-em/drive">drive</a> has implemented all the features though auth2 secret key. Follow the instructions in its <code class="highlighter-rouge">readme</code> file, run</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> drive init ~/gdrive </code></pre></div></div>
+<p>to start the service. In the command line, it will give you a link to visit to get a secret key which you enter in the command line. After that pull, push etc covers everything, Look at the Readme in the github for all information.</p>
+<h3 id="usage">Usage</h3>
+<p>After <code class="highlighter-rouge">drive init</code>, go to the directory you initiated drive and then</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> drive pull...
+</code></pre></div></div>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-06-15-process.html">
+      Processes and how to kill them
+      <!--processpspid-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 15 Jun 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#process">
+<small>
+		process 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ps">
+<small>
+		ps 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pid">
+<small>
+		pid 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><ul>
+  <li>To find the pid of the process, do
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pidof processname
+</code></pre></div>    </div>
+    <p>or,</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | grep processname
+</code></pre></div>    </div>
+  </li>
+  <li>To kill process with pid
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill stubborn unresponsive process
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  kill -9 pid
+</code></pre></div>    </div>
+  </li>
+  <li>To kill all processes with name
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall processname 
+</code></pre></div>    </div>
+    <p>or</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall -9 processname
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<hr />
+
+<h4 id="example">Example:</h4>
+<ul>
+  <li><strong>Unmounting partitions in use:</strong> Find out which process is using it by
+<code class="highlighter-rouge">
+  lsof | grep /mountpoint
+</code>
+Then kill it using
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  killall/kill [-9] processname/pid 
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+</p>-->
+<!--<p><ul> <li>To find the pid of the process, do <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pidof processname </code></pre></div> </div> <p>or,</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux | grep processname </code></pre></div> </div> </li> <li>To kill process with pid <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>kill pid </code></pre></div> </div> </li> <li>To kill stubborn unresponsive process <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> kill -9 pid </code></pre></div> </div> </li> <li>To kill all processes with name <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall processname </code></pre></div> </div> <p>or</p> <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>killall -9 processname </code></pre></div> </div> </li> </ul>
+<hr />
+<h4 id="example">Example:</h4>
+<ul> <li><strong>Unmounting partitions in use:</strong> Find out which process is using it by <code class="highlighter-rouge"> lsof...
+</code></li></ul>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-05-12-decompress.html">
+      Handling compressed files without remembering the parameters
+      <!--zipunzipcompressextractutility-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 12 May 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#zip">
+<small>
+		zip 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#unzip">
+<small>
+		unzip 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#compress">
+<small>
+		compress 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#extract">
+<small>
+		extract 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility">
+<small>
+		utility 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>Often times, you might be asking yourself, what are the parameters for extracting a <code class="highlighter-rouge">tar</code> file? (answer: <code class="highlighter-rouge">-xvf</code>) In any case, to avoid memorizing individual parameters for zip, tar, rar etc, use <code class="highlighter-rouge">atool</code>.</p>
+
+<ul>
+  <li>
+    <p>Install <code class="highlighter-rouge">atool</code> using <code class="highlighter-rouge">apt-get</code>: <code class="highlighter-rouge">sudo apt-get install atool</code>.
+Commands like <code class="highlighter-rouge">apack</code>, <code class="highlighter-rouge">aunpack</code>, <code class="highlighter-rouge">acat</code> from <code class="highlighter-rouge">atool</code> are now at your disposal.</p>
+  </li>
+  <li>To extract all files from archive <code class="highlighter-rouge">foobar.tar.gz</code> to  a  subdirectory  (or the current directory if it only contains one file):
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aunpack foobar.tar.gz
+</code></pre></div>    </div>
+  </li>
+  <li>To create a zip archive of two files <code class="highlighter-rouge">foo</code> and <code class="highlighter-rouge">bar</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack myarchive.zip foo bar
+</code></pre></div>    </div>
+  </li>
+  <li>To compress the content of current directory into a zip file called <code class="highlighter-rouge">comp.zip</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apack comp.zip *
+</code></pre></div>    </div>
+  </li>
+  <li>To list contents of the rar archive <code class="highlighter-rouge">stuff.rar</code>:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>als stuff.rar
+</code></pre></div>    </div>
+  </li>
+</ul>
+</p>-->
+<!--<p><p>Often times, you might be asking yourself, what are the parameters for extracting a <code class="highlighter-rouge">tar</code> file? (answer: <code class="highlighter-rouge">-xvf</code>) In any case, to avoid memorizing individual parameters for zip, tar, rar etc, use <code class="highlighter-rouge">atool</code>.</p>
+<ul> <li> <p>Install <code class="highlighter-rouge">atool</code> using <code class="highlighter-rouge">apt-get</code>: <code class="highlighter-rouge">sudo apt-get install atool</code>. Commands like <code class="highlighter-rouge">apack</code>, <code class="highlighter-rouge">aunpack</code>, <code class="highlighter-rouge">acat</code> from <code class="highlighter-rouge">atool</code> are now at your disposal.</p> </li> <li>To extract all files from archive <code class="highlighter-rouge">foobar.tar.gz</code> to a subdirectory (or the current directory if it only contains one file): <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aunpack foobar.tar.gz </code></pre></div> </div> </li> <li>To create a zip archive...
+</li></ul>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-03-23-mountpoints.html">
+      Moving directories to their own partitions
+      <!--mountpartitionfstab-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 23 Mar 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount">
+<small>
+		mount 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#partition">
+<small>
+		partition 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#fstab">
+<small>
+		fstab 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>After using a Linux for a while, if you may realize that your <code class="highlighter-rouge">/root</code> or <code class="highlighter-rouge">/home</code> partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move <code class="highlighter-rouge">/root</code> to its own partition.</p>
+
+<ul>
+  <li>Create new ext4 partition, say <code class="highlighter-rouge">/dev/sda7</code>. Mount it in a directory, say <code class="highlighter-rouge">/otherlin</code></li>
+  <li>Copy all data from <code class="highlighter-rouge">/root</code> to <code class="highlighter-rouge">/otherlin</code> using the following commands
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -urp /root/. /otherlin/
+</code></pre></div>    </div>
+  </li>
+  <li>Note that <code class="highlighter-rouge">-r</code> for recursive copy and <code class="highlighter-rouge">-p</code> is to preserve permission, date etc.
+ Here, <code class="highlighter-rouge">-u</code> means update, i.e. doesn’t overwrite already copied files. 
+Note that, <code class="highlighter-rouge">cp -rp ~/* /otherlin</code>
+	is not enough since it does not copy the dot files.
+ Alternative tools suggested: <code class="highlighter-rouge">rsync</code>, and <code class="highlighter-rouge">curl</code> (nice use!) to have a progress bar etc.</li>
+  <li>Find the UUID for the new partition using
+<code class="highlighter-rouge">bkid</code></li>
+  <li>Edit <code class="highlighter-rouge">/etc/fstab</code> and add the line
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=daef66f2-4c7a-4daa-9d7d-f217a3a3994f	/root         	ext4      	rw,relatime,data=ordered	0 2
+</code></pre></div>    </div>
+    <p>Here, the UUIS should be replaced by the appropriate one.
+ 0 means it doesn’t have to be backed up. 2 means the system checks the partition after the first one (1 is <code class="highlighter-rouge">/</code> so <code class="highlighter-rouge">/</code> gets checked first; 0 means no checking).</p>
+  </li>
+  <li>Back up the current /root by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /root /root.old
+</code></pre></div>    </div>
+    <p>It failed the first time and had to uncomment the new line in fstab and reboot and try again to succeed.</p>
+  </li>
+  <li>Remount all the drives by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mount -a
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+</p>-->
+<!--<p><p>After using a Linux for a while, if you may realize that your <code class="highlighter-rouge">/root</code> or <code class="highlighter-rouge">/home</code> partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move <code class="highlighter-rouge">/root</code> to its own partition.</p>
+<ul> <li>Create new ext4 partition, say <code class="highlighter-rouge">/dev/sda7</code>. Mount it in a directory, say <code class="highlighter-rouge">/otherlin</code></li> <li>Copy all data from <code class="highlighter-rouge">/root</code> to &lt;code...
+</li></ul>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-02-18-filesize.html">
+      Calculate the size of a directory including its subdirectories
+      <!--filesizeutilitydf-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 18 Feb 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#filesize">
+<small>
+		filesize 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility">
+<small>
+		utility 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#df">
+<small>
+		df 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>The linux command <code class="highlighter-rouge">du</code> (see <code class="highlighter-rouge">man du</code>) estimates file space usage. To see the the total size of the directory <code class="highlighter-rouge">directory</code> along with all its subdirectories, do</p>
+
+<p><code class="highlighter-rouge">du -sh direcory/</code></p>
+
+<p>Here, the <code class="highlighter-rouge">-s</code> parameter shows the total sum of all the files and subdirectories and <code class="highlighter-rouge">-h</code> shows the result in a human readable format.</p>
+
+<p>To show the size of all directory and subdirectory in the current location in ascending order, use</p>
+
+<p><code class="highlighter-rouge">du -sh ./* | sort -h</code></p>
+
+<p>Here, <code class="highlighter-rouge">sort -h</code> sorts in the human-readable format.</p>
+
+<p>This method does not show you the hidden files or directories. So, here is one trick to do exactly that:</p>
+
+<p><code class="highlighter-rouge">du -sch .[!.]* * | sort -h</code></p>
+
+<p>The parameter <code class="highlighter-rouge">-c</code> produces a grand total. The shell pattern following the parameters make sure we are searching for all files including the ones that start with a dot. Whatever. There is a program specifically made for disk analyzing and cleanup purposes and it is awesome. It’s called <a href="https://dev.yorhel.nl/ncdu">ncdu</a>.
+ Just install it and run <code class="highlighter-rouge">ncdu</code> and feel the wind.</p>
+
+</p>-->
+<!--<p><p>The linux command <code class="highlighter-rouge">du</code> (see <code class="highlighter-rouge">man du</code>) estimates file space usage. To see the the total size of the directory <code class="highlighter-rouge">directory</code> along with all its subdirectories, do</p>
+<p><code class="highlighter-rouge">du -sh direcory/</code></p>
+<p>Here, the <code class="highlighter-rouge">-s</code> parameter shows the total sum of all the files and subdirectories and <code class="highlighter-rouge">-h</code> shows the result in a human readable format.</p>
+<p>To show the size of all directory and subdirectory in the current location in ascending order, use</p>
+<p><code class="highlighter-rouge">du -sh ./* | sort -h</code></p>
+<p>Here, <code class="highlighter-rouge">sort -h</code> sorts in the human-readable format.</p>
+<p>This method does not show you the...
+</p>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-02-15-xournal.html">
+      Installing xournal from source and adding useful patches
+      <!--xournalnotetakingpatch-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 15 Feb 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xournal">
+<small>
+		xournal 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#notetaking">
+<small>
+		notetaking 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#patch">
+<small>
+		patch 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p><a href="http://xournal.sourceforge.net/">Xournal</a> is an excellent lightweight software for note-taking with active stylus. However, the development is slow and many community-developed features are not always a part of the main release.</p>
+
+<p><strong>Comment:</strong> I would recommend checking out <a href="https://github.com/xournalpp/xournalpp">Xournalpp</a> is a revival of xournal with C++.</p>
+
+<p>So, in Ubuntu, <code class="highlighter-rouge">apt-get</code> install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed. Here are the steps.</p>
+
+<p>To install the development dependencies, do</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get build-dep xournal
+</code></pre></div></div>
+
+<p>Download the latest tarball, extract it with</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xf xournal.**.tar.gz
+cd xournal.**
+</code></pre></div></div>
+
+<p>Details of patching can be found <a href="https://sourceforge.net/p/xournal/discussion/554377/thread/5d03da22/">here</a>:
+Here is the summary:</p>
+
+<p>Patch the source code with the download patch file</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>patch -p1 &lt; patchfile.patch
+</code></pre></div></div>
+
+<p>Note: if the patchfile is a tar file, extract and then <code class="highlighter-rouge">-p1</code> should be changed to <code class="highlighter-rouge">-p2</code> or the required number of depth  of path.</p>
+
+<p>Compile and install this modified source file, following <a href="http://xournal.sourceforge.net/manual.html#installation">this link</a>. The steps for this can be summarized by:</p>
+
+<ul>
+  <li>To install in the user directory (~/bin/), do:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh; ./configure --prefix=$HOME; make; make install; make home-desktop-install
+</code></pre></div>    </div>
+    <p>The last step is to set mime-type etc.</p>
+  </li>
+  <li>To install it in the system, do with sudo:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./autogen.sh
+make
+(as root) make install
+(as root) make desktop-install
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>So far, I have used the following patches: various improvements, linewidth-patch, vi-style scrolling</p>
+
+<p><strong>Caution</strong>: If you use the linewidth-patch, older versions of xournal will not be able to open the files saved by the patched version. Chances are, this patch will not end up in the official version in future, making all the files created with the patched version useless.</p>
+
+<p>To log the input events, add the following line at the top of the file src/xo-callbacks.c:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#define INPUT_DEBUG 1
+</code></pre></div></div>
+<p>This will return all the input events from <code class="highlighter-rouge">xinput list</code> to the terminal window from which which launch xournal.</p>
+
+<p>Then, compile and run from terminal to see all the input events popping up at the terminal.</p>
+
+</p>-->
+<!--<p><p><a href="http://xournal.sourceforge.net/">Xournal</a> is an excellent lightweight software for note-taking with active stylus. However, the development is slow and many community-developed features are not always a part of the main release.</p>
+<p><strong>Comment:</strong> I would recommend checking out <a href="https://github.com/xournalpp/xournalpp">Xournalpp</a> is a revival of xournal with C++.</p>
+<p>So, in Ubuntu, <code class="highlighter-rouge">apt-get</code> install doesn’t give you the latest version (e.g. now it is the 2.8.2016 version) or the patches the community developed. Here are the steps.</p>
+<p>To install the development dependencies, do</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get build-dep xournal </code></pre></div></div>
+<p>Download the latest tarball, extract it with</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tar -xf...
+</code></pre></div></div>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-02-14-auto-mount.html">
+      Create a startup script to mount hard disk drives automatically
+      <!--mountrc.d-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small> 14 Feb 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount">
+<small>
+		mount 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#rc.d">
+<small>
+		rc.d 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using <code class="highlighter-rouge">rc.d</code>. Say, I have 3 partitions that I would like to mount to 3 directories.</p>
+
+<ul>
+  <li>Goto <code class="highlighter-rouge">/media/</code> and create 3 directories called <code class="highlighter-rouge">windows</code>, <code class="highlighter-rouge">disk3</code>, <code class="highlighter-rouge">storage</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /media/
+sudo mkdir windows disk3 storage
+</code></pre></div>    </div>
+  </li>
+  <li>Create a file named <code class="highlighter-rouge">mounting</code> with following content:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ##startup script to mount the disk drives
+ sudo mount /dev/sda1 /media/windows
+ sudo mount /dev/sda3 /media/disk3
+ sudo mount /dev/sda5 /media/storage
+ #EOF
+</code></pre></div>    </div>
+  </li>
+  <li>Make the file executable:
+ 	<code class="highlighter-rouge">chmod +x mounting</code></li>
+  <li>Copy the file to <code class="highlighter-rouge">/etc/init.d/</code>:
+ 	<code class="highlighter-rouge">sudo cp mounting /etc/init.d/</code></li>
+  <li>Update your <code class="highlighter-rouge">rc.d</code> so that the script is executed at startup:
+ 	<code class="highlighter-rouge">sudo update-rc.d mounting defaults</code></li>
+</ul>
+
+</p>-->
+<!--<p><p>If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using <code class="highlighter-rouge">rc.d</code>. Say, I have 3 partitions that I would like to mount to 3 directories.</p>
+<ul> <li>Goto <code class="highlighter-rouge">/media/</code> and create 3 directories called <code class="highlighter-rouge">windows</code>, <code class="highlighter-rouge">disk3</code>, <code class="highlighter-rouge">storage</code>. <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /media/ sudo mkdir windows disk3 storage </code></pre></div> </div> </li> <li>Create a file named <code class="highlighter-rouge">mounting</code> with following content: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ##startup script to mount the disk drives sudo...
+</code></pre></div></div></li></ul>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-02-09-manpages.html">
+      Writing a manpage in Linux
+      <!--manpagedocumentation-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small>  9 Feb 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#manpage">
+<small>
+		manpage 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#documentation">
+<small>
+		documentation 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>Good documentations are as important as good lines of code. No one likes to dig up their old code and not understand whatever they wrote years ago. So, writing documentations should be a simple process. And it is!</p>
+
+<p>Linux manpages or manuals are written in something called a <em>troff markdown language</em>. It is not your regular markdown, but uses <em>macros</em> to format text.</p>
+
+<h3 id="view-the-manpage-files">View the manpage files</h3>
+<p>In order to preview the manpage file <code class="highlighter-rouge">filename</code>, use</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> 	man -l filename
+</code></pre></div></div>
+<h3 id="body-of-the-file">Body of the file</h3>
+<p>The lines in the manpage should start with <em>macros</em> starting with dots. Here are some example macros:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Command</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.Dd</td>
+      <td>date-of-modification</td>
+    </tr>
+    <tr>
+      <td>.Dt</td>
+      <td>name-of-the-article 7 (7 for miscellaneous manual. see <code class="highlighter-rouge">man man</code> for explanation on the numbering)</td>
+    </tr>
+    <tr>
+      <td>.Sh</td>
+      <td>NAME</td>
+    </tr>
+    <tr>
+      <td>.Nm</td>
+      <td>name of the article</td>
+    </tr>
+    <tr>
+      <td>.Nd</td>
+      <td>description of the article</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="things-to-remember">Things to remember</h4>
+<ul>
+  <li>Keep codes within a <code class="highlighter-rouge">.Bd -literal</code> … <code class="highlighter-rouge">.Ed</code> block.</li>
+  <li>Do NOT write <code class="highlighter-rouge">Em</code> anywhere in your text, it will vanish. Write <code class="highlighter-rouge">\&amp;Em</code>
+     instead.</li>
+</ul>
+
+<h4 id="frequently-used-macros">Frequently used macros</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Macro</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>.Sh</td>
+      <td>New Section</td>
+    </tr>
+    <tr>
+      <td>.Ss</td>
+      <td>New subsection</td>
+    </tr>
+    <tr>
+      <td>.Bl</td>
+      <td>begin list. It can take the following parameters: <code class="highlighter-rouge">-bullet, -item, -enum, -tag, -hang</code> etc.</td>
+    </tr>
+    <tr>
+      <td>.It</td>
+      <td>items inside <code class="highlighter-rouge">.Bl</code> and <code class="highlighter-rouge">.El</code></td>
+    </tr>
+    <tr>
+      <td>.El</td>
+      <td>end list</td>
+    </tr>
+    <tr>
+      <td>.Pa</td>
+      <td>path for a filename</td>
+    </tr>
+    <tr>
+      <td>.Bd</td>
+      <td>begin a display block, It takes a few parameters, most importantly -literal which is useful for source codes, spaced and tabbed text.</td>
+    </tr>
+    <tr>
+      <td>.Dl</td>
+      <td>literal text of one line</td>
+    </tr>
+    <tr>
+      <td>.Ed</td>
+      <td>end display block one line of literal text</td>
+    </tr>
+    <tr>
+      <td>\fB</td>
+      <td>begins bold</td>
+    </tr>
+    <tr>
+      <td>\fI</td>
+      <td>begins Italian</td>
+    </tr>
+    <tr>
+      <td>\fR</td>
+      <td>ends bold and/or Italian</td>
+    </tr>
+    <tr>
+      <td>.Em</td>
+      <td>emphasize (a line of bold, similar to <code class="highlighter-rouge">\fB ... \fR</code>). If using inside an item of list, use without the dot, e.g.  <code class="highlighter-rouge">.It Em tagname</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Escape character  <code class="highlighter-rouge">\e</code> generates a <code class="highlighter-rouge">\</code>, <code class="highlighter-rouge">\&amp;</code> replaces at the beginning of a sentence, but doesn’t generate a <code class="highlighter-rouge">.</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Output</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>\e</td>
+      <td>\</td>
+    </tr>
+    <tr>
+      <td>\efB</td>
+      <td>\fB</td>
+    </tr>
+    <tr>
+      <td>\&amp;.</td>
+      <td>.</td>
+    </tr>
+    <tr>
+      <td>\&amp;Em</td>
+      <td>Em</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>See the BSD manpage for <code class="highlighter-rouge">mdoc</code> online. (Note: <code class="highlighter-rouge">mdoc</code> for Arch is something else)
+<a href="http://man7.org/linux/man-pages/man7/mdoc.7.html">[link]</a></p>
+
+<p><a href="http://manpages.ubuntu.com/manpages/trusty/pt/man7/mdoc.samples.7.html">Some examples</a></p>
+
+<p>There are more things you can do with the manpages, such as adding custom files to a man database.</p>
+
+</p>-->
+<!--<p><p>Good documentations are as important as good lines of code. No one likes to dig up their old code and not understand whatever they wrote years ago. So, writing documentations should be a simple process. And it is!</p>
+<p>Linux manpages or manuals are written in something called a <em>troff markdown language</em>. It is not your regular markdown, but uses <em>macros</em> to format text.</p>
+<h3 id="view-the-manpage-files">View the manpage files</h3>
+<p>In order to preview the manpage file <code class="highlighter-rouge">filename</code>, use</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> man -l filename </code></pre></div></div>
+<h3 id="body-of-the-file">Body of the file</h3>
+<p>The lines in the manpage should start with <em>macros</em>...
+</p>
+</p>-->
+<p><hr />
+</p>
+
+<h3>
+    <a href="/lin/2019-02-05-screenshot.html">
+      Take screenshots (print screen) in Linux using imagemagick
+      <!--utilityscreenshot-->
+    </a>
+</h3>
+
+<!--get date from  snippet-->
+<small>  5 Feb 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility">
+<small>
+		utility 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#screenshot">
+<small>
+		screenshot 
+</small>
+	</a>
+</div>
+	
+
+
+
+<!--<p><p>If you have <code class="highlighter-rouge">imagemagick</code> installed (which you should), you can do many magical
+things with images. Check out the <a href="https://imagemagick.org/">main website</a> and familiarize yourself with utilities that come with it (e.g. <code class="highlighter-rouge">resize</code>, <code class="highlighter-rouge">convert</code> etc.).</p>
+
+<p>The command <code class="highlighter-rouge">import filename.png</code>
+ gives you a mouse pointer to click on the desired window to take a picture to <code class="highlighter-rouge">filename.png</code>.</p>
+
+<p>To capture the entire screen, do</p>
+
+<p><code class="highlighter-rouge">import -window root filename.png</code></p>
+
+<p>We can set up an automatic timestamp in the filenames so that they do not get overwritten (provided you take not more than one picture every second):</p>
+
+<p><code class="highlighter-rouge">import -verbose -window root capture-$(date +%d-%h-%Y-%H-%M-%S).png</code></p>
+
+<p>In this case,</p>
+
+<p><code class="highlighter-rouge">sleep 5; import -window root file.png;</code></p>
+
+<p>will be more effective.</p>
+
+<p>Taking a screenshot of screen 0 (of <code class="highlighter-rouge">DISPLAY</code> 0)through some shell: If you log in through <code class="highlighter-rouge">ssh</code> and want to capture a screenshot at that moment, issue:</p>
+
+<p><code class="highlighter-rouge">import -window root -display :0.0 -screen capture-$(date +%d-%h-%Y-%H-%M-%S).png</code></p>
+
+</p>-->
+<!--<p><p>If you have <code class="highlighter-rouge">imagemagick</code> installed (which you should), you can do many magical things with images. Check out the <a href="https://imagemagick.org/">main website</a> and familiarize yourself with utilities that come with it (e.g. <code class="highlighter-rouge">resize</code>, <code class="highlighter-rouge">convert</code> etc.).</p>
+<p>The command <code class="highlighter-rouge">import filename.png</code> gives you a mouse pointer to click on the desired window to take a picture to <code class="highlighter-rouge">filename.png</code>.</p>
+<p>To capture the entire screen, do</p>
+<p><code class="highlighter-rouge">import -window root filename.png</code></p>
+<p>We can set up an automatic timestamp in the filenames so that they do not get overwritten (provided you take not more than one picture every second):</p>
+<p>&lt;code...
+</p>
+</p>-->
+<p><hr />
+</p>
+
+
+
+
+</body>
+
+
+</p> 
+      
+
+      </section>
+
+      
+      
+      <footer>
+
+<!--Add the tags here-->
+<!--Take all snippets from _lin and create a list of raw tags-->
+
+
+
+
+
+<!--create a new array variable called tags from rawtags, where we remove duplicates-->
+
+
+
+
+
+<body>
+	Tags
+
+    
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#client"> client  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#cocalc"> cocalc  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#compress"> compress  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#df"> df  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#documentation"> documentation  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#extract"> extract  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#filesize"> filesize  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#folding"> folding  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#fstab"> fstab  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#gdrive"> gdrive  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#language"> language  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#manpage"> manpage  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#math"> math  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#merge"> merge  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount"> mount  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#notetaking"> notetaking  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#partition"> partition  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#patch"> patch  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdf"> pdf  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdftk"> pdftk  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pid"> pid  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#process"> process  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#productivity"> productivity  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ps"> ps  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#rc.d"> rc.d  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#remote"> remote  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#sage"> sage  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#screenshot"> screenshot  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ssh"> ssh  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#terminal"> terminal  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#unzip"> unzip  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility"> utility  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#vim"> vim  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xournal"> xournal  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xserver"> xserver  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#zip"> zip  </a>
+</div>
+
+
+<!--end of adding tags-->
+
+        
+        <p>This project is maintained by <a href="http://github.com/debdeepbh">debdeepbh</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90023312-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>

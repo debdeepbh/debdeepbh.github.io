@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Blog | Debdeep Bhattacharya</title>
+<title>Create a startup script to mount hard disk drives automatically | Debdeep Bhattacharya</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Blog" />
+<meta property="og:title" content="Create a startup script to mount hard disk drives automatically" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Website" />
-<meta property="og:description" content="Website" />
-<link rel="canonical" href="http://localhost:4000/lin/" />
-<meta property="og:url" content="http://localhost:4000/lin/" />
+<meta name="description" content="If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using rc.d. Say, I have 3 partitions that I would like to mount to 3 directories." />
+<meta property="og:description" content="If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using rc.d. Say, I have 3 partitions that I would like to mount to 3 directories." />
+<link rel="canonical" href="http://localhost:4000/lin/2019-02-14-auto-mount.html" />
+<meta property="og:url" content="http://localhost:4000/lin/2019-02-14-auto-mount.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-14T00:00:00-05:00" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Blog","url":"http://localhost:4000/lin/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"Website","@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Create a startup script to mount hard disk drives automatically","dateModified":"2019-02-14T00:00:00-05:00","datePublished":"2019-02-14T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lin/2019-02-14-auto-mount.html"},"url":"http://localhost:4000/lin/2019-02-14-auto-mount.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using rc.d. Say, I have 3 partitions that I would like to mount to 3 directories.","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=e3b2580161a58de70a3f9f763bc1c72bd0fe371d">
@@ -54,7 +56,7 @@
 	
 		<nav>
   
-  <a href="/lin/"  class=menuCurrent >
+  <a href="/lin/"  class=menuNormal >
 	    &nbsp;Blog Home
      </a>
      <br>
@@ -86,204 +88,86 @@
       <section>
 
 
-	      <h1> Blog </h1>
+	      <h1> Create a startup script to mount hard disk drives automatically </h1>
 	    
 <!--get date from  snippet-->
-<small>  </small>
+<small> 14 Feb 2019 </small>
 
 <!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount">
+<small>
+		mount 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#rc.d">
+<small>
+		rc.d 
+</small>
+	</a>
+</div>
+	
 
 
 
 
 <p> 
-	<!--To access the list variable tags from tagcollection.html-->
-<!--Take all snippets from _lin and create a list of raw tags-->
+	<p>If you are using a DIY distribution like Arch, this is a necessary thing to do after every reboot. So, it is better to wrap the steps up in a script and automate it using <code class="highlighter-rouge">rc.d</code>. Say, I have 3 partitions that I would like to mount to 3 directories.</p>
 
-<!--create a new array variable called tags from rawtags, where we remove duplicates-->
+<ul>
+  <li>Goto <code class="highlighter-rouge">/media/</code> and create 3 directories called <code class="highlighter-rouge">windows</code>, <code class="highlighter-rouge">disk3</code>, <code class="highlighter-rouge">storage</code>.
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /media/
+sudo mkdir windows disk3 storage
+</code></pre></div>    </div>
+  </li>
+  <li>Create a file named <code class="highlighter-rouge">mounting</code> with following content:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> ##startup script to mount the disk drives
+ sudo mount /dev/sda1 /media/windows
+ sudo mount /dev/sda3 /media/disk3
+ sudo mount /dev/sda5 /media/storage
+ #EOF
+</code></pre></div>    </div>
+  </li>
+  <li>Make the file executable:
+ 	<code class="highlighter-rouge">chmod +x mounting</code></li>
+  <li>Copy the file to <code class="highlighter-rouge">/etc/init.d/</code>:
+ 	<code class="highlighter-rouge">sudo cp mounting /etc/init.d/</code></li>
+  <li>Update your <code class="highlighter-rouge">rc.d</code> so that the script is executed at startup:
+ 	<code class="highlighter-rouge">sudo update-rc.d mounting defaults</code></li>
+</ul>
 
-<body>
-
-
-<h3> Featured Posts </h3>
-<p><hr />
-</p>
-
-<h3>Recent Posts</h3>
-
-
-<h3>
-<a href="/lin/2019-11-05-syntax-folding-vim.html">
-      Syntax folding in vim and custom folding for a file
-    </a>
-</h3>
-
-<!--get date from  snippet-->
-<small>  5 Nov 2019 </small>
-
-<!--get taglist from  snippet-->
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#vim">
-<small>
-		vim 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#folding">
-<small>
-		folding 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#productivity">
-<small>
-		productivity 
-</small>
-	</a>
-</div>
-	
-
-
-
-
-<p>	<p>Syntax folding in vim is a powerful feature that makes navigation very easy. Folding can also be used to create an ad-hoc index for the file. Here are my frequently used folding commands.</p>
-<h3 id="folding-help">Folding Help:</h3>
-<table> <thead> <tr> <th>*</th> <th>Keyseq</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> </td> <td>zi</td> <td>switch folding...
-</td></tr></tbody></table>
- </p>
-<p><hr />
-</p>
-
-<h3>
-<a href="/lin/2019-10-03-handling-pdf.html">
-      Handy pdf editing tools
-    </a>
-</h3>
-
-<!--get date from  snippet-->
-<small>  3 Oct 2019 </small>
-
-<!--get taglist from  snippet-->
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#pdf">
-<small>
-		pdf 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#utility">
-<small>
-		utility 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#merge">
-<small>
-		merge 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#pdftk">
-<small>
-		pdftk 
-</small>
-	</a>
-</div>
-	
-
-
-
-
-<p>	<p>The filetype I handle most frequently is pdf. Here is a list of my most frequently used pdf-related actions.</p>
-<ul> <li>Converting pdf to png: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftoppm -png input.pdf output </code></pre></div> </div> </li> </ul>
-<p><code class="highlighter-rouge">pdftk</code> is another brilliant tool to operate on pdf file. The main thing to...
-</p>
- </p>
-<p><hr />
-</p>
-
-<h3>
-<a href="/lin/2019-09-02-remote-xserver.html">
-      Performing xserver activities through tty or remote ssh shells
-    </a>
-</h3>
-
-<!--get date from  snippet-->
-<small>  2 Sep 2019 </small>
-
-<!--get taglist from  snippet-->
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#xserver">
-<small>
-		xserver 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#remote">
-<small>
-		remote 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#ssh">
-<small>
-		ssh 
-</small>
-	</a>
-</div>
-	
-
-
-
-
-<p>	<p>If you have an Xserver running in a remove computer, you can perform GUI related actions via ssh.</p>
-<p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at...
-</p>
- </p>
-<p><hr />
-</p>
-
-
-
-
-</body>
 
 
 </p> 
+      
+	      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+	this.page.url = 'http://localhost:4000/lin/2019-02-14-auto-mount.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/lin/auto-mount'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://debdeepbh.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
       
 
       </section>
