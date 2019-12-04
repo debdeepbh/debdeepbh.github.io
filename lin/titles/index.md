@@ -1,9 +1,11 @@
 ---
 layout: lin
-title: "All Posts"
+title: "All Titles"
 ---
-<!--To access the list variable tags from tagcollection.html-->
-{% include tagcollection.html %}
+<small>
+Total: {{ site.lin.size }}
+</small>
+
 <body>
 
 <!--reversed to order put the most recent post first-->
