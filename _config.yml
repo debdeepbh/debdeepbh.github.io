@@ -11,9 +11,11 @@ theme: jekyll-theme-minimal
 collections:
         lin:
                 output: true
+
 defaults:
   - scope:
       path: ""
       type: "lin"
     values:
-      layout: lin 
+      layout: lin
+      comment: true

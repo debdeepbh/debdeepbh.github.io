@@ -1,0 +1,15 @@
+<nav>
+  {% for item in site.data.blognavigation %}
+  <a href="{{ item.link }}" {% if page.url == item.link %} class=menuCurrent {% else %} class=menuNormal {% endif %}>
+	    &nbsp;{{ item.name }}
+     </a>
+     <br>
+  {% for subitem in item.subname %}
+  <a href="{{ subitem.link }}" {% if page.url == subitem.link %} class=menuCurrent {% else %} class=menuNormal {% endif %}>
+  &nbsp; &nbsp; {{ subitem.name }}
+  </a>
+     <br>
+  {% endfor %}
+
+  {% endfor %}
+</nav>

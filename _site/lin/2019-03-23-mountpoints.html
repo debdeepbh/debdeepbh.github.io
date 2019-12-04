@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Moving directories to their own partitions | Debdeep Bhattacharya</title>
+<meta name="generator" content="Jekyll v3.7.4" />
+<meta property="og:title" content="Moving directories to their own partitions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition." />
+<meta property="og:description" content="After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition." />
+<link rel="canonical" href="http://localhost:4000/lin/2019-03-23-mountpoints.html" />
+<meta property="og:url" content="http://localhost:4000/lin/2019-03-23-mountpoints.html" />
+<meta property="og:site_name" content="Debdeep Bhattacharya" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-23T00:00:00-04:00" />
+<script type="application/ld+json">
+{"@type":"BlogPosting","headline":"Moving directories to their own partitions","dateModified":"2019-03-23T00:00:00-04:00","datePublished":"2019-03-23T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lin/2019-03-23-mountpoints.html"},"url":"http://localhost:4000/lin/2019-03-23-mountpoints.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition.","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="stylesheet" href="/assets/css/style.css?v=e3b2580161a58de70a3f9f763bc1c72bd0fe371d">
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1><a href="http://localhost:4000/">Debdeep Bhattacharya</a></h1>
+        <!--
+        
+          <img src="" alt="Logo" />
+        
+
+        <p>Website</p>
+
+	-->
+
+
+
+
+
+        
+        <p class="view"><a href="http://github.com/debdeepbh/debdeepbh.github.io">View the Project on GitHub <small>debdeepbh/debdeepbh.github.io</small></a></p>
+        
+
+        
+
+        
+
+
+	<!-- This is the navigation bar -->
+	
+		<nav>
+  
+  <a href="/lin/"  class=menuNormal >
+	    &nbsp;Blog Home
+     </a>
+     <br>
+  
+  <a href="/lin/titles/"  class=menuNormal >
+  &nbsp; &nbsp; Titles
+  </a>
+     <br>
+  
+  <a href="/lin/tags/"  class=menuNormal >
+  &nbsp; &nbsp; Tags
+  </a>
+     <br>
+  
+  <a href="/lin/posts/"  class=menuNormal >
+  &nbsp; &nbsp; Posts
+  </a>
+     <br>
+  
+
+  
+</nav>
+
+	
+
+      </header>
+
+
+      <section>
+
+
+	      <h1> Moving directories to their own partitions </h1>
+	    
+<!--get date from  snippet-->
+<small> 23 Mar 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount">
+<small>
+		mount 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#partition">
+<small>
+		partition 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#fstab">
+<small>
+		fstab 
+</small>
+	</a>
+</div>
+	
+
+
+
+
+<p> 
+	<p>After using a Linux for a while, if you may realize that your <code class="highlighter-rouge">/root</code> or <code class="highlighter-rouge">/home</code> partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move <code class="highlighter-rouge">/root</code> to its own partition.</p>
+
+<ul>
+  <li>Create new ext4 partition, say <code class="highlighter-rouge">/dev/sda7</code>. Mount it in a directory, say <code class="highlighter-rouge">/otherlin</code></li>
+  <li>Copy all data from <code class="highlighter-rouge">/root</code> to <code class="highlighter-rouge">/otherlin</code> using the following commands
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -urp /root/. /otherlin/
+</code></pre></div>    </div>
+  </li>
+  <li>Note that <code class="highlighter-rouge">-r</code> for recursive copy and <code class="highlighter-rouge">-p</code> is to preserve permission, date etc.
+ Here, <code class="highlighter-rouge">-u</code> means update, i.e. doesn’t overwrite already copied files. 
+Note that, <code class="highlighter-rouge">cp -rp ~/* /otherlin</code>
+	is not enough since it does not copy the dot files.
+ Alternative tools suggested: <code class="highlighter-rouge">rsync</code>, and <code class="highlighter-rouge">curl</code> (nice use!) to have a progress bar etc.</li>
+  <li>Find the UUID for the new partition using
+<code class="highlighter-rouge">bkid</code></li>
+  <li>Edit <code class="highlighter-rouge">/etc/fstab</code> and add the line
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=daef66f2-4c7a-4daa-9d7d-f217a3a3994f	/root         	ext4      	rw,relatime,data=ordered	0 2
+</code></pre></div>    </div>
+    <p>Here, the UUIS should be replaced by the appropriate one.
+ 0 means it doesn’t have to be backed up. 2 means the system checks the partition after the first one (1 is <code class="highlighter-rouge">/</code> so <code class="highlighter-rouge">/</code> gets checked first; 0 means no checking).</p>
+  </li>
+  <li>Back up the current /root by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /root /root.old
+</code></pre></div>    </div>
+    <p>It failed the first time and had to uncomment the new line in fstab and reboot and try again to succeed.</p>
+  </li>
+  <li>Remount all the drives by
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mount -a
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+
+</p> 
+      
+	      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+	this.page.url = 'http://localhost:4000/lin/2019-03-23-mountpoints.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/lin/mountpoints'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://debdeepbh.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+      
+
+      </section>
+
+      
+      
+      <footer>
+
+<!--Add the tags here-->
+<!--Take all snippets from _lin and create a list of raw tags-->
+
+
+
+
+
+<!--create a new array variable called tags from rawtags, where we remove duplicates-->
+
+
+
+
+
+<body>
+	Tags
+
+    
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#client"> client  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#cocalc"> cocalc  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#compress"> compress  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#df"> df  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#documentation"> documentation  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#extract"> extract  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#filesize"> filesize  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#folding"> folding  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#fstab"> fstab  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#gdrive"> gdrive  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#language"> language  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#manpage"> manpage  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#math"> math  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#merge"> merge  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#mount"> mount  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#notetaking"> notetaking  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#partition"> partition  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#patch"> patch  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdf"> pdf  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pdftk"> pdftk  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#pid"> pid  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#process"> process  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#productivity"> productivity  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ps"> ps  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#rc.d"> rc.d  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#remote"> remote  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#sage"> sage  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#screenshot"> screenshot  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#ssh"> ssh  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#terminal"> terminal  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#unzip"> unzip  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility"> utility  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#vim"> vim  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xournal"> xournal  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#xserver"> xserver  </a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#zip"> zip  </a>
+</div>
+
+
+<!--end of adding tags-->
+
+        
+        <p>This project is maintained by <a href="http://github.com/debdeepbh">debdeepbh</a></p>
+        
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="/assets/js/scale.fix.js"></script>
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-90023312-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+  </body>
+</html>
