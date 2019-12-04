@@ -1,0 +1,23 @@
+<!--Take all snippets from _lin and create a list of raw tags-->
+{% assign rawtags = "" %}
+{% for snippet in site.lin %}
+  {% assign ttags = snippet.tags | join:'|' | append:'|' %}
+  {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+
+<!--create a new array variable called tags from rawtags, where we remove duplicates-->
+
+{% assign site.tags = "" %}
+{% for tag in rawtags %}
+  {% if tag != "" %}
+    {% if tags == "" %}
+      {% assign tags = tag | split:'|' %}
+    {% endif %}
+    {% unless tags contains tag %}
+      {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+    {% endunless %}
+  {% endif %}
+{% endfor %}
+

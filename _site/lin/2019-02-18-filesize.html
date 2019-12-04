@@ -6,17 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Blog | Debdeep Bhattacharya</title>
+<title>Calculate the size of a directory including its subdirectories | Debdeep Bhattacharya</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Blog" />
+<meta property="og:title" content="Calculate the size of a directory including its subdirectories" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Website" />
-<meta property="og:description" content="Website" />
-<link rel="canonical" href="http://localhost:4000/lin/" />
-<meta property="og:url" content="http://localhost:4000/lin/" />
+<meta name="description" content="The linux command du (see man du) estimates file space usage. To see the the total size of the directory directory along with all its subdirectories, do" />
+<meta property="og:description" content="The linux command du (see man du) estimates file space usage. To see the the total size of the directory directory along with all its subdirectories, do" />
+<link rel="canonical" href="http://localhost:4000/lin/2019-02-18-filesize.html" />
+<meta property="og:url" content="http://localhost:4000/lin/2019-02-18-filesize.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-02-18T00:00:00-05:00" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Blog","url":"http://localhost:4000/lin/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"Website","@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Calculate the size of a directory including its subdirectories","dateModified":"2019-02-18T00:00:00-05:00","datePublished":"2019-02-18T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lin/2019-02-18-filesize.html"},"url":"http://localhost:4000/lin/2019-02-18-filesize.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"The linux command du (see man du) estimates file space usage. To see the the total size of the directory directory along with all its subdirectories, do","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=e3b2580161a58de70a3f9f763bc1c72bd0fe371d">
@@ -54,7 +56,7 @@
 	
 		<nav>
   
-  <a href="/lin/"  class=menuCurrent >
+  <a href="/lin/"  class=menuNormal >
 	    &nbsp;Blog Home
      </a>
      <br>
@@ -86,100 +88,18 @@
       <section>
 
 
-	      <h1> Blog </h1>
+	      <h1> Calculate the size of a directory including its subdirectories </h1>
 	    
 <!--get date from  snippet-->
-<small>  </small>
-
-<!--get taglist from  snippet-->
-
-
-
-
-<p> 
-	<!--To access the list variable tags from tagcollection.html-->
-<!--Take all snippets from _lin and create a list of raw tags-->
-
-<!--create a new array variable called tags from rawtags, where we remove duplicates-->
-
-<body>
-
-
-<h3> Featured Posts </h3>
-<p><hr />
-</p>
-
-<h3>Recent Posts</h3>
-
-
-<h3>
-<a href="/lin/2019-11-05-syntax-folding-vim.html">
-      Syntax folding in vim and custom folding for a file
-    </a>
-</h3>
-
-<!--get date from  snippet-->
-<small>  5 Nov 2019 </small>
+<small> 18 Feb 2019 </small>
 
 <!--get taglist from  snippet-->
 
     
 <div class="tagbox">
- 	<a href="/lin/tags/#vim">
+ 	<a href="/lin/tags/#filesize">
 <small>
-		vim 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#folding">
-<small>
-		folding 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#productivity">
-<small>
-		productivity 
-</small>
-	</a>
-</div>
-	
-
-
-
-
-<p>	<p>Syntax folding in vim is a powerful feature that makes navigation very easy. Folding can also be used to create an ad-hoc index for the file. Here are my frequently used folding commands.</p>
-<h3 id="folding-help">Folding Help:</h3>
-<table> <thead> <tr> <th>*</th> <th>Keyseq</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td> </td> <td>zi</td> <td>switch folding...
-</td></tr></tbody></table>
- </p>
-<p><hr />
-</p>
-
-<h3>
-<a href="/lin/2019-10-03-handling-pdf.html">
-      Handy pdf editing tools
-    </a>
-</h3>
-
-<!--get date from  snippet-->
-<small>  3 Oct 2019 </small>
-
-<!--get taglist from  snippet-->
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#pdf">
-<small>
-		pdf 
+		filesize 
 </small>
 	</a>
 </div>
@@ -197,19 +117,9 @@
 
     
 <div class="tagbox">
- 	<a href="/lin/tags/#merge">
+ 	<a href="/lin/tags/#df">
 <small>
-		merge 
-</small>
-	</a>
-</div>
-	
-
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#pdftk">
-<small>
-		pdftk 
+		df 
 </small>
 	</a>
 </div>
@@ -218,72 +128,51 @@
 
 
 
-<p>	<p>The filetype I handle most frequently is pdf. Here is a list of my most frequently used pdf-related actions.</p>
-<ul> <li>Converting pdf to png: <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pdftoppm -png input.pdf output </code></pre></div> </div> </li> </ul>
-<p><code class="highlighter-rouge">pdftk</code> is another brilliant tool to operate on pdf file. The main thing to...
-</p>
- </p>
-<p><hr />
-</p>
+<p> 
+	<p>The linux command <code class="highlighter-rouge">du</code> (see <code class="highlighter-rouge">man du</code>) estimates file space usage. To see the the total size of the directory <code class="highlighter-rouge">directory</code> along with all its subdirectories, do</p>
 
-<h3>
-<a href="/lin/2019-09-02-remote-xserver.html">
-      Performing xserver activities through tty or remote ssh shells
-    </a>
-</h3>
+<p><code class="highlighter-rouge">du -sh direcory/</code></p>
 
-<!--get date from  snippet-->
-<small>  2 Sep 2019 </small>
+<p>Here, the <code class="highlighter-rouge">-s</code> parameter shows the total sum of all the files and subdirectories and <code class="highlighter-rouge">-h</code> shows the result in a human readable format.</p>
 
-<!--get taglist from  snippet-->
+<p>To show the size of all directory and subdirectory in the current location in ascending order, use</p>
 
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#xserver">
-<small>
-		xserver 
-</small>
-	</a>
-</div>
-	
+<p><code class="highlighter-rouge">du -sh ./* | sort -h</code></p>
 
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#remote">
-<small>
-		remote 
-</small>
-	</a>
-</div>
-	
+<p>Here, <code class="highlighter-rouge">sort -h</code> sorts in the human-readable format.</p>
 
-    
-<div class="tagbox">
- 	<a href="/lin/tags/#ssh">
-<small>
-		ssh 
-</small>
-	</a>
-</div>
-	
+<p>This method does not show you the hidden files or directories. So, here is one trick to do exactly that:</p>
 
+<p><code class="highlighter-rouge">du -sch .[!.]* * | sort -h</code></p>
 
+<p>The parameter <code class="highlighter-rouge">-c</code> produces a grand total. The shell pattern following the parameters make sure we are searching for all files including the ones that start with a dot. Whatever. There is a program specifically made for disk analyzing and cleanup purposes and it is awesome. It’s called <a href="https://dev.yorhel.nl/ncdu">ncdu</a>.
+ Just install it and run <code class="highlighter-rouge">ncdu</code> and feel the wind.</p>
 
-
-<p>	<p>If you have an Xserver running in a remove computer, you can perform GUI related actions via ssh.</p>
-<p>After logging in, set the <code class="highlighter-rouge">DISPLAY</code> variable to <code class="highlighter-rouge">:0.0</code> or to <code class="highlighter-rouge">:0</code> or any other if necessary (which can be found by issuing <code class="highlighter-rouge">w</code> command and looking at...
-</p>
- </p>
-<p><hr />
-</p>
-
-
-
-
-</body>
 
 
 </p> 
+      
+	      <div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+var disqus_config = function () {
+	this.page.url = 'http://localhost:4000/lin/2019-02-18-filesize.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/lin/filesize'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://debdeepbh.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
       
 
       </section>
