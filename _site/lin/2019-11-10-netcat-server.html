@@ -6,19 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Moving directories to their own partitions | Debdeep Bhattacharya</title>
+<title>Simple chat server and client with netcat | Debdeep Bhattacharya</title>
 <meta name="generator" content="Jekyll v3.7.4" />
-<meta property="og:title" content="Moving directories to their own partitions" />
+<meta property="og:title" content="Simple chat server and client with netcat" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition." />
-<meta property="og:description" content="After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition." />
-<link rel="canonical" href="http://localhost:4000/lin/2019-03-23-mountpoints.html" />
-<meta property="og:url" content="http://localhost:4000/lin/2019-03-23-mountpoints.html" />
+<meta name="description" content="The GNU Netcat is TCP/IP based networking utility. If you do not have netcat installed, install it first. On Arch, you must install openbsd-netcat. I accidentally installed the gnu-netcat and it did not support many of the commands and the standard examples from the internet failed. Ubuntu already has netcat installed." />
+<meta property="og:description" content="The GNU Netcat is TCP/IP based networking utility. If you do not have netcat installed, install it first. On Arch, you must install openbsd-netcat. I accidentally installed the gnu-netcat and it did not support many of the commands and the standard examples from the internet failed. Ubuntu already has netcat installed." />
+<link rel="canonical" href="http://localhost:4000/lin/2019-11-10-netcat-server.html" />
+<meta property="og:url" content="http://localhost:4000/lin/2019-11-10-netcat-server.html" />
 <meta property="og:site_name" content="Debdeep Bhattacharya" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-03-23T00:00:00-04:00" />
+<meta property="article:published_time" content="2019-11-10T00:00:00-05:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Moving directories to their own partitions","dateModified":"2019-03-23T00:00:00-04:00","datePublished":"2019-03-23T00:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lin/2019-03-23-mountpoints.html"},"url":"http://localhost:4000/lin/2019-03-23-mountpoints.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"After using a Linux for a while, if you may realize that your /root or /home partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move /root to its own partition.","@context":"http://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Simple chat server and client with netcat","dateModified":"2019-11-10T00:00:00-05:00","datePublished":"2019-11-10T00:00:00-05:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/lin/2019-11-10-netcat-server.html"},"url":"http://localhost:4000/lin/2019-11-10-netcat-server.html","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"The GNU Netcat is TCP/IP based networking utility. If you do not have netcat installed, install it first. On Arch, you must install openbsd-netcat. I accidentally installed the gnu-netcat and it did not support many of the commands and the standard examples from the internet failed. Ubuntu already has netcat installed.","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link rel="stylesheet" href="/assets/css/style.css?v=a3555451272d0b86413349be08e7b7d63a7a35b1">
@@ -88,18 +88,18 @@
       <section>
 
 
-	      <h1> Moving directories to their own partitions </h1>
+	      <h1> Simple chat server and client with netcat </h1>
 	    
 <!--get date from  snippet-->
-<small> 23 Mar 2019 </small>
+<small> 10 Nov 2019 </small>
 
 <!--get taglist from  snippet-->
 
     
 <div class="tagbox">
- 	<a href="/lin/tags/#mount">
+ 	<a href="/lin/tags/#server">
 <small>
-		mount 
+		server 
 </small>
 	</a>
 </div>
@@ -107,9 +107,9 @@
 
     
 <div class="tagbox">
- 	<a href="/lin/tags/#partition">
+ 	<a href="/lin/tags/#netcat">
 <small>
-		partition 
+		netcat 
 </small>
 	</a>
 </div>
@@ -117,9 +117,19 @@
 
     
 <div class="tagbox">
- 	<a href="/lin/tags/#fstab">
+ 	<a href="/lin/tags/#chat">
 <small>
-		fstab 
+		chat 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#utility">
+<small>
+		utility 
 </small>
 	</a>
 </div>
@@ -129,38 +139,23 @@
 
 
 <p> 
-	<p>After using a Linux for a while, if you may realize that your <code class="highlighter-rouge">/root</code> or <code class="highlighter-rouge">/home</code> partition needs more space than anticipated. So, it might be useful to move these directories to their own partitions, if you haven’t done so originally. This setup also has the advantage that you can format and install a new copy of Linux without losing the user data. Here is how to move <code class="highlighter-rouge">/root</code> to its own partition.</p>
+	<p>The <a href="http://netcat.sourceforge.net/">GNU Netcat</a> is TCP/IP based networking utility.
+If you do not have <code class="highlighter-rouge">netcat</code> installed, install it first. On Arch, you must install <code class="highlighter-rouge">openbsd-netcat</code>. I accidentally installed the <code class="highlighter-rouge">gnu-netcat</code> and it did not support many of the commands and the standard examples from the internet failed. Ubuntu already has <code class="highlighter-rouge">netcat</code> installed.</p>
 
-<ul>
-  <li>Create new ext4 partition, say <code class="highlighter-rouge">/dev/sda7</code>. Mount it in a directory, say <code class="highlighter-rouge">/otherlin</code></li>
-  <li>Copy all data from <code class="highlighter-rouge">/root</code> to <code class="highlighter-rouge">/otherlin</code> using the following commands
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cp -urp /root/. /otherlin/
-</code></pre></div>    </div>
-  </li>
-  <li>Note that <code class="highlighter-rouge">-r</code> for recursive copy and <code class="highlighter-rouge">-p</code> is to preserve permission, date etc.
- Here, <code class="highlighter-rouge">-u</code> means update, i.e. doesn’t overwrite already copied files. 
-Note that, <code class="highlighter-rouge">cp -rp ~/* /otherlin</code>
-	is not enough since it does not copy the dot files.
- Alternative tools suggested: <code class="highlighter-rouge">rsync</code>, and <code class="highlighter-rouge">curl</code> (nice use!) to have a progress bar etc.</li>
-  <li>Find the UUID for the new partition using
-<code class="highlighter-rouge">bkid</code></li>
-  <li>Edit <code class="highlighter-rouge">/etc/fstab</code> and add the line
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>UUID=daef66f2-4c7a-4daa-9d7d-f217a3a3994f	/root         	ext4      	rw,relatime,data=ordered	0 2
-</code></pre></div>    </div>
-    <p>Here, the UUIS should be replaced by the appropriate one.
- 0 means it doesn’t have to be backed up. 2 means the system checks the partition after the first one (1 is <code class="highlighter-rouge">/</code> so <code class="highlighter-rouge">/</code> gets checked first; 0 means no checking).</p>
-  </li>
-  <li>Back up the current /root by
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv /root /root.old
-</code></pre></div>    </div>
-    <p>It failed the first time and had to uncomment the new line in fstab and reboot and try again to succeed.</p>
-  </li>
-  <li>Remount all the drives by
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> mount -a
-</code></pre></div>    </div>
-  </li>
-</ul>
+<p>After installation, use it using <code class="highlighter-rouge">nc</code>.</p>
 
+<ol>
+  <li>Open a listening port in the server: ( <code class="highlighter-rouge">-l</code> for listen, <code class="highlighter-rouge">-v</code> for verbose)
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc -l -v 1432
+</code></pre></div>    </div>
+  </li>
+  <li>Connect to the server:
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nc server_name_or_ip 1432
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>If it succeeds, cursors on both of the computers will wait. Now type text in one terminal to send it to the other. Congratulations, you have a highly insecure client-server setup running.</p>
 
 
 </p> 
@@ -173,8 +168,8 @@ Note that, <code class="highlighter-rouge">cp -rp ~/* /otherlin</code>
 *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
 var disqus_config = function () {
-	this.page.url = 'http://localhost:4000/lin/2019-03-23-mountpoints.html';  // Replace PAGE_URL with your page's canonical URL variable
-this.page.identifier = '/lin/mountpoints'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	this.page.url = 'http://localhost:4000/lin/2019-11-10-netcat-server.html';  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = '/lin/netcat-server'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
 };
 
 (function() { // DON'T EDIT BELOW THIS LINE

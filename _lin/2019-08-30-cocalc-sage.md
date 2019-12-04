@@ -39,5 +39,8 @@ prints it right, use
 u_th_x = var('u_th_x', latex_name = 'u_{\\theta}(x)'}
 ```
 
-Later, do `view(u_th_x)` to see it rendered correctly.
+Later, do `view(u_th_x)` to see it rendered correctly as
+$$ u_\theta(x) $$.
+
+{% include math.html %}
 

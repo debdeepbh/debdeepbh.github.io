@@ -3,7 +3,6 @@ layout: lin
 title: "All Posts"
 ---
 <!--To access the list variable tags from tagcollection.html-->
-{% include tagcollection.html %}
 <body>
 
 
