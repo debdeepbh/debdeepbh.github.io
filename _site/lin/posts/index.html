@@ -19,7 +19,7 @@
 {"@type":"WebPage","headline":"All Posts","url":"http://localhost:4000/lin/posts/","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/content/pic.jpg"}},"description":"Website","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <link rel="stylesheet" href="/assets/css/style.css?v=a3555451272d0b86413349be08e7b7d63a7a35b1">
+    <link rel="stylesheet" href="/assets/css/style.css?v=ee29b00603d21865b08edf4f006275fe1d513295">
     <!--[if lt IE 9]>
     <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
@@ -103,6 +103,102 @@
 
 
 <!--reversed to order put the most recent post first-->
+
+  <h3>
+    <a href="/lin/2019-11-23-vim-shortcut.html">
+      Vim shortcuts you should be using
+      <!--vimproductivityshortcut-->
+    </a>
+  </h3>
+
+<!--get date from  snippet-->
+<small> 23 Nov 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#vim">
+<small>
+		vim 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#productivity">
+<small>
+		productivity 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#shortcut">
+<small>
+		shortcut 
+</small>
+	</a>
+</div>
+	
+
+
+
+<p><h3 id="touch-typing">Touch typing</h3>
+<ul>
+  <li><code class="highlighter-rouge">Esc</code> key with the pinky finger</li>
+  <li><code class="highlighter-rouge">Backspace</code> with pinky finger as well</li>
+  <li>braces and brackets with pinky finger as well</li>
+</ul>
+
+<h3 id="shortcuts-available-by-default">Shortcuts available by default</h3>
+<ul>
+  <li><code class="highlighter-rouge">S</code> (substitute) deletes the current sentence and goes into the edit (compared to <code class="highlighter-rouge">DD</code> where the current line vanishes)</li>
+  <li><code class="highlighter-rouge">:set textwidth=69</code> and <code class="highlighter-rouge">:set colorcolumn=+1</code> breaks the line after 69 characters. (<code class="highlighter-rouge">linebreak</code> makes sure that that words do not break in the middle). However, after editing for a while in this mode, lines will have different width. It can be fixed with <code class="highlighter-rouge">gq</code> command: <code class="highlighter-rouge">gqap</code> (here, <code class="highlighter-rouge">ap</code> is <em>a paragraph</em>)</li>
+  <li>Also, <code class="highlighter-rouge">s</code> is a better alternative to <code class="highlighter-rouge">r</code> to edit strings</li>
+  <li><code class="highlighter-rouge">W</code>, <code class="highlighter-rouge">E</code>, <code class="highlighter-rouge">B</code> instead of <code class="highlighter-rouge">w</code>,<code class="highlighter-rouge">e</code>,<code class="highlighter-rouge">b</code> to avoid special characters. Therefore, <code class="highlighter-rouge">dW</code>, <code class="highlighter-rouge">dE</code>, <code class="highlighter-rouge">dB</code> etc</li>
+  <li><code class="highlighter-rouge">Crtrl+E/Y</code> to  move page without moving the cursor so that I don’t have to look at the bottom of the screen all the time; Even better: zz adjust the screen  so that the cursor is at the middle of the screen. <code class="highlighter-rouge">zb</code> and <code class="highlighter-rouge">zt</code> to place it in the top and bottom.</li>
+  <li><code class="highlighter-rouge">tx</code> to jump till the next occurrence of character <code class="highlighter-rouge">x</code> – instead of <code class="highlighter-rouge">fx</code> which brings the cursor on the character. So, use <code class="highlighter-rouge">dtx</code> instead of <code class="highlighter-rouge">dfx</code> to delete till the character <code class="highlighter-rouge">x</code>, instead of including the character <code class="highlighter-rouge">x</code>. Useful for deleting till the next parenthesis with <code class="highlighter-rouge">dt)</code>.</li>
+  <li>Once <code class="highlighter-rouge">f</code> or <code class="highlighter-rouge">F</code> or <code class="highlighter-rouge">t</code> or <code class="highlighter-rouge">T</code> is pressed followed by a character, pressing <code class="highlighter-rouge">;</code> and <code class="highlighter-rouge">,</code> will take the cursor to match the same character further in that direction. Use <code class="highlighter-rouge">#</code> and <code class="highlighter-rouge">*</code> for the occurrence of the same word under the cursor.</li>
+  <li><code class="highlighter-rouge">gf</code> and <code class="highlighter-rouge">gx</code> to open the file or hyperlink under the cursor. <code class="highlighter-rouge">gf</code> on a hyperlink will  open the html file for editing while <code class="highlighter-rouge">gx</code> will launch it in the browser.</li>
+  <li><code class="highlighter-rouge">g;</code> and <code class="highlighter-rouge">g,</code> to move through the changelist</li>
+  <li><code class="highlighter-rouge">ddp</code> to switch current line with the next, like <code class="highlighter-rouge">xp</code></li>
+  <li><code class="highlighter-rouge">C</code> or <code class="highlighter-rouge">D</code> - change or delete the rest of the line</li>
+  <li><code class="highlighter-rouge">U/u</code> on a visual selection to make all uppercase/loswercase and <code class="highlighter-rouge">~</code> to flip the case</li>
+  <li><code class="highlighter-rouge">=</code> to fix indentation of code like this: <code class="highlighter-rouge">==</code> to fix the correct line, <code class="highlighter-rouge">=5j</code> to fix the next 5 lines, place cursor on an opening brace <code class="highlighter-rouge">{</code> and press <code class="highlighter-rouge">=%</code> to fix until the matching closing brace i.e. the whole block. Finally, if the cursor is inside a code block  of <code class="highlighter-rouge">{.}</code>, pressing <code class="highlighter-rouge">=a{</code> will fix the indentation of the whole block</li>
+  <li><code class="highlighter-rouge">Ctrl+w</code> to delete word back in insert mode. In fact, I have also mapped <code class="highlighter-rouge">Ctrl+Backspace</code> to the same to be consistent with browser editing. However, this does not work on terminal though.</li>
+  <li><code class="highlighter-rouge">Ctrl+a</code> to insert string inserted in last edit mode, while being inside the insert mode. Pressing <code class="highlighter-rouge">.</code> does the same in edit mode.</li>
+  <li><code class="highlighter-rouge">:set ic</code> to set ignorecase and <code class="highlighter-rouge">:set noic</code> to bring back case while searching</li>
+  <li><code class="highlighter-rouge">"</code> to jump to the place last exited buffer, <code class="highlighter-rouge">`</code> to jump back to where you jumped from, <code class="highlighter-rouge">`[</code> or <code class="highlighter-rouge">`]</code> to the start or end of last yanked or changed buffer,  <code class="highlighter-rouge">`&lt;</code> or <code class="highlighter-rouge">`&gt;</code> to the start or end of the last visual selection.</li>
+  <li><code class="highlighter-rouge">:reg</code> to see all the registers, <code class="highlighter-rouge">:reg p q r</code> to see only those registers, registers <code class="highlighter-rouge">0-9</code> fills up with deleted lines.</li>
+  <li><code class="highlighter-rouge">"rY</code> yank current line to the buffer <code class="highlighter-rouge">"r</code>, use <code class="highlighter-rouge">"rp</code> to paste the content of buffer <code class="highlighter-rouge">"r</code>. In insert mode type <code class="highlighter-rouge">Ctrl+r</code> then <code class="highlighter-rouge">s</code> to paste the content of buffer <code class="highlighter-rouge">s</code>.</li>
+  <li><code class="highlighter-rouge">"=</code> can do integer calculations of evaluate commands like <code class="highlighter-rouge">system('ls')</code> and can be used via <code class="highlighter-rouge">Ctrl+r=</code> or <code class="highlighter-rouge">"=p</code></li>
+  <li>Buffers <code class="highlighter-rouge">"%</code> is the current filename and <code class="highlighter-rouge">":</code> is the most recently executed vim command</li>
+  <li>First type up a macro then execute it as a string: yank the macros string to a buffer (say <code class="highlighter-rouge">m</code>) then type <code class="highlighter-rouge">@m</code> to execute it. In fact, when you record a macro (with <code class="highlighter-rouge">q</code>), it gets copied to the buffer of the same name.</li>
+  <li><code class="highlighter-rouge">:ab &lt;abbreviation&gt; &lt;full\ name&gt;</code> will expand abbreviation while typing, use <code class="highlighter-rouge">:una &lt;abbreviation&gt;</code> to remove the rule.</li>
+  <li><code class="highlighter-rouge">Ctrl+A</code>, <code class="highlighter-rouge">Ctrl+X</code> to increment or decrement the first number found after the cursor</li>
+  <li><code class="highlighter-rouge">g Ctrl+g</code> to get work/line/char count and just <code class="highlighter-rouge">ctrl+g</code> to show the file info (also <code class="highlighter-rouge">:%</code>) and number of lines etc.</li>
+  <li><code class="highlighter-rouge">g-</code> or <code class="highlighter-rouge">:earlier</code> to return the buffer to the earlier state, like undo <code class="highlighter-rouge">u</code> but does not erase the other undo branch. Similarly <code class="highlighter-rouge">g+</code> and <code class="highlighter-rouge">:later</code>. Finally <code class="highlighter-rouge">:earlier 1m</code> or <code class="highlighter-rouge">1h</code> or <code class="highlighter-rouge">5f</code> (<code class="highlighter-rouge">f</code> for number of save times ago)</li>
+  <li>matching or unmatched braces: <code class="highlighter-rouge">[[</code> to jump to the previous opening brace. Similarly <code class="highlighter-rouge">]]</code>. Also, <code class="highlighter-rouge">[{</code>, <code class="highlighter-rouge">[(</code> will take you to the previous unmatched opening brace and parenthesis. Similarly for <code class="highlighter-rouge">[}</code> and <code class="highlighter-rouge">[)</code>.</li>
+  <li>Create a new line and go to insert mode after and before the cursor with <code class="highlighter-rouge">o</code> and <code class="highlighter-rouge">O</code>. To do the same without going into insert mode: mapped <code class="highlighter-rouge">oo</code> and <code class="highlighter-rouge">OO</code> for that reason, but this also makes <code class="highlighter-rouge">o</code> and <code class="highlighter-rouge">O</code> very slow</li>
+  <li>Delete backward when the cursor is on the last letter of the word (<code class="highlighter-rouge">dB</code> does not work): done with <code class="highlighter-rouge">dge</code> and <code class="highlighter-rouge">dgE</code></li>
+  <li>Copy-pasting between firefox and terminal: done with <code class="highlighter-rouge">clipboard=unnamedplus</code> in your <code class="highlighter-rouge">vimrc</code></li>
+  <li>Navigating a multi-line sentence with <code class="highlighter-rouge">gj</code> <code class="highlighter-rouge">gk</code></li>
+</ul>
+</p>
+<!--<p><h3 id="touch-typing">Touch typing</h3>
+<ul> <li><code class="highlighter-rouge">Esc</code> key with the pinky finger</li> <li><code class="highlighter-rouge">Backspace</code> with pinky finger as well</li> <li>braces and brackets with pinky finger as well</li> </ul>
+<h3 id="shortcuts-available-by-default">Shortcuts available by default</h3>
+<ul> <li><code class="highlighter-rouge">S</code> (substitute) deletes the current sentence and goes into the edit (compared to <code class="highlighter-rouge">DD</code> where the current line vanishes)</li> <li><code class="highlighter-rouge">:set textwidth=69</code> and <code class="highlighter-rouge">:set colorcolumn=+1</code> breaks the line after 69 characters. (<code class="highlighter-rouge">linebreak</code> makes sure that that words do not break in the middle). However, after editing for a while in this mode, lines will have different width. It can be fixed with &lt;code...
+</li></ul>
+</p>-->
+
+<p><hr />
+</p>
 
   <h3>
     <a href="/lin/2019-11-10-netcat-server.html">
@@ -1483,6 +1579,83 @@ Commands like <code class="highlighter-rouge">apack</code>, <code class="highlig
 </p>
 
   <h3>
+    <a href="/lin/2019-05-11-termial-productivity.html">
+      Improving productivity on terminal
+      <!--terminalproductivity-->
+    </a>
+  </h3>
+
+<!--get date from  snippet-->
+<small> 11 May 2019 </small>
+
+<!--get taglist from  snippet-->
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#terminal">
+<small>
+		terminal 
+</small>
+	</a>
+</div>
+	
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#productivity">
+<small>
+		productivity 
+</small>
+	</a>
+</div>
+	
+
+
+
+<p><h3 id="preferred-termial-xfce4-terminal">Preferred termial: <code class="highlighter-rouge">xfce4-terminal</code></h3>
+<p>I moved from <code class="highlighter-rouge">xterm</code> to  <code class="highlighter-rouge">xfce4-terminal</code> due to its ability to resize the font on the fly using <code class="highlighter-rouge">Ctrl Shift +/-</code>. <code class="highlighter-rouge">xterm</code> lacked many features which I wanted to use while keeping it lightweight. I have modified some aspects of it though.</p>
+
+<ul>
+  <li><code class="highlighter-rouge">xfce4-terminal</code> provides an option which changes the background color automatically of each terminal window. What’s better, it chooses colors from a set of dark and light colors depending on your current terminal colorscheme.</li>
+  <li>I use <code class="highlighter-rouge">~/.bashrc</code> to colorcode the prompt to reflect different information such as disk space, tty type etc.</li>
+  <li>I modify <code class="highlighter-rouge">~/.inputrc</code> to use vim keybinding for the terminal. Therefore, in addition to using all basic vim commands, I can press <code class="highlighter-rouge">v</code> to edit inside a vim instance. Moreover, no need to remember the whole set of editing and movement shortcuts that comes with the terminal.</li>
+  <li>I love using the dropdown mode <code class="highlighter-rouge">xfce4-teminal --drop-down</code></li>
+</ul>
+
+<p>Apart from many shortcuts a linux terminal provides, here are some of my favorite ones.</p>
+
+<h4 id="last-command">Last command</h4>
+<ul>
+  <li>
+    <p>In terminal, <code class="highlighter-rouge">!!</code> means the last command!!!! And <code class="highlighter-rouge">!$</code> is the argument of the last command.
+For example, if <code class="highlighter-rouge">vim /etc/file</code> gives you permission error, run <code class="highlighter-rouge">sudo !!</code> which is essentially <code class="highlighter-rouge">sudo vim /etc/file</code>.
+Also, <code class="highlighter-rouge">vim !$</code> means <code class="highlighter-rouge">vim /etc/file</code>.
+Useful example: <code class="highlighter-rouge">mkdir longdirectoryname</code>. to enter the directory, do <code class="highlighter-rouge">cd !$</code>.</p>
+  </li>
+  <li>To search for the last command with <code class="highlighter-rouge">cat</code> in it from the history, do
+<code class="highlighter-rouge">!cat:p</code>.</li>
+  <li>To run the last command with       <code class="highlighter-rouge">cat</code> in it ffom the history, do <code class="highlighter-rouge">!cat</code>.</li>
+  <li>To find commands in the history and run a desired one, do <code class="highlighter-rouge">history | grep cat</code> and say the command number 455 is the right one that you want to run. Do <code class="highlighter-rouge">!455</code>.</li>
+</ul>
+
+<h4 id="array-approach-for-typing-less">Array approach for typing less:</h4>
+<p>instead of <code class="highlighter-rouge">cp /etc/file /etc/file-old</code>, do <code class="highlighter-rouge">cp /etc/file{,-old}</code>
+or, instead of <code class="highlighter-rouge">mv /etc/file.txt /etc/file.pdf</code> fo ` mv /etc/file.{txt,pdf}<code class="highlighter-rouge">
+So, empty field inside </code>{.,.}` means itself.</p>
+
+<p>Of course, you can define your own <code class="highlighter-rouge">alias</code> in <code class="highlighter-rouge">.bashrc</code>, but these shortcuts will save you a lot of typing effot.
+<a href="https://lifehacker.com/5743814/become-a-command-line-ninja-with-these-time-saving-shortcuts">Lifehacker</a> has a few more tips.</p>
+</p>
+<!--<p><h3 id="preferred-termial-xfce4-terminal">Preferred termial: <code class="highlighter-rouge">xfce4-terminal</code></h3>
+<p>I moved from <code class="highlighter-rouge">xterm</code> to <code class="highlighter-rouge">xfce4-terminal</code> due to its ability to resize the font on the fly using <code class="highlighter-rouge">Ctrl Shift +/-</code>. <code class="highlighter-rouge">xterm</code> lacked many features which I wanted to use while keeping it lightweight. I have modified some aspects of it though.</p>
+<ul> <li><code class="highlighter-rouge">xfce4-terminal</code> provides an option which changes the background color automatically of each terminal window. What’s better, it chooses colors from a set of dark and light colors depending on your current terminal colorscheme.</li> <li>I use <code class="highlighter-rouge">~/.bashrc</code> to colorcode the prompt to reflect different information such as...
+</li></ul>
+</p>-->
+
+<p><hr />
+</p>
+
+  <h3>
     <a href="/lin/2019-03-23-mountpoints.html">
       Moving directories to their own partitions
       <!--mountpartitionfstab-->
@@ -2467,6 +2640,16 @@ things with images. Check out the <a href="https://imagemagick.org/">main websit
  	<a href="/lin/tags/#server"> 
 		<small>
 		server
+		</small>
+	</a>
+</div>
+
+
+    
+<div class="tagbox">
+ 	<a href="/lin/tags/#shortcut"> 
+		<small>
+		shortcut
 		</small>
 	</a>
 </div>
