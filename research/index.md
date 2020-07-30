@@ -35,8 +35,9 @@ Using harmonic analytic tools like Fourier analysis and Littlewood-Payley analys
 
 [//]: Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
-* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) (Submitted) [(arXiv)](https://arxiv.org/abs/1906.05822)
-* _Mass concentration of $H^s$ blowup solution to 2D modified Zakharov-Kuznetsov equation_ with [Luiz Gustavo Farah](https://sites.google.com/site/lgfarah/) (Preprint)
+* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
+J. Differential Equations, 268(12):7962–7997, 2020. [doi:10.1016/j.jde.2019.11.092](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092), [(arXiv)](https://arxiv.org/abs/1906.05822)
+* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [(arXiv)]()
 
 ***
 
