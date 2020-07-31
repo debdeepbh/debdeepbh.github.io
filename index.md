@@ -3,7 +3,7 @@ title: Home
 ---
 ## About 
 
-I am a Postdoctoral Researcher at the [Louisiana State University](https://www.math.lsu.edu).
+I am a Postdoctoral Researcher at the [Louisiana State University](https://www.math.lsu.edu) working with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/).
 
 I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations, signal processing and machine learning. See my [research page](/research/) for more details.
 
