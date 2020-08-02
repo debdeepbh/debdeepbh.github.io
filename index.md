@@ -15,9 +15,9 @@ I study analysis and partial differential equations, in particular, nonlocal and
 
 ## CV
 
-Click [here](./content/debdeep.pdf) to download my CV. 
+Click [here](./content/cv-debdeep.pdf) to download my CV. 
 
-[\\]: (Updated: June 2019)
+[\\]: (Updated: July 2020)
 
 * * * 
 
@@ -25,12 +25,11 @@ Click [here](./content/debdeep.pdf) to download my CV.
 
 ### Address
 
-Department of Mathematics<br/>
-Phillips Hall, Room 739<br/> 
-801 22nd St. NW <br/>
-Washington, DC 20052 <br/>
-Phone: (202) 994-6235 <br/>
+Department of Mathematics <br/>
+Louisiana State University <br/>
+Baton Rouge, LA 70803-4918 <br/>
+USA <br/>
 
 ### Email
-![email](./content/email.png)
+![email](./content/email-lsu.png)
 
