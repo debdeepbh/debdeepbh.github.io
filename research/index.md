@@ -37,7 +37,7 @@ Using harmonic analytic tools like Fourier analysis and Littlewood-Payley analys
 
 * _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
 J. Differential Equations, 268(12):7962–7997, 2020. [doi:10.1016/j.jde.2019.11.092](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092), [(arXiv)](https://arxiv.org/abs/1906.05822)
-* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [(arXiv)]()
+* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [(arXiv)](http://arxiv.org/abs/2007.15773)
 
 ***
 
