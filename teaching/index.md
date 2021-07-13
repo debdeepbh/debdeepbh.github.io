@@ -2,7 +2,7 @@
 title: Teaching
 ---
 
-## Teaching experience
+## Teaching Experience
 
 ### Instructor
 * [Summer 2017: Linear Algebra](summer-2017)
