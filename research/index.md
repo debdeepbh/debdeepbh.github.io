@@ -20,7 +20,7 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
 
-As a part of a Multidisciplinary University Research Initiative (MURI) [link](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
+As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
 - Simulating grain shape effects and damage in granular media using PeriDEM (with Robert P. Lipton) (Submitted) [arXiv:2108.07212](https://arxiv.org/abs/2108.07212)
 - Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi:10.1016/j.nonrwa.2021.103331](https://doi.org/10.1016/j.nonrwa.2021.103331) [arXiv:2010.07218](https://arxiv.org/abs/2010.07218)
@@ -48,8 +48,8 @@ Using harmonic analytic tools like Fourier analysis and Littlewood-Payley analys
 [//]: Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
 * _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
-J. Differential Equations, 268(12):7962–7997, 2020. [doi:10.1016/j.jde.2019.11.092](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092), [(arXiv)](https://arxiv.org/abs/1906.05822)
-* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [(arXiv)](http://arxiv.org/abs/2007.15773)
+J. Differential Equations, 268(12):7962–7997, 2020. [doi:10.1016/j.jde.2019.11.092](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
+* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [arXiv](http://arxiv.org/abs/2007.15773)
 
 ***
 
