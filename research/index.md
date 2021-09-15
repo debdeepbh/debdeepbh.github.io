@@ -6,12 +6,24 @@ title: Research
 ## Research Interests
 
 I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from 
-* [nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)
-* [signal processing](#signal-processing)
-* [solid mechanics](#solid-mechanics) 
-* [machine learning](#machine-learning) 
+* [Granular media](#granular-media) 
+* [Nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)
+* [Signal processing](#signal-processing)
+* [Solid mechanics](#solid-mechanics) 
+* [Machine learning](#machine-learning) 
 
 [//]: this is a comment 
+
+***
+
+### Granular media
+Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
+Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
+
+As a part of a Multidisciplinary University Research Initiative (MURI) [link](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
+
+- Simulating grain shape effects and damage in granular media using PeriDEM (with Robert P. Lipton) (Submitted) [arXiv:2108.07212](https://arxiv.org/abs/2108.07212)
+- Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi:10.1016/j.nonrwa.2021.103331](https://doi.org/10.1016/j.nonrwa.2021.103331) [arXiv:2010.07218](https://arxiv.org/abs/2010.07218)
 
 ***
 
@@ -47,6 +59,7 @@ Even though I was first exposed to Harmonic analysis as a tool to study dispersi
 During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noise picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawai'i at Monoa under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
 
 
+- Unusual Near-Horizon Cosmic-Ray-like Events Observed by ANITA-IV. (with P. W. Gorham et al.) Physical Review Letters, 2021. [doi:10.1103/PhysRevLett.126.071103](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103) [arXiv:2008.05690](https://arxiv.org/abs/2008.05690)
 * Report on _Deconvolution problem and application to ANITA signals_, submitted to ANITA collaboration at University of Hawai'i at Manoa [[pdf]](/content/report-anita.pdf)
 * _Generalized ForWaRD algorithm for multi-antenna model_ (Preprint)
 
