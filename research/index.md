@@ -32,7 +32,7 @@ As a part of a Multidisciplinary University Research Initiative [(MURI)](https:/
 
 
 My work on nonlinear dispersive equations has been about the low-regularity theory, especially in the critical regime, where we can observe a dichotomy between global existence and blow-up of the solution in finite time, depending on the profile of the initial data. 
-With my collaborators [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) and [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/), I have studied the Zakharov-Kuznetsov equation
+With [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) and [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/), I have studied the Zakharov-Kuznetsov equation
 
  {% raw %} 
 $$
