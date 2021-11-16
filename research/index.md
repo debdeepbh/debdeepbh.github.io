@@ -21,7 +21,7 @@ Modeling and simulating granular media are important for many industrial and geo
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
 
 <video width="320" height="240" controls>
-  <source type="video/mp4" src="vid/vid_settle_plus0.2.mp4">
+  <source type="video/mp4" src="https://github.com/debdeepbh/debdeepbh.github.io/blob/master/content/vid/vid_settle_plus0.2.mp4">
 </video>
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
