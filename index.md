@@ -5,7 +5,9 @@ title: Home
 
 I am a Postdoctoral Researcher at the [Louisiana State University](https://www.math.lsu.edu) working with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/).
 
-I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations, signal processing and machine learning. See my [research page](/research/) for more details.
+I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations and their application to continuum mechanics (classical and peridynamics) and granular media using high-performance computing. I am also interested in signal processing and machine learning. See my [research page](/research/) for more details.
+
+<!--Analysis of partial differential equations, especially nonlocal and nonlinear dispersive equations; application to continuum mechanics, peridynamics and granular media using high-performance computing; signal processing-->
 
 ## Education
 
