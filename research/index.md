@@ -20,6 +20,11 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
 
+<video height="500" controls autoplay loop>
+<source src="vid/vid_settle_plus0.2.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> 
+
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
 - _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) (Submitted) [arXiv](https://arxiv.org/abs/2108.07212)
@@ -55,7 +60,7 @@ J. Differential Equations, 268(12):7962–7997, 2020. [doi](https://doi-org.prox
 ***
 
 ### Signal Processing
-Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on [frames](https://en.wikipedia.org/wiki/Frame_(linear_algebra)), [wavelets](https://en.wikipedia.org/wiki/Wavelet), time series analysis and [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) with [Prof. John Benedetto](https://www.math.umd.edu/~jjb/). 
+<!--Even though I was first exposed to Harmonic analysis as a tool to study dispersive equations, I became interested in its application in other areas of science, in particular signal processing, when I took a class on [frames](https://en.wikipedia.org/wiki/Frame_(linear_algebra)), [wavelets](https://en.wikipedia.org/wiki/Wavelet), time series analysis and [compressed sensing](https://en.wikipedia.org/wiki/Compressed_sensing) with [Prof. John Benedetto](https://www.math.umd.edu/~jjb/). -->
 
 During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noise picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawai'i at Monoa under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
 
