@@ -23,7 +23,7 @@ Moreover, grain crushing affects the strength of the bulk. Therefore, simulating
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
 - _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) (Submitted) [arXiv:2108.07212](https://arxiv.org/abs/2108.07212)
-- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi:10.1016/j.nonrwa.2021.103331](https://doi.org/10.1016/j.nonrwa.2021.103331) [arXiv:2010.07218](https://arxiv.org/abs/2010.07218)
+- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](10.1016/j.jmps.2021.104376) [arXiv:2010.07218](https://arxiv.org/abs/2010.07218)
 
 ***
 
@@ -48,8 +48,8 @@ Using harmonic analytic tools like Fourier analysis and Littlewood-Payley analys
 [//]: Currently, I am studying the inhomogeneous [nonlinear Schr&ouml;dinger](https://en.wikipedia.org/wiki/Nonlinear_Schr%C3%B6dinger_equation) and the [Hartree equation](https://en.wikipedia.org/wiki/Hartree_equation).
 
 * _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
-J. Differential Equations, 268(12):7962–7997, 2020. [doi:10.1016/j.jde.2019.11.092](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
-* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, (Submitted) [arXiv](http://arxiv.org/abs/2007.15773)
+J. Differential Equations, 268(12):7962–7997, 2020. [doi](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
+* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, Partial Differ. Equ. Appl. 2, 83 (2021). [doi](https://doi.org/10.1007/s42985-021-00139-y) [arXiv](http://arxiv.org/abs/2007.15773)
 
 
 ***
@@ -60,7 +60,7 @@ Even though I was first exposed to Harmonic analysis as a tool to study dispersi
 During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wikipedia.org/wiki/Antarctic_Impulse_Transient_Antenna) collaboration, a research group conducting balloon experiments in the antarctic region with a goal to detect ultra-high energy neutrinos. Filtering out electro-magnetic noise picked up by the highly sensitive antennas of ANITA payload and de-blurring the signals is known as the [deconvolution problem](https://en.wikipedia.org/wiki/Deconvolution) in signal processing. I worked with the astrophysicists at the University of Hawai'i at Monoa under the supervision of [Peter Gorham](https://www.phys.hawaii.edu/~gorham/) on the deconvolution problem using Fourier and Wavelet analysis and implemented a C++ library called [libWTools](https://github.com/debdeepbh/libWTools). I am currently working on a multi-antenna generalization of this algorithm.
 
 
-- _Unusual Near-Horizon Cosmic-Ray-like Events Observed by ANITA-IV_ (with P. W. Gorham et al.) Physical Review Letters, 2021. [doi:10.1103/PhysRevLett.126.071103](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103) [arXiv:2008.05690](https://arxiv.org/abs/2008.05690)
+- _Unusual Near-Horizon Cosmic-Ray-like Events Observed by ANITA-IV_ (with P. W. Gorham et al.) Physical Review Letters, 2021. [doi](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103) [arXiv:2008.05690](https://arxiv.org/abs/2008.05690)
 * Report on _Deconvolution problem and application to ANITA signals_, submitted to ANITA collaboration at University of Hawai'i at Manoa [[pdf]](/content/report-anita.pdf)
 * _Generalized ForWaRD algorithm for multi-antenna model_ (Preprint)
 
