@@ -7,8 +7,6 @@ I am a Postdoctoral Researcher at the [Louisiana State University](https://www.m
 
 I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations and their application to continuum mechanics (classical and peridynamics) and granular media using high-performance computing. I am also interested in signal processing and machine learning. See my [research page](/research/) for more details.
 
-<!--Analysis of partial differential equations, especially nonlocal and nonlinear dispersive equations; application to continuum mechanics, peridynamics and granular media using high-performance computing; signal processing-->
-
 ## Education
 
 * PhD in mathematics from [Department of Mathematics](https://math.columbian.gwu.edu/), [George Washington University](https://www.gwu.edu/), 2020 (Advisor: [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html) )
