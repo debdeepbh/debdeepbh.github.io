@@ -23,9 +23,17 @@ Moreover, grain crushing affects the strength of the bulk. Therefore, simulating
  ![crack-branching](vid/settle_n4.gif)
  ![crack-branching](vid/settle_plus.gif)
  ![crack-branching](vid/settle_pertdisk.gif)
+
 *Particles of various shapes settling under gravity: square, plus, and perturbed disk*
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
+
+ ![img](vid/plusfrac.gif)
+ ![img](vid/ringfrac.gif)
+ ![img](vid/n4frac.gif)
+
+*Particle-column formation and damage of individual grains under compression*
+
 
 - _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) (Submitted) [arXiv](https://arxiv.org/abs/2108.07212)
 - _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](10.1016/j.jmps.2021.104376) [arXiv](https://arxiv.org/abs/2010.07218)
