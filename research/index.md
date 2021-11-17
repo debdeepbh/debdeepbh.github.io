@@ -7,9 +7,9 @@ title: Research
 
 I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from 
 * [Granular media](#granular-media) 
+* [Solid mechanics and fracture](#solid-mechanics-and-fracture) 
 * [Nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)
 * [Signal processing](#signal-processing)
-* [Solid mechanics and fracture](#solid-mechanics-and-fracture) 
 * [Machine learning](#machine-learning) 
 
 [//]: this is a comment 
