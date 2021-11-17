@@ -92,6 +92,7 @@ Peridynamics assumes that every material point interacts with its neighbors via 
 
 
  ![img](vid/crack_combined_small.gif)
+ ![img](vid/3d_hertzian_small.gif)
 *Crack formation and crack branching upon impact*
 
 Working with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
