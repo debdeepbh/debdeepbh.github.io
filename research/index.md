@@ -9,7 +9,7 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 * [Granular media](#granular-media) 
 * [Nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)
 * [Signal processing](#signal-processing)
-* [Solid mechanics](#solid-mechanics) 
+* [Solid mechanics and fracture](#solid-mechanics-and-fracture) 
 * [Machine learning](#machine-learning) 
 
 [//]: this is a comment 
@@ -74,7 +74,7 @@ During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wi
 
 ***
 
-### Solid Mechanics
+### Solid Mechanics and fracture
 Understanding how solid materials deform and fail under external loading conditions has been a long-standing area of research for scientists and engineers for centuries. 
 The classical approach is to treat the solids as a [continuum](https://en.wikipedia.org/wiki/Continuum_mechanics) and model the displacements of material points as a solution to a differential equation, known as the [Cauchy Momentum equation](https://en.wikipedia.org/wiki/Cauchy_momentum_equation).
 However, due to the differential formulation, the classical theory fails to describe material behavior when the deformation field is non-differentiable at certain material points, for example, when a fracture is formed.
@@ -85,6 +85,11 @@ Peridynamics assumes that every material point interacts with its neighbors via 
  ![crack-branching](meshout.gif)
 *Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
 
+
+ ![crack-branching](vid/1crack_small.gif)
+ ![crack-branching](vid/3crack_small.gif)
+ ![crack-branching](vid/3d_hertzian.gif)
+*Crack formation and crack branching upon impact*
 
 Working with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
 I considered three-dimensional axisymmetric problems, where the geometry of the material is symmetric about an axis of symmetry and the external loading conditions are such that the deformation fields are symmetric about the same axis of symmetry. This is an important class of problem in solid mechanics where the symmetry can be exploited to reduce dimension of the problem. We derived the two-dimensional model that exactly represent the full 3D axisymmetric linear peridynamic model by incorporating out-of-plane bond forces into the representative 2D plane, thus reducing the computational cost significantly.
