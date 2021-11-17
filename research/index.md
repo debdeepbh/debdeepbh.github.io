@@ -28,9 +28,7 @@ Moreover, grain crushing affects the strength of the bulk. Therefore, simulating
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
- ![img](vid/plusfrac.gif)
- ![img](vid/ringfrac.gif)
- ![img](vid/n4frac.gif)
+ ![img](vid/frac_combined.gif)
 
 *Particle-column formation and damage of individual grains under compression*
 
