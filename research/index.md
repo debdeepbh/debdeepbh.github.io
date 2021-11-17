@@ -20,17 +20,14 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
 
- ![crack-branching](vid/settle_n4.gif)
- ![crack-branching](vid/settle_plus.gif)
- ![crack-branching](vid/settle_pertdisk.gif)
+ ![img](vid/settle_combined_small.gif)
 
-*Particles of various shapes settling under gravity: square, plus, and perturbed disk*
+*Particles settling under gravity. Shapes considered: square, plus, and perturbed disk.*
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
- ![img](vid/frac_combined.gif)
 
-*Particle-column formation and damage of individual grains under compression*
+<!--*Particle-column formation and damage of individual grains under compression*-->
 
 
 - _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) (Submitted) [arXiv](https://arxiv.org/abs/2108.07212)
@@ -94,9 +91,7 @@ Peridynamics assumes that every material point interacts with its neighbors via 
 *Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
 
 
- ![crack-branching](vid/1crack_small.gif)
- ![crack-branching](vid/3crack_small.gif)
- ![crack-branching](vid/3d_hertzian.gif)
+ ![img](vid/crack_combined_small.gif)
 *Crack formation and crack branching upon impact*
 
 Working with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
