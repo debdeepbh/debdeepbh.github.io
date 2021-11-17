@@ -20,8 +20,10 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
 
- ![crack-branching](vid/output.gif)
-*Plus-shaped particles settling under gravity*
+ ![crack-branching](vid/settle_n4.gif)
+ ![crack-branching](vid/settle_plus.gif)
+ ![crack-branching](vid/settle_pertdisk.gif)
+*Particles of various shapes settling under gravity: square, plus, and perturbed disk*
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
