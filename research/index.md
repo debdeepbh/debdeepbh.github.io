@@ -35,6 +35,35 @@ As a part of a Multidisciplinary University Research Initiative [(MURI)](https:/
 
 ***
 
+### Solid Mechanics and fracture
+Understanding how solid materials deform and fail under external loading conditions has been a long-standing area of research for scientists and engineers for centuries. 
+The classical approach is to treat the solids as a [continuum](https://en.wikipedia.org/wiki/Continuum_mechanics) and model the displacements of material points as a solution to a differential equation, known as the [Cauchy Momentum equation](https://en.wikipedia.org/wiki/Cauchy_momentum_equation).
+However, due to the differential formulation, the classical theory fails to describe material behavior when the deformation field is non-differentiable at certain material points, for example, when a fracture is formed.
+
+Introduced by [Stewart Silling](https://www.sandia.gov/~sasilli/) in 2000,  [peridynamics](https://en.wikipedia.org/wiki/Peridynamics) has become useful to address this limitations.
+Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.
+
+ ![crack-branching](meshout.gif)
+*Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
+
+
+ ![img](vid/crack_combined_small.gif)
+ ![img](vid/3d_hertzian_small.gif)
+*Crack formation and crack branching upon impact*
+
+Working with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
+I considered three-dimensional axisymmetric problems, where the geometry of the material is symmetric about an axis of symmetry and the external loading conditions are such that the deformation fields are symmetric about the same axis of symmetry. This is an important class of problem in solid mechanics where the symmetry can be exploited to reduce dimension of the problem. We derived the two-dimensional model that exactly represent the full 3D axisymmetric linear peridynamic model by incorporating out-of-plane bond forces into the representative 2D plane, thus reducing the computational cost significantly.
+
+
+[//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
+
+* Nonlocal fracture modeling with quasistatic loading with Robert Lipton (In preparation)
+- Peridynamics for Quasistatic Fracture Modeling with Patrick Diehl and Robert P. Lipton. (Submitted) [arXiv](https://arxiv.org/abs/2107.14665)
+* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
+* Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
+
+***
+
 ### Nonlinear Dispersive Equations
 [Dispersive equations](https://en.wikipedia.org/wiki/Dispersive_partial_differential_equation) model the propagation of waves in various media. Nonlinearities make the study of dispersive equations more realistic, as well as mathematically interesting. For example, when the effect of nonlinearity opposes the effect of dispersion (focusing case), these equations exhibit peculiar solutions called [solitons](https://en.wikipedia.org/wiki/Soliton) that retain their spacial localization for a long time. [John Scott Russell](https://en.wikipedia.org/wiki/John_Scott_Russell) observed such solitary-waves in a shallow river in 1834. [Here](https://www.youtube.com/watch?v=w-oDnvbV8mY) is an experiment.
 
@@ -76,45 +105,14 @@ During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wi
 
 *A blurred, noisy signal (left) is deconvolved (right) using the ForWaRD algorithm* [[code]](https://github.com/debdeepbh/numerical/tree/master/wavelet)
 
-
-***
-
-### Solid Mechanics and fracture
-Understanding how solid materials deform and fail under external loading conditions has been a long-standing area of research for scientists and engineers for centuries. 
-The classical approach is to treat the solids as a [continuum](https://en.wikipedia.org/wiki/Continuum_mechanics) and model the displacements of material points as a solution to a differential equation, known as the [Cauchy Momentum equation](https://en.wikipedia.org/wiki/Cauchy_momentum_equation).
-However, due to the differential formulation, the classical theory fails to describe material behavior when the deformation field is non-differentiable at certain material points, for example, when a fracture is formed.
-
-Introduced by [Stewart Silling](https://www.sandia.gov/~sasilli/) in 2000,  [peridynamics](https://en.wikipedia.org/wiki/Peridynamics) has become useful to address this limitations.
-Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.
-
- ![crack-branching](meshout.gif)
-*Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
-
-
- ![img](vid/crack_combined_small.gif)
- ![img](vid/3d_hertzian_small.gif)
-*Crack formation and crack branching upon impact*
-
-Working with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
-I considered three-dimensional axisymmetric problems, where the geometry of the material is symmetric about an axis of symmetry and the external loading conditions are such that the deformation fields are symmetric about the same axis of symmetry. This is an important class of problem in solid mechanics where the symmetry can be exploited to reduce dimension of the problem. We derived the two-dimensional model that exactly represent the full 3D axisymmetric linear peridynamic model by incorporating out-of-plane bond forces into the representative 2D plane, thus reducing the computational cost significantly.
-
-
-[//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
-
-* Nonlocal fracture modeling with quasistatic loading with Robert Lipton (In preparation)
-- Peridynamics for Quasistatic Fracture Modeling with Patrick Diehl and Robert P. Lipton. (Submitted) [arXiv](https://arxiv.org/abs/2107.14665)
-* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
-* Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
-
 ***
 
 ### Machine Learning
 
-During Summer 2018, I was learning to use  popular machine lerning techniques using *scikit-learn* as yet another problem-solving tool. While documenting my understanding, I became more interested in the underlying mathematics of it.
-With [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani, I am working on a 
- permutation-invariant encoding of finite-dimensional data points.
+I am interested in using machine learning techniques as yet another problem-solving tool. 
+Here is [my repository](https://github.com/debdeepbh/ml) that contains my notes and solved exercises from the book *Hands-On Machine Learning with Scikit-Learn and TensorFlow*.
+While documenting my understanding, I became more interested in the underlying mathematics of it.
 
-*  [My repository](https://github.com/debdeepbh/ml) to document notes and solved exercises from the book *Hands-On Machine Learning with Scikit-Learn and TensorFlow*
 * _Permutation-invariant encoding of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation)
 
 ***
