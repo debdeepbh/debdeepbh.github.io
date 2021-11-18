@@ -31,7 +31,7 @@ As a part of a Multidisciplinary University Research Initiative [(MURI)](https:/
 
 
 - _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) (Submitted) [arXiv](https://arxiv.org/abs/2108.07212)
-- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](10.1016/j.jmps.2021.104376) [arXiv](https://arxiv.org/abs/2010.07218)
+- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](https://www.sciencedirect.com/science/article/abs/pii/S0022509621000661?via%3Dihub) [arXiv](https://arxiv.org/abs/2010.07218)
 
 ***
 
