@@ -57,8 +57,8 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 [//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
 
-* Nonlocal fracture modeling with quasistatic loading with Robert Lipton (In preparation)
-- Peridynamics for Quasistatic Fracture Modeling with Patrick Diehl and Robert P. Lipton. (Submitted) [arXiv](https://arxiv.org/abs/2107.14665)
+- _Quasistatic Evolution with Unstable Forces_ with Robert Lipton (Submitted) [arXiv](https://arxiv.org/abs/2204.04571)
+- _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. (Submitted) [arXiv](https://arxiv.org/abs/2107.14665)
 * _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
 * Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
 
