@@ -22,7 +22,7 @@ title: "Tags"
 {% for tag in tags %}
 	<h3 id="{{ tag | slugify }}">{{ tag }}</h3>
 	<ul>
-	 {% for post in site.lin %}
+	 {% for post in site.blog %}
 		 {% if post.tags contains tag %}
 		 <li>
 		 <h3>

@@ -13,7 +13,7 @@ title: "Blog"
 <p>{{ "---" | markdownify }}</p>
 
 <h2>Recent Posts ({{ recentPostLimit }})</h2>
-{% assign sorted = site.lin | reverse %}
+{% assign sorted = site.blog | reverse %}
 {% for snippet in sorted limit:recentPostLimit %}
 <h3>
 <a href="{{ snippet.url }}">

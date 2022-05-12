@@ -1,10 +1,12 @@
-- name: Blog Home
-  link: /lin/
+- name: Home 
+  link: /
+- name: Blog
+  link: /blog/
 #- name: All
   subname:
           - name: Titles
-            link: /lin/titles/
+            link: /blog/titles/
           - name: Tags
-            link: /lin/tags/
+            link: /blog/tags/
           - name: Posts
-            link: /lin/posts/
+            link: /blog/posts/
