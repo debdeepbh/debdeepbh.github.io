@@ -5,6 +5,7 @@ title: Teaching
 ## Teaching Experience
 
 ### Instructor
+* [Sprint 2022: Mathematical methods for engineers](https://www.math.lsu.edu/courses/2070)
 * [Summer 2017: Linear Algebra](summer-2017)
 * [Summer 2016: Calculus with precalculus](summer-2016)
 
