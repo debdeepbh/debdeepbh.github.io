@@ -16,6 +16,29 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ***
 
+## Publications and preprints
+
+### Published articles
+
+- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](https://www.sciencedirect.com/science/article/abs/pii/S0022509621000661?via%3Dihub) [arXiv](https://arxiv.org/abs/2010.07218)
+
+- _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. Proceedings of the ASME 2021 International Mechanical Engineering Congress and Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793) [arXiv](https://arxiv.org/abs/2107.14665)
+
+* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, Partial Differ. Equ. Appl. 2, 83 (2021). [doi](https://doi.org/10.1007/s42985-021-00139-y) [arXiv](http://arxiv.org/abs/2007.15773)
+
+* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
+J. Differential Equations, 268(12):7962–7997, 2020. [doi](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
+
+- _Unusual Near-Horizon Cosmic-Ray-like Events Observed by ANITA-IV_ (with P. W. Gorham et al.) Physical Review Letters, 2021. [doi](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103) [arXiv](https://arxiv.org/abs/2008.05690)
+
+### Under journal review
+
+- _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) [arXiv](https://arxiv.org/abs/2108.07212)
+
+- _Quasistatic Evolution with Unstable Forces_ with Robert Lipton [arXiv](https://arxiv.org/abs/2204.04571)
+
+***
+
 ### Granular media
 Modeling and simulating granular media are important for many industrial and geophysical applications. The shape of individual grains plays an important role in determining the mechanical response of the bulk. On the other hand, it is possible to design particle shapes so that the bulk has some desired property. For example, [doloses](https://en.wikipedia.org/wiki/Dolos) are used to protect seashores from the erosive force of waves.
 Moreover, grain crushing affects the strength of the bulk. Therefore, simulating individual grains and modeling the interaction is crucial to understanding the collective behavior of the aggregate.
@@ -61,7 +84,7 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 [//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
 
 - _Quasistatic Evolution with Unstable Forces_ with Robert Lipton (Submitted) [arXiv](https://arxiv.org/abs/2204.04571)
-- _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. (Submitted) [arXiv](https://arxiv.org/abs/2107.14665)
+- _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. Proceedings of the ASME 2021 International Mechanical Engineering Congress and Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793) [arXiv](https://arxiv.org/abs/2107.14665)
 * _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://web.ornl.gov/~selesonpd/) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
 * Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
 
@@ -119,5 +142,4 @@ While documenting my understanding, I became more interested in the underlying m
 * _Permutation-invariant encoding of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation)
 
 ***
-
 
