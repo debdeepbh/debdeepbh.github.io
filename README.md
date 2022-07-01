@@ -86,7 +86,6 @@ On ubuntu
 sudo apt-get install libmysqlclient-dev ruby-dev
 script/bootstrap
 bundle exec jekyll serve
-firefox http://localhost:4000
 ```
 
 If you'd like to preview the theme locally (for example, in the process of proposing a change):

@@ -14,6 +14,8 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 [//]: this is a comment 
 
+
+
 ***
 
 ## Publications and preprints
@@ -47,8 +49,11 @@ Moreover, grain crushing affects the strength of the bulk. Therefore, simulating
 
 *Particles settling under gravity. Shapes considered: square, plus, and perturbed disk.*
 
-![img](vid/frac-ring-0.6-80e-3.gif)
-*Damage in ring-shaped dry gravel due to the vehicle wheel.*
+
+{% include video.html url="vid/2022-06-20-22-58-12-66cfg.mp4" width="560" height="315" %}
+{% include video.html url="vid/2022-06-20-23-10-00-xuvrn.mp4" width="560" height="315" %}
+
+*Damage in plus-shaped dry gravel due to the vehicle wheel.*
 
 As a part of a Multidisciplinary University Research Initiative [(MURI)](https://muri-granulardna.sites.caltech.edu/) to understand granular media via grain-scale engineering, with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) I have studied the effect of particle shapes on the mechanical response of the aggregate, where the damage of individual grains is captured by peridynamics.
 
