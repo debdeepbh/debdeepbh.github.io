@@ -1,5 +1,5 @@
 ---
-layout: lin
+layout: blog
 title: "Blog"
 ---
 <!--To access the list variable tags from tagcollection.html-->

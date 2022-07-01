@@ -1,6 +1,6 @@
 <!--Take all snippets from _lin and create a list of raw tags-->
 {% assign rawtags = "" %}
-{% for snippet in site.lin %}
+{% for snippet in site.blog %}
   {% assign ttags = snippet.tags | join:'|' | append:'|' %}
   {% assign rawtags = rawtags | append:ttags %}
 {% endfor %}

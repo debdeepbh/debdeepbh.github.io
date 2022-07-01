@@ -1,5 +1,5 @@
 ---
-layout: lin
+layout: blog
 title: "Tags"
 ---
 

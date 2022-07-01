@@ -9,7 +9,7 @@ Total: {{ site.blog.size }}
 <body>
 
 <!--reversed to order put the most recent post first-->
-{% for snippet in site.blogposts reversed %}
+{% for snippet in site.blog reversed %}
 <h3>
     <a href="{{ snippet.url }}">
       {{ snippet.title }}
