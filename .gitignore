@@ -2,3 +2,4 @@
 *.swo
 /tags
 _site
+.bundle
