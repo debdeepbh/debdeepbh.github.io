@@ -39,6 +39,12 @@ J. Differential Equations, 268(12):7962–7997, 2020. [doi](https://doi-org.prox
 
 - _Quasistatic Evolution with Unstable Forces_ with Robert Lipton [arXiv](https://arxiv.org/abs/2204.04571)
 
+### Other writings
+
+* _Harmonic Analysis Techniques in Nonlinear Dispersive Equations and Signal Processing._ Ph.D Dissertation, May 2020. [ProQuest: 27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
+* _Deconvolution problem and application to ANITA signals_, Report, submitted to ANITA collaboration at University of Hawai'i at Manoa ([link](http://debdeepbh.github.io/content/report-anita.pdf))
+* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program ([link](https://debdeepbh.github.io/content/NSF-report-signed.pdf))
+
 ***
 
 ### Granular media
