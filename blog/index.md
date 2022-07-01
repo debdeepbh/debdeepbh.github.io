@@ -6,8 +6,8 @@ title: "Blog"
 <body>
 
 
-{% assign recentPostLimit = 4 %}
-{% assign wordlimit = 60 %}
+{% assign recentPostLimit = 5 %}
+{% assign wordlimit = 100 %}
 
 <h2> Featured Posts </h2>
 <p>{{ "---" | markdownify }}</p>

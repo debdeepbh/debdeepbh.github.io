@@ -3,35 +3,22 @@ title: Home
 ---
 ## About 
 
-I am a Postdoctoral Researcher at the Department of Mathematics at the [Louisiana State University](https://www.math.lsu.edu). I received my Ph.D. from the [George Washington University](https://www.gwu.edu/). 
-Working with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) at LSU,
-my current work is to understand dynamic network attributes of granular media 
-as a part of a multidisciplinary university research initiative ([MURI](https://muri-granulardna.sites.caltech.edu/)). 
-My research interests include:
-- Theoretical aspects of partial differential equations, in particular, nonlinear, nonlocal, and  dispersive equations and their applications to continuum mechanics (classical and peridynamics).
-- High-performance computing and simulation.
+I am a Postdoctoral Researcher at the Department of Mathematics at the [Louisiana State University](https://www.math.lsu.edu). My mentor is [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/). Prior to joining LSU, I received my Ph.D. from the [George Washington University](https://www.gwu.edu/) under the guidance of [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html).
 
+In my current research I investigate dynamic network attributes of granular media 
+as a part of a multidisciplinary university research initiative ([MURI](https://muri-granulardna.sites.caltech.edu/)). 
+<!-- My research interests include: -->
+<!-- - High-performance computing to simulate and analyze the behavior of deformable and brittle granular media using peridynamics and discrete element method (DEM). -->
+<!-- - Theoretical aspects of partial differential equations, in particular, nonlinear, nonlocal, and  dispersive equations primarily arising from continuum mechanics. -->
+I use high-performance computing to simulate and analyze bulk behavior of deformable and brittle granular media with peridynamics and discrete element method, as well as study the theoretical aspects of the associated models governed by nonlocal, nonlinear, and dispersive partial differential equations.
 <!-- I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations and their applications to continuum mechanics (classical and peridynamics) and granular media using high-performance computing.  -->
 I am also interested in signal processing and machine learning. 
-See my [research page](/research/) for more details.
+<!-- See my [research page](/research/) for more details. -->
 
-## Education
-
-* PhD in mathematics from [Department of Mathematics](https://math.columbian.gwu.edu/), [George Washington University](https://www.gwu.edu/), 2020 (Advisor: [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html) )
-* Master of Science in Mathematics from [Tata Institute of Fundamental Research](https://www.math.tifrbng.res.in/), Bangalore, India, 2014
-* Bachelor in Mathematics from [Indian Statistical Institute](http://www.isibang.ac.in/), Bangalore, India, 2012
-
-## CV
-
-Click [here](./content/cv-debdeep.pdf) to download my CV. 
-
-[\\]: (Updated: July 2020)
 
 * * * 
 
 ## Contact
-
-### Address
 
 Department of Mathematics <br/>
 Louisiana State University <br/>
