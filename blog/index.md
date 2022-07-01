@@ -6,7 +6,7 @@ title: "Blog"
 <body>
 
 
-{% assign recentPostLimit = 3 %}
+{% assign recentPostLimit = 4 %}
 {% assign wordlimit = 60 %}
 
 <h2> Featured Posts </h2>

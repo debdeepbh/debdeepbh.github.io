@@ -3,9 +3,17 @@ title: Home
 ---
 ## About 
 
-I am a Postdoctoral Researcher at the [Louisiana State University](https://www.math.lsu.edu) working with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/).
+I am a Postdoctoral Researcher at the Department of Mathematics at the [Louisiana State University](https://www.math.lsu.edu). I received my Ph.D. from the [George Washington University](https://www.gwu.edu/). 
+Working with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/) at LSU,
+my current work is to understand dynamic network attributes of granular media 
+as a part of a multidisciplinary university research initiative ([MURI](https://muri-granulardna.sites.caltech.edu/)). 
+My research interests include:
+- Theoretical aspects of partial differential equations, in particular, nonlinear, nonlocal, and  dispersive equations and their applications to continuum mechanics (classical and peridynamics).
+- High-performance computing and simulation.
 
-I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations and their application to continuum mechanics (classical and peridynamics) and granular media using high-performance computing. I am also interested in signal processing and machine learning. See my [research page](/research/) for more details.
+<!-- I study analysis and partial differential equations, in particular, nonlocal and nonlinear dispersive equations and their applications to continuum mechanics (classical and peridynamics) and granular media using high-performance computing.  -->
+I am also interested in signal processing and machine learning. 
+See my [research page](/research/) for more details.
 
 ## Education
 
