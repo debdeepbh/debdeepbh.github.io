@@ -281,13 +281,7 @@ Other tools: BASH, LaTeX, Git, Vim
 **Coding Projects**
 
 
-[`periwheel`](https://github.com/debdeepbh/peri-wheel-pub): Analysis and
-prediction of vehicle mobility on loosely packed dry gravel beds using a
-massively parallel implementation of a mesoscale computational model
-
-[`perigrain`](https://github.com/debdeepbh/peri-grain-pub): Modeling and
-analysis of deformable granular media to extract and predict bulk
-behavior dependent on particle shape
+[`perigrain`](https://github.com/debdeepbh/peri-grain): A high-fidelity granular media simulation and analysis platform with deformation and fracture in arbitrary grain shapes using peridynamics and discrete element method. Applications include vehicle mobility on gravels of different shapes, hopper flow of deformable particles, among others.
 
 [Balloon launch dynamics](https://github.com/debdeepbh/balloon-peri): 3D
 simulation and analysis of the launch dynamics of high altitude balloons
@@ -310,6 +304,8 @@ expense reports and statistics in a multi-user setup
 
 [`mathabotface`](https://github.com/debdeepbh/mathabotface): Automated
 theorem and lemma twitting bot
+
+[`ml`](https://github.com/debdeepbh/ml): Machine learning projects with mathematical explanations
 
 ---
 
