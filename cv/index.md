@@ -9,79 +9,74 @@ title: cv
 
 ---
 
+Research Interests
+==================
+
+Granular media, high-performance computing, peridynamics, analysis and
+theory of partial differential equations, especially of nonlocal and
+nonlinear dispersive type, signal processing, machine learning.
+
+Employment
+==========
+
+[**Louisiana State University**](https://www.math.lsu.edu/)\
+
+Postdoctoral Researcher, May 2020 - present\
+**Mentor:** [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
+
 Education
----------
+=========
 
-[**The George Washington University**](https://math.columbian.gwu.edu/)
+[**The George Washington University**](https://math.columbian.gwu.edu/)\
 
-Ph.D. in Mathematics, May 2020  
-Advisor: [Prof. Frank
-Baginski](https://home.gwu.edu/~baginski/baginski.html)  
-Thesis title: [Harmonic Analysis Techniques in Nonlinear Dispersive
+Ph.D. in Mathematics, May 2020\
+**Advisor:** [Prof. Frank
+Baginski](https://home.gwu.edu/~baginski/baginski.html)\
+**Thesis title:** [Harmonic Analysis Techniques in Nonlinear Dispersive
 Equations and Signal
-Processing](https://search.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl-18750&diss-y&pq-origsite-gscholar)
+Processing](https://search.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
 [**Tata Institute of Fundamental Research Centre for Applicable
-Mathematics, Bengaluru, India**](https://www.math.tifrbng.res.in/)
+Mathematics, Bengaluru, India**](https://www.math.tifrbng.res.in/)\
 
 Master of Science (MSc) in Mathematics, May 2014
-  
+
 [**Indian Statistical Institute, Bengaluru,
-India**](http://www.isibang.ac.in/)
+India**](http://www.isibang.ac.in/)\
 
 Bachelor in Mathematics, May 2012
 
----
+Summer Research visits
+======================
 
-Current Appointment
--------------------------
-
-[**Louisiana State University**](https://www.math.lsu.edu/)
-
-Postdoctoral Researcher, May 2020 - present  
-Host: [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
-
-
-Professional Experience
---------------------------
-
-**Oak Ridge National Laboratory**
+**Oak Ridge National Laboratory**\
 
 Mathematical Sciences Graduate Internship (MSGI), National Science
-Foundation (NSF), Summer 2019  
-Supervisor: [Dr. Pablo Seleson](https://pabloseleson.ornl.gov)
+Foundation (NSF), Summer 2019
 
-**University of Hawai'i at Manoa**
+**Supervisor:** [Dr. Pablo Seleson](https://web.ornl.gov/~selesonpd/)
 
-Visiting Scholar, Summer 2018  
-Supervisor: [Prof. Peter
+**University of Hawai'i at Manoa**\
+
+Visiting Scholar, Summer 2018
+
+**Supervisor:** [Prof. Peter
 Gorham](https://www.phys.hawaii.edu/~gorham/)
 
----
+Publications and preprints
+==========================
 
+1.  **Simulating grain shape effects and damage in granular media using
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in
+    SIAM Journal on Scientific Computing)
+    ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
 
-Research interests
-------------------
-
-- Granular media
-- Solid mechanics and fracture
-- Nonlinear dispersive partial differential equations
-- Signal processing
-- Machine learning
-
-Publications
-------------
-
-1.  **Peridynamics-based discrete element method (PeriDEM) model of
+2.  **Peridynamics-based discrete element method (PeriDEM) model of
     granular systems involving breakage of arbitrarily shaped
     particles.** Prashant K Jha, Prathamesh S Desai, Debdeep
     Bhattacharya, Robert P Lipton. Journal of the Mechanics and Physics
-    of Solids, 2020. [doi](https://www.sciencedirect.com/science/article/abs/pii/S0022509621000661?via%3Dihub)
+    of Solids, 2020. [doi](https://doi.org/10.1016/j.jmps.2021.104376)
     ([arXiv:2010.07218](https://arxiv.org/abs/2010.07218))
-
-2.  **Simulating grain shape effects and damage in granular media using
-    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in SISC)
-    ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
 
 3.  **Peridynamics for Quasistatic Fracture Modeling.** Debdeep
     Bhattacharya, Patrick Diehl, Robert P. Lipton. Proceedings of the
@@ -107,115 +102,123 @@ Publications
     1906.05822](https://arxiv.org/abs/1906.05822))
 
 7.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
-    and Robert Lipton (Submitted)
-    ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
+    and Robert Lipton (In revision in Multiscale Modeling and
+    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 
-Other writings
---------------
+8.  **Modeling The Launch Dynamics of a Large Scientific Balloon.**
+    Frank Baginski and Debdeep Bhattacharya, 43rd COSPAR Scientific
+    Assembly, 2021.
+    [doi](https://ui.adsabs.harvard.edu/abs/2021cosp...43E2311B)
 
-1.  **Harmonic Analysis Techniques in Nonlinear Dispersive Equations and
+9.  **Harmonic Analysis Techniques in Nonlinear Dispersive Equations and
     Signal Processing.** Ph.D Dissertation, May 2020. [ProQuest:
-    27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl-18750&diss-y&pq-origsite-gscholar)
+    27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
-2.  **Deconvolution problem and application to ANITA signals**, Report,
+In prepartion
+=============
+
+1.  **Peridynamic simulation of hopper flow: role of stiffness and
+    breakage** with Rigoberto Moncada Lopez (In preparation)
+
+2.  **Reduction of three-dimensional axisymmetric problems to two
+    dimensions in Peridynamics** with Pablo Seleson and Jeremy Trageser
+    (In preparation)
+
+3.  **Generalized ForWaRD algorithm for multi-antenna model** with Frank
+    Baginski (In preparation)
+
+4.  **Quasistatic J-integral for a nonlocal continuum model.** with
+    Robert Lipton and Patrick Diehl (In preparation)
+
+Technical reports
+=================
+
+1.  **Deconvolution problem and application to ANITA signals**, Report,
     submitted to ANITA collaboration at University of Hawai'i at Manoa
     ([link](http://debdeepbh.github.io/content/report-anita.pdf))
 
-3.  **Reduction of three-dimensional axisymmetric problems to two
+2.  **Reduction of three-dimensional axisymmetric problems to two
     dimensions in Peridynamics**, submitted to the NSF as part of
     [MSGI](https://orise.orau.gov/nsf-msgi/) program
     ([link](https://debdeepbh.github.io/content/NSF-report-signed.pdf))
 
-
----
-
 Honors and Achievements
------------------------
+=======================
 
+$\bullet$
 
-- [Dean's Graduate Conference Travel
+[Dean's Graduate Conference Travel
 Grant](https://columbian.gwu.edu/funding-opportunities-current-graduate-students),
 The George Washington University, 2017
 
-- Columbian College of Arts of Sciences Fellowship, The George Washington
+Columbian College of Arts of Sciences Fellowship, The George Washington
 University, 2015 -- present
 
-- Junior Research Fellowship from Tata Institute of Fundamental Research,
+Junior Research Fellowship from Tata Institute of Fundamental Research,
 India, 2012--2014
 
-- [INSPIRE](http://online-inspire.gov.in/) Scholarship from Department of
+[INSPIRE](http://online-inspire.gov.in/) Scholarship from Department of
 Science and Technology, Government of India, 2010-2012
 
-- Student Fellowship from Indian Statistical Institute, 2009-2012
+Student Fellowship from Indian Statistical Institute, 2009-2012
 
-- Secured an all-India rank 31 in [National Eligibility Test
+Secured an all-India rank $31$ in [National Eligibility Test
 (NET)](https://en.wikipedia.org/wiki/National_Eligibility_Test) jointly
 conducted by Council of Scientific and Industrial Research and
 University Grant Commission, Government of India, 2013
 
----
-
 Invited talks
--------------
+=============
 
+$\bullet$
 
-*Effect of particle shapes on bulk behavior of granular assembly using a
-peridynamics-based discrete element method*, February 24, 2022,
-University of Nebraska-Lincoln, Lincoln, USA
+19th U.S. National Congress on Theoretical and Applied Mechanics June
+19, 2022, University of Texas at Austin, Austin, USA
 
-*Multichannel deconvolution with Fourier and wavelet regularization*,
+University of Nebraska-Lincoln, February 24, 2022, Lincoln, USA
+
 Applied Math Seminar, George Washington University, October 1, 2021,
 Washington, D.C., USA
 
-*Simulating grain shape effects and damage in granular media using
-PeriDEM*, 16th U.S. National Congress on Computational Mechanics
-(USCNNM16), July 25, 2021, Chicago, USA (Virtual)
+16th U.S. National Congress on Computational Mechanics (USCNNM16), July
+25, 2021, Chicago, USA (Virtual)
 
-*Effect of particle shapes on particle bulk using a Peridynamics-based
-discrete element method*, ALOP Workshop on Nonlocal Models, July 13,
-2021, Universität Trier, Germany (Virtual)
+ALOP Workshop on Nonlocal Models, July 13, 2021, Universität Trier,
+Germany (Virtual)
 
-*Modeling particle beds with arbitrary particle shapes with peridynamics
-and short-range contact forces*, MURI seminar series, March 16, 20201
-(Virtual)
+MURI seminar series, California Institute of Technology, March 16, 2021,
+Pasadena, CA (Virtual)
 
-*Modeling particle beds using Peridynamics*, The 3rd Annual Meeting of
-the SIAM Texas-Louisiana Section, October 16-18, 2020, College Station,
-TX, USA (Virtual)
+3rd Annual Meeting of the SIAM Texas-Louisiana Section, October 16-18,
+2020, College Station, TX, USA (Virtual)
 
-*Modeling granular media with Peridynamics and short-range contact
-forces*, MURI seminar, September 9, 2020 (Virtual)
+MURI seminar series, California Institute of Technology, September 9,
+2020, Pasadena, CA (Virtual)
 
-(Postponed due to COVID-19) *On low regularity solutions to the 2D
-modified Zakharov-Kuznetsov equation*, 13th AIMS Conference on Dynamical
-Systems, Differential Equations and Applications, June 5-9, 2020,
-Atlanta, USA
+13th AIMS Conference on Dynamical Systems, Differential Equations and
+Applications, June 5-9, 2020, Atlanta, USA
 
-*Reduction of 3D axisymmetric models to 2D in peridynamics*,
 Computational and Applied Math (CAM) seminar, Computer Science and
 Mathematics Division, Oak Ridge National Laboratory, August 8, 2019
 
-*Fourier-Wavelet Regularized deconvolution (ForWaRD) in multi-antenna
-setup*, RIT in Applied Harmonic Analysis, Norbert Weiner Center,
-University of Maryland, May 13, 2019
+RIT in Applied Harmonic Analysis, Norbert Weiner Center, University of
+Maryland, May 13, 2019
 
-*Global Well-posedness of 2d Modified Zakharov-Kuznetsov Equation for
-Low-regularity Data*, Spring 2019 conference on Applied Mathematics,
-George Washington University, May 4, 2019
+Spring 2019 conference on Applied Mathematics, George Washington
+University, May 4, 2019
 
-*Deconvolution in a multi-antenna setup and application to ANITA data*,
 Antarctic Impulse Transient Anetann (ANITA) collaboration, December 10,
 2018
 
-*Deconvolution problem and its application to ANITA data*, University of
-Hawai'i at Manoa, June 28, 2018
+Department of Physics, University of Hawai'i at Manoa, June 28, 2018
 
-*The I-method and its applications*, Graduate Student Seminar, The
-George Washington University, October 27, 2017
+Graduate Student Seminar, The George Washington University, October 27,
+2017
 
 Poster Presentations
---------------------
+====================
 
+$\bullet$
 
 *Fracture modeling in axisymmetric problems using peridynamics*,
 Workshop on Experimental and Computational Fracture Mechanics:
@@ -235,13 +238,12 @@ Toronto, Canada, May 21 - 24, 2019
 Low-regularity Data*, GW Research Days, George Washington University,
 April 9, 2019
 
----
-
 Teaching Experience
--------------------
+===================
 
 **Instructor**
 
+$\bullet$
 
 Fall 2022: Mathematical Methods in Engineering
 
@@ -251,21 +253,19 @@ I](https://debdeepbh.github.io/teaching/summer-2017/)
 Summer 2016: [Calculus with Pre-calculus
 I](https://debdeepbh.github.io/teaching/summer-2016/)
 
-**Teaching Assistantship**
+**Teaching Assistant**
 
+$\bullet$
 
 2015 - 2020: Calculus I, II, III, Calculus with Pre-calculus, Calculus
 for the Social and Management Sciences, Partial Differential Equations
 
----
+Programming Experience 
+=======================
 
-Coding Experience
--------------------------------------------------------------------------
+**Languages:** C/C++, Python, R, MATLAB
 
-**GitHub:** [debdeepbh](https://github.com/debdeepbh) 
-
-**Languages:** C/C++, Python, R, MATLAB,
-
+$\bullet$
 
 High performance computing: `MPI`, `openmp`, `CUDA`, `CuPy`, `mpi4py`
 
@@ -278,10 +278,17 @@ Visualization: `matplotlib`, `ggplot2`, `seaborn`, `VisPy`, `VisIt`,
 
 Other tools: BASH, LaTeX, Git, Vim
 
+**GitHub profile:** <https://github.com/debdeepbh>
+
 **Coding Projects**
 
+$\bullet$
 
-[`perigrain`](https://github.com/debdeepbh/peri-grain): A high-fidelity granular media simulation and analysis platform with deformation and fracture in arbitrary grain shapes using peridynamics and discrete element method. Applications include vehicle mobility on gravels of different shapes, hopper flow of deformable particles, among others.
+[`perigrain`](https://github.com/debdeepbh/perigrain): A high-fidelity
+granular media simulation and analysis platform with deformation and
+fracture in arbitrary grain shapes using peridynamics and discrete
+element method. Applications include vehicle mobility on gravels of
+different shapes, hopper flow of deformable particles, among others.
 
 [Balloon launch dynamics](https://github.com/debdeepbh/balloon-peri): 3D
 simulation and analysis of the launch dynamics of high altitude balloons
@@ -302,40 +309,61 @@ peridynamics
 [`rexpense`](https://github.com/debdeepbh/rexpense): Generating complex
 expense reports and statistics in a multi-user setup
 
+[`ml`](https://github.com/debdeepbh/ml): Machine learning projects with
+mathematical explanations
+
 [`mathabotface`](https://github.com/debdeepbh/mathabotface): Automated
 theorem and lemma twitting bot
 
-[`ml`](https://github.com/debdeepbh/ml): Machine learning projects with mathematical explanations
+Professional Service
+====================
 
----
+$\bullet$
 
-Responsibilities
-----------------
+Co-organized seminars and symposia:
 
+$\bullet$
 
-Co-organizer of minisymposium on *Peridynamic Theory and Multiscale
-Methods for Complex Material Behavior* at the [9th GACM Colloquium on
-Computational Mechanics for Young Scientists from Academia and
+Minisymposium on *Theoretical and computational aspects of nonlocal
+operators* at the [7th SIAM Central States Annual
+Meeting](https://siamcss2022.okstate.edu/), Oklahoma State University,
+October 1-2, 2022
+
+Minisymposium on *Peridynamic Theory and Multiscale Methods for Complex
+Material Behavior* at the [9th GACM Colloquium on Computational
+Mechanics for Young Scientists from Academia and
 Industry](https://colloquia.gacm.de/program/minisymposia) in Essen,
 Germany, September 21-23, 2022
 
-Co-organizer of [GWU-SIAM conference on Applied
-Mathematics](https://blogs.gwu.edu/gwsiam/past-conferences/2017-2/) with
-Eric Shehadi and Chong Wang, Washington, D.C., April 29, 2017
+[Spring 2019 Conference on Applied
+Mathematics](https://blogs.gwu.edu/gwsiam/2019-2/), George Washington
+University, Washington, D.C., May 4, 2019
+
+[GWU-SIAM conference on Applied
+Mathematics](https://blogs.gwu.edu/gwsiam/past-conferences/2017-2/),
+George Washington University, Washington, D.C., April 29, 2017
+
+Reviewer for
+
+$\bullet$
+
+[Journal of Open Source Software](https://joss.theoj.org/)
+
+[Computational Geoscience](https://www.springer.com/journal/10596)
 
 Volunteered at the [National Math
 Festival](https://www.nationalmathfestival.org/) in the SIAM booth to
 demonstrate mathematical concepts to high-school level students,
 Washington, D.C., 2017, 2018
 
-Served as the vice president of the SIAM chapter at the George
-Washington University, January 2016 - 2018
+Served as the vice president of the [SIAM
+chapter](https://blogs.gwu.edu/gwsiam/) at the George Washington
+University, January 2016 - 2018
 
----
+Conference and workshop participation
+=====================================
 
-Conferences and Workshops Attended
-----------------------------------
-
+$\bullet$
 
 Workshop on *Experimental and Computational Fracture Mechanics:
 Validating peridynamics and phase field models for fracture prediction
@@ -383,11 +411,10 @@ Jerusalem, Israel, September 11 - September 15, 2016
 PIRE-CNA 2016 Summer School on *New Frontiers in Nonlinear Analysis for
 Materials*, Carnegie Mellon University, Pittsburgh, June 2-10, 2016
 
----
-
 Reading projects
-----------------
+================
 
+$\bullet$
 
 **Spring 2015:** Algebraic Topology at Indian Statistical Institute,
 Kolkata, course taught by Prof. Goutam Mukherjee
@@ -402,8 +429,11 @@ Bangalore with Prof. K. Ramamurthy
 **Summer 2010:** Point Set Topology at Indian Statistical Institute,
 Kolkata with Prof. S. M. Srivastava
 
+Languages
+=========
 
----
+English, Bengali, Hindi, Marathi
+
 
 Mailing Address
 --------------------
