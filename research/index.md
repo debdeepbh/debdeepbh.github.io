@@ -23,30 +23,80 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ### Published articles
 
-- _Peridynamics-based discrete element method (PeriDEM) model of granular systems involving breakage of arbitrarily shaped particles_ (with Prashant K Jha, Prathamesh S Desai, and Robert P Lipton) Journal of the Mechanics and Physics of Solids, 2020. [doi](https://www.sciencedirect.com/science/article/abs/pii/S0022509621000661?via%3Dihub) [arXiv](https://arxiv.org/abs/2010.07218)
+1.  **Simulating grain shape effects and damage in granular media using
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in
+    SIAM Journal on Scientific Computing)
+    ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
 
-- _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. Proceedings of the ASME 2021 International Mechanical Engineering Congress and Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793) [arXiv](https://arxiv.org/abs/2107.14665)
+2.  **Peridynamics-based discrete element method (PeriDEM) model of
+    granular systems involving breakage of arbitrarily shaped
+    particles.** Prashant K Jha, Prathamesh S Desai, Debdeep
+    Bhattacharya, Robert P Lipton. Journal of the Mechanics and Physics
+    of Solids, 2020. [doi](https://doi.org/10.1016/j.jmps.2021.104376)
+    ([arXiv:2010.07218](https://arxiv.org/abs/2010.07218))
 
-* _Mass-concentration of low-regularity blow-up solutions to the focusing 2D modified Zakharov-Kuznetsov equation_, Partial Differ. Equ. Appl. 2, 83 (2021). [doi](https://doi.org/10.1007/s42985-021-00139-y) [arXiv](http://arxiv.org/abs/2007.15773)
+3.  **Peridynamics for Quasistatic Fracture Modeling.** Debdeep
+    Bhattacharya, Patrick Diehl, Robert P. Lipton. Proceedings of the
+    ASME 2021 International Mechanical Engineering Congress and
+    Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793)
+    ([arXiv:2107.14665](https://arxiv.org/abs/2107.14665))
 
-* _Global well-posedness for low regularity data in the 2d modified Zakharov-Kuznetsov equation_ with [Luiz Gustovo Farah](https://sites.google.com/site/lgfarah/) and [Svetlana Roudenko](https://case.fiu.edu/about/directory/people/svetlana-roudenko.html) 
-J. Differential Equations, 268(12):7962–7997, 2020. [doi](https://doi-org.proxygw.wrlc.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
+4.  **Mass concentration of $H^s$ blowup solution to 2D modified
+    Zakharov-Kuznetsov equation** Partial Differential Equations and
+    Applications, 2021.
+    [doi](https://link.springer.com/article/10.1007/s42985-021-00139-y)
+    ([arXiv:2007.15773](http://arxiv.org/abs/2007.15773))
 
-- _Unusual Near-Horizon Cosmic-Ray-like Events Observed by ANITA-IV_ (with P. W. Gorham et al.) Physical Review Letters, 2021. [doi](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103) [arXiv](https://arxiv.org/abs/2008.05690)
+5.  **Unusual Near-Horizon Cosmic-Ray-like Events Observed by
+    ANITA-IV.** P. W. Gorham et al. Physical Review Letters, 2021.
+    [doi](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103)
+    ([arXiv:2008.05690](https://arxiv.org/abs/2008.05690))
 
-### Under journal review
+6.  **Global well-posedness of the mZK equation in 2 dimensions for
+    low-regularity data.** Debdeep Bhattacharya, Luiz Gustavo Farah, and
+    Svetlana Roudenko. Journal of Differential Equations, 2019.
+    [doi](https://doi.org/10.1016/j.jde.2019.11.092) ([arXiv:
+    1906.05822](https://arxiv.org/abs/1906.05822))
 
-- _Simulating grain shape effects and damage in granular media using PeriDEM_ (with Robert P. Lipton) [arXiv](https://arxiv.org/abs/2108.07212)
+7.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
+    and Robert Lipton (In revision in Multiscale Modeling and
+    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 
-- _Quasistatic Evolution with Unstable Forces_ with Robert Lipton [arXiv](https://arxiv.org/abs/2204.04571)
+8.  **Modeling The Launch Dynamics of a Large Scientific Balloon.**
+    Frank Baginski and Debdeep Bhattacharya, 43rd COSPAR Scientific
+    Assembly, 2021.
+    [doi](https://ui.adsabs.harvard.edu/abs/2021cosp...43E2311B)
 
-### Other writings
+9.  **Harmonic Analysis Techniques in Nonlinear Dispersive Equations and
+    Signal Processing.** Ph.D Dissertation, May 2020. [ProQuest:
+    27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
-* _Harmonic Analysis Techniques in Nonlinear Dispersive Equations and Signal Processing._ Ph.D Dissertation, May 2020. [ProQuest: 27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
+### In prepartion
 
-* _Deconvolution problem and application to ANITA signals_, Report, submitted to ANITA collaboration at University of Hawai'i at Manoa ([link](http://debdeepbh.github.io/content/report-anita.pdf))
+1.  **Peridynamic simulation of hopper flow: role of stiffness and
+    breakage** with Rigoberto Moncada Lopez (In preparation)
 
-* _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program ([link](https://debdeepbh.github.io/content/NSF-report-signed.pdf))
+2.  **Reduction of three-dimensional axisymmetric problems to two
+    dimensions in Peridynamics** with Pablo Seleson and Jeremy Trageser
+    (In preparation)
+
+3.  **Generalized ForWaRD algorithm for multi-antenna model** with Frank
+    Baginski (In preparation)
+
+4.  **Quasistatic J-integral for a nonlocal continuum model.** with
+    Robert Lipton and Patrick Diehl (In preparation)
+
+Technical reports
+=================
+
+1.  **Deconvolution problem and application to ANITA signals**, Report,
+    submitted to ANITA collaboration at University of Hawai'i at Manoa
+    ([link](http://debdeepbh.github.io/content/report-anita.pdf))
+
+2.  **Reduction of three-dimensional axisymmetric problems to two
+    dimensions in Peridynamics**, submitted to the NSF as part of
+    [MSGI](https://orise.orau.gov/nsf-msgi/) program
+    ([link](https://debdeepbh.github.io/content/NSF-report-signed.pdf))
 
 ***
 

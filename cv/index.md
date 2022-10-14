@@ -145,7 +145,7 @@ Technical reports
 Honors and Achievements
 =======================
 
-$\bullet$
+
 
 [Dean's Graduate Conference Travel
 Grant](https://columbian.gwu.edu/funding-opportunities-current-graduate-students),
@@ -170,7 +170,7 @@ University Grant Commission, Government of India, 2013
 Invited talks
 =============
 
-$\bullet$
+
 
 19th U.S. National Congress on Theoretical and Applied Mechanics June
 19, 2022, University of Texas at Austin, Austin, USA
@@ -218,7 +218,7 @@ Graduate Student Seminar, The George Washington University, October 27,
 Poster Presentations
 ====================
 
-$\bullet$
+
 
 *Fracture modeling in axisymmetric problems using peridynamics*,
 Workshop on Experimental and Computational Fracture Mechanics:
@@ -243,7 +243,7 @@ Teaching Experience
 
 **Instructor**
 
-$\bullet$
+
 
 Fall 2022: Mathematical Methods in Engineering
 
@@ -255,7 +255,7 @@ I](https://debdeepbh.github.io/teaching/summer-2016/)
 
 **Teaching Assistant**
 
-$\bullet$
+
 
 2015 - 2020: Calculus I, II, III, Calculus with Pre-calculus, Calculus
 for the Social and Management Sciences, Partial Differential Equations
@@ -265,7 +265,7 @@ Programming Experience
 
 **Languages:** C/C++, Python, R, MATLAB
 
-$\bullet$
+
 
 High performance computing: `MPI`, `openmp`, `CUDA`, `CuPy`, `mpi4py`
 
@@ -282,7 +282,7 @@ Other tools: BASH, LaTeX, Git, Vim
 
 **Coding Projects**
 
-$\bullet$
+
 
 [`perigrain`](https://github.com/debdeepbh/perigrain): A high-fidelity
 granular media simulation and analysis platform with deformation and
@@ -318,11 +318,11 @@ theorem and lemma twitting bot
 Professional Service
 ====================
 
-$\bullet$
+
 
 Co-organized seminars and symposia:
 
-$\bullet$
+
 
 Minisymposium on *Theoretical and computational aspects of nonlocal
 operators* at the [7th SIAM Central States Annual
@@ -345,7 +345,7 @@ George Washington University, Washington, D.C., April 29, 2017
 
 Reviewer for
 
-$\bullet$
+
 
 [Journal of Open Source Software](https://joss.theoj.org/)
 
@@ -363,7 +363,7 @@ University, January 2016 - 2018
 Conference and workshop participation
 =====================================
 
-$\bullet$
+
 
 Workshop on *Experimental and Computational Fracture Mechanics:
 Validating peridynamics and phase field models for fracture prediction
@@ -414,7 +414,7 @@ Materials*, Carnegie Mellon University, Pittsburgh, June 2-10, 2016
 Reading projects
 ================
 
-$\bullet$
+
 
 **Spring 2015:** Algebraic Topology at Indian Statistical Institute,
 Kolkata, course taught by Prof. Goutam Mukherjee
