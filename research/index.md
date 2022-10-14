@@ -19,9 +19,7 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ***
 
-## Publications and preprints
-
-### Published articles
+### Publications and preprints
 
 1.  **Simulating grain shape effects and damage in granular media using
     PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in
@@ -86,8 +84,7 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 4.  **Quasistatic J-integral for a nonlocal continuum model.** with
     Robert Lipton and Patrick Diehl (In preparation)
 
-Technical reports
-=================
+### Technical reports
 
 1.  **Deconvolution problem and application to ANITA signals**, Report,
     submitted to ANITA collaboration at University of Hawai'i at Manoa
