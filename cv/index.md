@@ -49,7 +49,7 @@ Professional Experience
 
 Mathematical Sciences Graduate Internship (MSGI), National Science
 Foundation (NSF), Summer 2019  
-Supervisor: [Dr. Pablo Seleson](https://web.ornl.gov/~selesonpd/)
+Supervisor: [Dr. Pablo Seleson](https://pabloseleson.ornl.gov)
 
 **University of Hawai'i at Manoa**
 
@@ -76,11 +76,11 @@ Publications
     granular systems involving breakage of arbitrarily shaped
     particles.** Prashant K Jha, Prathamesh S Desai, Debdeep
     Bhattacharya, Robert P Lipton. Journal of the Mechanics and Physics
-    of Solids, 2020. [doi](https://doi.org/10.1016/j.nonrwa.2021.103331)
+    of Solids, 2020. [doi](https://www.sciencedirect.com/science/article/abs/pii/S0022509621000661?via%3Dihub)
     ([arXiv:2010.07218](https://arxiv.org/abs/2010.07218))
 
 2.  **Simulating grain shape effects and damage in granular media using
-    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (Submitted)
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in SISC)
     ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
 
 3.  **Peridynamics for Quasistatic Fracture Modeling.** Debdeep
