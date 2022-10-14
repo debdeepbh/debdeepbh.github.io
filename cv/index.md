@@ -19,44 +19,44 @@ nonlinear dispersive type, signal processing, machine learning.
 Employment
 ==========
 
-[**Louisiana State University**](https://www.math.lsu.edu/)\
+[**Louisiana State University**](https://www.math.lsu.edu/)
 
-Postdoctoral Researcher, May 2020 - present\
+Postdoctoral Researcher, May 2020 - present
 **Mentor:** [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
 
 Education
 =========
 
-[**The George Washington University**](https://math.columbian.gwu.edu/)\
+[**The George Washington University**](https://math.columbian.gwu.edu/)
 
-Ph.D. in Mathematics, May 2020\
+Ph.D. in Mathematics, May 2020
 **Advisor:** [Prof. Frank
-Baginski](https://home.gwu.edu/~baginski/baginski.html)\
+Baginski](https://home.gwu.edu/~baginski/baginski.html)
 **Thesis title:** [Harmonic Analysis Techniques in Nonlinear Dispersive
 Equations and Signal
 Processing](https://search.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
 [**Tata Institute of Fundamental Research Centre for Applicable
-Mathematics, Bengaluru, India**](https://www.math.tifrbng.res.in/)\
+Mathematics, Bengaluru, India**](https://www.math.tifrbng.res.in/)
 
 Master of Science (MSc) in Mathematics, May 2014
 
 [**Indian Statistical Institute, Bengaluru,
-India**](http://www.isibang.ac.in/)\
+India**](http://www.isibang.ac.in/)
 
 Bachelor in Mathematics, May 2012
 
 Summer Research visits
 ======================
 
-**Oak Ridge National Laboratory**\
+**Oak Ridge National Laboratory**
 
 Mathematical Sciences Graduate Internship (MSGI), National Science
 Foundation (NSF), Summer 2019
 
 **Supervisor:** [Dr. Pablo Seleson](https://web.ornl.gov/~selesonpd/)
 
-**University of Hawai'i at Manoa**\
+**University of Hawai'i at Manoa**
 
 Visiting Scholar, Summer 2018
 
