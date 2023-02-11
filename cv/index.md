@@ -69,8 +69,7 @@ Publications and preprints
 1.  **Quasistatic fracture evolution.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl (In review in International Journal of Fracture) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
 
 1.  **Simulating grain shape effects and damage in granular media using
-    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. (To appear in
-    SIAM Journal on Scientific Computing)
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 
     ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
 
 1.  **Peridynamics-based discrete element method (PeriDEM) model of
