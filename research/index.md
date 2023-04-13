@@ -23,6 +23,10 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 1.  **Quasistatic fracture evolution.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl (In review in International Journal of Fracture) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
 
+1.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
+    and Robert Lipton (To appear in Multiscale Modeling and
+    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
+
 1.  **Simulating grain shape effects and damage in granular media using
     PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 
     ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
@@ -57,10 +61,6 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
     Svetlana Roudenko. Journal of Differential Equations, 2019.
     [doi](https://doi.org/10.1016/j.jde.2019.11.092) ([arXiv:
     1906.05822](https://arxiv.org/abs/1906.05822))
-
-1.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
-    and Robert Lipton (In revision in Multiscale Modeling and
-    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 
 1.  **Modeling The Launch Dynamics of a Large Scientific Balloon.**
     Frank Baginski and Debdeep Bhattacharya, 43rd COSPAR Scientific
