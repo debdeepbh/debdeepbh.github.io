@@ -66,12 +66,9 @@ Gorham](https://www.phys.hawaii.edu/~gorham/)
 Publications and preprints
 ==========================
 
-1.  **Quasistatic fracture evolution.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl (In review in International Journal of Fracture) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
+1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
 
-1.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
-    and Robert Lipton (To appear in Multiscale Modeling and
-    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
-
+1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 
 1.  **Simulating grain shape effects and damage in granular media using
     PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 

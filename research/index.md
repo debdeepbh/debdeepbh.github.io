@@ -21,11 +21,9 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ### Publications and preprints
 
-1.  **Quasistatic fracture evolution.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl (In review in International Journal of Fracture) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
+1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
 
-1.  **Quasistatic Evolution with Unstable Forces.** Debdeep Bhattacharya
-    and Robert Lipton (To appear in Multiscale Modeling and
-    Simulation) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
+1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 
 1.  **Simulating grain shape effects and damage in granular media using
     PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 
@@ -146,7 +144,8 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 [//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
 
-- _Quasistatic Evolution with Unstable Forces_ with Robert Lipton (Submitted) [arXiv](https://arxiv.org/abs/2204.04571)
+- _Quasistatic fracture evolution using a nonlocal cohesive model_ with Robert Lipton and Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
+- _Quasistatic evolution with unstable forces_ with Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
 - _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. Proceedings of the ASME 2021 International Mechanical Engineering Congress and Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793) [arXiv](https://arxiv.org/abs/2107.14665)
 * _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://pabloseleson.ornl.gov) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
 * Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
