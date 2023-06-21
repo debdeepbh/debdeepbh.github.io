@@ -21,44 +21,41 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ### Publications and preprints
 
-1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
+1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) [arXiv](https://arxiv.org/abs/2212.08753)
 
-1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
+1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) [arXiv](https://arxiv.org/abs/2204.04571)
 
 1.  **Simulating grain shape effects and damage in granular media using
-    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 
-    ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
-   ([arXiv:2108.07212](https://arxiv.org/abs/2108.07212))
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) [arXiv](https://arxiv.org/abs/2108.07212)
 
 1.  **Peridynamics-based discrete element method (PeriDEM) model of
     granular systems involving breakage of arbitrarily shaped
     particles.** Prashant K Jha, Prathamesh S Desai, Debdeep
     Bhattacharya, Robert P Lipton. Journal of the Mechanics and Physics
     of Solids, 2020. [doi](https://doi.org/10.1016/j.jmps.2021.104376)
-    ([arXiv:2010.07218](https://arxiv.org/abs/2010.07218))
+    [arXiv](https://arxiv.org/abs/2010.07218)
 
 1.  **Peridynamics for Quasistatic Fracture Modeling.** Debdeep
     Bhattacharya, Patrick Diehl, Robert P. Lipton. Proceedings of the
     ASME 2021 International Mechanical Engineering Congress and
     Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793)
-    ([arXiv:2107.14665](https://arxiv.org/abs/2107.14665))
+    [arXiv](https://arxiv.org/abs/2107.14665)
 
 1.  **Mass concentration of $H^s$ blowup solution to 2D modified
     Zakharov-Kuznetsov equation** Partial Differential Equations and
     Applications, 2021.
     [doi](https://link.springer.com/article/10.1007/s42985-021-00139-y)
-    ([arXiv:2007.15773](http://arxiv.org/abs/2007.15773))
+    [arXiv](http://arxiv.org/abs/2007.15773)
 
 1.  **Unusual Near-Horizon Cosmic-Ray-like Events Observed by
     ANITA-IV.** P. W. Gorham et al. Physical Review Letters, 2021.
     [doi](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.126.071103)
-    ([arXiv:2008.05690](https://arxiv.org/abs/2008.05690))
+    [arXiv](https://arxiv.org/abs/2008.05690)
 
 1.  **Global well-posedness of the mZK equation in 2 dimensions for
     low-regularity data.** Debdeep Bhattacharya, Luiz Gustavo Farah, and
     Svetlana Roudenko. Journal of Differential Equations, 2019.
-    [doi](https://doi.org/10.1016/j.jde.2019.11.092) ([arXiv:
-    1906.05822](https://arxiv.org/abs/1906.05822))
+    [doi](https://doi.org/10.1016/j.jde.2019.11.092) [arXiv](https://arxiv.org/abs/1906.05822)
 
 1.  **Modeling The Launch Dynamics of a Large Scientific Balloon.**
     Frank Baginski and Debdeep Bhattacharya, 43rd COSPAR Scientific
@@ -144,8 +141,8 @@ I considered three-dimensional axisymmetric problems, where the geometry of the 
 
 [//]: I am currently working on a similar treatment for the fully nonlinear 3D axisymmetric peridynamic model.
 
-- _Quasistatic fracture evolution using a nonlocal cohesive model_ with Robert Lipton and Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) ([arXiv:2212.08753](https://arxiv.org/abs/2212.08753))
-- _Quasistatic evolution with unstable forces_ with Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) ([arXiv:2204.04571](https://arxiv.org/abs/2204.04571))
+- _Quasistatic fracture evolution using a nonlocal cohesive model_ with Robert Lipton and Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) [arXiv](https://arxiv.org/abs/2212.08753)
+- _Quasistatic evolution with unstable forces_ with Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) [arXiv](https://arxiv.org/abs/2204.04571)
 - _Peridynamics for Quasistatic Fracture Modeling_ with Patrick Diehl and Robert P. Lipton. Proceedings of the ASME 2021 International Mechanical Engineering Congress and Exposition. [doi](https://doi.org/10.1115/IMECE2021-70793) [arXiv](https://arxiv.org/abs/2107.14665)
 * _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_ with [Pablo Seleson](https://pabloseleson.ornl.gov) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) (Preprint)
 * Report on _Reduction of three-dimensional axisymmetric problems to two dimensions in Peridynamics_, submitted to the NSF as part of [MSGI](https://orise.orau.gov/nsf-msgi/) program [[pdf]](/content/NSF-report-signed.pdf)
