@@ -12,16 +12,24 @@ title: cv
 Research Interests
 ==================
 
-Granular media, high-performance computing, peridynamics, analysis and
+Granular media, fracture, high-performance computing, peridynamics, analysis and
 theory of partial differential equations, especially of nonlocal and
 nonlinear dispersive type, signal processing, machine learning.
 
 Employment
 ==========
 
+[**University of Utah**](https://www.math.utah.edu/)
+
+Postdoctoral Researcher, 2023 - present
+
+**Mentor:** [Prof. Ken Golden](https://www.math.utah.edu/~golden/).
+
+
 [**Louisiana State University**](https://www.math.lsu.edu/)
 
-Postdoctoral Researcher, May 2020 - present
+Postdoctoral Researcher, 2020 - 2023
+
 **Mentor:** [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
 
 Education
@@ -30,11 +38,10 @@ Education
 [**The George Washington University**](https://math.columbian.gwu.edu/)
 
 Ph.D. in Mathematics, May 2020
-**Advisor:** [Prof. Frank
-Baginski](https://home.gwu.edu/~baginski/baginski.html)
-**Thesis title:** [Harmonic Analysis Techniques in Nonlinear Dispersive
-Equations and Signal
-Processing](https://search.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
+
+**Advisor:** [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html)
+
+**Thesis title:** [Harmonic Analysis Techniques in Nonlinear Dispersive Equations and Signal Processing](https://search.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
 [**Tata Institute of Fundamental Research Centre for Applicable
 Mathematics, Bengaluru, India**](https://www.math.tifrbng.res.in/)
