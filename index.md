@@ -3,11 +3,11 @@ title: Home
 ---
 ## About 
 
-I am currently a Postdoctoral Researcher at the Department of Mathematics at the University of Utah.
+I am currently a Postdoctoral Researcher at the Department of Mathematics at the [University of Utah](https://www.utah.edu/).
 My research involves employing novel theoretical and computational techniques coming from granular media and fracture to partial differential equation models for sea ice and its role in the climate system.
 My faculty mentor is [Prof. Ken Golden](https://www.math.utah.edu/~golden/).
 
-I was a Postdoctoral Researcher at the Department of Mathematics at the Louisiana State University, where
+I was a Postdoctoral Researcher at the Department of Mathematics at the [Louisiana State University](https://lsu.edu/), where
 I investigated mechanical and network attributes of granular media as a part of a multidisciplinary university research initiative ([MURI](https://muri-granulardna.sites.caltech.edu/)) funded by the Army Research Office. 
 Working primarily with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/), I used high-performance computing to simulate and analyze bulk behavior of deformable and brittle granular media with peridynamics and discrete element method, as well as study the theoretical aspects of the associated models governed by nonlocal and nonlinear partial differential equations.
 
