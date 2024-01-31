@@ -21,6 +21,10 @@ I enjoy problems with a good mix of abstraction and applicability. I work on a v
 
 ### Publications and preprints
 
+1. **Energy balance and damage for brittle fracture: nonlocal formulation.** Robert Lipton, Debdeep Bhattacharya. (Submitted) [arXiv](https://arxiv.org/abs/2401.01861)
+
+1. **Macroscopic effects of inter and intra particle dynamics on vehicle mobility using nonlocal particle based modeling** Debdeep Bhattacharya, Robert Lipton. (Submitted) [doi](https://doi.org/10.31224/3252)
+
 1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) [arXiv](https://arxiv.org/abs/2212.08753)
 
 1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) [arXiv](https://arxiv.org/abs/2204.04571)
