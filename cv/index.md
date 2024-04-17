@@ -255,8 +255,6 @@ Fall 2023: Business Algebra
 
 Fall 2022: Mathematical Methods in Engineering
 
-Fall 2022: Mathematical Methods in Engineering
-
 Summer 2017: [Linear Algebra
 I](https://debdeepbh.github.io/teaching/summer-2017/)
 
