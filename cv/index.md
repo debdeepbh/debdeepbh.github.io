@@ -253,7 +253,7 @@ Fall 2023: Partial Differential Equations
 
 Fall 2023: Business Algebra
 
-Fall 2022: Mathematical Methods in Engineering
+Spring 2022: Mathematical Methods in Engineering
 
 Summer 2017: [Linear Algebra
 I](https://debdeepbh.github.io/teaching/summer-2017/)

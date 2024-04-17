@@ -7,7 +7,6 @@ title: Teaching
 ### Instructor
 - Fall 2023: Partial Differential Equations
 - Fall 2023: Business Algebra
-- Fall 2022: Mathematical Methods in Engineering
 * [Spring 2022: Mathematical methods for engineers](https://www.math.lsu.edu/courses/2070)
 * [Summer 2017: Linear Algebra](summer-2017)
 * [Summer 2016: Calculus with precalculus](summer-2016)
