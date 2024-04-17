@@ -249,6 +249,11 @@ Teaching Experience
 **Instructor**
 
 
+Fall 2023: Partial Differential Equations
+
+Fall 2023: Business Algebra
+
+Fall 2022: Mathematical Methods in Engineering
 
 Fall 2022: Mathematical Methods in Engineering
 
