@@ -20,7 +20,7 @@ I work on mathematics of materials, in particular, on modeling fracture propagat
 
 ## Contact
 
-Room 2220
+Room 2219
 Noyce Science Center
 1116 8th Street 
 Grinnell, IA 50112 
