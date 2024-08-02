@@ -5,8 +5,15 @@ title: Research
 
 ## Research Interests
 
+<!-- At the University of Utah, my research involves employing novel theoretical and computational techniques coming from granular media and fracture to partial differential equation models for sea ice and its role in the climate system. -->
+<!-- My faculty mentor is [Prof. Ken Golden](https://www.math.utah.edu/~golden/). -->
+<!-- Between 2020 and 2023, I was a Postdoctoral Researcher at the Department of Mathematics, where -->
+<!-- I investigated mechanical and network attributes of granular media as a part of a multidisciplinary university research initiative ([MURI](https://muri-granulardna.sites.caltech.edu/)) funded by the Army Research Office.  -->
+<!-- Working primarily with [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/), I used high-performance computing to simulate and analyze bulk behavior of deformable and brittle granular media with peridynamics and discrete element method, as well as to study the theoretical aspects of the associated models governed by nonlocal and nonlinear partial differential equations. -->
+<!--  -->
+<!--  under the guidance of [Prof. Frank Baginski](https://home.gwu.edu/~baginski/baginski.html). I studied low-regularity solutions to nonlinear dispersive equations, and Fourier-wavelet based signal deconvolution techniques. -->
 
-I enjoy problems with a good mix of abstraction and applicability. I work on a variety of problems coming from 
+My research interests include
 * [Granular media](#granular-media) 
 * [Solid mechanics and fracture](#solid-mechanics-and-fracture) 
 * [Nonlinear dispersive partial differential equations](#nonlinear-dispersive-equations)

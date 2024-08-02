@@ -19,18 +19,22 @@ nonlinear dispersive type, signal processing, machine learning.
 Employment
 ==========
 
+[**Grinnell College**](https://www.grinnell.edu/)
+
+Assistant Professor, Department of Mathematics, 2024 - present
+
 [**University of Utah**](https://www.math.utah.edu/)
 
-Postdoctoral Researcher, 2023 - present
+Postdoctoral Researcher, 2023 - 2024
 
-**Mentor:** [Prof. Ken Golden](https://www.math.utah.edu/~golden/).
+Mentor: [Prof. Ken Golden](https://www.math.utah.edu/~golden/).
 
 
 [**Louisiana State University**](https://www.math.lsu.edu/)
 
 Postdoctoral Researcher, 2020 - 2023
 
-**Mentor:** [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
+Mentor: [Prof. Robert Lipton](https://www.math.lsu.edu/~lipton/)
 
 Education
 =========
