@@ -123,21 +123,21 @@ Publications and preprints
     Signal Processing.** Ph.D Dissertation, May 2020. [ProQuest:
     27831360](https://www.proquest.com/openview/ba07a6feaa2aef846053c02564dc58fd/1?cbl=18750&diss=y&pq-origsite=gscholar)
 
-In prepartion
-=============
-
-1.  **Peridynamic simulation of hopper flow: role of stiffness and
-    breakage** with Rigoberto Moncada Lopez (In preparation)
-
-2.  **Reduction of three-dimensional axisymmetric problems to two
-    dimensions in Peridynamics** with Pablo Seleson and Jeremy Trageser
-    (In preparation)
-
-3.  **Generalized ForWaRD algorithm for multi-antenna model** with Frank
-    Baginski (In preparation)
-
-4.  **Quasistatic J-integral for a nonlocal continuum model.** with
-    Robert Lipton and Patrick Diehl (In preparation)
+<!-- In prepartion -->
+<!-- ============= -->
+<!--  -->
+<!-- 1.  **Peridynamic simulation of hopper flow: role of stiffness and -->
+<!--     breakage** with Rigoberto Moncada Lopez (In preparation) -->
+<!--  -->
+<!-- 2.  **Reduction of three-dimensional axisymmetric problems to two -->
+<!--     dimensions in Peridynamics** with Pablo Seleson and Jeremy Trageser -->
+<!--     (In preparation) -->
+<!--  -->
+<!-- 3.  **Generalized ForWaRD algorithm for multi-antenna model** with Frank -->
+<!--     Baginski (In preparation) -->
+<!--  -->
+<!-- 4.  **Quasistatic J-integral for a nonlocal continuum model.** with -->
+<!--     Robert Lipton and Patrick Diehl (In preparation) -->
 
 Technical reports
 =================
