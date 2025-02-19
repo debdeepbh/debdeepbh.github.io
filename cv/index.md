@@ -77,13 +77,16 @@ Gorham](https://www.phys.hawaii.edu/~gorham/)
 Publications and preprints
 ==========================
 
+1. **Energy balance and damage for brittle fracture: nonlocal formulation.** Robert Lipton, Debdeep Bhattacharya. Journal of Elasticity, 2025. [doi](https://doi.org/10.1007/s10659-024-10098-1) [arXiv](https://arxiv.org/abs/2401.01861)
+
+1. **Macroscopic effects of inter and intra particle dynamics on vehicle mobility using nonlocal particle based modeling** Debdeep Bhattacharya, Robert Lipton. Granular Matter, 2025. [doi](https://doi.org/10.1007/s10035-024-01469-5) [arXiv](https://doi.org/10.31224/3252)
+
 1.  **Quasistatic fracture evolution using a nonlocal cohesive model.** Debdeep Bhattacharya, Robert Lipton, Patrick Diehl. International Journal of Fracture, 2023. [doi](https://doi.org/10.1007/s10704-023-00711-0) [arXiv](https://arxiv.org/abs/2212.08753)
 
 1.  **Quasistatic evolution with unstable forces.** Debdeep Bhattacharya, Robert Lipton. Multiscale Modeling and Simulation, 2023. [doi](https://doi.org/10.1137/22m1489642) [arXiv](https://arxiv.org/abs/2204.04571)
 
 1.  **Simulating grain shape effects and damage in granular media using
-    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) 
-    [arXiv](https://arxiv.org/abs/2108.07212)
+    PeriDEM.** Debdeep Bhattacharya, Robert P. Lipton. SIAM Journal on Scientific Computing, 2023. [doi](https://doi.org/10.1137/21M1439389) [arXiv](https://arxiv.org/abs/2108.07212)
 
 1.  **Peridynamics-based discrete element method (PeriDEM) model of
     granular systems involving breakage of arbitrarily shaped
