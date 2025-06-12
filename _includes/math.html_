@@ -1,0 +1,28 @@
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+<!--
+
+OLD: src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+<script type="text/javascript" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+
+Working for some cases
+
+Didn't work at all
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js">
+</script>
+
+
+Use ``raw`` tag for math to avoid adding escaping backslash.
+ {% raw %} 
+ 	
+$$a^2 + b^2 = c^2$$
+note that all equations between these tags will not need escaping!	
+
+ {% endraw %} 
+
+-->

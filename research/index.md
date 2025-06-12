@@ -28,7 +28,9 @@ My research interests include
 
 ### Publications and preprints
 
-1. **Design of resilient structures by randomization and bistability.** Debdeep Bhattacharya, Tyler P. Evans, Andrej Cherkaev. 2025 [arXiv](https://arxiv.org/abs/2502.17685)
+1. **Crushing, Comminution and Fracture: Extreme Particle Deformation in Three-Dimensional Granular Aggregates** [arXiv](https://arxiv.org/abs/2506.05362)
+
+1. **Design of resilient structures by randomization and bistability.** Debdeep Bhattacharya, Tyler P. Evans, Andrej Cherkaev. 2025 [doi](https://doi.org/10.1016/j.ijengsci.2025.104296) [arXiv](https://arxiv.org/abs/2502.17685)
 
 1. **Energy balance and damage for brittle fracture: nonlocal formulation.** Robert Lipton, Debdeep Bhattacharya. Journal of Elasticity, 2025. [doi](https://doi.org/10.1007/s10659-024-10098-1) [arXiv](https://arxiv.org/abs/2401.01861)
 
