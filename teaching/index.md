@@ -5,6 +5,13 @@ title: Teaching
 ## Teaching Experience
 
 ### Instructor
+
+- Fall 2025: Numerical Analysis (MAT 313)
+- Fall 2025: Calculus I (MAT 313)
+- Spring 2025: Linear Algebra (MAT 215) 
+- Spring 2025: Differential Equations (MAT 220)
+- Fall 2024: Linear Algebra (MAT 215) 
+- Fall 2024: Numerical Analysis (MAT 313)
 - Fall 2023: Partial Differential Equations
 - Fall 2023: Business Algebra
 * [Spring 2022: Mathematical methods for engineers](https://www.math.lsu.edu/courses/2070)
