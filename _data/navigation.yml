@@ -2,11 +2,15 @@
   link: /
 - name: Research
   link: /research/
+  # subname: 
+  #     - name: Undergrad
 - name: Teaching
   link: /teaching/
 - name: CV
   link: /cv/
-- name: Blog
-  link: /blog/
+- name: Group
+  link: /group/
+# - name: Blog
+#   link: /blog/
 - name: Other
   link: /other/

@@ -20,8 +20,9 @@ My research interests include
 * [Signal processing](#signal-processing)
 * [Machine learning](#machine-learning) 
 
-[//]: this is a comment 
+<!-- See a list of publications a preprints [here](#publications-and-preprints). -->
 
+[//]: this is a comment 
 
 
 ***
@@ -142,15 +143,24 @@ However, due to the differential formulation, the classical theory fails to desc
 Introduced by [Stewart Silling](https://www.sandia.gov/~sasilli/) in 2000,  [peridynamics](https://en.wikipedia.org/wiki/Peridynamics) has become useful to address this limitations.
 Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.
 
-![img](vid/dondeti-tippur.png)
-{% include video.html url="vid/contour-bifurcation.mp4" width="560" height="315" %}
+<center>
+<img src="vid/dondeti-tippur.png" width="300">
+</center>
+*Crack branching in soda-lime glass with a pre-notch under external force in the outward vertical direction*
+
+
+{% include video.html url="vid/contour-bifurcation.mp4" width="280" height="160" %}
 <!--  ![crack-branching](meshout.gif) -->
 
-*Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
+*Contour lines of the peridynamic energy as the crack branches* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
 
 
  ![img](vid/crack_combined_small.gif)
+
+*Symmetric impact on a pre-notched plate with different fracture toughness*
+
  ![img](vid/3d_hertzian_small.gif)
+
 *Crack formation and crack branching upon impact*
 
 Working with [Pablo Seleson](https://pabloseleson.ornl.gov) and [Jeremy Trageser](https://cam.ornl.gov/jtrageser2.html) at the [Oak Ridge National Laboratory](https://www.ornl.gov/), 
@@ -214,9 +224,9 @@ During Summer 2018, I had the opportunity to work with the [ANITA](https://en.wi
 
 I am interested in using machine learning techniques as yet another problem-solving tool. 
 Here is [my repository](https://github.com/debdeepbh/ml) that contains my notes and solved exercises from the book *Hands-On Machine Learning with Scikit-Learn and TensorFlow*.
-While documenting my understanding, I became more interested in the underlying mathematics of it.
-
-* _Permutation-invariant encoding of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation)
+<!-- While documenting my understanding, I became more interested in the underlying mathematics of it. -->
+<!--  -->
+<!-- * _Permutation-invariant encoding of data in Eulidean space_, with [Radu Balan](https://www.math.umd.edu/~rvbalan/) and Naveed Haghani (In preparation) -->
 
 ***
 
