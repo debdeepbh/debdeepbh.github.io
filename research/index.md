@@ -142,7 +142,10 @@ However, due to the differential formulation, the classical theory fails to desc
 Introduced by [Stewart Silling](https://www.sandia.gov/~sasilli/) in 2000,  [peridynamics](https://en.wikipedia.org/wiki/Peridynamics) has become useful to address this limitations.
 Peridynamics assumes that every material point interacts with its neighbors via a bond force and reformulates material deformation using an integral equation, thus accommodating discontinuous deformations, such as fractures. Peridynamics has been used to model crack formation and crack branching, among many other fracture problems.
 
- ![crack-branching](meshout.gif)
+![img](vid/dondeti-tippur.png)
+{% include video.html url="vid/contour-bifurcation.mp4" width="560" height="315" %}
+<!--  ![crack-branching](meshout.gif) -->
+
 *Simulation of crack propagation and branching in soda-lime glass with a pre-notch under external force in the outward vertical direction* [[code]](https://github.com/debdeepbh/numerical/tree/master/crack) 
 
 
