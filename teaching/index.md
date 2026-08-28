@@ -11,6 +11,10 @@ Here is a list of courses I have taught:
 
 **At Grinnell College:**
 
+- Fall 2026: Tutorial: [Fracture in Nature, Science, and Culture](2026-tutorial/syllabus.html) (TUT-100)
+- Fall 2026: Numerical Analysis (MAT 313)
+- Spring 2026: Partial Differential Equations (MAT 314)
+- Spring 2026: Calculus I (MAT 131)
 - Fall 2025: Numerical Analysis (MAT 313)
 - Fall 2025: Calculus I (MAT 313)
 - Spring 2025: Linear Algebra (MAT 215) 

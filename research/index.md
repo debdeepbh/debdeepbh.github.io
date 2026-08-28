@@ -20,6 +20,7 @@ My research interests include
 * [Signal processing](#signal-processing)
 * [Machine learning](#machine-learning) 
 
+My research is supported by the National Science Foundation (DMS-2607264).
 <!-- See a list of publications a preprints [here](#publications-and-preprints). -->
 
 [//]: this is a comment 
