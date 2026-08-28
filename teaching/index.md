@@ -11,7 +11,7 @@ Here is a list of courses I have taught:
 
 **At Grinnell College:**
 
-- Fall 2026: Tutorial: [Fracture in Nature, Science, and Culture](2026-tutorial/syllabus.html) (TUT-100)
+- Fall 2026: Tutorial: [Fracture in Nature, Science, and Culture](tutorial-2026/syllabus.html) (TUT-100)
 - Fall 2026: Numerical Analysis (MAT 313)
 - Spring 2026: Partial Differential Equations (MAT 314)
 - Spring 2026: Calculus I (MAT 131)
@@ -31,8 +31,8 @@ Here is a list of courses I have taught:
 * [Spring 2022: Mathematical methods for engineers](https://www.math.lsu.edu/courses/2070)
 
 **At the George Washington University:**
-* [Summer 2017: Linear Algebra](summer-2017)
-* [Summer 2016: Calculus with precalculus](summer-2016)
+* Summer 2017: Linear Algebra
+* Summer 2016: Calculus with precalculus
 
 <!-- ### Teaching Assistant -->
 <!-- * Spring 2020: Calculus for the Social and Management Sciences -->
