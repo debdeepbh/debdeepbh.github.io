@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>02-deformation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="/home/debdeep/Templates/pandoc-default-mod.css" />
+  <!-- mathjax config goes before loading the js -->
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      tags: 'ams',              // equation numbering 'ams' or 'all'
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#material-deformation"
+id="toc-material-deformation">Material deformation</a></li>
+<li><a href="#syllabus-update" id="toc-syllabus-update">Syllabus
+update</a></li>
+<li><a href="#discuss-10-mins-then-share"
+id="toc-discuss-10-mins-then-share">Discuss: 10 mins, then share</a>
+<ul>
+<li><a href="#fracture-in-continuum"
+id="toc-fracture-in-continuum">Fracture in continuum</a>
+<ul>
+<li><a href="#tacoma-narrows-bridge"
+id="toc-tacoma-narrows-bridge">Tacoma Narrows Bridge</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#fracture-and-sustainability"
+id="toc-fracture-and-sustainability">Fracture and
+sustainability</a></li>
+<li><a href="#fracture-mechanism-in-sea-ice-modeling"
+id="toc-fracture-mechanism-in-sea-ice-modeling">Fracture mechanism in
+sea-ice modeling</a></li>
+<li><a href="#science-of-material-failure"
+id="toc-science-of-material-failure">Science of Material
+Failure</a></li>
+<li><a href="#deformation-of-materials"
+id="toc-deformation-of-materials">Deformation of materials</a></li>
+<li><a href="#constitutive-law-stress-strain-relation"
+id="toc-constitutive-law-stress-strain-relation">Constitutive law
+(stress-strain relation)</a></li>
+<li><a href="#experiment" id="toc-experiment">Experiment</a></li>
+<li><a href="#quantities" id="toc-quantities">Quantities</a>
+<ul>
+<li><a href="#d" id="toc-d">2D</a></li>
+</ul></li>
+<li><a href="#material-failure" id="toc-material-failure">Material
+failure</a></li>
+<li><a href="#writing-prompt" id="toc-writing-prompt">Writing
+prompt</a></li>
+<li><a href="#reading-assignment" id="toc-reading-assignment">Reading
+assignment</a></li>
+<li><a href="#free-writing-5-mins" id="toc-free-writing-5-mins">Free
+writing (5 mins)</a></li>
+</ul>
+</nav>
+<h1 id="material-deformation">Material deformation</h1>
+<hr />
+<h1 id="syllabus-update">Syllabus update</h1>
+<ul>
+<li>Amendments to class policies</li>
+</ul>
+<hr />
+<h1 id="discuss-10-mins-then-share">Discuss: 10 mins, then share</h1>
+<ul>
+<li>What was the main message of Clotfelter Proposal?</li>
+<li>How did the goal of a tutorial class differ from a typical class
+offered at a division?
+<ul>
+<li>Why was Grinnell tutorial introduced?</li>
+<li>How did the tutorials evolve over time?</li>
+</ul></li>
+</ul>
+<hr />
+<h2 id="fracture-in-continuum">Fracture in continuum</h2>
+<div class="cols", style="grid-template-columns: 30% 60%"> 
+<div>
+
+![w:350](data/dw/iphone.jpeg)
+![w:350](data/dw/road.jpg)
+
+</div>
+<div>
+
+![w:360](data/dw/Bone-Fracture-2.jpg)
+
+</div>
+
+
+<div>
+
+- Engineering structure
+    - Aircraft manufacturing
+    - Building, bridge, flyover
+- Biological tissue
+    - Bone, tooth
+    - Blood vessels
+- Defense
+    - Projectile
+    - Shield strength
+- Geophysical
+    - Fault lines
+    - Ice sheet
+
+</div>
+</div>
+<hr />
+<h3 id="tacoma-narrows-bridge">Tacoma Narrows Bridge</h3>
+<!-- TODO: Add script -->
+<figure>
+<img
+src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Tacoma_Narrows_Bridge_%28117561801%29.jpeg/1920px-Tacoma_Narrows_Bridge_%28117561801%29.jpeg"
+alt="h:200" />
+<figcaption aria-hidden="true">h:200</figcaption>
+</figure>
+<ul>
+<li>Tacoma, Washington, 1940</li>
+<li>during a 67 km/hr wind</li>
+</ul>
+<hr />
+<center>
+<video height="500" controls>
+<source src="data/tutorial/Tacoma Bridge Collapse.webm" type="video/mp4">
+Tag </video>
+</center>
+<hr />
+<h1 id="fracture-and-sustainability">Fracture and sustainability</h1>
+<p><img src="data/sustainability/dummy.webp" alt="h:280" /> <img
+src="data/sustainability/wind-turbine-buckling.jpg" alt="h:280" /> <img
+src="data/sustainability/prosthetics.jpg" alt="h:280" /></p>
+<ul>
+<li>Understanding of fracture mechanism can lead to accurate
+simulations: <strong>economic sustainability</strong></li>
+<li>Understanding how structures fail under loading conditions can lead
+to sustainable design practices: <strong>reducing waste</strong></li>
+<li>Reinforcement near failure-prone zones in the domain can increase
+<strong>durability</strong>, e.g. prosthetics, wind turbine blades</li>
+</ul>
+<hr />
+<h1 id="fracture-mechanism-in-sea-ice-modeling">Fracture mechanism in
+sea-ice modeling</h1>
+<p><img src="data/sustainability/polar-bear.jpg" alt="h:250" /> <img
+src="data/sustainability/ice-granular-2.jpg" alt="h:250" /> <img
+src="data/sustainability/melt-ponds.webp" alt="h:250" /></p>
+<ul>
+<li>Breakage in sea-ice <em>floes</em> lead to large-scale sea-ice
+concentration change (seasonal vs multi-year)</li>
+<li>Fracture and melting are coupled, impacting earth’s climate
+system</li>
+<li>Connectivity of granular ice is important for arctic ecology
+(i.e. polar bear). Fracture disrupts food supply.</li>
+</ul>
+<hr />
+<h1 id="science-of-material-failure">Science of Material Failure</h1>
+<ul>
+<li><p>The word <em>failure</em> was first used in the sense of
+breakdown in 1793 (Smeaton), English engineer, to describe a breaking of
+a bolt in a lighthouse he built</p></li>
+<li><p>Fracture is associated with bones, which is undesired</p></li>
+<li><p>Controlled fracture is desired in some cases: stone construction,
+cutting, tearing, polishing</p></li>
+<li><p>Industrial revolution introduced fracture problems that need to
+be solved, mainly due to corrosion and wear</p></li>
+</ul>
+<hr />
+<h1 id="deformation-of-materials">Deformation of materials</h1>
+<ul>
+<li>Hooke’s law is an empirical law which states that the force (F)
+needed to extend or compress (or expand) a spring by some distance (x)
+scales linearly with respect to that distance.</li>
+</ul>
+<p><span class="math display">\[F = kx\]</span> where k is a constant
+factor characteristic of the spring (i.e., its stiffness), and x is
+small compared to the total possible deformation of the spring.</p>
+<blockquote>
+<p>as the extension so the force</p>
+<p>– Robert Hooke (1635-1703)</p>
+</blockquote>
+<figure>
+<img src="data/hookes-law.png" alt="h:200" />
+<figcaption aria-hidden="true">h:200</figcaption>
+</figure>
+<hr />
+<h1 id="constitutive-law-stress-strain-relation">Constitutive law
+(stress-strain relation)</h1>
+<ul>
+<li><p>Linear spring</p></li>
+<li><p>Nonlinear spring</p></li>
+</ul>
+<hr />
+<h1 id="experiment">Experiment</h1>
+<p>Construct the constitutive law (stress-strain relation) of the given
+spring</p>
+<ul>
+<li>Draw grids on paper</li>
+<li>Measure reference length</li>
+<li>For each added weight, measure extension from reference length</li>
+</ul>
+<hr />
+<h1 id="quantities">Quantities</h1>
+<ul>
+<li><p>Spring constant <span class="math inline">\(k\)</span></p></li>
+<li><p><strong>Strain:</strong> rate of change of deformation with
+respect to length</p></li>
+<li><p><strong>Stress:</strong> force per unit area</p></li>
+</ul>
+<h2 id="d">2D</h2>
+<!-- TODO: add material -->
+<ul>
+<li>Normal strain <span class="math inline">\(\epsilon\)</span></li>
+<li>Shear strain <span class="math inline">\(\gamma\)</span></li>
+</ul>
+<figure>
+<img src="data/tutorial/2d-strain.png" alt="h:200" />
+<figcaption aria-hidden="true">h:200</figcaption>
+</figure>
+<ul>
+<li>Lame parameters
+<ul>
+<li>Young’s modulus <span class="math inline">\(E =
+\sigma/\epsilon\)</span></li>
+<li>Shear modulus <span class="math inline">\(\mu =
+\tau/\gamma\)</span></li>
+</ul></li>
+<li>Poisson ratio <span class="math inline">\(\nu\)</span>: the
+deformation (expansion or contraction) of a material in directions
+perpendicular to the specific direction of loading.</li>
+<li>Only two parameters are enough to describe a material: <span
+class="math inline">\(\mu = \frac{E}{2(1+\nu)}\)</span></li>
+</ul>
+<hr />
+<h1 id="material-failure">Material failure</h1>
+<!-- TODO: add graphs of necking -->
+<ul>
+<li>Plasticity
+<ul>
+<li>necking in metal</li>
+</ul></li>
+<li>Failure</li>
+</ul>
+<figure>
+<img src="data/stress-strain.svg" alt="h:250" />
+<figcaption aria-hidden="true">h:250</figcaption>
+</figure>
+<hr />
+<h1 id="writing-prompt">Writing prompt</h1>
+<ul>
+<li>Where to find</li>
+<li>Writing center for help</li>
+</ul>
+<hr />
+<h1 id="reading-assignment">Reading assignment</h1>
+<ul>
+<li>Complete before class on Thursday</li>
+</ul>
+<hr />
+<h1 id="free-writing-5-mins">Free writing (5 mins)</h1>
+<ul>
+<li>Reflection</li>
+</ul>
+</body>
+</html>
